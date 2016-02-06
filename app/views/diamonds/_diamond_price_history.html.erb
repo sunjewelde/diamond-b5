@@ -1,0 +1,19 @@
+<div class="container user_width_1">
+  <p>Diammond相場価格(0.3カラット Latest one week)</p>
+	<table class="table table-bordered user_table">
+      <tr>
+        <th bgcolor = "E7F1ED" align="center">Date</th>
+        <th bgcolor = "E7F1ED" align="center">Color</th>
+        <th bgcolor = "E7F1ED" align="center">Clarity</th>
+        <th bgcolor = "E7F1ED" align="center">Price</th>
+      </tr>
+      <% @daily_weight_group_03_color_D_IF.each do |diamond| %>
+        <tr>
+          <td bgcolor = "E7F1ED" align="center"><%= diamond.date %></td>
+          <td align="center"><%= diamond.color %></td>
+          <td align="center"><%= diamond.clar %></td>
+          <td align="center"><%= diamond.avg_price.round %></td>
+        </tr>
+      <% end %>
+    </table>
+</div>

@@ -1,0 +1,16 @@
+<h1>ダイヤモンド相場&情報</h1>
+
+<div class="container">
+	<%= render 'diamond_chart' %>  
+    
+    <%= render 'chart_form' %>  
+    
+     <%= render 'diamond_price_history' %>  
+    
+     <%= render 'diamond_market' %>  
+
+    <%= form_tag import_diamonds_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "インポート" %>
+    <% end %>
+</div>   

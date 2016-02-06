@@ -1,0 +1,33 @@
+<div class="container">
+	
+	<p>0.3カラット_<%=@latest_date %></p>
+	<table class="table table-bordered">
+      <tr>
+        <th>Color</th>
+        <th>IF</th>
+        <th>VVS1</th>
+        <th>VVS2</th>
+        <th>VS1</th>
+        <th>VS2</th>
+        <th>SI1</th>
+        <th>SI2</th>
+      </tr>
+    
+       <% @latest_weight_group_03.each do |diamond| %>
+          <tr>
+            <td bgcolor = "E7F1ED" align="center"><%= diamond.color %></td>
+            <td align="center"><%= diamond.if1 %></td>
+            <td align="center"><%= diamond.vvs1 %></td>
+            <td align="center"><%= diamond.vvs2 %></td>
+            <td align="center"><%= diamond.vs1 %></td>
+            <td align="center"><%= diamond.vs2 %></td>
+            <td align="center"><%= diamond.si1 %></td>
+            <td align="center"><%= diamond.si2 %></td>
+          </tr>
+      <% end %>
+  </table>
+
+
+
+
+</div>
