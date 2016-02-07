@@ -109,7 +109,7 @@ class DiamondsController < ApplicationController
           i = 0
           while i < @color.length
               selected_color = @color[i]
-              @selected_color_data = @weight03_group_all_color.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').where(date: d.date).where(color: selected_color)
+              @selected_color_data = @weight03_group_all_color.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').where(date: date).where(color: selected_color)
               @selected_color_IF = @selected_color_data.find_by clar: "IF"
               @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
               @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
