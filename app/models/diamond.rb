@@ -5,11 +5,11 @@ class Diamond <ActiveRecord::Base
    oldest_date = Diamond.minimum(:date)
    weight_max = Diamond.maximum(:weight)
    weight_min = Diamond.minimum(:weight)
-    one_week_ago = latest_date - 6
-    one_months_ago = latest_date - 30
-    three_months_ago = latest_date - 90
-    six_months_ago = latest_date - 180
-    one_year_ago = latest_date - 364
+    # one_week_ago = latest_date - 6
+    # one_months_ago = latest_date - 30
+    # three_months_ago = latest_date - 90
+    # six_months_ago = latest_date - 180
+    # one_year_ago = latest_date - 364
 
    #7days agoの日付が存在しない場合の対処
 
