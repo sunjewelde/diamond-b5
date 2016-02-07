@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'diamonds/chart' => "diamonds#chart"
   
+  get 'lists/list_table' => "lists#list_table"
+  
   root to: 'diamonds#index'
 
   resources :diamonds do
