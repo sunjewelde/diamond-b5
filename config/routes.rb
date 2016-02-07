@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tables/new'
+
   get 'lists/new'
 
   get 'diamonds/chart' => "diamonds#chart"
