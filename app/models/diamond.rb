@@ -69,10 +69,10 @@ class Diamond <ActiveRecord::Base
 
     # 登録済みデータ情報取得。
           # 登録されてなければ作成
-          diamond = find_by(:date => table["date"])
-          if diamond.nil?
-            user = new
-          end
+          # diamond = find_by(:date => table["date"])
+          # if diamond.nil?
+          #   user = new
+          # end
 
           diamond.attributes = table.to_hash.slice(*updatable_attributes)
           # 保存する
