@@ -128,7 +128,7 @@ class DiamondsController < ApplicationController
               
               # binding.pry
               
-              List.create(date: d.date, color: selected_color, weight: 0.3,  if1: @IF_price, 
+              List.create(date: date, color: selected_color, weight: 0.3,  if1: @IF_price, 
                                                                       vvs1: @VVS1_price,
                                                                       vvs2: @VVS2_price, 
                                                                       vs1: @VS1_price,
