@@ -1,6 +1,16 @@
 class Diamond <ActiveRecord::Base
     require "date"
-
+    
+    @latest_date = Diamond.maximum(:date)
+    @oldest_date = Diamond.minimum(:date)
+    @weight_max = Diamond.maximum(:weight)
+    @weight_min = Diamond.minimum(:weight)
+    @one_week_ago = (@latest_date - 6)
+    @one_months_ago = (@latest_date - 30)
+    @three_months_ago = (@latest_date - 90)
+    @six_months_ago = (@latest_date - 180)
+    @one_year_ago = (@latest_date - 364)
+    
    #7days agoの日付が存在しない場合の対処
 
     scope :date_one_week, -> {where(:date=> @one_week_ago..@latest_date)}

@@ -1,6 +1,6 @@
 class DiamondsController < ApplicationController
   
-   def new
+  def new
     @diamond = Diamond.new
   end
 
@@ -16,15 +16,7 @@ class DiamondsController < ApplicationController
   
   require "date"
   def index
-    @latest_date = Diamond.maximum(:date)
-    @oldest_date = Diamond.minimum(:date)
-    @weight_max = Diamond.maximum(:weight)
-    @weight_min = Diamond.minimum(:weight)
-    @one_week_ago = @latest_date - 6
-    @one_months_ago = @latest_date - 30
-    @three_months_ago = @latest_date - 90
-    @six_months_ago = @latest_date - 180
-    @one_year_ago = @latest_date - 364
+   
     
     # @diamonds = Diamond.all
     #kaminariでページネーション
@@ -43,8 +35,8 @@ class DiamondsController < ApplicationController
                  "st", "sb", "str blue", "S.BLUE", "M.BLUE", "VST", "Very Strong", "V.S.BLUE", "FT"]
 
    #最新旧の日付を取得
-   @latest_date = Diamond.maximum(:date)
-   @oldest_date = Diamond.minimum(:date)
+  @latest_date = Diamond.maximum(:date)
+  @oldest_date = Diamond.minimum(:date)
    date_range =  @latest_date - @oldest_date
    three_days_ago = @latest_date -3
 
