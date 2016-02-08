@@ -168,19 +168,29 @@ class DiamondsController < ApplicationController
 
     #0.3_All
     #Date
-    # weight_group_03_color_D_IF_date = weight_group_03_color_D_IF.pluck(:date).uniq
-    weight_group_03_color_D_IF_date = []
-    @daily_weight_group_03_color_D_IF.each do |diamond|
-      weight_group_03_color_D_IF_date << diamond.date
-    end
+    weight_group_03_color_D_IF_date = weight_group_03_color_D_IF.pluck(:date).uniq
+    # weight_group_03_color_D_IF_date = []
+    # @daily_weight_group_03_color_D_IF.each do |diamond|
+    #   weight_group_03_color_D_IF_date << diamond.date
+    # end
 
     # binding.pry
+    
     #Price_0.3
-
     weight_group_03_color_D_IF_end_price = []
-    @daily_weight_group_03_color_D_IF.each do |diamond|
-      weight_group_03_color_D_IF_end_price << diamond.avg_price.round
+    date_03 = 0
+    while date_03 < weight_group_03_color_D_IF_date.length
+      selected_date = weight_group_03_color_D_IF_date[date_03]
+      @price_03_D_IF = @daily_weight_group_03_color_D_IF.find_by date: selected_date
+      weight_group_03_color_D_IF_end_price << @price_03_D_IF.avg_price
+      date_03 += 1
     end
+
+
+    # weight_group_03_color_D_IF_end_price = []
+    # @daily_weight_group_03_color_D_IF.each do |diamond|
+    #   weight_group_03_color_D_IF_end_price << diamond.avg_price.round
+    # end
     # binding.pry
     
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
