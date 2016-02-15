@@ -164,7 +164,7 @@ class DiamondsController < ApplicationController
       d2 += 1
     end
 
-
+   @latest_chart_table_weight_group_03 = Table.select('date, color, clar, price').where(weight: 0.3).group(:date, :color, :clar)
 
 
 
