@@ -38,6 +38,7 @@ class DiamondsController < ApplicationController
    #最新旧の日付を取得
   @latest_date = Diamond.maximum(:date)
   @oldest_date = Diamond.minimum(:date)
+  @one_week_ago = @latest_date - 6
    date_range =  @latest_date - @oldest_date
    three_days_ago = @latest_date -3
 
@@ -167,62 +168,24 @@ class DiamondsController < ApplicationController
    @latest_chart_table_weight_group_03 = Table.select('date, color, clar, price').where(weight: 0.3).group(:date, :color, :clar)
 
 
+   @latest_one_week_data = Table.select('date, weight, color, clar, price').where(:date=> @one_week_ago..@latest_date).group(:date, :weight, :color, :clar)
+   weight_group_03_color_D_IF = @latest_one_week_data.where(color: "D").where(clar: "IF")
+   
 
+    # weight_group_03_color_D_IF = Diamond.date_one_week.weight03.color("D").clar("IF")
+   
+    # @daily_weight_group_03_color_D_IF = weight_group_03_color_D_IF.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date)
 
-
-    weight_group_03_color_D_IF = Diamond.date_one_week.weight03.color("D").clar("IF")
-    weight_group_03_color_E_IF = Diamond.date_one_week.weight03.color("E").clar("IF")
-    weight_group_03_color_F_IF = Diamond.date_one_week.weight03.color("F").clar("IF")
-    weight_group_03_color_G_IF = Diamond.date_one_week.weight03.color("G").clar("IF")
-    weight_group_03_color_H_IF = Diamond.date_one_week.weight03.color("H").clar("IF")
-    weight_group_03_color_I_IF = Diamond.date_one_week.weight03.color("I").clar("IF")
-    weight_group_03_color_J_IF = Diamond.date_one_week.weight03.color("J").clar("IF")
-    weight_group_03_color_K_IF = Diamond.date_one_week.weight03.color("K").clar("IF")
-    weight_group_03_color_L_IF = Diamond.date_one_week.weight03.color("L").clar("IF")
-    weight_group_03_color_M_IF = Diamond.date_one_week.weight03.color("M").clar("IF")
-
-    @daily_weight_group_03_color_D_IF = weight_group_03_color_D_IF.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date)
-    @daily_weight_group_03_color_E_IF = weight_group_03_color_E_IF.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date)
-    @daily_weight_group_03_color_F_IF = weight_group_03_color_F_IF.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date)
-    @daily_weight_group_03_color_G_IF = weight_group_03_color_G_IF.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date)
-    @daily_weight_group_03_color_H_IF = weight_group_03_color_H_IF.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date)
-    @daily_weight_group_03_color_I_IF = weight_group_03_color_I_IF.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date)
-    @daily_weight_group_03_color_J_IF = weight_group_03_color_J_IF.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date)
-    @daily_weight_group_03_color_K_IF = weight_group_03_color_K_IF.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date)
-    @daily_weight_group_03_color_L_IF = weight_group_03_color_L_IF.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date)
-    @daily_weight_group_03_color_M_IF = weight_group_03_color_M_IF.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date)
-  
-    # weight_group_03_color_D_IF = Diamond.weight(0.3).color("D").clar("IF")
-
-    # weight_group_03_color_D_IF = Diamond.where(weight: 0.3).where(color: "D").where(clar: "IF")
- 
-    # weight_group_03_color_D_VVS1 = Diamond.where(weight: 0.3).where(color: "D").where(clar: "VVS1")
 
     #0.3_All
     #Date
-    weight_group_03_color_D_IF_date = weight_group_03_color_D_IF.pluck(:date).uniq
+    weight_group_03_color_D_IF_date = weight_group_03_color_D_IF.pluck(:date)
+    weight_group_03_color_D_IF_end_price = weight_group_03_color_D_IF.pluck(:price)
     # weight_group_03_color_D_IF_date = []
     # @daily_weight_group_03_color_D_IF.each do |diamond|
     #   weight_group_03_color_D_IF_date << diamond.date
     # end
 
-    # binding.pry
-    
-    #Price_0.3
-    weight_group_03_color_D_IF_end_price = []
-    date_03 = 0
-    while date_03 < weight_group_03_color_D_IF_date.length
-      selected_date = weight_group_03_color_D_IF_date[date_03]
-      @price_03_D_IF = @daily_weight_group_03_color_D_IF.find_by date: selected_date
-      weight_group_03_color_D_IF_end_price << @price_03_D_IF.avg_price
-      date_03 += 1
-    end
-
-
-    # weight_group_03_color_D_IF_end_price = []
-    # @daily_weight_group_03_color_D_IF.each do |diamond|
-    #   weight_group_03_color_D_IF_end_price << diamond.avg_price.round
-    # end
     # binding.pry
     
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
@@ -259,6 +222,14 @@ class DiamondsController < ApplicationController
   
   
   def chart
+    @latest_date = Table.maximum(:date)
+    @oldest_date = Table.minimum(:date)
+    @one_week_ago = @latest_date - 6
+    @one_months_ago = @latest_date - 30
+    @three_months_ago = @latest_date - 90
+    @six_months_ago = @latest_date - 180
+    @one_year_ago = @latest_date - 364
+
     #indexページからグラフ描画の引数を取得
     weight = params[:q][:weight]
     color = params[:q][:color]
@@ -266,33 +237,33 @@ class DiamondsController < ApplicationController
     date = params[:q][:date]
 
     if date == "1w"
-        onw_week_data = Diamond.date_one_week
+        onw_week_data = Table.where(:date=> @one_week_ago..@latest_date)
         # @diamonds = onw_week_data.ransack(:weight_eq => weight).result
         @diamonds = onw_week_data.weight"#{weight}"
       elsif date == "1m"
-        one_month_data = Diamond.date_one_month
+        one_month_data = Table.where(:date=> @one_months_ago..@latest_date)
         # @diamonds = one_month_data.ransack(:weight_eq => weight).result
         @diamonds = one_month_data.weight"#{weight}"
       elsif date == "3m"
-        three_month_data = Diamond.date_three_month
+        three_month_data = Table.where(:date=> @three_months_ago..@latest_date)
         # @diamonds = three_month_data.ransack(:weight_eq => weight).result
         @diamonds = three_month_data.weight"#{weight}"
       elsif date == "6m"
-        six_month_data = Diamond.date_six_month
+        six_month_data = Table.where(:date=> @six_months_ago..@latest_date)
         # @diamonds = six_month_data.ransack(:weight_eq => weight).result
         @diamonds = six_month_data.weight"#{weight}"
       elsif date == "1y"
-        one_year_data = Diamond.date_one_year
+        one_year_data = Table.where(:date=> @one_year_ago..@latest_date)
         # @diamonds = one_year_data.ransack(:weight_eq => weight).result
         @diamonds = one_year_data.weight"#{weight}"
       elsif date == "max"
-        full_year_data = Diamond.date_full_year
+        full_year_data = Table.all
         # @diamonds = full_year_data.ransack(:weight_eq => weight).result
         @diamonds = full_year_data.weight"#{weight}"
     end
     
     #For ransack
-    @q = Diamond.ransack(params[:q])
+    @q = Table.ransack(params[:q])
     
     #Weightでソート
     # @diamonds = Diamond.ransack(:weight_eq => weight).result(distinct: true)
@@ -319,13 +290,13 @@ class DiamondsController < ApplicationController
     g_si1_end_price = @diamonds_color.ransack(:clar_eq => "SI1").result
     g_si2_end_price = @diamonds_color.ransack(:clar_eq => "SI2").result
 
-    @weight_color_group_if = g_if_end_price.select("date, color, clar, AVG(end_price * #{weight} / weight) AS avg_price").group(:date)
-    @weight_color_group_vvs1 = g_vvs1_end_price.select("date, color, clar, AVG(end_price * #{weight} / weight) AS avg_price").group(:date)
-    @weight_color_group_vvs2 = g_vvs2_end_price.select("date, color, clar, AVG(end_price * #{weight} / weight) AS avg_price").group(:date)
-    @weight_color_group_vs1 = g_vs1_end_price.select("date, color, clar, AVG(end_price * #{weight} / weight) AS avg_price").group(:date)
-    @weight_color_group_vs2 = g_vs2_end_price.select("date, color, clar, AVG(end_price * #{weight} / weight) AS avg_price").group(:date)
-    @weight_color_group_si1 = g_si1_end_price.select("date, color, clar, AVG(end_price * #{weight} / weight) AS avg_price").group(:date)
-    @weight_color_group_si2 = g_si2_end_price.select("date, color, clar, AVG(end_price * #{weight} / weight) AS avg_price").group(:date)
+    @weight_color_group_if = g_if_end_price.select("date, color, clar, price").group(:date)
+    @weight_color_group_vvs1 = g_vvs1_end_price.select("date, color, clar, price").group(:date)
+    @weight_color_group_vvs2 = g_vvs2_end_price.select("date, color, clar, price").group(:date)
+    @weight_color_group_vs1 = g_vs1_end_price.select("date, color, clar, price").group(:date)
+    @weight_color_group_vs2 = g_vs2_end_price.select("date, color, clar, price").group(:date)
+    @weight_color_group_si1 = g_si1_end_price.select("date, color, clar, price").group(:date)
+    @weight_color_group_si2 = g_si2_end_price.select("date, color, clar, price").group(:date)
 
     #Date
     group_IF_date = []
