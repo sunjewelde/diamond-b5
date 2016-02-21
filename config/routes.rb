@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   get 'tables/new'
-
   get 'lists/new'
 
   get 'diamonds/chart' => "diamonds#chart"
   
   get 'lists/list_table' => "lists#list_table"
+
+  get 'tables/chart_second' => "tables#chart_second"
   
   root to: 'diamonds#index'
 

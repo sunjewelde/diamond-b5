@@ -52,12 +52,6 @@ class DiamondsController < ApplicationController
     # @weight04_diamond_group = @latest_diamond_group.weight04
 
     #colorでグループ
-    # for color_group in color
-    #   name = color_group
-    #   @"#{name}" = @weight03_diamond_group.color("#{color}")
-    # end
-    # temp = group_color("03", "D")
-    # temp_latest_weight_group_03_color_D = temp.to_i
     latest_weight_group_03_color_D = @weight03_diamond_group.weight03.color("D")
     latest_weight_group_03_color_E = @weight03_diamond_group.weight03.color("E")
     latest_weight_group_03_color_F = @weight03_diamond_group.weight03.color("F")
@@ -201,11 +195,6 @@ class DiamondsController < ApplicationController
       # f.xAxis(:categories => weight_group_03_color_D_IF_date)
       f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_IF", :data => weight_group_03_color_D_IF_end_price)
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VVS1", :data => weight_group_03_color_D_VVS1_end_price)
-      # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VVS2", :data => weight_group_03_color_D_VVS2_end_price)
-      # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VS1", :data => weight_group_03_color_D_VS1_end_price)
-      # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VS2", :data => weight_group_03_color_D_VS2_end_price)
-      # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_SI1", :data => weight_group_03_color_D_SI1_end_price)
-      # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_SI2", :data => weight_group_03_color_D_SI2_end_price)
       
       
       f.legend(:align => 'right', :verticalAlign => 'top', :y => 0, :x => -50, :layout => 'vertical',)
@@ -239,27 +228,29 @@ class DiamondsController < ApplicationController
     if date == "1w"
         onw_week_data = Table.where(:date=> @one_week_ago..@latest_date)
         # @diamonds = onw_week_data.ransack(:weight_eq => weight).result
-        @diamonds = onw_week_data.weight"#{weight}"
+        # @diamonds = onw_week_data.weight"#{weight}"
+        @diamonds = onw_week_data.where(:weight=> weight)
       elsif date == "1m"
         one_month_data = Table.where(:date=> @one_months_ago..@latest_date)
         # @diamonds = one_month_data.ransack(:weight_eq => weight).result
-        @diamonds = one_month_data.weight"#{weight}"
+        # @diamonds = one_month_data.weight"#{weight}"
+        @diamonds = one_month_data.where(:weight=> weight)
       elsif date == "3m"
         three_month_data = Table.where(:date=> @three_months_ago..@latest_date)
         # @diamonds = three_month_data.ransack(:weight_eq => weight).result
-        @diamonds = three_month_data.weight"#{weight}"
+        @diamonds = three_month_data.where(:weight=> weight)
       elsif date == "6m"
         six_month_data = Table.where(:date=> @six_months_ago..@latest_date)
         # @diamonds = six_month_data.ransack(:weight_eq => weight).result
-        @diamonds = six_month_data.weight"#{weight}"
+        @diamonds = six_month_data.where(:weight=> weight)
       elsif date == "1y"
         one_year_data = Table.where(:date=> @one_year_ago..@latest_date)
         # @diamonds = one_year_data.ransack(:weight_eq => weight).result
-        @diamonds = one_year_data.weight"#{weight}"
+        @diamonds = one_year_data.where(:weight=> weight)
       elsif date == "max"
         full_year_data = Table.all
         # @diamonds = full_year_data.ransack(:weight_eq => weight).result
-        @diamonds = full_year_data.weight"#{weight}"
+        @diamonds = full_year_data.where(:weight=> weight)
     end
     
     #For ransack
@@ -344,31 +335,32 @@ class DiamondsController < ApplicationController
     si2_end_price = []
 
     @weight_color_group_if.each do |diamond|
-      if_end_price << diamond.avg_price.round
+      # if_end_price << diamond.avg_price.round
+      if_end_price << diamond.price
     end
 
     @weight_color_group_vvs1.each do |diamond|
-      vvs1_end_price << diamond.avg_price.round
+      vvs1_end_price << diamond.price
     end
 
     @weight_color_group_vvs2.each do |diamond|
-      vvs2_end_price << diamond.avg_price.round
+      vvs2_end_price << diamond.price
     end
 
     @weight_color_group_vs1.each do |diamond|
-      vs1_end_price << diamond.avg_price.round
+      vs1_end_price << diamond.price
     end
 
     @weight_color_group_vs2.each do |diamond|
-      vs2_end_price << diamond.avg_price.round
+      vs2_end_price << diamond.price
     end
 
     @weight_color_group_si1.each do |diamond|
-      si1_end_price << diamond.avg_price.round
+      si1_end_price << diamond.price
     end
 
     @weight_color_group_si2.each do |diamond|
-      si2_end_price << diamond.avg_price.round
+      si2_end_price << diamond.price
     end
 
     #Weight+Color+clarでソート
@@ -378,7 +370,7 @@ class DiamondsController < ApplicationController
 
     clar_end_price = []
     @g_clar_end_price.each do |diamond|
-      clar_end_price << diamond.avg_price.round
+      clar_end_price << diamond.price
     end
 
     # binding.pry
