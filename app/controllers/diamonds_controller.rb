@@ -48,37 +48,65 @@ class DiamondsController < ApplicationController
     @latest_diamond_group = Diamond.where(date: @latest_date)
     #weightでグループ
     @weight03_diamond_group = @latest_diamond_group.weight03
-    @weight03_diamond_group_all = Diamond.weight03
-    # @weight04_diamond_group = @latest_diamond_group.weight04
+    @weight03_diamond_group_all = Diamond.weight04
+    @weight04_diamond_group_all = Diamond.weight04
+    @weight05_diamond_group_all = Diamond.weight05
+    @weight06_diamond_group_all = Diamond.weight06
+    @weight07_diamond_group_all = Diamond.weight07
+    @weight08_diamond_group_all = Diamond.weight08
+    @weight09_diamond_group_all = Diamond.weight09
+    @weight10_diamond_group_all = Diamond.weight10
+    @weight12_diamond_group_all = Diamond.weight12
+    @weight15_diamond_group_all = Diamond.weight15
+    @weight18_diamond_group_all = Diamond.weight18
+    @weight20_diamond_group_all = Diamond.weight20
+    @weight30_diamond_group_all = Diamond.weight30
+    @weight40_diamond_group_all = Diamond.weight40
 
-    #colorでグループ
-    latest_weight_group_03_color_D = @weight03_diamond_group.weight03.color("D")
-    latest_weight_group_03_color_E = @weight03_diamond_group.weight03.color("E")
-    latest_weight_group_03_color_F = @weight03_diamond_group.weight03.color("F")
-    latest_weight_group_03_color_G = @weight03_diamond_group.weight03.color("G")
-    latest_weight_group_03_color_H = @weight03_diamond_group.weight03.color("H")
-    latest_weight_group_03_color_I = @weight03_diamond_group.weight03.color("I")
-    latest_weight_group_03_color_J = @weight03_diamond_group.weight03.color("J")
-    latest_weight_group_03_color_K = @weight03_diamond_group.weight03.color("K")
-    latest_weight_group_03_color_L = @weight03_diamond_group.weight03.color("L")
-    latest_weight_group_03_color_M = @weight03_diamond_group.weight03.color("M")
-
-    @latest_weight_group_03_color_D_clar = latest_weight_group_03_color_D.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:clar)
-    @latest_weight_group_03_color_E_clar = latest_weight_group_03_color_E.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:clar)
-    @latest_weight_group_03_color_F_clar = latest_weight_group_03_color_F.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:clar)
-    @latest_weight_group_03_color_G_clar = latest_weight_group_03_color_G.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:clar)
-    @latest_weight_group_03_color_H_clar = latest_weight_group_03_color_H.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:clar)
-    @latest_weight_group_03_color_I_clar = latest_weight_group_03_color_I.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:clar)
-    @latest_weight_group_03_color_J_clar = latest_weight_group_03_color_J.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:clar)
-    @latest_weight_group_03_color_K_clar = latest_weight_group_03_color_K.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:clar)
-    @latest_weight_group_03_color_L_clar = latest_weight_group_03_color_L.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:clar)
-    @latest_weight_group_03_color_M_clar = latest_weight_group_03_color_M.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:clar)
+    #date, clar, colorでグループ
 
     @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date, :color, :clar)
     @weight03_group_all_color_date = @weight03_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
-    # @weight03_group_all_color_date = @weight03_diamond_group_all.select('date').group(:date)
-    # @weight03_group_color_color = @weight03_diamond_group_all.select('color').group(:color)
-    # @weight03_group_03_color_color = @weight03_group_03_color_temp.compact!
+
+    @weight04_group_all_color = @weight04_diamond_group_all.select('date, color, clar, AVG(end_price * 0.4 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight04_group_all_color_date = @weight04_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
+    @weight05_group_all_color = @weight05_diamond_group_all.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight05_group_all_color_date = @weight05_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
+    @weight06_group_all_color = @weight06_diamond_group_all.select('date, color, clar, AVG(end_price * 0.6 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight06_group_all_color_date = @weight06_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
+    @weight07_group_all_color = @weight07_diamond_group_all.select('date, color, clar, AVG(end_price * 0.7 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight07_group_all_color_date = @weight07_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
+    @weight08_group_all_color = @weight08_diamond_group_all.select('date, color, clar, AVG(end_price * 0.8 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight08_group_all_color_date = @weight08_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
+    @weight09_group_all_color = @weight09_diamond_group_all.select('date, color, clar, AVG(end_price * 0.9 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight09_group_all_color_date = @weight09_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
+    @weight10_group_all_color = @weight10_diamond_group_all.select('date, color, clar, AVG(end_price * 1.0 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight10_group_all_color_date = @weight10_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
+    @weight12_group_all_color = @weight12_diamond_group_all.select('date, color, clar, AVG(end_price * 1.2 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight12_group_all_color_date = @weight12_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
+    @weight15_group_all_color = @weight15_diamond_group_all.select('date, color, clar, AVG(end_price * 1.5 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight15_group_all_color_date = @weight15_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
+    @weight18_group_all_color = @weight18_diamond_group_all.select('date, color, clar, AVG(end_price * 1.8 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight18_group_all_color_date = @weight18_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
+    @weight20_group_all_color = @weight20_diamond_group_all.select('date, color, clar, AVG(end_price * 2.0 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight20_group_all_color_date = @weight20_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
+    @weight30_group_all_color = @weight30_diamond_group_all.select('date, color, clar, AVG(end_price * 3.0 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight30_group_all_color_date = @weight30_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
+    @weight40_group_all_color = @weight40_diamond_group_all.select('date, color, clar, AVG(end_price * 4.0 / weight) AS avg_price').group(:date, :color, :clar)
+    @weight40_group_all_color_date = @weight40_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+
     
     # binding.pry
     #配列からWhileでloop
@@ -88,7 +116,9 @@ class DiamondsController < ApplicationController
     #   i += 1
     # end
 
-    # @weight03_group_all_color_date.each do |d|
+
+#Data table create for List model
+    #weight03
     d = 0
     while d < @weight03_group_all_color_date.length
       date = @weight03_group_all_color_date[d]
@@ -105,6 +135,39 @@ class DiamondsController < ApplicationController
               @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
               @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
               @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+
+              @IF_price = @selected_color_IF.avg_price.round
+              @VVS1_price = @selected_color_VVS1.avg_price.round
+              @VVS2_price = @selected_color_VVS2.avg_price.round
+              @VS1_price = @selected_color_VS1.avg_price.round
+              @VS2_price = @selected_color_VS2.avg_price.round
+              @SI1_price = @selected_color_SI1.avg_price.round
+              @SI2_price = @selected_color_SI2.avg_price.round
+
+              List.create(date: date, color: selected_color, weight: 0.3,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+              i += 1
+          end
+      end
+      d += 1
+    end
+# binding.pry
+    #weight04
+    d = 0
+    while d < @weight04_group_all_color_date.length
+      date = @weight04_group_all_color_date[d]
+      if List.exists?(date: date) and List.exists?(weight: 0.4) and List.exists?(color: "D") and List.exists?(color: "M")
+      else
+          i = 0
+          while i < @color.length
+              selected_color = @color[i]
+              @selected_color_data = @weight04_group_all_color.select('date, color, clar, AVG(end_price * 0.4 / weight) AS avg_price').where(date: date).where(color: selected_color)
+              @selected_color_IF = @selected_color_data.find_by clar: "IF"
+              @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+              @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+              @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+              @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+              @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+              @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
               
               @IF_price = @selected_color_IF.avg_price.round
               @VVS1_price = @selected_color_VVS1.avg_price.round
@@ -113,23 +176,16 @@ class DiamondsController < ApplicationController
               @VS2_price = @selected_color_VS2.avg_price.round
               @SI1_price = @selected_color_SI1.avg_price.round
               @SI2_price = @selected_color_SI2.avg_price.round
-              
-              # binding.pry
-              
-              List.create(date: date, color: selected_color, weight: 0.3,  if1: @IF_price, 
-                                                                      vvs1: @VVS1_price,
-                                                                      vvs2: @VVS2_price, 
-                                                                      vs1: @VS1_price,
-                                                                      vs2: @VS2_price,
-                                                                      si1: @SI1_price,
-                                                                      si2: @SI2_price)
+
+              List.create(date: date, color: selected_color, weight: 0.4,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
               i += 1
-          end  
+          end
       end
       d += 1
     end
-    # end
-    
+
+  #-----End_Data table create for List model---------
+
 
    @latest_weight_group_03 = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight: 0.3).where(date: @latest_date)
 

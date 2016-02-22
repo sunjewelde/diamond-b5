@@ -24,7 +24,7 @@ class TablesController < ApplicationController
 			weight = 0.3
 		    color = "D"
 		    clar = "IF"
-		    date = "1W"
+		    date = "1w"
 	    end
 
 	    # binding.pry
@@ -73,9 +73,6 @@ class TablesController < ApplicationController
 			si1_end_price_seriese = si1_end_price.pluck(:price)
 			si2_end_price_seriese = si2_end_price.pluck(:price)
 		end
-
-
-		# selected_color_end_price = @diamond_table_data.where(clar: color)
 
 
 		@chart = LazyHighCharts::HighChart.new('graph') do |f|
