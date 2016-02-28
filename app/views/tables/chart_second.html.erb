@@ -1,10 +1,8 @@
 <h1>Diamond Price Chart</h1>
 
 <div class="container">
-	<%= line_chart @diamonds_default.maximum(:price), height: "300px", width: "300px" %>
 
-
-
+    <h3>ダイヤモンド価格チャート <span class="label label-default"><%= @selected_weight%>カラット</span></h3>
 	<div id="diamonds-chart" >
         <%= high_chart("diamonds-chart", @chart) %>
     </div>

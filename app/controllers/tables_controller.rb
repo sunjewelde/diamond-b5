@@ -39,6 +39,8 @@ class TablesController < ApplicationController
 		    date = "1w"
 	    end
 
+	    @selected_weight = weight
+
 	    # binding.pry
 
 	    #date, clar, colorでグループ

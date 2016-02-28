@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'lists/new'
 
   get 'diamonds/chart' => "diamonds#chart"
+
+  get 'diamonds/manage_data' => "diamonds#manage_data"
   
   get 'lists/list_table' => "lists#list_table"
 
