@@ -87,9 +87,9 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
+    mysql2 (0.4.3)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
-    pg (0.18.3)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     pry (0.10.3)
@@ -181,7 +181,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   lazy_high_charts
-  pg
+  mysql2
   pry-byebug
   rails (= 4.2.3)
   ransack
