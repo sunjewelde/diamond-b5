@@ -90,7 +90,7 @@ class DiamondsController < ApplicationController
       # f.chart({:defaultSeriesType=>"column"})
     end
     
-    DbWorker.perform
+    DbWorker.perform_async
 
   end
   
