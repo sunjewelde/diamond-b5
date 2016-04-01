@@ -41,7 +41,7 @@ class DiamondsController < ApplicationController
   if @latest_date.present?
     @one_week_ago = @latest_date - 6
   end
-   date_range =  @latest_date - @oldest_date
+  # date_range =  @latest_date - @oldest_date
 
     
     # binding.pry
@@ -89,6 +89,8 @@ class DiamondsController < ApplicationController
       f.chart(type: 'line', height: 600, marginLeft: 50, marginRight: 50)
       # f.chart({:defaultSeriesType=>"column"})
     end
+    
+    DbWorker.perform
 
   end
   
