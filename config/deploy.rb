@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'code3'
+set :application, 'myapp/code3'
 set :repo_url, 'https://github.com/sunjewelde/diamond-b5.git'
 
 # Default branch is :master
