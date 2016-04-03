@@ -14,6 +14,7 @@ set :deploy_to, '/var/www/myapp/code3'
 # Default value for :scm is :git
 set :scm, :git
 
+
 # Default value for :format is :pretty
 # set :format, :pretty
 
@@ -35,6 +36,7 @@ set :rvm_ruby_version, '2.2.1'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_env, { path: "/opt/bin:$PATH" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
@@ -48,6 +50,12 @@ namespace :deploy do
       #   execute :rake, 'cache:clear'
       # end
     end
+  end
+  
+  after "deploy:update", roles: :app do
+    run "/bin/cp #{shared_path}/config/database.yml #{release_path}/config"
+    run "/bin/mkdir -p #{shared_path}/files"
+    run "/bin/ln -s #{shared_path}/files #{release_path}/public"
   end
 
 end

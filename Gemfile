@@ -66,5 +66,6 @@ group :development, :test do
 
   # Remove the following if your server does not use RVM
   gem 'capistrano-rvm'
+  
 end
 
