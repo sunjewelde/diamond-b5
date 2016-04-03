@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 # lock '3.4.0'
 
-require "bundler/capistrano"
+# require "bundler/capistrano"
 
 set :application, 'code3'
 set :repo_url, 'https://github.com/sunjewelde/diamond-b5.git'
@@ -36,14 +36,16 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 set :rvm_ruby_version, '2.2.1'
 
-set :passenger_environment_variables, { :path => '/home/hiroyuki/.rvm/gems/ruby-2.2.1/gems/passenger-5.0.26/bin:$PATH' }
-set :passenger_restart_command, '/home/hiroyuki/.rvm/gems/ruby-2.2.1/gems/passenger-5.0.26/bin/passenger-config restart-app'
+set :passenger_environment_variables, { :path => '/path-to-passenger/bin:/home/hiroyuki/.rvm/gems/ruby-2.2.1/gems/passenger-5.0.26' }
+set :passenger_restart_command, '/path-to-passenger/bin/passenger-config restart-app'
+
 
 # set :passenger_restart_with_touch, true
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 # set :default_env, { path: "/opt/bin:$PATH" }
+
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
