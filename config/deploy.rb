@@ -1,6 +1,8 @@
 # config valid only for current version of Capistrano
 # lock '3.4.0'
 
+require "bundler/capistrano"
+
 set :application, 'code3'
 set :repo_url, 'https://github.com/sunjewelde/diamond-b5.git'
 
@@ -41,7 +43,7 @@ set :passenger_restart_command, '/home/hiroyuki/.rvm/gems/ruby-2.2.1/gems/passen
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
-set :default_env, { path: "/opt/bin:$PATH" }
+# set :default_env, { path: "/opt/bin:$PATH" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
