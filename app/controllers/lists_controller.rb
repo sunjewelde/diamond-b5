@@ -151,479 +151,479 @@ class ListsController < ApplicationController
 
 
         #weight04
-        d = 0
-        while d < @weight04_group_all_color_date.length
-          date = @weight04_group_all_color_date[d]
-          if List.exists?(date: date, weight: 0.4, color: "D") and List.exists?(date: date, weight: 0.4, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight04_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+        # d = 0
+        # while d < @weight04_group_all_color_date.length
+        #   date = @weight04_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 0.4, color: "D") and List.exists?(date: date, weight: 0.4, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight04_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
 
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 0.4,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 0.4,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
 
-        #weight05
-        d = 0
-        while d < @weight05_group_all_color_date.length
-          date = @weight05_group_all_color_date[d]
-          if List.exists?(date: date, weight: 0.5, color: "D") and List.exists?(date: date, weight: 0.5, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight05_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+        # #weight05
+        # d = 0
+        # while d < @weight05_group_all_color_date.length
+        #   date = @weight05_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 0.5, color: "D") and List.exists?(date: date, weight: 0.5, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight05_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
 
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 0.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 0.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
 
-        #weight06
-        d = 0
-        while d < @weight06_group_all_color_date.length
-          date = @weight06_group_all_color_date[d]
-          if List.exists?(date: date, weight: 0.6, color: "D") and List.exists?(date: date, weight: 0.6, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight06_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+        # #weight06
+        # d = 0
+        # while d < @weight06_group_all_color_date.length
+        #   date = @weight06_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 0.6, color: "D") and List.exists?(date: date, weight: 0.6, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight06_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
 
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 0.6,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 0.6,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
 
-        #weight07
-        d = 0
-        while d < @weight07_group_all_color_date.length
-          date = @weight07_group_all_color_date[d]
-          if List.exists?(date: date, weight: 0.7, color: "D") and List.exists?(date: date, weight: 0.7, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight07_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+        # #weight07
+        # d = 0
+        # while d < @weight07_group_all_color_date.length
+        #   date = @weight07_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 0.7, color: "D") and List.exists?(date: date, weight: 0.7, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight07_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
 
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 0.7,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 0.7,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
 
-        #weight08
-        d = 0
-        while d < @weight08_group_all_color_date.length
-          date = @weight08_group_all_color_date[d]
-          if List.exists?(date: date, weight: 0.8, color: "D") and List.exists?(date: date, weight: 0.8, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight08_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+        # #weight08
+        # d = 0
+        # while d < @weight08_group_all_color_date.length
+        #   date = @weight08_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 0.8, color: "D") and List.exists?(date: date, weight: 0.8, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight08_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
 
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 0.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
-
-
-        #weight09
-        d = 0
-        while d < @weight09_group_all_color_date.length
-          date = @weight09_group_all_color_date[d]
-          if List.exists?(date: date, weight: 0.9, color: "D") and List.exists?(date: date, weight: 0.9, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight09_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
-
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 0.9,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 0.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
 
 
-        #weight10
-        d = 0
-        while d < @weight10_group_all_color_date.length
-          date = @weight10_group_all_color_date[d]
-          if List.exists?(date: date, weight: 1.0, color: "D") and List.exists?(date: date, weight: 1.0, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight10_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+        # #weight09
+        # d = 0
+        # while d < @weight09_group_all_color_date.length
+        #   date = @weight09_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 0.9, color: "D") and List.exists?(date: date, weight: 0.9, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight09_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
 
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 1.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
-
-        #weight12
-        d = 0
-        while d < @weight12_group_all_color_date.length
-          date = @weight12_group_all_color_date[d]
-          if List.exists?(date: date, weight: 1.2, color: "D") and List.exists?(date: date, weight: 1.2, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight12_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
-
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 1.2,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 0.9,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
 
 
-        #weight15
-        d = 0
-        while d < @weight15_group_all_color_date.length
-          date = @weight15_group_all_color_date[d]
-          if List.exists?(date: date, weight: 1.5, color: "D") and List.exists?(date: date, weight: 1.5, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight15_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+        # #weight10
+        # d = 0
+        # while d < @weight10_group_all_color_date.length
+        #   date = @weight10_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 1.0, color: "D") and List.exists?(date: date, weight: 1.0, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight10_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
 
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 1.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 1.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
 
+        # #weight12
+        # d = 0
+        # while d < @weight12_group_all_color_date.length
+        #   date = @weight12_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 1.2, color: "D") and List.exists?(date: date, weight: 1.2, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight12_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
 
-        #weight18
-        d = 0
-        while d < @weight18_group_all_color_date.length
-          date = @weight18_group_all_color_date[d]
-          if List.exists?(date: date, weight: 1.8, color: "D") and List.exists?(date: date, weight: 1.8, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight18_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
-
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 1.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
-
-
-        #weight20
-        d = 0
-        while d < @weight20_group_all_color_date.length
-          date = @weight20_group_all_color_date[d]
-          if List.exists?(date: date, weight: 2.0, color: "D") and List.exists?(date: date, weight: 2.0, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight20_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
-
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 2.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 1.2,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
 
 
-        #weight30
-        d = 0
-        while d < @weight30_group_all_color_date.length
-          date = @weight30_group_all_color_date[d]
-          if List.exists?(date: date, weight: 3.0, color: "D") and List.exists?(date: date, weight: 3.0, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight30_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+        # #weight15
+        # d = 0
+        # while d < @weight15_group_all_color_date.length
+        #   date = @weight15_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 1.5, color: "D") and List.exists?(date: date, weight: 1.5, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight15_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
 
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 3.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 1.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
 
 
-        #weight40
-        d = 0
-        while d < @weight40_group_all_color_date.length
-          date = @weight40_group_all_color_date[d]
-          if List.exists?(date: date, weight: 4.0, color: "D") and List.exists?(date: date, weight: 4.0, color: "M")
-          else
-              i = 0
-              while i < @color.length
-                  selected_color = @color[i]
-                  @selected_color_data = @weight40_group_all_color.where(date: date).where(color: selected_color)
-                  # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
-                  @selected_color_IF = @selected_color_data.find_by clar: "IF"
-                  @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
-                  @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
-                  @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
-                  @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
-                  @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
-                  @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
-                # binding.pry 
-                  @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                  @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                  @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                  @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                  @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                  @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                  @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+        # #weight18
+        # d = 0
+        # while d < @weight18_group_all_color_date.length
+        #   date = @weight18_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 1.8, color: "D") and List.exists?(date: date, weight: 1.8, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight18_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
 
-                  if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                    List.create(date: date, color: selected_color, weight: 4.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
-                  end
-                  i += 1
-              end
-          end
-          d += 1
-        end
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 1.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
+
+
+        # #weight20
+        # d = 0
+        # while d < @weight20_group_all_color_date.length
+        #   date = @weight20_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 2.0, color: "D") and List.exists?(date: date, weight: 2.0, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight20_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 2.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
+
+
+        # #weight30
+        # d = 0
+        # while d < @weight30_group_all_color_date.length
+        #   date = @weight30_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 3.0, color: "D") and List.exists?(date: date, weight: 3.0, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight30_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 3.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
+
+
+        # #weight40
+        # d = 0
+        # while d < @weight40_group_all_color_date.length
+        #   date = @weight40_group_all_color_date[d]
+        #   if List.exists?(date: date, weight: 4.0, color: "D") and List.exists?(date: date, weight: 4.0, color: "M")
+        #   else
+        #       i = 0
+        #       while i < @color.length
+        #           selected_color = @color[i]
+        #           @selected_color_data = @weight40_group_all_color.where(date: date).where(color: selected_color)
+        #           # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+        #           @selected_color_IF = @selected_color_data.find_by clar: "IF"
+        #           @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+        #           @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+        #           @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+        #           @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+        #           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+        #           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+        #         # binding.pry 
+        #           @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+        #           @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+        #           @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+        #           @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+        #           @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+        #           @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+        #           @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+
+        #           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+        #             List.create(date: date, color: selected_color, weight: 4.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+        #           end
+        #           i += 1
+        #       end
+        #   end
+        #   d += 1
+        # end
       #-----End_Data table create for List model---------
         
     end
