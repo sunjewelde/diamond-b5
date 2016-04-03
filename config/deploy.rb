@@ -16,8 +16,8 @@ set :branch, "master"
 # Default value for :scm is :git
 set :scm, :git
 
-set :stages, %w(production)
-set :default_stage, :production
+# set :stages, %w(production)
+# set :default_stage, :production
 
 # Default value for :format is :pretty
 # set :format, :pretty
@@ -36,8 +36,8 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 set :rvm_ruby_version, '2.2.1'
 
-set :passenger_environment_variables, { :path => '/path-to-passenger/bin:/home/hiroyuki/.rvm/gems/ruby-2.2.1/wrappers/ruby' }
-set :passenger_restart_command, '/path-to-passenger/bin/passenger-config restart-app'
+# set :passenger_environment_variables, { :path => '/path-to-passenger/bin:/home/hiroyuki/.rvm/gems/ruby-2.2.1/wrappers/ruby' }
+# set :passenger_restart_command, '/path-to-passenger/bin/passenger-config restart-app'
 
 
 # set :passenger_restart_with_touch, true
