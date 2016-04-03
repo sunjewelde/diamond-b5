@@ -34,8 +34,8 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 set :rvm_ruby_version, '2.2.1'
 
-set :passenger_environment_variables, { :path => '/path-to-passenger/bin:/home/hiroyuki/.rvm/gems/ruby-2.2.1/gems/passenger-5.0.26' }
-set :passenger_restart_command, '/path-to-passenger/bin/passenger-config restart-app'
+set :passenger_environment_variables, { :path => '/home/hiroyuki/.rvm/gems/ruby-2.2.1/gems/passenger-5.0.26/bin:$PATH' }
+set :passenger_restart_command, '/home/hiroyuki/.rvm/gems/ruby-2.2.1/gems/passenger-5.0.26/bin/passenger-config restart-app'
 
 # set :passenger_restart_with_touch, true
 
