@@ -11,7 +11,7 @@ set :repo_url, 'https://github.com/sunjewelde/diamond-b5.git'
 set :branch, "master"
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/myapp/code3'
+# set :deploy_to, '/var/www/myapp/code3'
 
 # Default value for :scm is :git
 set :scm, :git
@@ -36,7 +36,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 set :rvm_ruby_version, '2.2.1'
 
-set :passenger_environment_variables, { :path => '/path-to-passenger/bin:/home/hiroyuki/.rvm/gems/ruby-2.2.1/gems/passenger-5.0.26' }
+set :passenger_environment_variables, { :path => '/path-to-passenger/bin:/home/hiroyuki/.rvm/gems/ruby-2.2.1/wrappers/ruby' }
 set :passenger_restart_command, '/path-to-passenger/bin/passenger-config restart-app'
 
 
