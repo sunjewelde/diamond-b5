@@ -105,31 +105,31 @@ class TablesController < ApplicationController
 
 			#-----Create data table create for Table model-------------
 			    #weight0.3
-			    d = 0
-			    while d < @weight03_group_all_color_date.length
-			      date = @weight03_group_all_color_date[d]
-			      if Table.exists?(date: date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.3, color: "M")
-			      else
-			          i = 0
-			          while i < @color.length
-			              selected_color = @color[i]
-			              j = 0
-			              while j < @clar.length
-			                selcted_clar = @clar[j]
-			                @selected_color_data = @weight03_group_all_color.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').where(date: date).where(color: selected_color)
-			                @selected_clar = @selected_color_data.find_by clar: selcted_clar
-			                # binding.pry
-			                  if @selected_clar.present? and @selected_clar.avg_price != ""
-			                      @selected_price = @selected_clar.avg_price.round
-			                      Table.create(date: date, color: selected_color, weight: 0.3,  clar: selcted_clar, price: @selected_price)
-			                  end
-			                j += 1
-			              end
-			              i += 1
-			          end
-			      end
-			      d += 1
-			    end
+			    # d = 0
+			    # while d < @weight03_group_all_color_date.length
+			    #   date = @weight03_group_all_color_date[d]
+			    #   if Table.exists?(date: date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.3, color: "M")
+			    #   else
+			    #       i = 0
+			    #       while i < @color.length
+			    #           selected_color = @color[i]
+			    #           j = 0
+			    #           while j < @clar.length
+			    #             selcted_clar = @clar[j]
+			    #             @selected_color_data = @weight03_group_all_color.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').where(date: date).where(color: selected_color)
+			    #             @selected_clar = @selected_color_data.find_by clar: selcted_clar
+			    #             # binding.pry
+			    #               if @selected_clar.present? and @selected_clar.avg_price != ""
+			    #                   @selected_price = @selected_clar.avg_price.round
+			    #                   Table.create(date: date, color: selected_color, weight: 0.3,  clar: selcted_clar, price: @selected_price)
+			    #               end
+			    #             j += 1
+			    #           end
+			    #           i += 1
+			    #       end
+			    #   end
+			    #   d += 1
+			    # end
 
 			    #weight0.4
 			    # d = 0
