@@ -4,7 +4,7 @@ class DbWorker
     
     def perform
         @latest_date = Diamond.maximum(:date)
-	    @oldest_date = Diamond.minimum(:date)
+	      @oldest_date = Diamond.minimum(:date)
 
         if @latest_date.present?
           @one_week_ago = @latest_date - 6
