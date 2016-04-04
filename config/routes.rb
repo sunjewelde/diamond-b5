@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   get 'tables/new'
   get 'lists/new'
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
   get 'tables/chart_second' => "tables#chart_second"
   
   root to: 'diamonds#index'
+  
+  mount Sidekiq::Web, at: '/sidekiq'
 
   resources :diamonds do
   	collection do
