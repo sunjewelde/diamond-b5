@@ -1,6 +1,7 @@
-class DbWorker
+class EventWorker
     include Sidekiq::Worker
     sidekiq_options retry: false
+    # sidekiq_options queue: :event
     
     def perform
         @latest_date = Diamond.maximum(:date)
