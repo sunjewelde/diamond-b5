@@ -91,7 +91,7 @@ class DiamondsController < ApplicationController
     end
     
     # DbWorker.perform_async
-    Myjob.perform
+    Myjob.perform_async
 
   end
   
