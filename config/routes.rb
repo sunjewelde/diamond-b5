@@ -1,4 +1,4 @@
-# require 'sidekiq/web'
+require 'sidekiq/web'
 Rails.application.routes.draw do
   get 'tables/new'
   get 'lists/new'
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   root to: 'diamonds#index'
   
-  # mount Sidekiq::Web, at: '/sidekiq'
+  mount Sidekiq::Web, at: '/sidekiq'
 
   resources :diamonds do
   	collection do
