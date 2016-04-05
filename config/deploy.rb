@@ -2,8 +2,6 @@
 # lock '3.4.0'
 
 # require "bundler/capistrano"
-require 'sidekiq/capistrano'
-set :sidekiq_role, :web
 
 set :application, 'code3'
 set :repo_url, 'https://github.com/sunjewelde/diamond-b5.git'
