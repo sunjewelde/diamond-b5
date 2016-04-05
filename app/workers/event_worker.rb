@@ -3,7 +3,7 @@ class EventWorker
     # sidekiq_options retry: false
     # sidekiq_options queue: :event
     
-    def perform
+    def perform(*args)
         @latest_date = Diamond.maximum(:date)
 	      @oldest_date = Diamond.minimum(:date)
 
