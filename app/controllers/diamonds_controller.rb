@@ -90,8 +90,8 @@ class DiamondsController < ApplicationController
       # f.chart({:defaultSeriesType=>"column"})
     end
     
-    EventWorker.perform_async
-    # Myjob.perform_async
+    # EventWorker.perform_async
+    OrganizeDiamondsJob.perform_async
 
   end
   
