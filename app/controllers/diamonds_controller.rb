@@ -91,7 +91,7 @@ class DiamondsController < ApplicationController
     end
     
     # EventWorker.perform_async
-    OrganizeDiamondsJob.perform_async
+    OrganizeDiamondsJob.perform
 
   end
   
