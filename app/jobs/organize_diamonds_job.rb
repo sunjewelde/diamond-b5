@@ -24,8 +24,6 @@ class OrganizeDiamondsJob < ActiveJob::Base
 		           "st", "sb", "str blue", "S.BLUE", "M.BLUE", "VST", "Very Strong", "V.S.BLUE", "FT"]
 
 
-	    # binding.pry
-
 	    #date, clar, colorでグループ
       if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: @oldest_date, weight: 4.0, color: "M" )
       else
