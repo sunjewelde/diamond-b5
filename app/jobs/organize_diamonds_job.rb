@@ -1,7 +1,7 @@
 class OrganizeDiamondsJob < ActiveJob::Base
   queue_as :default
 
-  def perform(*args)
+  def perform
     # Do something later
 	  	@latest_date = Diamond.maximum(:date)
 	    @oldest_date = Diamond.minimum(:date)
