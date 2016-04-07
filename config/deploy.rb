@@ -62,6 +62,10 @@ namespace :deploy do
     end
   end
   
+  require 'sidekiq/capistrano'
+  set :sidekiq_role, :web
+
+  
   # after "deploy:update", :roles => :app do
   #   run "/bin/cp #{shared_path}/config/database.yml #{release_path}/config"
   #   run "/bin/mkdir -p #{shared_path}/files"
