@@ -40,6 +40,7 @@ gem 'pry-byebug', group: :development
 gem "resque"
 gem 'sidekiq'
 gem 'sinatra', require: false
+gem 'capistrano-sidekiq'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -67,7 +68,7 @@ group :development, :test do
   # Remove the following if your server does not use RVM
   gem 'capistrano-rvm'
   
-  gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
+  # gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
   
 end
 
