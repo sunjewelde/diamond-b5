@@ -17,6 +17,8 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
+set :pty, false
+
 role :app, %w{hiroyuki@160.16.209.75}
 role :web, %w{hiroyuki@160.16.209.75}
 role :db,  %w{hiroyuki@160.16.209.75}
