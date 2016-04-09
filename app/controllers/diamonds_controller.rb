@@ -22,7 +22,7 @@ class DiamondsController < ApplicationController
   require "date"
   def index
    
-  # OrganizeDiamondsJob.perform_later
+  OrganizeDiamondsJob.perform_later args
   # OrganizeDiamondsJob.perform
   # EventWorker.perform_async
    
