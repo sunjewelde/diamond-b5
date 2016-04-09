@@ -23,7 +23,8 @@ class DiamondsController < ApplicationController
   def index
    
   # OrganizeDiamondsJob.perform_later
-   EventWorker.perform_async
+  OrganizeDiamondsJob.perform
+  # EventWorker.perform_async
    
     # @diamonds = Diamond.all
     #kaminariでページネーション
