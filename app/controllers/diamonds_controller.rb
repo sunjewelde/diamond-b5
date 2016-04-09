@@ -7,6 +7,11 @@ class DiamondsController < ApplicationController
   def group_color(weight, color)
     "@weight" + weight + "_diamond_group.weight" + weight + ".color(" + "\"" + color + "\"" + ")"
   end
+  
+  def run
+    OrganizeDiamondsJob.perform_later
+    #EventWorker.perform_async
+  end
 
   def import
      # fileはtmpに自動で一時保存される
@@ -17,9 +22,6 @@ class DiamondsController < ApplicationController
   require "date"
   def index
    
-    # OrganizeDiamondsJob.perform_later
-    EventWorker.perform_async
-    
     # @diamonds = Diamond.all
     #kaminariでページネーション
     # @diamonds = Diamond.page(params[:page])

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   root to: 'diamonds#index'
   
   mount Sidekiq::Web, at: '/sidekiq'
+  
+  post 'diamonds/run'
 
   resources :diamonds do
   	collection do
