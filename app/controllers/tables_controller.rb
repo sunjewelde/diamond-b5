@@ -104,7 +104,7 @@ class TablesController < ApplicationController
 			@weight40_group_all_color_date = @weight40_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
 
 			#-----Create data table create for Table model-------------
-			    weight0.3
+			    #weight0.3
 			    d = 0
 			    while d < @weight03_group_all_color_date.length
 			      date = @weight03_group_all_color_date[d]
