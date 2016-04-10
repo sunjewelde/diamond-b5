@@ -10,8 +10,9 @@ require 'csv'
 Bundler.require(*Rails.groups)
 
 # module DiamondB3
+module Code3
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
     config.active_job.queue_adapter = :sidekiq
   end
-# end
+end

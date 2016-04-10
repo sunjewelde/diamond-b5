@@ -7,13 +7,13 @@ class EventWorker
         @latest_date = Diamond.maximum(:date)
 	      @oldest_date = Diamond.minimum(:date)
 
-        if @latest_date.present?
-          @one_week_ago = @latest_date - 6
-          @one_months_ago = @latest_date - 30
-          @three_months_ago = @latest_date - 90
-          @six_months_ago = @latest_date - 180
-          @one_year_ago = @latest_date - 364
-        end
+        # if @latest_date.present?
+        #   @one_week_ago = @latest_date - 6
+        #   @one_months_ago = @latest_date - 30
+        #   @three_months_ago = @latest_date - 90
+        #   @six_months_ago = @latest_date - 180
+        #   @one_year_ago = @latest_date - 364
+        # end
     
     		@weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
     		@color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
