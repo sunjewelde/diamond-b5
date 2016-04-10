@@ -22,9 +22,9 @@ class DiamondsController < ApplicationController
   require "date"
   def index
    
-  # OrganizeDiamondsJob.perform_later
+  OrganizeDiamondsJob.perform_later
   # OrganizeDiamondsJob.perform
-  EventWorker.perform_async
+  # EventWorker.perform_async
    
     # @diamonds = Diamond.all
     #kaminariでページネーション
