@@ -1,3 +1,4 @@
+require "date"
 class OrganizeDiamondsJob < ActiveJob::Base
   queue_as :default
 
@@ -8,6 +9,21 @@ class OrganizeDiamondsJob < ActiveJob::Base
 	    
 	    @latest_date_table = Table.maximum(:date)
 	    @oldest_date_table = Table.minimum(:date)
+	    
+	    if @latest_date_table.present?
+	       @last_updated_date_table = @latest_date_table + 1
+	     else
+	       @last_updated_date_table = @oldest_date
+	    end
+	    
+	    @latest_date_list = List.maximum(:date)
+	    @oldest_date_list = List.minimum(:date)
+	    
+	    if @latest_date_list.present?
+	       @last_updated_date_list = @latest_date_list + 1
+	     else
+	       @last_updated_date_list = @oldest_date
+	    end
 	    
 	    if @latest_date == @latest_date_table
 	    else
@@ -25,20 +41,20 @@ class OrganizeDiamondsJob < ActiveJob::Base
           # if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: @oldest_date, weight: 4.0, color: "M" )
           if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF")
           else
-          @weight03_diamond_group_all = Diamond.weight03
-          @weight04_diamond_group_all = Diamond.weight04
-          @weight05_diamond_group_all = Diamond.weight05
-          @weight06_diamond_group_all = Diamond.weight06
-          @weight07_diamond_group_all = Diamond.weight07
-          @weight08_diamond_group_all = Diamond.weight08
-          @weight09_diamond_group_all = Diamond.weight09
-          @weight10_diamond_group_all = Diamond.weight10
-          @weight12_diamond_group_all = Diamond.weight12
-          @weight15_diamond_group_all = Diamond.weight15
-          @weight18_diamond_group_all = Diamond.weight18
-          @weight20_diamond_group_all = Diamond.weight20
-          @weight30_diamond_group_all = Diamond.weight30
-          @weight40_diamond_group_all = Diamond.weight40
+          @weight03_diamond_group_all = Diamond.weight03.where(:date=> @last_updated_date_table..@latest_date)
+          @weight04_diamond_group_all = Diamond.weight04.where(:date=> @last_updated_date_table..@latest_date)
+          @weight05_diamond_group_all = Diamond.weight05.where(:date=> @last_updated_date_table..@latest_date)
+          @weight06_diamond_group_all = Diamond.weight06.where(:date=> @last_updated_date_table..@latest_date)
+          @weight07_diamond_group_all = Diamond.weight07.where(:date=> @last_updated_date_table..@latest_date)
+          @weight08_diamond_group_all = Diamond.weight08.where(:date=> @last_updated_date_table..@latest_date)
+          @weight09_diamond_group_all = Diamond.weight09.where(:date=> @last_updated_date_table..@latest_date)
+          @weight10_diamond_group_all = Diamond.weight10.where(:date=> @last_updated_date_table..@latest_date)
+          @weight12_diamond_group_all = Diamond.weight12.where(:date=> @last_updated_date_table..@latest_date)
+          @weight15_diamond_group_all = Diamond.weight15.where(:date=> @last_updated_date_table..@latest_date)
+          @weight18_diamond_group_all = Diamond.weight18.where(:date=> @last_updated_date_table..@latest_date)
+          @weight20_diamond_group_all = Diamond.weight20.where(:date=> @last_updated_date_table..@latest_date)
+          @weight30_diamond_group_all = Diamond.weight30.where(:date=> @last_updated_date_table..@latest_date)
+          @weight40_diamond_group_all = Diamond.weight40.where(:date=> @last_updated_date_table..@latest_date)
           
           @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date, :color, :clar)
           @weight03_group_all_color_date = @weight03_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
