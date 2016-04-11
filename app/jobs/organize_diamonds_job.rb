@@ -6,13 +6,13 @@ class OrganizeDiamondsJob < ActiveJob::Base
 	  	@latest_date = Diamond.maximum(:date)
 	    @oldest_date = Diamond.minimum(:date)
 
-    if @latest_date.present?
-      @one_week_ago = @latest_date - 6
-      @one_months_ago = @latest_date - 30
-      @three_months_ago = @latest_date - 90
-      @six_months_ago = @latest_date - 180
-      @one_year_ago = @latest_date - 364
-    end
+    # if @latest_date.present?
+    #   @one_week_ago = @latest_date - 6
+    #   @one_months_ago = @latest_date - 30
+    #   @three_months_ago = @latest_date - 90
+    #   @six_months_ago = @latest_date - 180
+    #   @one_year_ago = @latest_date - 364
+    # end
 
 		@weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
 		@color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
@@ -22,10 +22,14 @@ class OrganizeDiamondsJob < ActiveJob::Base
 		@symmetry = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good", "g", "Fair", "F"]
 		@fluorescen = ["Medium", "Faint", "None", "Strong", "f", "mb", "NONE", "Medium Blue", "md blue", 
 		           "st", "sb", "str blue", "S.BLUE", "M.BLUE", "VST", "Very Strong", "V.S.BLUE", "FT"]
+		           
+    # judge_1 = Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF")
+    # judge_2 = Table.exists?(date: @oldest_date, weight: 4.0, color: "M" )
 
 
 	    #date, clar, colorでグループ
-      if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: @oldest_date, weight: 4.0, color: "M" )
+      # if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: @oldest_date, weight: 4.0, color: "M" )
+      if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF")
       else
       @weight03_diamond_group_all = Diamond.weight03
       @weight04_diamond_group_all = Diamond.weight04
