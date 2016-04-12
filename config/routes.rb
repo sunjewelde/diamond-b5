@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   mount Sidekiq::Web, at: '/sidekiq'
   
-  post 'diamonds/run' => "diamonds#run"
+  post 'diamonds/run'
 
   resources :diamonds do
   	collection do
