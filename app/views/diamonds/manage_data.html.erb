@@ -5,4 +5,7 @@
 		<%= file_field_tag :file %>
 		<%= submit_tag "インポート" %>
     <% end %>
+    
+    <%= button_to "データテーブル作成", { :action => "run"}, :confirm => "データを作成しますか?", :method => :post %>
+    
 </div>

@@ -9,7 +9,7 @@ class DiamondsController < ApplicationController
   end
   
   def run
-    # OrganizeDiamondsJob.perform_later
+    OrganizeDiamondsJob.perform_later
     #EventWorker.perform_async
   end
 
@@ -105,7 +105,7 @@ class DiamondsController < ApplicationController
   
   def manage_data
     
-    OrganizeDiamondsJob.perform_later
+    # OrganizeDiamondsJob.perform_later
     # OrganizeDiamondsJob.perform
     # EventWorker.perform_async
     
