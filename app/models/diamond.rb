@@ -71,7 +71,7 @@ class Diamond <ActiveRecord::Base
           next if row.header_row?
 
     # CSVの行情報をHASHに変換
-          table = Hash[[row.headers, row.fields].transpose]
+          # table = Hash[[row.headers, row.fields].transpose]
 
     # 登録済みデータ情報取得。
           # 登録されてなければ作成
@@ -80,9 +80,26 @@ class Diamond <ActiveRecord::Base
           #   user = new
           # end
 
-          diamond.attributes = table.to_hash.slice(*updatable_attributes)
+          # diamond.attributes = table.to_hash.slice(*updatable_attributes)
           # 保存する
     #   diamond.save!
+    
+    diamond = Diamond.new
+    diamond.date = row[0]  #csvの1列目を格納
+    diamond.weight = row[4]
+    diamond.color = row[5]
+    diamond.clar = row[9]
+    diamond.cut_grade = row[14]
+    diamond.rapnet_list_price = row[16]
+    diamond.rapnet_discount = row[17]
+    diamond.price_per_carat = row[18]
+    diamond.polish = row[26]
+    diamond.symmetry = row[27]
+    diamond.fluorescen = row[28] 
+    diamond.certificate_id = row[37]
+    diamond.end_price = row[48]
+       
+    diamond.save
 
     # CSV.foreach(file.path, headers: true) do |row|
     #   # Dateが見つかれば、レコードを呼び出し、見つかれなければ、新しく作成
@@ -94,10 +111,12 @@ class Diamond <ActiveRecord::Base
       end
     end
   end
+  
 
   # 更新を許可するカラムを定義
   def self.updatable_attributes
-    ["date", "color", "clar", "end_price"]
+    ["date", "weight", "color", "clar", "cut_grade", "rapnet_list_price", "rapnet_discount", 
+     "price_per_carat", "polish", "symmetry", "fluorescen", "certificate_id", "end_price"]
   end
     
     
