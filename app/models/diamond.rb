@@ -85,26 +85,31 @@ class Diamond <ActiveRecord::Base
           # 保存する
     #   diamond.save!
     # CSV.foreach(file.path, headers: true) do |row|
-    CSV.foreach(file.path, headers: true, encoding: 'Shift_JIS:UTF-8') do |row|
-    diamond = Diamond.new
-    diamond.date = row[0]  #csvの1列目を格納
-    diamond.weight = row[4]
-    diamond.color = row[5]
-    diamond.clar = row[9]
-    diamond.length = row[10]
-    diamond.width = row[11]
-    diamond.depth = row[12]
-    diamond.cut_grade = row[14]
-    diamond.rapnet_list_price = row[16]
-    diamond.rapnet_discount = row[17]
-    diamond.price_per_carat = row[18]
-    diamond.polish = row[26]
-    diamond.symmetry = row[27]
-    diamond.fluorescen = row[28] 
-    diamond.certificate_id = row[37]
-    diamond.end_price = row[48]
+    # CSV.foreach(file.path, headers: true, encoding: 'Shift_JIS:UTF-8') do |row|
+    # diamond = Diamond.new
+    # diamond.date = row[0]  #csvの1列目を格納
+    # diamond.weight = row[4]
+    # diamond.color = row[5]
+    # diamond.clar = row[9]
+    # diamond.length = row[10]
+    # diamond.width = row[11]
+    # diamond.depth = row[12]
+    # diamond.cut_grade = row[14]
+    # diamond.rapnet_list_price = row[16]
+    # diamond.rapnet_discount = row[17]
+    # diamond.price_per_carat = row[18]
+    # diamond.polish = row[26]
+    # diamond.symmetry = row[27]
+    # diamond.fluorescen = row[28] 
+    # diamond.certificate_id = row[37]
+    # diamond.end_price = row[48]
        
-    diamond.save
+    # diamond.save
+    
+    CSV.foreach(file.path, headers: true) do |row|
+  Diamond.create(:date => row[0], :weight => row[4], :color => row[5], :clar => row[9], :length => row[10], :width => row[11],
+                 :depth => row[12], :cut_grade => row[14], :rapnet_list_price => row[16], :rapnet_discount => row[17], :price_per_carat => row[18], 
+                :polish => row[26], :symmetry => row[27], :fluorescen => row[28], :certificate_id => row[37], :end_price => row[48])
 
     # CSV.foreach(file.path, headers: true) do |row|
     #   # Dateが見つかれば、レコードを呼び出し、見つかれなければ、新しく作成
