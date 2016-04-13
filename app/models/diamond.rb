@@ -65,11 +65,11 @@ class Diamond <ActiveRecord::Base
 
 
   def self.import(file)
-    # open(file.path, 'r:cp932:utf-8', undef: :replace) do |f|
-      open(file.path, 'rb:Shift_JIS:UTF-8', undef: :replace) do |f|
-        csv = CSV.new(f, :headers => :first_row)
-        csv.each do |row|
-          next if row.header_row?
+    # # open(file.path, 'r:cp932:utf-8', undef: :replace) do |f|
+    #   open(file.path, 'rb:Shift_JIS:UTF-8', undef: :replace) do |f|
+    #     csv = CSV.new(f, :headers => :first_row)
+    #     csv.each do |row|
+    #       next if row.header_row?
 
     # CSVの行情報をHASHに変換
           # table = Hash[[row.headers, row.fields].transpose]
@@ -85,6 +85,7 @@ class Diamond <ActiveRecord::Base
           # 保存する
     #   diamond.save!
     # CSV.foreach(file.path, headers: true) do |row|
+    CSV.foreach(file.path, headers: true) do |row|
     diamond = Diamond.new
     diamond.date = row[0]  #csvの1列目を格納
     diamond.weight = row[4]
@@ -112,7 +113,7 @@ class Diamond <ActiveRecord::Base
     #   diamond.attributes = row.to_hash.slice(*updatable_attributes)
     #   # 保存する
     #   diamond.save!
-      end
+      # end
     end
   end
   
