@@ -65,7 +65,8 @@ class Diamond <ActiveRecord::Base
 
 
   def self.import(file)
-    open(file.path, 'r:cp932:utf-8', undef: :replace) do |f|
+    # open(file.path, 'r:cp932:utf-8', undef: :replace) do |f|
+      open(file.path, 'rb:Shift_JIS:UTF-8', undef: :replace) do |f|
         csv = CSV.new(f, :headers => :first_row)
         csv.each do |row|
           next if row.header_row?
