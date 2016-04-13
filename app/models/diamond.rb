@@ -111,7 +111,7 @@ class Diamond <ActiveRecord::Base
     #   diamond.attributes = row.to_hash.slice(*updatable_attributes)
     #   # 保存する
     #   diamond.save!
-      end
+      # end
     end
   end
   
