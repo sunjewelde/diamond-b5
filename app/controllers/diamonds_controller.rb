@@ -17,7 +17,7 @@ class DiamondsController < ApplicationController
      # fileはtmpに自動で一時保存される
     Diamond.import(params[:file])
     # Diamond.import(params[:csv_file])
-    redirect_to root_url, notice: "Diamondデータを追加しました。"
+    # redirect_to root_url, notice: "Diamondデータを追加しました。"
   end
   
   require "date"
