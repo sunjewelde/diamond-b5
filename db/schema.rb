@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207003506) do
+ActiveRecord::Schema.define(version: 20160413194243) do
 
   create_table "diamonds", force: :cascade do |t|
     t.date     "date"
@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 20160207003506) do
     t.string   "certificate_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "length"
+    t.float    "width"
+    t.float    "depth"
   end
 
   create_table "lists", force: :cascade do |t|
