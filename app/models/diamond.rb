@@ -85,7 +85,7 @@ class Diamond <ActiveRecord::Base
           # 保存する
     #   diamond.save!
     # CSV.foreach(file.path, headers: true) do |row|
-    CSV.foreach(file.path, headers: true) do |row|
+    CSV.foreach(file.path, headers: true, encoding: 'Shift_JIS:UTF-8') do |row|
     diamond = Diamond.new
     diamond.date = row[0]  #csvの1列目を格納
     diamond.weight = row[4]
