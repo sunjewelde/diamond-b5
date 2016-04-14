@@ -1,5 +1,7 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   get 'users/new'
 
   get 'tables/new'
@@ -28,8 +30,12 @@ Rails.application.routes.draw do
   end
   
   get 'signup',  to: 'users#new'
+  get    'login' , to: 'sessions#new'
+  post   'login' , to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
