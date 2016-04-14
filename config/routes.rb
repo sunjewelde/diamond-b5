@@ -26,6 +26,10 @@ Rails.application.routes.draw do
   		post :import
   	end
   end
+  
+  get 'signup',  to: 'users#new'
+
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
