@@ -28,14 +28,14 @@ class Diamond <ActiveRecord::Base
     scope :weight, ->(weight) {where(weight: weight)}
 
     scope :date_bewteen, -> from, to {
-    	if from.present? && to.present?
-	      where(date: from..to)
-	    elsif from.present?
-	      where('date >= ?', from)
-	    elsif to.present?
-	      where('date <= ?', to)
-	    end
-    	}
+      if from.present? && to.present?
+          where(date: from..to)
+        elsif from.present?
+          where('date >= ?', from)
+        elsif to.present?
+          where('date <= ?', to)
+      end
+      }
 
     scope :color, ->(color) {where(color: color) if color.present? }
     scope :clar, ->(clar) {where(clar: clar) if clar.present? }

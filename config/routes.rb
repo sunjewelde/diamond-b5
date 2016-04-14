@@ -1,5 +1,7 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  get 'users/new'
+
   get 'tables/new'
   get 'lists/new'
 
