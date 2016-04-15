@@ -14,7 +14,8 @@ class DiamondsController < ApplicationController
   end
 
   def import
-    CsvImportJob.perform_later(params[:file])
+    # CsvImportJob.perform_later(params[:file])
+    CsvWorker.perform_async(params[:file])
     # CsvImportJob.perform_later
      # fileはtmpに自動で一時保存される
     # Diamond.import(params[:file])
