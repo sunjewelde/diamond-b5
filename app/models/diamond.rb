@@ -65,6 +65,7 @@ class Diamond <ActiveRecord::Base
 
 
   def self.import(file)
+    CsvImportJob.perform_later(file)
     # # open(file.path, 'r:cp932:utf-8', undef: :replace) do |f|
     #   open(file.path, 'rb:Shift_JIS:UTF-8', undef: :replace) do |f|
     #     csv = CSV.new(f, :headers => :first_row)
@@ -107,10 +108,11 @@ class Diamond <ActiveRecord::Base
     # diamond.save
     
     # CSV.foreach(file.path, headers: true) do |row|
-  CSV.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
-  Diamond.create(:date => row[0], :weight => row[4], :color => row[5], :clar => row[9], :length => row[10], :width => row[11],
-                 :depth => row[12], :cut_grade => row[14], :rapnet_list_price => row[16], :rapnet_discount => row[17], :price_per_carat => row[18], 
-                :polish => row[26], :symmetry => row[27], :fluorescen => row[28], :certificate_id => row[37], :end_price => row[48])
+    
+  # CSV.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
+  # Diamond.create(:date => row[0], :weight => row[4], :color => row[5], :clar => row[9], :length => row[10], :width => row[11],
+  #               :depth => row[12], :cut_grade => row[14], :rapnet_list_price => row[16], :rapnet_discount => row[17], :price_per_carat => row[18], 
+  #               :polish => row[26], :symmetry => row[27], :fluorescen => row[28], :certificate_id => row[37], :end_price => row[48])
 
     # CSV.foreach(file.path, headers: true) do |row|
     #   # Dateが見つかれば、レコードを呼び出し、見つかれなければ、新しく作成
