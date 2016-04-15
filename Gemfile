@@ -10,7 +10,7 @@ gem 'sqlite3'
 # 本番ではpostgressを使用する
 # gem 'pg', group: :production
 
-gem 'mysql2', '~> 0.3.20'
+gem 'mysql2', '~> 0.3.20', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -36,6 +36,9 @@ gem 'ransack'
 gem 'pry-byebug', group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'devise'
 
 gem "resque"
 gem 'sidekiq'

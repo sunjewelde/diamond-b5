@@ -125,6 +125,9 @@ class Diamond <ActiveRecord::Base
     end
   end
   
+  def task(file)
+  end
+  
 
   # 更新を許可するカラムを定義
   def self.updatable_attributes

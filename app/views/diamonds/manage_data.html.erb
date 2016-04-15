@@ -1,8 +1,7 @@
 <h1>Data management page</h1>
 
 <div class= "container">
-	<%= #form_tag import_diamonds_path, multipart: true do %>
-	<%= form_tag {:action => 'import'}, :remote => true do %>
+	<%= form_tag import_diamonds_path, multipart: true do %>
 		<%= file_field_tag :file %>
 		<%= submit_tag "インポート" %>
     <% end %>
