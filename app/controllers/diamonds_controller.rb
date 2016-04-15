@@ -15,8 +15,8 @@ class DiamondsController < ApplicationController
 
   def import
     # @file = params[:resource][:file_tag_name]
-    @file = params[:resource][:file]
-    # @file = params[:file]
+    # @file = params[:resource][:file]
+    @file = params[:file]
     options = {
     :chunk_size => 100
     }
