@@ -10,7 +10,7 @@ gem 'sqlite3'
 # 本番ではpostgressを使用する
 # gem 'pg', group: :production
 
-gem 'mysql2', '~> 0.3.20', group: :production
+gem 'mysql2', '~> 0.3.20'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
