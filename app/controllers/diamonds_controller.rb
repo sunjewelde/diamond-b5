@@ -16,7 +16,7 @@ class DiamondsController < ApplicationController
   def import
     # @file = params[:resource][:file_tag_name]
     @file = params[:file]
-    SmarterCSV.process(@file, options) do |chunk|
+    SmarterCSV.process(@file) do |chunk|
     CsvImportJob.perform_later(chunk) # pass chunks of CSV-data to Resque workers for parallel processing
     end
     # SmarterCSV.process(@file)
