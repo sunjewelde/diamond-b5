@@ -122,7 +122,7 @@ class Diamond <ActiveRecord::Base
     #   # 保存する
     #   diamond.save!
       # end
-    end
+    # end
   end
   
 
