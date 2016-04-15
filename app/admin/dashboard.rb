@@ -1,18 +1,18 @@
 ActiveAdmin.register_page "Dashboard" do
   
-  section "Latest Diamonds" do
-    table_for Diamond.order("date").limit(10) do
-      column :certificate_id do |diamond|
-        link_to diamond.certificate_id, admin_diamonds_path(diamond)
-      end
-      column :date
-      column "Calut", :weight
-      column "Color", :color
-      column "Crality", :clar
-      column "Price", :end_price
-    end
-    strong {link_to "View All Diamonds", admin_diamonds_path}
-  end
+  # section "Latest Diamonds" do
+  #   table_for Diamond.order("date").limit(10) do
+  #     column :certificate_id do |diamond|
+  #       link_to diamond.certificate_id, admin_diamonds_path(diamond)
+  #     end
+  #     column :date
+  #     column "Calut", :weight
+  #     column "Color", :color
+  #     column "Crality", :clar
+  #     column "Price", :end_price
+  #   end
+  #   strong {link_to "View All Diamonds", admin_diamonds_path}
+  # end
 
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
 
