@@ -2,7 +2,7 @@
 
 <div class= "container">
 	<%= #form_tag import_diamonds_path, multipart: true do %>
-	<%= form_tag ({:controller => "diamonds",:action => 'import'}), :remote => true do %>
+	<%= form_tag {:action => 'import'}, :remote => true do %>
 		<%= file_field_tag :file %>
 		<%= submit_tag "インポート" %>
     <% end %>
