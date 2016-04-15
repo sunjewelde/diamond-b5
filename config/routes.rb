@@ -22,12 +22,14 @@ Rails.application.routes.draw do
   mount Sidekiq::Web, at: '/sidekiq'
   
   post 'diamonds/run'
+  
+  post 'diamonds/import'
 
-  resources :diamonds do
-  	collection do
-  		post :import
-  	end
-  end
+  # resources :diamonds do
+  # 	collection do
+  # 		post :import
+  # 	end
+  # end
   
   get 'signup',  to: 'users#new'
   get    'login' , to: 'sessions#new'
