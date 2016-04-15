@@ -40,6 +40,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'devise'
 
+gem 'smarter_csv'
+
 gem "resque"
 gem 'sidekiq'
 gem 'sinatra', require: false
