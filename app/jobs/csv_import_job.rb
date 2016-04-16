@@ -47,7 +47,7 @@ class CsvImportJob < ActiveJob::Base
                       diamond.end_price = hash.values_at(:usd) rescue nil
                     
                     diamond.save
-                end
+                # end
                 
                 # Diamond.create(:date => row[0], :weight => row[4], :color => row[5], :clar => row[9], :length => row[10], :width => row[11],
                 #          :depth => row[12], :cut_grade => row[14], :rapnet_list_price => row[16], :rapnet_discount => row[17], :price_per_carat => row[18], 
