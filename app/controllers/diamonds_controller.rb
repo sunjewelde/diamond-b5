@@ -25,9 +25,7 @@ class DiamondsController < ApplicationController
     # CsvImportJob.perform_later(data)
     # binding.pry
      
-    options = {
-    :chunk_size => 100, :file_encoding  => iso-8859-1
-    }
+    options = {:chunk_size => 100, :file_encoding  => 'iso-8859-1'}
     SmarterCSV.process(@file, options) do |chunk|
     CsvImportJob.perform_later(chunk) # pass chunks of CSV-data to Resque workers for parallel processing
     end
