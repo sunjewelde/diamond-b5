@@ -7,25 +7,45 @@ class CsvImportJob < ActiveJob::Base
             # CSV.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
             # chunk.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
             
+            api_response.dig("identifier", "ISBN", 0) #=> "978-4-87783-259-9"
+            
             chunk.each do |hash|
                 hash.each do |row|
                     diamond = Diamond.new
-                    diamond.date = row.fetch("date")  #csvの1列目を格納
-                    diamond.weight = row.fetch("weight").to_f
-                    diamond.color = row.fetch("color")
-                    diamond.clar = row.fetch("clarity")
-                    diamond.length = row.fetch("measlength").to_f
-                    diamond.width = row.fetch("measwidth").to_f
-                    diamond.depth = row.fetch("measdepth").to_f
-                    diamond.cut_grade = row.fetch("cut_grade")
-                    diamond.rapnet_list_price = row.fetch("rapnet_list_price").to_i
-                    diamond.rapnet_discount = row.fetch("rapnet_discount").to_i
-                    diamond.price_per_carat = row.fetch("price_per_carat").to_i
-                    diamond.polish = row.fetch("polish")
-                    diamond.symmetry = row.fetch("symmetry")
-                    diamond.fluorescen = row.fetch("fluorescence_intensity")
-                    diamond.certificate_id = row.fetch("certificateid").to_i
-                    diamond.end_price = row.fetch("usd").to_f
+                    
+                    diamond.date = row.dig("identifier", "date", 0)  #csvの1列目を格納
+                    diamond.weight = row.dig("identifier","weight")
+                    diamond.color = row.dig("identifier","color")
+                    diamond.clar = row.dig("identifier","clarity")
+                    diamond.length = row.dig("identifier","measlength")
+                    diamond.width = row.dig("identifier","measwidth")
+                    diamond.depth = row.dig("identifier","measdepth")
+                    diamond.cut_grade = row.dig("identifier","cut_grade")
+                    diamond.rapnet_list_price = row.dig("identifier","rapnet_list_price")
+                    diamond.rapnet_discount = row.dig("identifier","rapnet_discount")
+                    diamond.price_per_carat = row.dig("identifier","price_per_carat")
+                    diamond.polish = row.dig("identifier","polish")
+                    diamond.symmetry = row.dig("identifier","symmetry")
+                    diamond.fluorescen = row.dig("identifier","fluorescence_intensity")
+                    diamond.certificate_id = row.dig("identifier","certificateid").to_i
+                    diamond.end_price = row.dig("identifier","usd")
+                    
+                    # diamond.date = row.fetch("date")  #csvの1列目を格納
+                    # diamond.weight = row.fetch("weight")
+                    # diamond.color = row.fetch("color")
+                    # diamond.clar = row.fetch("clarity")
+                    # diamond.length = row.fetch("measlength")
+                    # diamond.width = row.fetch("measwidth")
+                    # diamond.depth = row.fetch("measdepth")
+                    # diamond.cut_grade = row.fetch("cut_grade")
+                    # diamond.rapnet_list_price = row.fetch("rapnet_list_price")
+                    # diamond.rapnet_discount = row.fetch("rapnet_discount")
+                    # diamond.price_per_carat = row.fetch("price_per_carat")
+                    # diamond.polish = row.fetch("polish")
+                    # diamond.symmetry = row.fetch("symmetry")
+                    # diamond.fluorescen = row.fetch("fluorescence_intensity")
+                    # diamond.certificate_id = row.fetch("certificateid").to_i
+                    # diamond.end_price = row.fetch("usd")
                     
                     diamond.save
                 end
