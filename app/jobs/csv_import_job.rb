@@ -12,39 +12,39 @@ class CsvImportJob < ActiveJob::Base
                 hash.each do |row|
                     diamond = Diamond.new
                     
-                    # diamond.date = row["date"] #csvの1列目を格納
-                    # diamond.weight = row["weight"] rescue nil
-                    # diamond.color = row["color"] rescue nil
-                    # diamond.clar = row["clarity"] rescue nil
-                    # diamond.length = row["measlength"] rescue nil
-                    # diamond.width = row["measwidth"] rescue nil
-                    # diamond.depth = row["measdepth"] rescue nil
-                    # diamond.cut_grade = row["cut_grade"] rescue nil
-                    # diamond.rapnet_list_price = row["rapnet_list_price"] rescue nil
-                    # diamond.rapnet_discount = row["rapnet_discount"] rescue nil
-                    # diamond.price_per_carat = row["price_per_carat"] rescue nil
-                    # diamond.polish = row["polish"] rescue nil
-                    # diamond.symmetry = row["symmetry"] rescue nil
-                    # diamond.fluorescen = row["fluorescence_intensity"] rescue nil
-                    # diamond.certificate_id = row["certificateid"] rescue nil
-                    # diamond.end_price = row["usd"] rescue nil
+                    diamond.date = row["date"].values #csvの1列目を格納
+                    diamond.weight = row["weight"].values rescue nil
+                    diamond.color = row["color"].values rescue nil
+                    diamond.clar = row["clarity"].values rescue nil
+                    diamond.length = row["measlength"].values rescue nil
+                    diamond.width = row["measwidth"].values rescue nil
+                    diamond.depth = row["measdepth"].values rescue nil
+                    diamond.cut_grade = row["cutgrade"].values rescue nil
+                    diamond.rapnet_list_price = row["rapnet_list_price"].values rescue nil
+                    diamond.rapnet_discount = row["rapnet_discount"].values rescue nil
+                    diamond.price_per_carat = row["price_per_carat"].values rescue nil
+                    diamond.polish = row["polish"].values rescue nil
+                    diamond.symmetry = row["symmetry"].values rescue nil
+                    diamond.fluorescen = row["fluorescence_intensity"].values rescue nil
+                    diamond.certificate_id = row["certificateid"].values rescue nil
+                    diamond.end_price = row["usd"].values rescue nil
                     
-                    diamond.date = row.fetch_values("date")  #csvの1列目を格納
-                    diamond.weight = row.fetch_values("weight")
-                    diamond.color = row.fetch_values("color")
-                    diamond.clar = row.fetch_values("clarity")
-                    diamond.length = row.fetch_values("measlength")
-                    diamond.width = row.fetch_values("measwidth")
-                    diamond.depth = row.fetch_values("measdepth")
-                    diamond.cut_grade = row.fetch_values("cut_grade")
-                    diamond.rapnet_list_price = row.fetch_values("rapnet_list_price")
-                    diamond.rapnet_discount = row.fetch_values("rapnet_discount")
-                    diamond.price_per_carat = row.fetch_values("price_per_carat")
-                    diamond.polish = row.fetch_values("polish")
-                    diamond.symmetry = row.fetch_values("symmetry")
-                    diamond.fluorescen = row.fetch_values("fluorescence_intensity")
-                    diamond.certificate_id = row.fetch_values("certificateid").to_i
-                    diamond.end_price = row.fetch_values("usd")
+                    # diamond.date = row.fetch_values("date")  #csvの1列目を格納
+                    # diamond.weight = row.fetch_values("weight")
+                    # diamond.color = row.fetch_values("color")
+                    # diamond.clar = row.fetch_values("clarity")
+                    # diamond.length = row.fetch_values("measlength")
+                    # diamond.width = row.fetch_values("measwidth")
+                    # diamond.depth = row.fetch_values("measdepth")
+                    # diamond.cut_grade = row.fetch_values("cut_grade")
+                    # diamond.rapnet_list_price = row.fetch_values("rapnet_list_price")
+                    # diamond.rapnet_discount = row.fetch_values("rapnet_discount")
+                    # diamond.price_per_carat = row.fetch_values("price_per_carat")
+                    # diamond.polish = row.fetch_values("polish")
+                    # diamond.symmetry = row.fetch_values("symmetry")
+                    # diamond.fluorescen = row.fetch_values("fluorescence_intensity")
+                    # diamond.certificate_id = row.fetch_values("certificateid").to_i
+                    # diamond.end_price = row.fetch_values("usd")
                     
                     diamond.save
                 end
