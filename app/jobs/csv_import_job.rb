@@ -29,22 +29,22 @@ class CsvImportJob < ActiveJob::Base
                     # diamond.certificate_id = row["certificateid"].values rescue nil
                     # diamond.end_price = row["usd"].values rescue nil
                     
-                    diamond.date = row.values_at("date") rescue nil  #csvの1列目を格納
-                    diamond.weight = row.values_at("weight") rescue nil
-                    diamond.color = row.values_at("color") rescue nil
-                    diamond.clar = row.values_at("clarity") rescue nil
-                    diamond.length = row.values_at("measlength") rescue nil
-                    diamond.width = row.values_at("measwidth") rescue nil
-                    diamond.depth = row.values_at("measdepth") rescue nil
-                    diamond.cut_grade = row.values_at("cutgrade") rescue nil
-                    diamond.rapnet_list_price = row.values_at("rapnet_list_price") rescue nil
-                    diamond.rapnet_discount = row.values_at("rapnet_discount") rescue nil
-                    diamond.price_per_carat = row.values_at("price_per_carat") rescue nil
-                    diamond.polish = row.values_at("polish") rescue nil
-                    diamond.symmetry = row.values_at("symmetry") rescue nil
-                    diamond.fluorescen = row.values_at("fluorescence_intensity") rescue nil
-                    diamond.certificate_id = row.values_at("certificateid") rescue nil
-                    diamond.end_price = row.values_at("usd") rescue nil
+                    diamond.date = row.values_at(:date) rescue nil  #csvの1列目を格納
+                    diamond.weight = row.values_at(:weight) rescue nil
+                    diamond.color = row.values_at(:color) rescue nil
+                    diamond.clar = row.values_at(:clarity) rescue nil
+                    diamond.length = row.values_at(:measlength) rescue nil
+                    diamond.width = row.values_at(:measwidth) rescue nil
+                    diamond.depth = row.values_at(:measdepth) rescue nil
+                    diamond.cut_grade = row.values_at(:cutgrade) rescue nil
+                    diamond.rapnet_list_price = row.values_at(:rapnet_list_price) rescue nil
+                    diamond.rapnet_discount = row.values_at(:rapnet_discount) rescue nil
+                    diamond.price_per_carat = row.values_at(:price_per_carat) rescue nil
+                    diamond.polish = row.values_at(:polish) rescue nil
+                    diamond.symmetry = row.values_at(:symmetry) rescue nil
+                    diamond.fluorescen = row.values_at(:fluorescence_intensity) rescue nil
+                    diamond.certificate_id = row.values_at(:certificateid) rescue nil
+                    diamond.end_price = row.values_at(:usd) rescue nil
                     
                     diamond.save
                 end
