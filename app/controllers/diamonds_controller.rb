@@ -17,18 +17,20 @@ class DiamondsController < ApplicationController
    
     # @file = params[:resource][:file_tag_name]
     # @file = params[:resource][:file]
-    @file = params[:file].path
-     f = File.open(@file, "r:bom|utf-8")
-     data = SmarterCSV.process(f)
-     f.close
-     CsvImportJob.perform_later(data)
+     @file = params[:file].path
      
-    # options = {
-    # :chunk_size => 100
-    # }
-    # SmarterCSV.process(@file, options) do |chunk|
-    # CsvImportJob.perform_later(chunk) # pass chunks of CSV-data to Resque workers for parallel processing
-    # end
+    # f = File.open(@file, "r:bom|utf-8")
+    # data = SmarterCSV.process(f)
+    # f.close
+    # CsvImportJob.perform_later(data)
+    binding.pry
+     
+    options = {
+    :chunk_size => 100, :file_encoding  => iso-8859-1
+    }
+    SmarterCSV.process(@file, options) do |chunk|
+    CsvImportJob.perform_later(chunk) # pass chunks of CSV-data to Resque workers for parallel processing
+    end
     # SmarterCSV.process(@file)
     
     
