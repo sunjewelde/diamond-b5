@@ -7,28 +7,27 @@ class CsvImportJob < ActiveJob::Base
             # CSV.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
             # chunk.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
             
-            api_response.dig("identifier", "ISBN", 0) #=> "978-4-87783-259-9"
-            
+    
             chunk.each do |hash|
                 hash.each do |row|
                     diamond = Diamond.new
                     
-                    diamond.date = row.dig("identifier", "date", 0)  #csvの1列目を格納
-                    diamond.weight = row.dig("identifier","weight")
-                    diamond.color = row.dig("identifier","color")
-                    diamond.clar = row.dig("identifier","clarity")
-                    diamond.length = row.dig("identifier","measlength")
-                    diamond.width = row.dig("identifier","measwidth")
-                    diamond.depth = row.dig("identifier","measdepth")
-                    diamond.cut_grade = row.dig("identifier","cut_grade")
-                    diamond.rapnet_list_price = row.dig("identifier","rapnet_list_price")
-                    diamond.rapnet_discount = row.dig("identifier","rapnet_discount")
-                    diamond.price_per_carat = row.dig("identifier","price_per_carat")
-                    diamond.polish = row.dig("identifier","polish")
-                    diamond.symmetry = row.dig("identifier","symmetry")
-                    diamond.fluorescen = row.dig("identifier","fluorescence_intensity")
-                    diamond.certificate_id = row.dig("identifier","certificateid").to_i
-                    diamond.end_price = row.dig("identifier","usd")
+                    diamond.date = row["identifier"]["date"][0] rescue nil #csvの1列目を格納
+                    diamond.weight = row["identifier"]["weight"][0] rescue nil
+                    diamond.color = row["identifier"]["color"][0] rescue nil
+                    diamond.clar = row["identifier"]["clarity"][0] rescue nil
+                    diamond.length = row["identifier"]["measlength"][0] rescue nil
+                    diamond.width = row["identifier"]["measwidth"][0] rescue nil
+                    diamond.depth = row["identifier"]["measdepth"][0] rescue nil
+                    diamond.cut_grade = row["identifier"]["cut_grade"][0] rescue nil
+                    diamond.rapnet_list_price = row["identifier"]["rapnet_list_price"][0] rescue nil
+                    diamond.rapnet_discount = row["identifier"]["rapnet_discount"][0] rescue nil
+                    diamond.price_per_carat = row["identifier"]["price_per_carat"][0] rescue nil
+                    diamond.polish = row["identifier"]["polish"][0] rescue nil
+                    diamond.symmetry = row["identifier"]["symmetry"][0] rescue nil
+                    diamond.fluorescen = row["identifier"]["fluorescence_intensity"][0] rescue nil
+                    diamond.certificate_id = row["identifier"]["certificateid"][0] rescue nil
+                    diamond.end_price = row["identifier"]["usd"][0] rescue nil
                     
                     # diamond.date = row.fetch("date")  #csvの1列目を格納
                     # diamond.weight = row.fetch("weight")
