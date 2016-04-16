@@ -23,7 +23,7 @@ class DiamondsController < ApplicationController
     # data = SmarterCSV.process(f)
     # f.close
     # CsvImportJob.perform_later(data)
-    binding.pry
+    # binding.pry
      
     options = {
     :chunk_size => 100, :file_encoding  => iso-8859-1
