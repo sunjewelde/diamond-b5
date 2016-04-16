@@ -6,24 +6,27 @@ class CsvImportJob < ActiveJob::Base
         # file = file.path if file.is_a?(File)
             # CSV.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
             # chunk.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
-            chunk.feach do |hash|
+            
+            for row in hash do
+                
+            # chunk.each do |hash|
                 diamond = Diamond.new
-                diamond.date = hash.fetch("date")  #csvの1列目を格納
-                diamond.weight = hash.fetch("weight")
-                diamond.color = hash.fetch("color")
-                diamond.clar = hash.fetch("clarity")
-                diamond.length = hash.fetch("measlength")
-                diamond.width = hash.fetch("measwidth")
-                diamond.depth = hash.fetch("measdepth")
-                diamond.cut_grade = hash.fetch("cut_grade")
-                diamond.rapnet_list_price = hash.fetch("rapnet_list_price")
-                diamond.rapnet_discount = hash.fetch("rapnet_discount")
-                diamond.price_per_carat = hash.fetch("price_per_carat")
-                diamond.polish = hash.fetch("polish")
-                diamond.symmetry = hash.fetch("symmetry")
-                diamond.fluorescen = hash.fetch("fluorescence_intensity")
-                diamond.certificate_id = hash.fetch("certificateid")
-                diamond.end_price = hash.fetch("usd")
+                diamond.date = row.fetch("date")  #csvの1列目を格納
+                diamond.weight = row.fetch("weight")
+                diamond.color = row.fetch("color")
+                diamond.clar = row.fetch("clarity")
+                diamond.length = row.fetch("measlength")
+                diamond.width = row.fetch("measwidth")
+                diamond.depth = row.fetch("measdepth")
+                diamond.cut_grade = row.fetch("cut_grade")
+                diamond.rapnet_list_price = row.fetch("rapnet_list_price")
+                diamond.rapnet_discount = row.fetch("rapnet_discount")
+                diamond.price_per_carat = row.fetch("price_per_carat")
+                diamond.polish = row.fetch("polish")
+                diamond.symmetry = row.fetch("symmetry")
+                diamond.fluorescen = row.fetch("fluorescence_intensity")
+                diamond.certificate_id = row.fetch("certificateid")
+                diamond.end_price = row.fetch("usd")
                 
                 diamond.save
                 

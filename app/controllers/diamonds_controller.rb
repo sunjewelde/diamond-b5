@@ -28,6 +28,8 @@ class DiamondsController < ApplicationController
     options = {:col_sep => ',', :row_sep => "\r", :chunk_size => 100, :remove_empty_values => false,
     :remove_empty_hashes => false, :file_encoding  => 'iso-8859-1'}
     SmarterCSV.process(@file, options) do |chunk|
+      # @i = chunk
+      # binding.pry
     CsvImportJob.perform_later(chunk)
     end
     # SmarterCSV.process(@file)
