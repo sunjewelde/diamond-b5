@@ -12,22 +12,22 @@ class CsvImportJob < ActiveJob::Base
                 hash.each do |row|
                     diamond = Diamond.new
                     
-                    diamond.date = row["identifier"]["date"][0] rescue nil #csvの1列目を格納
-                    diamond.weight = row["identifier"]["weight"][0] rescue nil
-                    diamond.color = row["identifier"]["color"][0] rescue nil
-                    diamond.clar = row["identifier"]["clarity"][0] rescue nil
-                    diamond.length = row["identifier"]["measlength"][0] rescue nil
-                    diamond.width = row["identifier"]["measwidth"][0] rescue nil
-                    diamond.depth = row["identifier"]["measdepth"][0] rescue nil
-                    diamond.cut_grade = row["identifier"]["cut_grade"][0] rescue nil
-                    diamond.rapnet_list_price = row["identifier"]["rapnet_list_price"][0] rescue nil
-                    diamond.rapnet_discount = row["identifier"]["rapnet_discount"][0] rescue nil
-                    diamond.price_per_carat = row["identifier"]["price_per_carat"][0] rescue nil
-                    diamond.polish = row["identifier"]["polish"][0] rescue nil
-                    diamond.symmetry = row["identifier"]["symmetry"][0] rescue nil
-                    diamond.fluorescen = row["identifier"]["fluorescence_intensity"][0] rescue nil
-                    diamond.certificate_id = row["identifier"]["certificateid"][0] rescue nil
-                    diamond.end_price = row["identifier"]["usd"][0] rescue nil
+                    diamond.date = row["date"][0] rescue nil #csvの1列目を格納
+                    diamond.weight = row["weight"][0] rescue nil
+                    diamond.color = row["color"][0] rescue nil
+                    diamond.clar = row["clarity"][0] rescue nil
+                    diamond.length = row["measlength"][0] rescue nil
+                    diamond.width = row["measwidth"][0] rescue nil
+                    diamond.depth = row["measdepth"][0] rescue nil
+                    diamond.cut_grade = row["cut_grade"][0] rescue nil
+                    diamond.rapnet_list_price = row["rapnet_list_price"][0] rescue nil
+                    diamond.rapnet_discount = row["rapnet_discount"][0] rescue nil
+                    diamond.price_per_carat = row["price_per_carat"][0] rescue nil
+                    diamond.polish = row["polish"][0] rescue nil
+                    diamond.symmetry = row["symmetry"][0] rescue nil
+                    diamond.fluorescen = row["fluorescence_intensity"][0] rescue nil
+                    diamond.certificate_id = row["certificateid"][0] rescue nil
+                    diamond.end_price = row["usd"][0] rescue nil
                     
                     # diamond.date = row.fetch("date")  #csvの1列目を格納
                     # diamond.weight = row.fetch("weight")
