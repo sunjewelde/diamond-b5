@@ -12,22 +12,22 @@ class CsvImportJob < ActiveJob::Base
                 hash.each do |row|
                     diamond = Diamond.new
                     
-                    diamond.date = row["date"][0] rescue nil #csvの1列目を格納
-                    diamond.weight = row["weight"][0] rescue nil
-                    diamond.color = row["color"][0] rescue nil
-                    diamond.clar = row["clarity"][0] rescue nil
-                    diamond.length = row["measlength"][0] rescue nil
-                    diamond.width = row["measwidth"][0] rescue nil
-                    diamond.depth = row["measdepth"][0] rescue nil
-                    diamond.cut_grade = row["cut_grade"][0] rescue nil
-                    diamond.rapnet_list_price = row["rapnet_list_price"][0] rescue nil
-                    diamond.rapnet_discount = row["rapnet_discount"][0] rescue nil
-                    diamond.price_per_carat = row["price_per_carat"][0] rescue nil
-                    diamond.polish = row["polish"][0] rescue nil
-                    diamond.symmetry = row["symmetry"][0] rescue nil
-                    diamond.fluorescen = row["fluorescence_intensity"][0] rescue nil
-                    diamond.certificate_id = row["certificateid"][0] rescue nil
-                    diamond.end_price = row["usd"][0] rescue nil
+                    diamond.date = row["date"] #csvの1列目を格納
+                    diamond.weight = row["weight"] rescue nil
+                    diamond.color = row["color"] rescue nil
+                    diamond.clar = row["clarity"] rescue nil
+                    diamond.length = row["measlength"] rescue nil
+                    diamond.width = row["measwidth"] rescue nil
+                    diamond.depth = row["measdepth"] rescue nil
+                    diamond.cut_grade = row["cut_grade"] rescue nil
+                    diamond.rapnet_list_price = row["rapnet_list_price"] rescue nil
+                    diamond.rapnet_discount = row["rapnet_discount"] rescue nil
+                    diamond.price_per_carat = row["price_per_carat"] rescue nil
+                    diamond.polish = row["polish"] rescue nil
+                    diamond.symmetry = row["symmetry"] rescue nil
+                    diamond.fluorescen = row["fluorescence_intensity"] rescue nil
+                    diamond.certificate_id = row["certificateid"] rescue nil
+                    diamond.end_price = row["usd"] rescue nil
                     
                     # diamond.date = row.fetch("date")  #csvの1列目を格納
                     # diamond.weight = row.fetch("weight")
