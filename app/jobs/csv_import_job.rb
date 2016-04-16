@@ -11,21 +11,21 @@ class CsvImportJob < ActiveJob::Base
                 hash.each do |row|
                     diamond = Diamond.new
                     diamond.date = row.fetch("date")  #csvの1列目を格納
-                    diamond.weight = row.fetch("weight")
+                    diamond.weight = row.fetch("weight").to_f
                     diamond.color = row.fetch("color")
                     diamond.clar = row.fetch("clarity")
-                    diamond.length = row.fetch("measlength")
-                    diamond.width = row.fetch("measwidth")
-                    diamond.depth = row.fetch("measdepth")
+                    diamond.length = row.fetch("measlength").to_f
+                    diamond.width = row.fetch("measwidth").to_f
+                    diamond.depth = row.fetch("measdepth").to_f
                     diamond.cut_grade = row.fetch("cut_grade")
-                    diamond.rapnet_list_price = row.fetch("rapnet_list_price")
-                    diamond.rapnet_discount = row.fetch("rapnet_discount")
-                    diamond.price_per_carat = row.fetch("price_per_carat")
+                    diamond.rapnet_list_price = row.fetch("rapnet_list_price").to_i
+                    diamond.rapnet_discount = row.fetch("rapnet_discount").to_i
+                    diamond.price_per_carat = row.fetch("price_per_carat").to_i
                     diamond.polish = row.fetch("polish")
                     diamond.symmetry = row.fetch("symmetry")
                     diamond.fluorescen = row.fetch("fluorescence_intensity")
-                    diamond.certificate_id = row.fetch("certificateid")
-                    diamond.end_price = row.fetch("usd")
+                    diamond.certificate_id = row.fetch("certificateid").to_i
+                    diamond.end_price = row.fetch("usd").to_f
                     
                     diamond.save
                 end
