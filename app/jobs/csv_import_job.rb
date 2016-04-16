@@ -30,21 +30,21 @@ class CsvImportJob < ActiveJob::Base
                     # diamond.end_price = row["usd"].values rescue nil
                     
                       diamond.date = hash.values_at(:date) rescue nil  #csvの1列目を格納
-                      diamond.weight = hash.values_at(:weight) rescue nil
-                      diamond.color = hash.values_at(:color) rescue nil
-                      diamond.clar = hash.values_at(:clarity) rescue nil
-                      diamond.length = hash.values_at(:measlength) rescue nil
-                      diamond.width = hash.values_at(:measwidth) rescue nil
-                      diamond.depth = hash.values_at(:measdepth) rescue nil
-                      diamond.cut_grade = hash.values_at(:cutgrade) rescue nil
-                      diamond.rapnet_list_price = hash.values_at(:rapnet_list_price) rescue nil
-                      diamond.rapnet_discount = hash.values_at(:rapnet_discount) rescue nil
-                      diamond.price_per_carat = hash.values_at(:price_per_carat) rescue nil
-                      diamond.polish = hash.values_at(:polish) rescue nil
-                      diamond.symmetry = hash.values_at(:symmetry) rescue nil
-                      diamond.fluorescen = hash.values_at(:fluorescence_intensity) rescue nil
-                      diamond.certificate_id = hash.values_at(:certificateid) rescue nil
-                      diamond.end_price = hash.values_at(:usd) rescue nil
+                    #   diamond.weight = hash.values_at(:weight) rescue nil
+                    #   diamond.color = hash.values_at(:color) rescue nil
+                    #   diamond.clar = hash.values_at(:clarity) rescue nil
+                    #   diamond.length = hash.values_at(:measlength) rescue nil
+                    #   diamond.width = hash.values_at(:measwidth) rescue nil
+                    #   diamond.depth = hash.values_at(:measdepth) rescue nil
+                    #   diamond.cut_grade = hash.values_at(:cutgrade) rescue nil
+                    #   diamond.rapnet_list_price = hash.values_at(:rapnet_list_price) rescue nil
+                    #   diamond.rapnet_discount = hash.values_at(:rapnet_discount) rescue nil
+                    #   diamond.price_per_carat = hash.values_at(:price_per_carat) rescue nil
+                    #   diamond.polish = hash.values_at(:polish) rescue nil
+                    #   diamond.symmetry = hash.values_at(:symmetry) rescue nil
+                    #   diamond.fluorescen = hash.values_at(:fluorescence_intensity) rescue nil
+                    #   diamond.certificate_id = hash.values_at(:certificateid) rescue nil
+                    #   diamond.end_price = hash.values_at(:usd) rescue nil
                     
                     diamond.save
                 # end
