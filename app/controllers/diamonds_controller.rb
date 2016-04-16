@@ -30,7 +30,7 @@ class DiamondsController < ApplicationController
     SmarterCSV.process(@file, options) do |chunk|
       # @i = chunk
       # binding.pry
-    CsvImportJob.perform_later(chunk)
+     CsvImportJob.perform_later(chunk)
     end
     # SmarterCSV.process(@file)
     
