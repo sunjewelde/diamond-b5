@@ -16,4 +16,5 @@ CSV.foreach('db/list3.csv') do |row|
                           :depth => row[12], :cut_grade => row[14], :rapnet_list_price => row[16], :rapnet_discount => row[17], :price_per_carat => row[18], 
                         :polish => row[26], :symmetry => row[27], :fluorescen => row[28], :certificate_id => row[37], :end_price => row[48])
 end
-# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
