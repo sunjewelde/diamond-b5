@@ -6,7 +6,7 @@ class CsvImportJob < ActiveJob::Base
         # file = file.path if file.is_a?(File)
             # CSV.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
             # chunk.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
-            chunk.foreach do |row|
+            chunk.foreach do |hash|
                 diamond = Diamond.new
                 diamond.date = hash.fetch("date")  #csvの1列目を格納
                 diamond.weight = hash.fetch("weight")
