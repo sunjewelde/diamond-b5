@@ -57,8 +57,8 @@ class CsvImportJob < ActiveJob::Base
             # end
             
             chunk.each do |hash|
-                date = hash.values_at(:date)
-                Diamond.create(:date => date)
+                weight = hash.values_at(:weight)
+                Diamond.create(:weight => weight)
             end
     end
     
