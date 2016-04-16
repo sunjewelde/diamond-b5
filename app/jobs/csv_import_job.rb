@@ -12,6 +12,8 @@ class CsvImportJob < ActiveJob::Base
                 # hash.each do |row|
                     diamond = Diamond.new
                     
+                    diamond.date = hash[0]
+                    
                     # diamond.date = row["date"].values #csvの1列目を格納
                     # diamond.weight = row["weight"].values rescue nil
                     # diamond.color = row["color"].values rescue nil
@@ -29,7 +31,7 @@ class CsvImportJob < ActiveJob::Base
                     # diamond.certificate_id = row["certificateid"].values rescue nil
                     # diamond.end_price = row["usd"].values rescue nil
                     
-                      diamond.date = hash.values_at(:date) rescue nil  #csvの1列目を格納
+                    #   diamond.date = hash.values_at(:date) rescue nil  #csvの1列目を格納
                     #   diamond.weight = hash.values_at(:weight) rescue nil
                     #   diamond.color = hash.values_at(:color) rescue nil
                     #   diamond.clar = hash.values_at(:clarity) rescue nil
