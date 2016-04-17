@@ -14,9 +14,9 @@ class CsvImportJob < ActiveJob::Base
                     diamond = Diamond.new
                     
             #         # diamond.date = row["date"].values #csvの1列目を格納
-                    diamond.weight = row["weight"].values rescue nil
-                    diamond.color = row["color"].values rescue nil
-                    diamond.clar = row["clarity"].values rescue nil
+                    diamond.weight = row["weight"][0] rescue nil
+                    diamond.color = row["color"][0] rescue nil
+                    diamond.clar = row["clarity"][0] rescue nil
                     # diamond.length = row["measlength"].values rescue nil
             #         # diamond.width = row["measwidth"].values rescue nil
             #         # diamond.depth = row["measdepth"].values rescue nil
