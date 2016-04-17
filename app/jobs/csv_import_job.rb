@@ -14,9 +14,9 @@ class CsvImportJob < ActiveJob::Base
                     diamond = Diamond.new
                     
             #         # diamond.date = row["date"].values #csvの1列目を格納
-                    # diamond.weight = row["weight"].values rescue nil
-                    # diamond.color = row["color"].values rescue nil
-                    # diamond.clar = row["clarity"].values rescue nil
+                    diamond.weight = row["weight"].values rescue nil
+                    diamond.color = row["color"].values rescue nil
+                    diamond.clar = row["clarity"].values rescue nil
                     # diamond.length = row["measlength"].values rescue nil
             #         # diamond.width = row["measwidth"].values rescue nil
             #         # diamond.depth = row["measdepth"].values rescue nil
@@ -30,10 +30,10 @@ class CsvImportJob < ActiveJob::Base
             #         # diamond.certificate_id = row["certificateid"].values rescue nil
             #         # diamond.end_price = row["usd"].values rescue nil
                     
-                      diamond.date = hash.values_at(:date) rescue nil  #csvの1列目を格納
-                      diamond.weight = hash.values_at(:weight) rescue nil
-                      diamond.color = hash.values_at(:color) rescue nil
-                      diamond.clar = hash.values_at(:clarity) rescue nil
+                    #   diamond.date = hash.values_at(:date) rescue nil  #csvの1列目を格納
+                    #   diamond.weight = hash.values_at(:weight) rescue nil
+                    #   diamond.color = hash.values_at(:color) rescue nil
+                    #   diamond.clar = hash.values_at(:clarity) rescue nil
             #         #   diamond.length = hash.values_at(:measlength) rescue nil
             #         #   diamond.width = hash.values_at(:measwidth) rescue nil
             #         #   diamond.depth = hash.values_at(:measdepth) rescue nil
