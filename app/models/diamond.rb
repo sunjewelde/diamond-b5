@@ -4,10 +4,10 @@ class Diamond <ActiveRecord::Base
     # require 'active_support'
     require "date"
     
-    # @latest_date = Diamond.maximum(:date)
-    # @oldest_date = Diamond.minimum(:date)
-    # @weight_max = Diamond.maximum(:weight)
-    # @weight_min = Diamond.minimum(:weight)
+    @latest_date = Diamond.maximum(:date)
+    @oldest_date = Diamond.minimum(:date)
+    @weight_max = Diamond.maximum(:weight)
+    @weight_min = Diamond.minimum(:weight)
 
     if @latest_date.present?
       @one_week_ago = (@latest_date - 6)
