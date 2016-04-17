@@ -27,6 +27,6 @@ production:
   reconnect: false
   database: myapp_production
   pool: 25
-  username: #####
-  password: #####
+  username: hiroyuki
+  password: sprintpcsdual
   socket: /var/lib/mysql/mysql.sock
