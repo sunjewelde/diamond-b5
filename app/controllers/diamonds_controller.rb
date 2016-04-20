@@ -27,8 +27,11 @@ class DiamondsController < ApplicationController
      
     # options = {:col_sep => ',', :row_sep => "\r", :chunk_size => 100, :remove_empty_values => false,
     # :remove_empty_hashes => false, :file_encoding  => 'iso-8859-1'}
-    options = {:col_sep => ',', :row_sep => :auto, :chunk_size => 100, :remove_empty_values => false,
-    :remove_empty_hashes => false, :file_encoding  => 'iso-8859-1'}
+    # options = {:col_sep => ',', :row_sep => :auto, :chunk_size => 100, :remove_empty_values => false,
+    # :remove_empty_hashes => false, :file_encoding  => 'iso-8859-1'}
+    options = {:col_sep => ',', :row_sep => :auto, :remove_empty_values => false,
+    # :remove_empty_hashes => false, :file_encoding  => 'iso-8859-1'}
+    
     # options = {:col_sep => ',', :row_sep => "\r", :chunk_size => 100, :remove_empty_values => false,
     # :file_encoding  => 'iso-8859-1', :headers_in_file => false}
     # options = {:col_sep => ',', :row_sep => "\r", :remove_empty_values => false,

@@ -9,14 +9,14 @@ class CsvImportJob < ActiveJob::Base
             # chunk.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
             
     
-            chunk.each do |hash|
-                hash.each do |row|
-                    diamond = Diamond.new
+            chunk.each do |row|
+                # hash.each do |row|
+                #     diamond = Diamond.new
                     
-                    diamond.date = row["d1"] rescue nil #csvの1列目を格納
-                    diamond.weight = row["d5"] rescue nil
-                    diamond.color = row["d6"] rescue nil
-                    diamond.clar = row["d10"] rescue nil
+                    # diamond.date = row["d1"] rescue nil #csvの1列目を格納
+                    # diamond.weight = row["d5"] rescue nil
+                    # diamond.color = row["d6"] rescue nil
+                    # diamond.clar = row["d10"] rescue nil
                     # diamond.length = row["measlength"].values rescue nil
             #         # diamond.width = row["measwidth"].values rescue nil
             #         # diamond.depth = row["measdepth"].values rescue nil
@@ -47,14 +47,19 @@ class CsvImportJob < ActiveJob::Base
                     #   diamond.certificate_id = hash.values_at(:certificateid) rescue nil
                     #   diamond.end_price = hash.values_at(:usd) rescue nil
                     
-                    diamond.save
-                end
+                #     diamond.save
+                # end
                 
                 # Diamond.create(:date => row[0], :weight => row[4], :color => row[5], :clar => row[9], :length => row[10], :width => row[11],
                 #          :depth => row[12], :cut_grade => row[14], :rapnet_list_price => row[16], :rapnet_discount => row[17], :price_per_carat => row[18], 
                 #         :polish => row[26], :symmetry => row[27], :fluorescen => row[28], :certificate_id => row[37], :end_price => row[48])
                 # end   
-            end
+                
+                Diamond.create(:date => row[0], :weight => row[4], :color => row[5], :clar => row[9], :length => row[10], :width => row[11],
+                         :depth => row[12], :cut_grade => row[14], :rapnet_list_price => row[16], :rapnet_discount => row[17], :price_per_carat => row[18], 
+                        :polish => row[26], :symmetry => row[27], :fluorescen => row[28], :certificate_id => row[37], :end_price => row[48])
+                end  
+            # end
             
             # chunk.each do |hash|
             #     weight = hash.values_at(:weight)
