@@ -13,10 +13,10 @@ class CsvImportJob < ActiveJob::Base
                 hash.each do |row|
                     diamond = Diamond.new
                     
-                    diamond.date = row["date"] rescue nil #csvの1列目を格納
-                    diamond.weight = row["weight"] rescue nil
-                    diamond.color = row["color"] rescue nil
-                    diamond.clar = row["clarity"] rescue nil
+                    diamond.date = row["d1"] rescue nil #csvの1列目を格納
+                    diamond.weight = row["d5"] rescue nil
+                    diamond.color = row["d6"] rescue nil
+                    diamond.clar = row["d10"] rescue nil
                     # diamond.length = row["measlength"].values rescue nil
             #         # diamond.width = row["measwidth"].values rescue nil
             #         # diamond.depth = row["measdepth"].values rescue nil
