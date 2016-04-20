@@ -11,12 +11,12 @@ class CsvImportJob < ActiveJob::Base
             chunk.each do |row|
             # chunk.each do |row|
                 # hash.each do |row|
-                    diamond = Diamond.new
+                    # diamond = Diamond.new
                     
-                    diamond.date = row["d1"]
-                    diamond.weight = row["d5"]
-                    diamond.color = row["d6"]
-                    diamond.clar = row["d10"]
+                    # diamond.date = row["d1"]
+                    # diamond.weight = row["d5"]
+                    # diamond.color = row["d6"]
+                    # diamond.clar = row["d10"]
                     # diamond.length = row["measlength"].values rescue nil
             #         # diamond.width = row["measwidth"].values rescue nil
             #         # diamond.depth = row["measdepth"].values rescue nil
@@ -47,7 +47,7 @@ class CsvImportJob < ActiveJob::Base
                     #   diamond.certificate_id = hash.values_at(:certificateid) rescue nil
                     #   diamond.end_price = hash.values_at(:usd) rescue nil
                     
-                    diamond.save
+                    # diamond.save
                 # end
                 
                 # Diamond.create(:date => row[0], :weight => row[4], :color => row[5], :clar => row[9], :length => row[10], :width => row[11],
@@ -57,7 +57,7 @@ class CsvImportJob < ActiveJob::Base
                 
                 # date = row[0].value
                 
-                # Diamond.create(:date => row[0].value, :weight => row[4].value, :color => row[5].value, :clar => row[9].value, :length => row[10].value, :width => row[11].value)
+                Diamond.create(:date => row[:d1], :weight => row[:d5], :color => row[:d6], :clar => row[:d10])
                 # end  
                 
         end
