@@ -57,15 +57,13 @@ class CsvImportJob < ActiveJob::Base
                 
                 # date = row[0].value
                 
-                Diamond.create(:date => row[:d1], :weight => row[:d5], :color => row[:d6], :clar => row[:d10])
+                Diamond.create(:date => row[:d1], :weight => row[:d5], :color => row[:d6], :clar => row[:d10], :length => row[:d11], :width => row[:d12],
+                         :depth => row[:d13], :cut_grade => row[:d15], :rapnet_list_price => row[:d17], :rapnet_discount => row[:d18], :price_per_carat => row[:d19], 
+                        :polish => row[:d27], :symmetry => row[:d28], :fluorescen => row[:d29], :certificate_id => row[:d38], :end_price => row[:d49])
                 # end  
                 
-        end
-                    
-                # chunk.each do |hash|
-                #     weight = hash.values_at(:weight)
-                #     Diamond.create(:weight => weight)
-                # end
+         end
+
         end
 end
 
