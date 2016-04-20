@@ -25,18 +25,111 @@ class OrganizeDiamondsJob < ActiveJob::Base
 	       @last_updated_date_list = @oldest_date
 	    end
 	    
+      @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
+      @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
+      @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
+      @cut_grade = ["Good", "Very Good", "Excellent", "EXC", "VGD", "F"]
+      @polish = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good"]
+      @symmetry = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good", "g", "Fair", "F"]
+      @fluorescen = ["Medium", "Faint", "None", "Strong", "f", "mb", "NONE", "Medium Blue", "md blue", 
+                 "st", "sb", "str blue", "S.BLUE", "M.BLUE", "VST", "Very Strong", "V.S.BLUE", "FT"]
+	    
+	    
 	    if @latest_date == @latest_date_table
+	    elsif @latest_date = @oldest_date
+	      if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF")
+	      else
+	          @weight03_diamond_group_all = Diamond.weight03.where(:date=> @latest_date)
+            @weight04_diamond_group_all = Diamond.weight04.where(:date=> @latest_date)
+            @weight05_diamond_group_all = Diamond.weight05.where(:date=> @latest_date)
+            @weight06_diamond_group_all = Diamond.weight06.where(:date=> @latest_date)
+            @weight07_diamond_group_all = Diamond.weight07.where(:date=> @latest_date)
+            @weight08_diamond_group_all = Diamond.weight08.where(:date=> @latest_date)
+            @weight09_diamond_group_all = Diamond.weight09.where(:date=> @latest_date)
+            @weight10_diamond_group_all = Diamond.weight10.where(:date=> @latest_date)
+            @weight12_diamond_group_all = Diamond.weight12.where(:date=> @latest_date)
+            @weight15_diamond_group_all = Diamond.weight15.where(:date=> @latest_date)
+            @weight18_diamond_group_all = Diamond.weight18.where(:date=> @latest_date)
+            @weight20_diamond_group_all = Diamond.weight20.where(:date=> @latest_date)
+            @weight30_diamond_group_all = Diamond.weight30.where(:date=> @latest_date)
+            @weight40_diamond_group_all = Diamond.weight40.where(:date=> @latest_date)
+            
+          @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight03_group_all_color_date = @weight03_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight04_group_all_color = @weight04_diamond_group_all.select('date, color, clar, AVG(end_price * 0.4 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight04_group_all_color_date = @weight04_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight05_group_all_color = @weight05_diamond_group_all.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight05_group_all_color_date = @weight05_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight06_group_all_color = @weight06_diamond_group_all.select('date, color, clar, AVG(end_price * 0.6 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight06_group_all_color_date = @weight06_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight07_group_all_color = @weight07_diamond_group_all.select('date, color, clar, AVG(end_price * 0.7 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight07_group_all_color_date = @weight07_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight08_group_all_color = @weight08_diamond_group_all.select('date, color, clar, AVG(end_price * 0.8 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight08_group_all_color_date = @weight08_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight09_group_all_color = @weight09_diamond_group_all.select('date, color, clar, AVG(end_price * 0.9 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight09_group_all_color_date = @weight09_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight10_group_all_color = @weight10_diamond_group_all.select('date, color, clar, AVG(end_price * 1.0 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight10_group_all_color_date = @weight10_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight12_group_all_color = @weight12_diamond_group_all.select('date, color, clar, AVG(end_price * 1.2 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight12_group_all_color_date = @weight12_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight15_group_all_color = @weight15_diamond_group_all.select('date, color, clar, AVG(end_price * 1.5 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight15_group_all_color_date = @weight15_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight18_group_all_color = @weight18_diamond_group_all.select('date, color, clar, AVG(end_price * 1.8 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight18_group_all_color_date = @weight18_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight20_group_all_color = @weight20_diamond_group_all.select('date, color, clar, AVG(end_price * 2.0 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight20_group_all_color_date = @weight20_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight30_group_all_color = @weight30_diamond_group_all.select('date, color, clar, AVG(end_price * 3.0 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight30_group_all_color_date = @weight30_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          @weight40_group_all_color = @weight40_diamond_group_all.select('date, color, clar, AVG(end_price * 4.0 / weight) AS avg_price').group(:date, :color, :clar)
+          @weight40_group_all_color_date = @weight40_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          #-----Create data table create for Table model-------------
+              #weight0.3
+              d = 0
+              while d < @weight03_group_all_color_date.length
+                date = @weight03_group_all_color_date[d]
+                if Table.exists?(date: date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.3, color: "M")
+                else
+                    i = 0
+                    while i < @color.length
+                        selected_color = @color[i]
+                        j = 0
+                        while j < @clar.length
+                          selcted_clar = @clar[j]
+                          @selected_color_data = @weight03_group_all_color.where(date: date).where(color: selected_color)
+                          # @selected_color_data = @weight03_group_all_color.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').where(date: date).where(color: selected_color)
+                          @selected_clar = @selected_color_data.find_by clar: selcted_clar
+                          # binding.pry
+                            if @selected_clar.present? and @selected_clar.avg_price != ""
+                                @selected_price = @selected_clar.avg_price.round
+                                if Table.exists?(date: date, weight: 0.3, color: selected_color, clar: selcted_clar)
+                                else
+                                	Table.create(date: date, color: selected_color, weight: 0.3,  clar: selcted_clar, price: @selected_price)
+                                end
+                            end
+                          j += 1
+                        end
+                        i += 1
+                    end
+                end
+                d += 1
+              end
+	      end
+ 
 	    else
-    	  @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
-    		@color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
-    		@clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
-    		@cut_grade = ["Good", "Very Good", "Excellent", "EXC", "VGD", "F"]
-    		@polish = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good"]
-    		@symmetry = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good", "g", "Fair", "F"]
-    		@fluorescen = ["Medium", "Faint", "None", "Strong", "f", "mb", "NONE", "Medium Blue", "md blue", 
-    		           "st", "sb", "str blue", "S.BLUE", "M.BLUE", "VST", "Very Strong", "V.S.BLUE", "FT"]
-    		           
-    
     	    #date, clar, colorでグループ
           # if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: @oldest_date, weight: 4.0, color: "M" )
           if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF")

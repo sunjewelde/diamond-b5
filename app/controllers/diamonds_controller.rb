@@ -14,43 +14,12 @@ class DiamondsController < ApplicationController
   end
 
   def import
-   
-    # @file = params[:resource][:file_tag_name]
-    # @file = params[:resource][:file]
-     @file = params[:file].path
-     
-    # f = File.open(@file, "r:bom|utf-8")
-    # data = SmarterCSV.process(f)
-    # f.close
-    # CsvImportJob.perform_later(data)
-    # binding.pry
-     
-    # options = {:col_sep => ',', :row_sep => "\r", :chunk_size => 100, :remove_empty_values => false,
-    # :remove_empty_hashes => false, :file_encoding  => 'iso-8859-1'}
-    # options = {:col_sep => ',', :row_sep => :auto, :chunk_size => 100, :remove_empty_values => false,
-    # :remove_empty_hashes => false, :file_encoding  => 'iso-8859-1'}
+    @file = params[:file].path
     options = {:col_sep => ',', :row_sep => :auto, :remove_empty_values => false,
     :remove_empty_hashes => false, :file_encoding  => 'iso-8859-1'}
-    
-    # options = {:col_sep => ',', :row_sep => "\r", :chunk_size => 100, :remove_empty_values => false,
-    # :file_encoding  => 'iso-8859-1', :headers_in_file => false}
-    # options = {:col_sep => ',', :row_sep => "\r", :remove_empty_values => false,
-    # :remove_empty_hashes => false, :file_encoding  => 'iso-8859-1'}
     SmarterCSV.process(@file, options) do |chunk|
-      # @i = chunk
-      # binding.pry
-     CsvImportJob.perform_later(chunk)
+      CsvImportJob.perform_later(chunk)
     end
-    # SmarterCSV.process(@file)
-    
-    
-    # CsvImportJob.perform_later(params[:file])
-    
-    # CsvWorker.perform_async(params[:file])
-    # CsvImportJob.perform_later
-     # fileはtmpに自動で一時保存される
-    # Diamond.import(params[:file])
-    # Diamond.import(params[:csv_file])
     redirect_to root_url, notice: "Diamondデータを追加しました。"
   end
   
