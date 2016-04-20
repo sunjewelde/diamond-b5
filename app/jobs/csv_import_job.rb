@@ -2,13 +2,13 @@ require "date"
 class CsvImportJob < ActiveJob::Base
     queue_as :default
     
-    def perform(chunk)
-        # Diamond.import(params[:file])
-        # file = file.path if file.is_a?(File)
-            # CSV.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
-            # chunk.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
+        def perform(chunk)
+            # Diamond.import(params[:file])
+            # file = file.path if file.is_a?(File)
+                # CSV.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
+                # chunk.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
+                
             
-    
             chunk.each do |row|
                 # hash.each do |row|
                 #     diamond = Diamond.new
@@ -59,16 +59,14 @@ class CsvImportJob < ActiveJob::Base
                          :depth => row[12], :cut_grade => row[14], :rapnet_list_price => row[16], :rapnet_discount => row[17], :price_per_carat => row[18], 
                         :polish => row[26], :symmetry => row[27], :fluorescen => row[28], :certificate_id => row[37], :end_price => row[48])
                 end  
-            # end
-            
-            # chunk.each do |hash|
-            #     weight = hash.values_at(:weight)
-            #     Diamond.create(:weight => weight)
-            # end
-    end
-    
-    
-    
+                
+        end
+                    
+                # chunk.each do |hash|
+                #     weight = hash.values_at(:weight)
+                #     Diamond.create(:weight => weight)
+                # end
+        end
 end
 
 # print(hash.fetch("Katou"))
