@@ -28,7 +28,7 @@ class OrganizeListsJob < ActiveJob::Base
 	    
 	    if @latest_date == @latest_date_list
 	    elsif @latest_date == @oldest_date
-	      if List.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF")
+	      if List.exists?(date: @latest_date, weight: 0.3, color: "D")
 	      else
 	        @weight03_diamond_group_all = Diamond.weight03.where(:date=> @latest_date)
             @weight04_diamond_group_all = Diamond.weight04.where(:date=> @latest_date)
@@ -605,7 +605,7 @@ class OrganizeListsJob < ActiveJob::Base
 	    elsif @latest_date != @oldest_date
     	    #date, clar, colorでグループ
           # if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: @oldest_date, weight: 4.0, color: "M" )
-          if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF")
+          if Table.exists?(date: @latest_date, weight: 0.3, color: "D")
           else
           @weight03_diamond_group_all = Diamond.weight03.where(:date=> @last_updated_date_list..@latest_date)
           @weight04_diamond_group_all = Diamond.weight04.where(:date=> @last_updated_date_list..@latest_date)
