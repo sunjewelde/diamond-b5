@@ -11,6 +11,7 @@ class DiamondsController < ApplicationController
   def run
     OrganizeDiamondsJob.perform_later
     #EventWorker.perform_async
+    redirect_to root_url, notice: "チャート用データ作成を開始しました。"
   end
 
   def import
@@ -20,7 +21,7 @@ class DiamondsController < ApplicationController
     SmarterCSV.process(@file, options) do |chunk|
       CsvImportJob.perform_later(chunk)
     end
-    redirect_to root_url, notice: "Diamondデータを追加しました。"
+    redirect_to root_url, notice: "Diamondデータの追加を開始しました。"
   end
   
   require "date"
