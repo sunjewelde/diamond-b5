@@ -111,9 +111,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         while j < @clar.length
                           selcted_clar = @clar[j]
                           @selected_color_data = @weight03_group_all_color.where(date: date).where(color: selected_color)
-                          # @selected_color_data = @weight03_group_all_color.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').where(date: date).where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
-                          # binding.pry
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight: 0.3, color: selected_color, clar: selcted_clar)
