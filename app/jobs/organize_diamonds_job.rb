@@ -55,7 +55,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
             @weight40_diamond_group_all = Diamond.weight40.where(:date=> @latest_date)
             
           @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date, :color, :clar)
-          # @weight03_group_all_color_date = @weight03_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          @weight03_group_all_color_date = @weight03_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
           @weight04_group_all_color = @weight04_diamond_group_all.select('date, color, clar, AVG(end_price * 0.4 / weight) AS avg_price').group(:date, :color, :clar)
           # @weight04_group_all_color_date = @weight04_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
@@ -98,10 +98,10 @@ class OrganizeDiamondsJob < ActiveJob::Base
           
           #-----Create data table create for Table model-------------
               #weight0.3
-              # d = 0
-              # while d < @weight03_group_all_color_date.length
-                # date = @weight03_group_all_color_date[d]
-                date = @latest_date
+              d = 0
+              while d < @weight03_group_all_color_date.length
+                date = @weight03_group_all_color_date[d]
+                # date = @latest_date
                 if Table.exists?(date: date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.3, color: "M")
                 else
                     i = 0
@@ -126,8 +126,8 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         i += 1
                     end
                 end
-                # d += 1
-              # end
+                d += 1
+              end
 	      end
  
 	    else
