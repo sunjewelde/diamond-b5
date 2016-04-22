@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   
   post 'diamonds/run'
   
+  post 'diamonds/make_list'
+  
   post 'diamonds/import'
 
   # resources :diamonds do

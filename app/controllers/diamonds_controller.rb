@@ -13,6 +13,12 @@ class DiamondsController < ApplicationController
     #EventWorker.perform_async
     redirect_to root_url, notice: "チャート用データ作成を開始しました。"
   end
+  
+  def make_list
+    OrganizeListsJob.perform_later
+    #EventWorker.perform_async
+    redirect_to root_url, notice: "Daily価格テーブル作成を開始しました。"
+  end
 
   def import
     @file = params[:file].path
