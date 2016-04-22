@@ -11,8 +11,8 @@ class Diamond <ActiveRecord::Base
     
     # @latest_date = self.maximum(:date)
     # @oldest_date = self.minimum(:date)
-    # @weight_max = self.maximum(:weight)
-    # @weight_min = self.minimum(:weight)
+    @weight_max = self.maximum(:weight)
+    @weight_min = self.minimum(:weight)
 
     # if @latest_date.present?
     #   @one_week_ago = (@latest_date - 6)
@@ -70,64 +70,11 @@ class Diamond <ActiveRecord::Base
 
 
   def self.import(file)
-    # CsvImportJob.perform_later(file)
-    # # open(file.path, 'r:cp932:utf-8', undef: :replace) do |f|
-    #   open(file.path, 'rb:Shift_JIS:UTF-8', undef: :replace) do |f|
-    #     csv = CSV.new(f, :headers => :first_row)
-    #     csv.each do |row|
-    #       next if row.header_row?
-
-    # CSVの行情報をHASHに変換
-          # table = Hash[[row.headers, row.fields].transpose]
-
-    # 登録済みデータ情報取得。
-          # 登録されてなければ作成
-          # diamond = find_by(:date => table["date"])
-          # if diamond.nil?
-          #   user = new
-          # end
-
-          # diamond.attributes = table.to_hash.slice(*updatable_attributes)
-          # 保存する
-    #   diamond.save!
-    # CSV.foreach(file.path, headers: true) do |row|
-    # CSV.foreach(file.path, headers: true, encoding: 'Shift_JIS:UTF-8') do |row|
-    # diamond = Diamond.new
-    # diamond.date = row[0]  #csvの1列目を格納
-    # diamond.weight = row[4]
-    # diamond.color = row[5]
-    # diamond.clar = row[9]
-    # diamond.length = row[10]
-    # diamond.width = row[11]
-    # diamond.depth = row[12]
-    # diamond.cut_grade = row[14]
-    # diamond.rapnet_list_price = row[16]
-    # diamond.rapnet_discount = row[17]
-    # diamond.price_per_carat = row[18]
-    # diamond.polish = row[26]
-    # diamond.symmetry = row[27]
-    # diamond.fluorescen = row[28] 
-    # diamond.certificate_id = row[37]
-    # diamond.end_price = row[48]
-       
-    # diamond.save
-    
-    # CSV.foreach(file.path, headers: true) do |row|
-    
-  CSV.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
-  Diamond.create(:date => row[0], :weight => row[4], :color => row[5], :clar => row[9], :length => row[10], :width => row[11],
-                :depth => row[12], :cut_grade => row[14], :rapnet_list_price => row[16], :rapnet_discount => row[17], :price_per_carat => row[18], 
-                :polish => row[26], :symmetry => row[27], :fluorescen => row[28], :certificate_id => row[37], :end_price => row[48])
-
-    # CSV.foreach(file.path, headers: true) do |row|
-    #   # Dateが見つかれば、レコードを呼び出し、見つかれなければ、新しく作成
-    #   diamond = find_by(date: row["date"]) || new
-    #   # CSVからデータを取得し、設定する
-    #   diamond.attributes = row.to_hash.slice(*updatable_attributes)
-    #   # 保存する
-    #   diamond.save!
-      # end
-    end
+  # CSV.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
+  # Diamond.create(:date => row[0], :weight => row[4], :color => row[5], :clar => row[9], :length => row[10], :width => row[11],
+  #               :depth => row[12], :cut_grade => row[14], :rapnet_list_price => row[16], :rapnet_discount => row[17], :price_per_carat => row[18], 
+  #               :polish => row[26], :symmetry => row[27], :fluorescen => row[28], :certificate_id => row[37], :end_price => row[48])
+  #   end
   end
   
   def task(file)
