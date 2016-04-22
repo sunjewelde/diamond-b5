@@ -602,7 +602,7 @@ class OrganizeListsJob < ActiveJob::Base
             #-----End_Data table create for List model---------
 	      end
  
-	    else
+	    elsif @latest_date != @oldest_date
     	    #date, clar, colorでグループ
           # if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: @oldest_date, weight: 4.0, color: "M" )
           if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF")
