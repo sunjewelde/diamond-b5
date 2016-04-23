@@ -2,7 +2,8 @@ class ListsController < ApplicationController
   
   def new
   end
-
+  
+  require "date"
   def show
     @q = List.ransack(params[:q])
 
@@ -35,10 +36,6 @@ class ListsController < ApplicationController
       flash.now[:error] = "日付が選択されていない、又はその日付のデータがありません。"
     end
     
-    # @group_list = List.where(date: list_selected_date)
-    # @selected_latest_weight_group = @group_list.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight: @selected_weigh)
-    
-    # @selected_latest_weight_group = List.where(weight: @selected_weigh).where(date: @list_selected_date)
 
     @selected_latest_weight_group = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight: weight).where(date: date)
     # @selected_latest_weight_group = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight: @selected_weight).where(date: @list_selected_date)
