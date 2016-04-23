@@ -45,8 +45,6 @@ class DiamondsController < ApplicationController
    
    @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
    @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
-  # @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "FIY", "FLY", "FY", "Y-Z"]
-   # @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2", "I1", "FL"]
    @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
    @cut_grade = ["Good", "Very Good", "Excellent", "EXC", "VGD", "F"]
    @polish = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good"]

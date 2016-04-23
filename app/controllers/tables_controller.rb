@@ -15,14 +15,14 @@ class TablesController < ApplicationController
 		    @one_year_ago = @latest_date - 364
 		end
 
-		@weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
-		@color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
-		@clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
-		@cut_grade = ["Good", "Very Good", "Excellent", "EXC", "VGD", "F"]
-		@polish = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good"]
-		@symmetry = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good", "g", "Fair", "F"]
-		@fluorescen = ["Medium", "Faint", "None", "Strong", "f", "mb", "NONE", "Medium Blue", "md blue", 
-		           "st", "sb", "str blue", "S.BLUE", "M.BLUE", "VST", "Very Strong", "V.S.BLUE", "FT"]
+		# @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
+		# @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
+		# @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
+		# @cut_grade = ["Good", "Very Good", "Excellent", "EXC", "VGD", "F"]
+		# @polish = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good"]
+		# @symmetry = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good", "g", "Fair", "F"]
+		# @fluorescen = ["Medium", "Faint", "None", "Strong", "f", "mb", "NONE", "Medium Blue", "md blue", 
+		#           "st", "sb", "str blue", "S.BLUE", "M.BLUE", "VST", "Very Strong", "V.S.BLUE", "FT"]
 
 	    #chart_secondページからグラフ描画の引数を取得
 	        #For ransack
