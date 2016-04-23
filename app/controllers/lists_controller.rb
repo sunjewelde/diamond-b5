@@ -32,7 +32,7 @@ class ListsController < ApplicationController
     if List.exists?(date: selected_date)
       @list_selected_date = selected_date
     else
-      @selected_date = @latest_date
+      @list_selected_date = @latest_date
       flash.now[:error] = "日付が選択されていない、又はその日付のデータがありません。"
     end
 
