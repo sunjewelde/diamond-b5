@@ -30,7 +30,7 @@ class Diamond <ActiveRecord::Base
     # scope :date_six_month, -> {where(:date=> @six_months_ago..@latest_date)}
     # scope :date_one_year, -> {where(:date=> @one_year_ago..@latest_date)}
     # scope :date_full_year, -> {where(:date=> @oldest_date..@latest_date)} 
-    # scope :weight, ->(weight) {where(weight: weight)}
+    scope :weight, ->(weight) {where(weight: weight)}
 
     # scope :date_bewteen, -> from, to {
     #   if from.present? && to.present?

@@ -9,9 +9,9 @@ class ListsController < ApplicationController
      #最新旧の日付を取得
     @list_latest_date = List.maximum(:date)
     @list_oldest_date = List.minimum(:date)
-    if @latest_date.present?
-      @one_week_ago = @latest_date - 6
-    end
+    # if @latest_date.present?
+    #   @one_week_ago = @latest_date - 6
+    # end
 
    
     if params[:q] != nil
