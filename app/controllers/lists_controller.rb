@@ -29,7 +29,7 @@ class ListsController < ApplicationController
     selected_date = date
     @selected_weight = weight
 
-    if List.exists?(date: selected_date)
+    if List.exists?(:date => selected_date)
       @list_selected_date = selected_date
     else
       @list_selected_date = @list_latest_date
@@ -37,7 +37,7 @@ class ListsController < ApplicationController
     end
     
 
-    @selected_latest_weight_group = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight: weight).where(date: date)
+    @selected_latest_weight_group = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(:weight => weight).where(:date => date)
     # @selected_latest_weight_group = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight: @selected_weight).where(date: @list_selected_date)
     
   end
