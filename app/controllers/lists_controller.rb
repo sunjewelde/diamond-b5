@@ -12,8 +12,7 @@ class ListsController < ApplicationController
     # if @latest_date.present?
     #   @one_week_ago = @latest_date - 6
     # end
-
-   
+    
     if params[:q] != nil
       weight = params[:q][:weight]
       if params[:q][:date] != nil
@@ -36,7 +35,7 @@ class ListsController < ApplicationController
       flash.now[:error] = "日付が選択されていない、又はその日付のデータがありません。"
     end
 
-     @selected_latest_weight_group = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight: weight).where(date: @list_selected_date)
+     @selected_latest_weight_group = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight: @selected_weigh).where(date: @list_selected_date)
   end
 
   
