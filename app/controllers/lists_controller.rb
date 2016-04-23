@@ -43,8 +43,6 @@ class ListsController < ApplicationController
     @selected_latest_weight_group = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight: weight).where(date: date)
     # @selected_latest_weight_group = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight: @selected_weight).where(date: @list_selected_date)
     
-    @temp = List.where(weight: weight).where(date: date)
-    # @temp_price = @temp.find_by color: "D"
   end
 
   
