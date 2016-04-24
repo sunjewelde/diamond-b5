@@ -116,7 +116,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.3,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.3, weight2: 0.3,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -153,7 +153,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.4,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.4, weight2: 0.4,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -189,7 +189,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.5, weight2: 0.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -225,7 +225,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.6,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.6, weight2: 0.6,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -261,7 +261,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.7,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.7, weight2: 0.7,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -297,7 +297,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.8, weight2: 0.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -334,7 +334,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.9,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.9, weight2: 0.9,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -371,7 +371,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 1.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 1.0, weight2: 1.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -407,7 +407,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 1.2,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 1.2, weight2: 1.2,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -444,7 +444,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 1.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 1.5, weight2: 1.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -481,7 +481,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 1.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 1.8, weight2: 1.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -518,7 +518,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 2.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 2.0, weight2: 2.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -555,7 +555,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 3.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 3.0, weight2: 3.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -592,7 +592,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 4.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 4.0, weight2: 4.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -693,7 +693,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.3,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.3, weight2: 0.3,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -730,7 +730,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.4,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.4, weight2: 0.4,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -766,7 +766,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.5, weight2: 0.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -802,7 +802,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.6,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.6, weight2: 0.6,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -838,7 +838,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.7,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.7, weight2: 0.7,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -874,7 +874,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.8, weight2: 0.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -911,7 +911,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 0.9,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 0.9, weight2: 0.9,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -948,7 +948,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 1.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 1.0, weight2: 1.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -984,7 +984,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 1.2,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 1.2, weight2: 1.2,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -1021,7 +1021,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 1.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 1.5, weight2: 1.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -1058,7 +1058,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 1.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 1.8, weight2: 1.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -1095,7 +1095,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 2.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 2.0, weight2: 2.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -1132,7 +1132,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 3.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 3.0, weight2: 3.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
@@ -1169,7 +1169,7 @@ class OrganizeListsJob < ActiveJob::Base
                       @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
     
                       if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
-                        List.create(date: date, color: selected_color, weight: 4.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                        List.create(date: date, color: selected_color, weight: 4.0, weight2: 4.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
                       end
                       i += 1
                   end
