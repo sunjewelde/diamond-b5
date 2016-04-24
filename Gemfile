@@ -37,7 +37,7 @@ gem 'pry-byebug', group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'devise', '~> 3.2.x'
 
 gem 'smarter_csv'
