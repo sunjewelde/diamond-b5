@@ -36,8 +36,8 @@ class ListsController < ApplicationController
       flash.now[:error] = "日付が選択されていない、又はその日付のデータがありません。"
     end
     
-
-    @selected_latest_weight_group = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(:weight => weight).where(:date => date)
+    @selected_latest_weight_group = List.select_color_clar.where(:weight => weight).where(:date => date)
+    # @selected_latest_weight_group = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(:weight => weight).where(:date => date)
     # @selected_latest_weight_group = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight: @selected_weight).where(date: @list_selected_date)
     
   end
