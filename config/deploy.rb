@@ -35,7 +35,7 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
-set :rvm_ruby_version, '2.2.1'
+set :rvm_ruby_version, '2.3.0'
 
 # set :passenger_environment_variables, { :path => '/path-to-passenger/bin:/home/hiroyuki/.rvm/gems/ruby-2.2.1/wrappers/ruby' }
 # set :passenger_restart_command, '/path-to-passenger/bin/passenger-config restart-app'
