@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415203519) do
+ActiveRecord::Schema.define(version: 20160424204950) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20160415203519) do
     t.float    "weight"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "weight2",    precision: 2, scale: 1
   end
 
   create_table "tables", force: :cascade do |t|
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 20160415203519) do
     t.float    "ex_rate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "weight2",    precision: 2, scale: 1
   end
 
   create_table "users", force: :cascade do |t|
