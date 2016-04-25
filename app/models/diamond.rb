@@ -30,7 +30,7 @@ class Diamond <ActiveRecord::Base
     # scope :date_six_month, -> {where(:date=> @six_months_ago..@latest_date)}
     # scope :date_one_year, -> {where(:date=> @one_year_ago..@latest_date)}
     # scope :date_full_year, -> {where(:date=> @oldest_date..@latest_date)} 
-    scope :weight, ->(weight) {where(weight: weight)}
+    scope :weight, ->(weight) {where(weight2: weight)}
 
     # scope :date_bewteen, -> from, to {
     #   if from.present? && to.present?
@@ -52,21 +52,21 @@ class Diamond <ActiveRecord::Base
     scope :certificate_id, ->(certificate_id) {where(certificate_id: certificate_id) if color.present? }
     scope :end_price, ->(end_price) {where(end_price: end_price) if end_price.present? }
 
-    scope :weight02, -> {where(:weight=> @weight_min...0.3 ) }
-    scope :weight03, -> {where(:weight=> 0.3...0.4 ) }
-    scope :weight04, -> {where(:weight=> 0.4...0.5 ) }
-    scope :weight05, -> {where(:weight=> 0.5...0.6 ) }
-    scope :weight06, -> {where(:weight=> 0.6...0.7 ) }
-    scope :weight07, -> {where(:weight=> 0.7...0.8 ) }
-    scope :weight08, -> {where(:weight=> 0.8...0.9 ) }
-    scope :weight09, -> {where(:weight=> 0.9...1.0 ) }
-    scope :weight10, -> {where(:weight=> 1.0...1.2 ) }
-    scope :weight12, -> {where(:weight=> 1.2...1.5 ) }
-    scope :weight15, -> {where(:weight=> 1.5...1.8 ) }
-    scope :weight18, -> {where(:weight=> 1.8...2.0 ) }
-    scope :weight20, -> {where(:weight=> 2.0...3.0 ) }
-    scope :weight30, -> {where(:weight=> 3.0...4.0 ) }
-    scope :weight40, -> {where(:weight=> 4.0..@weight_max ) }
+    scope :weight02, -> {where(:weight2=> @weight_min...0.3 ) }
+    scope :weight03, -> {where(:weight2=> 0.3...0.4 ) }
+    scope :weight04, -> {where(:weight2=> 0.4...0.5 ) }
+    scope :weight05, -> {where(:weight2=> 0.5...0.6 ) }
+    scope :weight06, -> {where(:weight2=> 0.6...0.7 ) }
+    scope :weight07, -> {where(:weight2=> 0.7...0.8 ) }
+    scope :weight08, -> {where(:weight2=> 0.8...0.9 ) }
+    scope :weight09, -> {where(:weight2=> 0.9...1.0 ) }
+    scope :weight10, -> {where(:weight2=> 1.0...1.2 ) }
+    scope :weight12, -> {where(:weight2=> 1.2...1.5 ) }
+    scope :weight15, -> {where(:weight2=> 1.5...1.8 ) }
+    scope :weight18, -> {where(:weight2=> 1.8...2.0 ) }
+    scope :weight20, -> {where(:weight2=> 2.0...3.0 ) }
+    scope :weight30, -> {where(:weight2=> 3.0...4.0 ) }
+    scope :weight40, -> {where(:weight2=> 4.0..@weight_max ) }
 
 
   def self.import(file)
