@@ -1,7 +1,5 @@
 class Diamond <ActiveRecord::Base
 
-    # require 'rubygems'
-    # require 'active_support'
     require "date"
     
     # @latest_date = Diamond.maximum(:date)
@@ -31,16 +29,6 @@ class Diamond <ActiveRecord::Base
     # scope :date_one_year, -> {where(:date=> @one_year_ago..@latest_date)}
     # scope :date_full_year, -> {where(:date=> @oldest_date..@latest_date)} 
     scope :weight, ->(weight) {where(weight2: weight)}
-
-    # scope :date_bewteen, -> from, to {
-    #   if from.present? && to.present?
-    #       where(date: from..to)
-    #     elsif from.present?
-    #       where('date >= ?', from)
-    #     elsif to.present?
-    #       where('date <= ?', to)
-    #   end
-    #   }
 
     scope :color, ->(color) {where(color: color) if color.present? }
     scope :clar, ->(clar) {where(clar: clar) if clar.present? }

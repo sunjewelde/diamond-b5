@@ -29,7 +29,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
 	    
 	    if @latest_date == @latest_date_table
 	    elsif @latest_date == @oldest_date
-	      if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF")
+	      if Table.exists?(date: @latest_date, weight2: 0.3, color: "D", clar: "IF")
 	      else
 	          @weight03_diamond_group_all = Diamond.weight03.where(:date=> @latest_date)
             @weight04_diamond_group_all = Diamond.weight04.where(:date=> @latest_date)
@@ -94,7 +94,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               while d < @weight03_group_all_color_date.length
                 date = @weight03_group_all_color_date[d]
                 # date = @latest_date
-                if Table.exists?(date: date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.3, color: "M")
+                if Table.exists?(date: date, weight2: 0.3, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.3, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -106,7 +106,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.3, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.3, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.3, weight2: 0.3,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -123,7 +123,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight04_group_all_color_date.length
                 date = @weight04_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.4, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.4, color: "M")
+                if Table.exists?(date: date, weight2: 0.4, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.4, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -136,7 +136,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.4, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.4, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.4, weight2: 0.4,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -153,7 +153,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight05_group_all_color_date.length
                 date = @weight05_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.5, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.5, color: "M")
+                if Table.exists?(date: date, weight2: 0.5, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.5, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -166,7 +166,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.5, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.5, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.5, weight2: 0.5,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -183,7 +183,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight06_group_all_color_date.length
                 date = @weight06_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.6, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.6, color: "M")
+                if Table.exists?(date: date, weight2: 0.6, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.6, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -196,7 +196,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.6, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.6, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.6, weight2: 0.6,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -213,7 +213,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight07_group_all_color_date.length
                 date = @weight07_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.7, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.7, color: "M")
+                if Table.exists?(date: date, weight2: 0.7, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.7, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -226,7 +226,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.7, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.7, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.7, weight2: 0.7,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -243,7 +243,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight08_group_all_color_date.length
                 date = @weight08_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.8, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.8, color: "M")
+                if Table.exists?(date: date, weight2: 0.8, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.8, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -256,7 +256,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.8, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.8, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.8, weight2: 0.8,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -272,7 +272,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight09_group_all_color_date.length
                 date = @weight09_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.9, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.9, color: "M")
+                if Table.exists?(date: date, weight2: 0.9, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.9, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -285,7 +285,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.9, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.9, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.9, weight2: 0.9,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -302,7 +302,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight10_group_all_color_date.length
                 date = @weight10_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 1.0, color: "D", clar: "IF") and Table.exists?(date: date, weight: 1.0, color: "M")
+                if Table.exists?(date: date, weight2: 1.0, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 1.0, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -315,7 +315,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 1.0, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 1.0, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 1.0, weight2: 1.0,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -332,7 +332,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight12_group_all_color_date.length
                 date = @weight12_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 1.2, color: "D", clar: "IF") and Table.exists?(date: date, weight: 1.2, color: "M", clar: "SI2")
+                if Table.exists?(date: date, weight2: 1.2, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 1.2, color: "M", clar: "SI2")
                 else
                     i = 0
                     while i < @color.length
@@ -345,7 +345,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 1.2, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 1.2, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 1.2, weight2: 1.2,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -362,7 +362,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight15_group_all_color_date.length
                 date = @weight15_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 1.5, color: "D", clar: "IF") and Table.exists?(date: date, weight: 1.5, color: "M")
+                if Table.exists?(date: date, weight2: 1.5, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 1.5, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -375,7 +375,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 1.5, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 1.5, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 1.5, weight2: 1.5,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -392,7 +392,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight18_group_all_color_date.length
                 date = @weight18_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 1.8, color: "D", clar: "IF") and Table.exists?(date: date, weight: 1.8, color: "M")
+                if Table.exists?(date: date, weight2: 1.8, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 1.8, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -405,7 +405,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 1.8, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 1.8, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 1.8, weight2: 1.8,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -422,7 +422,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight20_group_all_color_date.length
                 date = @weight20_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 2.0, color: "D", clar: "IF") and Table.exists?(date: date, weight: 2.0, color: "M")
+                if Table.exists?(date: date, weight2: 2.0, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 2.0, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -435,7 +435,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 2.0, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 2.0, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 2.0, weight2: 2.0,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -452,7 +452,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight30_group_all_color_date.length
                 date = @weight30_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 3.0, color: "D", clar: "IF") and Table.exists?(date: date, weight: 3.0, color: "M")
+                if Table.exists?(date: date, weight2: 3.0, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 3.0, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -465,7 +465,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 3.0, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 3.0, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 3.0, weight2: 3.0,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -482,7 +482,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight40_group_all_color_date.length
                 date = @weight40_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 4.0, color: "D", clar: "IF") and Table.exists?(date: date, weight: 4.0, color: "M")
+                if Table.exists?(date: date, weight2: 4.0, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 4.0, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -495,7 +495,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 4.0, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 4.0, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 4.0, weight2: 4.0,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -513,7 +513,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
 	    elsif @latest_date != @oldest_date
     	    #date, clar, colorでグループ
           # if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: @oldest_date, weight: 4.0, color: "M" )
-          if Table.exists?(date: @latest_date, weight: 0.3, color: "D", clar: "IF")
+          if Table.exists?(date: @latest_date, weight2: 0.3, color: "D", clar: "IF")
           else
           @weight03_diamond_group_all = Diamond.weight03.where(:date=> @last_updated_date_table..@latest_date)
           @weight04_diamond_group_all = Diamond.weight04.where(:date=> @last_updated_date_table..@latest_date)
@@ -577,7 +577,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight03_group_all_color_date.length
                 date = @weight03_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.3, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.3, color: "M")
+                if Table.exists?(date: date, weight2: 0.3, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.3, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -590,7 +590,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.3, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.3, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.3, weight2: 0.3,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -607,7 +607,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight04_group_all_color_date.length
                 date = @weight04_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.4, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.4, color: "M")
+                if Table.exists?(date: date, weight2: 0.4, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.4, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -620,7 +620,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.4, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.4, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.4, weight2: 0.4,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -637,7 +637,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight05_group_all_color_date.length
                 date = @weight05_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.5, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.5, color: "M")
+                if Table.exists?(date: date, weight2: 0.5, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.5, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -650,7 +650,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.5, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.5, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.5, weight2: 0.5,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -667,7 +667,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight06_group_all_color_date.length
                 date = @weight06_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.6, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.6, color: "M")
+                if Table.exists?(date: date, weight2: 0.6, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.6, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -680,7 +680,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.6, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.6, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.6, weight2: 0.6,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -697,7 +697,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight07_group_all_color_date.length
                 date = @weight07_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.7, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.7, color: "M")
+                if Table.exists?(date: date, weight2: 0.7, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.7, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -710,7 +710,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.7, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.7, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.7, weight2: 0.7,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -727,7 +727,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight08_group_all_color_date.length
                 date = @weight08_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.8, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.8, color: "M")
+                if Table.exists?(date: date, weight2: 0.8, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.8, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -740,7 +740,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.8, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.8, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.8, weight2: 0.8,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -756,7 +756,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight09_group_all_color_date.length
                 date = @weight09_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 0.9, color: "D", clar: "IF") and Table.exists?(date: date, weight: 0.9, color: "M")
+                if Table.exists?(date: date, weight2: 0.9, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 0.9, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -769,7 +769,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 0.9, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 0.9, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 0.9, weight2: 0.9,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -786,7 +786,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight10_group_all_color_date.length
                 date = @weight10_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 1.0, color: "D", clar: "IF") and Table.exists?(date: date, weight: 1.0, color: "M")
+                if Table.exists?(date: date, weight2: 1.0, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 1.0, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -799,7 +799,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 1.0, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 1.0, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 1.0, weight2: 1.0,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -816,7 +816,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight12_group_all_color_date.length
                 date = @weight12_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 1.2, color: "D", clar: "IF") and Table.exists?(date: date, weight: 1.2, color: "M", clar: "SI2")
+                if Table.exists?(date: date, weight2: 1.2, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 1.2, color: "M", clar: "SI2")
                 else
                     i = 0
                     while i < @color.length
@@ -829,7 +829,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 1.2, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 1.2, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 1.2, weight2: 1.2,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -846,7 +846,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight15_group_all_color_date.length
                 date = @weight15_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 1.5, color: "D", clar: "IF") and Table.exists?(date: date, weight: 1.5, color: "M")
+                if Table.exists?(date: date, weight2: 1.5, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 1.5, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -859,7 +859,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 1.5, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 1.5, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 1.5, weight2: 1.5,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -876,7 +876,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight18_group_all_color_date.length
                 date = @weight18_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 1.8, color: "D", clar: "IF") and Table.exists?(date: date, weight: 1.8, color: "M")
+                if Table.exists?(date: date, weight2: 1.8, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 1.8, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -889,7 +889,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 1.8, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 1.8, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 1.8, weight2: 1.8,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -906,7 +906,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight20_group_all_color_date.length
                 date = @weight20_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 2.0, color: "D", clar: "IF") and Table.exists?(date: date, weight: 2.0, color: "M")
+                if Table.exists?(date: date, weight2: 2.0, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 2.0, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -919,7 +919,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 2.0, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 2.0, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 2.0, weight2: 2.0,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -936,7 +936,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight30_group_all_color_date.length
                 date = @weight30_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 3.0, color: "D", clar: "IF") and Table.exists?(date: date, weight: 3.0, color: "M")
+                if Table.exists?(date: date, weight2: 3.0, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 3.0, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -949,7 +949,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 3.0, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 3.0, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 3.0, weight2: 3.0,  clar: selcted_clar, price: @selected_price)
                                 end
@@ -966,7 +966,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
               d = 0
               while d < @weight40_group_all_color_date.length
                 date = @weight40_group_all_color_date[d]
-                if Table.exists?(date: date, weight: 4.0, color: "D", clar: "IF") and Table.exists?(date: date, weight: 4.0, color: "M")
+                if Table.exists?(date: date, weight2: 4.0, color: "D", clar: "IF") and Table.exists?(date: date, weight2: 4.0, color: "M")
                 else
                     i = 0
                     while i < @color.length
@@ -979,7 +979,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
                                 @selected_price = @selected_clar.avg_price.round
-                                if Table.exists?(date: date, weight: 4.0, color: selected_color, clar: selcted_clar)
+                                if Table.exists?(date: date, weight2: 4.0, color: selected_color, clar: selcted_clar)
                                 else
                                 	Table.create(date: date, color: selected_color, weight: 4.0, weight2: 4.0,  clar: selcted_clar, price: @selected_price)
                                 end
