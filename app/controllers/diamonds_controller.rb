@@ -66,14 +66,14 @@ class DiamondsController < ApplicationController
     #   i += 1
     # end
 
-   @latest_weight_group_03 = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight: 0.3).where(date: @latest_date)
+   @latest_weight_group_03 = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight2: 0.3).where(date: @latest_date)
 
 
-   @latest_chart_table_weight_group_03 = Table.select('date, color, clar, price').where(weight: 0.3).group(:date, :color, :clar)
+   @latest_chart_table_weight_group_03 = Table.select('date, color, clar, price').where(weight2: 0.3).group(:date, :color, :clar)
 
 
    @latest_one_week_data = Table.select('date, weight, color, clar, price').where(:date=> @one_week_ago..@latest_date).group(:date, :weight, :color, :clar)
-   weight_group_03_color_D_IF = @latest_one_week_data.where(weight: 0.3).where(color: "D").where(clar: "IF")
+   weight_group_03_color_D_IF = @latest_one_week_data.where(weight2: 0.3).where(color: "D").where(clar: "IF")
    
     #0.3_All
     #Date
@@ -103,9 +103,6 @@ class DiamondsController < ApplicationController
       f.chart(type: 'line', height: 600, marginLeft: 50, marginRight: 50)
       # f.chart({:defaultSeriesType=>"column"})
     end
-    
-    # EventWorker.perform_async
-    # OrganizeDiamondsJob.perform_later args
 
   end
   
