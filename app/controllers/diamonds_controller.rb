@@ -50,8 +50,8 @@ class DiamondsController < ApplicationController
                  "st", "sb", "str blue", "S.BLUE", "M.BLUE", "VST", "Very Strong", "V.S.BLUE", "FT"]
 
    #最新旧の日付を取得
-  @latest_date = Diamond.maximum(:date)
-  @oldest_date = Diamond.minimum(:date)
+  @latest_date = Table.maximum(:date)
+  @oldest_date = Table.minimum(:date)
   if @latest_date.present?
     @one_week_ago = @latest_date - 6
   end
