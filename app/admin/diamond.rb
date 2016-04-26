@@ -25,7 +25,7 @@ ActiveAdmin.register Diamond do
         #         number_to_currency diamond.price
         #     end
         # end
-        default_actions
+        # default_actions
     end
 
 end
