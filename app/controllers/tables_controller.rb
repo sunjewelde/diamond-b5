@@ -110,7 +110,7 @@ class TablesController < ApplicationController
 			@diamond_table_data = @diamonds.where(:clar => clar).group(:date)
 			@date_seriese = @diamond_table_data.pluck(:date)
 			@selected_color_end_price_seriese = @diamond_table_data.pluck(:price)
-		elsif @selected_calr == "all" and @selected_color == "all"
+		elsif @selected_clar == "all" and @selected_color == "all"
 			# @diamond_table_data = @diamonds_D
 			@diamond_table_data_D = @diamonds_D.group(:date)
 			@date_seriese_D = @diamond_table_data_D.pluck(:date)
@@ -476,7 +476,7 @@ class TablesController < ApplicationController
 				  f.series(:name => "M_#{clar}", :data => @selected_color_end_price_seriese_M)
 
 				  f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
-				  f.chart(type: 'line', height: 600)
+				  f.chart(type: 'line', height: 800)
 
 			elsif clar != "all" and color != "all"
 				  f.title(:text => "Diamond Price Chart #{weight}カラット")
