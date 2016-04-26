@@ -9,7 +9,7 @@
         <% if logged_in? %>
             <% if @user.id == 1 %>
               <li><%= link_to "データ管理", diamonds_manage_data_path %></li>
-              <%= link_to "Log out", logout_path, method: "delete" %>
+              <li><%= link_to "Log out", logout_path, method: "delete" %></l1>
             <% else %>
               <li>
                 <%= link_to "Log out", logout_path, method: "delete" %>

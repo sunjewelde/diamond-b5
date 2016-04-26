@@ -19,11 +19,12 @@ ActiveAdmin.register Diamond do
         column "Calut", :weight
         column "Color", :color
         column "Crality", :clar
-        column "Price", :end_price, :sortable => :end_price do |diamond|
-            div :class => "diamond" do
-                number_to_currency diamond.price
-            end
-        end
+        column "Price", :end_price
+        # column "Price", :end_price, :sortable => :end_price do |diamond|
+        #     div :class => "diamond" do
+        #         number_to_currency diamond.price
+        #     end
+        # end
         default_actions
     end
 
