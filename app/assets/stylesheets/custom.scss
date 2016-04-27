@@ -72,6 +72,11 @@ p {
   margin-top: 50px;
 }
 
+.user_margin2 {
+  margin-bottom: 50px;
+}
+
+
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
@@ -110,6 +115,8 @@ input {
   }
 }
 
-.user_margin1{
-  margin: 15px 0 15px 0;
+
+.user_padding1{
+  padding-left: 200px;
+  padding-right: 200px;
 }
