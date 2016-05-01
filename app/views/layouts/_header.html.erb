@@ -7,7 +7,7 @@
         <li><%= link_to "ダイヤモンド価格チャート", tables_chart_second_path %></li>
         <li><%= link_to "ダイヤモンド相場価格指標", lists_show_path %></li>
         <% if logged_in? %>
-            <% if current_user.id == 1 %>
+            <% if current_user.id == 1 || current_user.id == 2 %>
               <li><%= link_to "データ管理", diamonds_manage_data_path %></li>
               <li><%= link_to "Log out", logout_path, method: "delete" %></l1>
             <% else %>
