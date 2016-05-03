@@ -25,6 +25,44 @@ class OrganizeListsJob < ActiveJob::Base
       @symmetry = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good", "g", "Fair", "F"]
       @fluorescen = ["Medium", "Faint", "None", "Strong", "f", "mb", "NONE", "Medium Blue", "md blue", 
                  "st", "sb", "str blue", "S.BLUE", "M.BLUE", "VST", "Very Strong", "V.S.BLUE", "FT"]
+                 
+      @weight03_diamond_group_all = Diamond.weight03.where(:date=> @latest_date)
+      @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date, :color, :clar)
+      @weight03_group_all_color_date = @weight03_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+            d = 0
+            while d < @weight03_group_all_color_date.length
+              date = @weight03_group_all_color_date[d]
+              if List.exists?(date: date, weight2: 0.3, color: "D") and List.exists?(date: date, weight2: 0.3, color: "M")
+              else
+                  i = 0
+                  while i < @color.length
+                      selected_color = @color[i]
+                      @selected_color_data = @weight03_group_all_color.where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
+                      @selected_color_IF = @selected_color_data.find_by clar: "IF"
+                      @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
+                      @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
+                      @selected_color_VS1 = @selected_color_data.find_by clar: "VS1"
+                      @selected_color_VS2 = @selected_color_data.find_by clar: "VS2"
+                      @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
+                      @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
+                    # binding.pry 
+                      @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
+                      @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
+                      @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
+                      @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
+                      @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
+                      @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
+                      @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    
+                      if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
+                        List.create(date: date, color: selected_color, weight2: 0.3,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
+                      end
+                      i += 1
+                  end
+              end
+              d += 1
+            end
 	    
 	    
 	    if @latest_date == @latest_date_list
