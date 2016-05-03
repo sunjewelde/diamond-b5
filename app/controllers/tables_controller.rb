@@ -20,7 +20,7 @@ class TablesController < ApplicationController
 	        #For ransack
 	    @q = Table.ransack(params[:q])
 	    if params[:q] != nil
-		    weight = params[:q][:weight]
+		    weight = params[:q][:weight2]
 		    color = params[:q][:color]
 		    clar = params[:q][:clar]
 		    date = params[:q][:date]

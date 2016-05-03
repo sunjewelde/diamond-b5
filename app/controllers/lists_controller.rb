@@ -15,7 +15,7 @@ class ListsController < ApplicationController
     # end
     
     if params[:q] != nil
-      weight = params[:q][:weight]
+      weight = params[:q][:weight2]
       selected_date = params[:q][:date]
       if selected_date.present?
         date = selected_date
