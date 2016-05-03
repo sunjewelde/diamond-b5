@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503040007) do
+ActiveRecord::Schema.define(version: 20160503041607) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20160503040007) do
     t.decimal  "table_percent",     precision: 4,  scale: 1
     t.string   "girdle_thin"
     t.string   "girdle_thick"
+    t.float    "weight"
   end
 
   create_table "lists", force: :cascade do |t|

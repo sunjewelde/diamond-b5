@@ -45,46 +45,46 @@ class OrganizeListsJob < ActiveJob::Base
             @weight30_diamond_group_all = Diamond.weight30.where(:date=> @latest_date)
             @weight40_diamond_group_all = Diamond.weight40.where(:date=> @latest_date)
             
-          @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, AVG(end_price * 0.3 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date, :color, :clar)
           @weight03_group_all_color_date = @weight03_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight04_group_all_color = @weight04_diamond_group_all.select('date, color, clar, AVG(end_price * 0.4 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight04_group_all_color = @weight04_diamond_group_all.select('date, color, clar, AVG(end_price * 0.4 / weight) AS avg_price').group(:date, :color, :clar)
           @weight04_group_all_color_date = @weight04_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight05_group_all_color = @weight05_diamond_group_all.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight05_group_all_color = @weight05_diamond_group_all.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').group(:date, :color, :clar)
           @weight05_group_all_color_date = @weight05_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight06_group_all_color = @weight06_diamond_group_all.select('date, color, clar, AVG(end_price * 0.6 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight06_group_all_color = @weight06_diamond_group_all.select('date, color, clar, AVG(end_price * 0.6 / weight) AS avg_price').group(:date, :color, :clar)
           @weight06_group_all_color_date = @weight06_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight07_group_all_color = @weight07_diamond_group_all.select('date, color, clar, AVG(end_price * 0.7 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight07_group_all_color = @weight07_diamond_group_all.select('date, color, clar, AVG(end_price * 0.7 / weight) AS avg_price').group(:date, :color, :clar)
           @weight07_group_all_color_date = @weight07_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight08_group_all_color = @weight08_diamond_group_all.select('date, color, clar, AVG(end_price * 0.8 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight08_group_all_color = @weight08_diamond_group_all.select('date, color, clar, AVG(end_price * 0.8 / weight) AS avg_price').group(:date, :color, :clar)
           @weight08_group_all_color_date = @weight08_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight09_group_all_color = @weight09_diamond_group_all.select('date, color, clar, AVG(end_price * 0.9 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight09_group_all_color = @weight09_diamond_group_all.select('date, color, clar, AVG(end_price * 0.9 / weight) AS avg_price').group(:date, :color, :clar)
           @weight09_group_all_color_date = @weight09_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight10_group_all_color = @weight10_diamond_group_all.select('date, color, clar, AVG(end_price * 1.0 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight10_group_all_color = @weight10_diamond_group_all.select('date, color, clar, AVG(end_price * 1.0 / weight) AS avg_price').group(:date, :color, :clar)
           @weight10_group_all_color_date = @weight10_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight12_group_all_color = @weight12_diamond_group_all.select('date, color, clar, AVG(end_price * 1.2 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight12_group_all_color = @weight12_diamond_group_all.select('date, color, clar, AVG(end_price * 1.2 / weight) AS avg_price').group(:date, :color, :clar)
           @weight12_group_all_color_date = @weight12_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight15_group_all_color = @weight15_diamond_group_all.select('date, color, clar, AVG(end_price * 1.5 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight15_group_all_color = @weight15_diamond_group_all.select('date, color, clar, AVG(end_price * 1.5 / weight) AS avg_price').group(:date, :color, :clar)
           @weight15_group_all_color_date = @weight15_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight18_group_all_color = @weight18_diamond_group_all.select('date, color, clar, AVG(end_price * 1.8 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight18_group_all_color = @weight18_diamond_group_all.select('date, color, clar, AVG(end_price * 1.8 / weight) AS avg_price').group(:date, :color, :clar)
           @weight18_group_all_color_date = @weight18_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight20_group_all_color = @weight20_diamond_group_all.select('date, color, clar, AVG(end_price * 2.0 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight20_group_all_color = @weight20_diamond_group_all.select('date, color, clar, AVG(end_price * 2.0 / weight) AS avg_price').group(:date, :color, :clar)
           @weight20_group_all_color_date = @weight20_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight30_group_all_color = @weight30_diamond_group_all.select('date, color, clar, AVG(end_price * 3.0 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight30_group_all_color = @weight30_diamond_group_all.select('date, color, clar, AVG(end_price * 3.0 / weight) AS avg_price').group(:date, :color, :clar)
           @weight30_group_all_color_date = @weight30_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight40_group_all_color = @weight40_diamond_group_all.select('date, color, clar, AVG(end_price * 4.0 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight40_group_all_color = @weight40_diamond_group_all.select('date, color, clar, AVG(end_price * 4.0 / weight) AS avg_price').group(:date, :color, :clar)
           @weight40_group_all_color_date = @weight40_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
           #Data table create for List model
@@ -98,7 +98,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight03_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -135,7 +135,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight04_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -171,7 +171,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight05_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -207,7 +207,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight06_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -243,7 +243,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight07_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -279,7 +279,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight08_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -316,7 +316,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight09_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -353,7 +353,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight10_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -389,7 +389,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight12_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -426,7 +426,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight15_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -463,7 +463,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight18_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -500,7 +500,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight20_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -537,7 +537,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight30_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -574,7 +574,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight40_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -622,46 +622,46 @@ class OrganizeListsJob < ActiveJob::Base
           @weight30_diamond_group_all = Diamond.weight30.where(:date=> @last_updated_date_list..@latest_date)
           @weight40_diamond_group_all = Diamond.weight40.where(:date=> @last_updated_date_list..@latest_date)
           
-          @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, AVG(end_price * 0.3 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date, :color, :clar)
           @weight03_group_all_color_date = @weight03_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight04_group_all_color = @weight04_diamond_group_all.select('date, color, clar, AVG(end_price * 0.4 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight04_group_all_color = @weight04_diamond_group_all.select('date, color, clar, AVG(end_price * 0.4 / weight) AS avg_price').group(:date, :color, :clar)
           @weight04_group_all_color_date = @weight04_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight05_group_all_color = @weight05_diamond_group_all.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight05_group_all_color = @weight05_diamond_group_all.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').group(:date, :color, :clar)
           @weight05_group_all_color_date = @weight05_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight06_group_all_color = @weight06_diamond_group_all.select('date, color, clar, AVG(end_price * 0.6 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight06_group_all_color = @weight06_diamond_group_all.select('date, color, clar, AVG(end_price * 0.6 / weight) AS avg_price').group(:date, :color, :clar)
           @weight06_group_all_color_date = @weight06_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight07_group_all_color = @weight07_diamond_group_all.select('date, color, clar, AVG(end_price * 0.7 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight07_group_all_color = @weight07_diamond_group_all.select('date, color, clar, AVG(end_price * 0.7 / weight) AS avg_price').group(:date, :color, :clar)
           @weight07_group_all_color_date = @weight07_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight08_group_all_color = @weight08_diamond_group_all.select('date, color, clar, AVG(end_price * 0.8 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight08_group_all_color = @weight08_diamond_group_all.select('date, color, clar, AVG(end_price * 0.8 / weight) AS avg_price').group(:date, :color, :clar)
           @weight08_group_all_color_date = @weight08_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight09_group_all_color = @weight09_diamond_group_all.select('date, color, clar, AVG(end_price * 0.9 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight09_group_all_color = @weight09_diamond_group_all.select('date, color, clar, AVG(end_price * 0.9 / weight) AS avg_price').group(:date, :color, :clar)
           @weight09_group_all_color_date = @weight09_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight10_group_all_color = @weight10_diamond_group_all.select('date, color, clar, AVG(end_price * 1.0 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight10_group_all_color = @weight10_diamond_group_all.select('date, color, clar, AVG(end_price * 1.0 / weight) AS avg_price').group(:date, :color, :clar)
           @weight10_group_all_color_date = @weight10_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight12_group_all_color = @weight12_diamond_group_all.select('date, color, clar, AVG(end_price * 1.2 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight12_group_all_color = @weight12_diamond_group_all.select('date, color, clar, AVG(end_price * 1.2 / weight) AS avg_price').group(:date, :color, :clar)
           @weight12_group_all_color_date = @weight12_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight15_group_all_color = @weight15_diamond_group_all.select('date, color, clar, AVG(end_price * 1.5 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight15_group_all_color = @weight15_diamond_group_all.select('date, color, clar, AVG(end_price * 1.5 / weight) AS avg_price').group(:date, :color, :clar)
           @weight15_group_all_color_date = @weight15_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight18_group_all_color = @weight18_diamond_group_all.select('date, color, clar, AVG(end_price * 1.8 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight18_group_all_color = @weight18_diamond_group_all.select('date, color, clar, AVG(end_price * 1.8 / weight) AS avg_price').group(:date, :color, :clar)
           @weight18_group_all_color_date = @weight18_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight20_group_all_color = @weight20_diamond_group_all.select('date, color, clar, AVG(end_price * 2.0 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight20_group_all_color = @weight20_diamond_group_all.select('date, color, clar, AVG(end_price * 2.0 / weight) AS avg_price').group(:date, :color, :clar)
           @weight20_group_all_color_date = @weight20_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight30_group_all_color = @weight30_diamond_group_all.select('date, color, clar, AVG(end_price * 3.0 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight30_group_all_color = @weight30_diamond_group_all.select('date, color, clar, AVG(end_price * 3.0 / weight) AS avg_price').group(:date, :color, :clar)
           @weight30_group_all_color_date = @weight30_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
-          @weight40_group_all_color = @weight40_diamond_group_all.select('date, color, clar, AVG(end_price * 4.0 / weight2) AS avg_price').group(:date, :color, :clar)
+          @weight40_group_all_color = @weight40_diamond_group_all.select('date, color, clar, AVG(end_price * 4.0 / weight) AS avg_price').group(:date, :color, :clar)
           @weight40_group_all_color_date = @weight40_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
             #Data table create for List model
@@ -675,7 +675,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight03_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -712,7 +712,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight04_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -748,7 +748,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight05_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -784,7 +784,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight06_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -820,7 +820,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight07_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -856,7 +856,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight08_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -893,7 +893,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight09_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -930,7 +930,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight10_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -966,7 +966,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight12_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -1003,7 +1003,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight15_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -1040,7 +1040,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight18_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -1077,7 +1077,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight20_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -1114,7 +1114,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight30_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
@@ -1151,7 +1151,7 @@ class OrganizeListsJob < ActiveJob::Base
                   while i < @color.length
                       selected_color = @color[i]
                       @selected_color_data = @weight40_group_all_color.where(date: date).where(color: selected_color)
-                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight2) AS avg_price').where(date: date).where(color: selected_color)
+                      # @selected_color_data_05 = @weight05_group_all_color.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').where(date: date).where(color: selected_color)
                       @selected_color_IF = @selected_color_data.find_by clar: "IF"
                       @selected_color_VVS1 = @selected_color_data.find_by clar: "VVS1"
                       @selected_color_VVS2 = @selected_color_data.find_by clar: "VVS2"
