@@ -72,7 +72,7 @@ class DiamondsController < ApplicationController
    @latest_chart_table_weight_group_03 = Table.select('date, color, clar, price').where(weight2: 0.3).group(:date, :color, :clar)
 
 
-   @latest_one_week_data = Table.select('date, weight, color, clar, price').where(:date=> @one_week_ago..@latest_date).group(:date, :weight, :color, :clar)
+   @latest_one_week_data = Table.select('date, weight, color, clar, price').where(:date=> @one_week_ago..@latest_date).group(:date, :weight2, :color, :clar)
    weight_group_03_color_D_IF = @latest_one_week_data.where(weight2: 0.3).where(color: "D").where(clar: "IF")
    
     #0.3_All
@@ -141,12 +141,12 @@ class DiamondsController < ApplicationController
         onw_week_data = Table.where(:date=> @one_week_ago..@latest_date)
         # @diamonds = onw_week_data.ransack(:weight_eq => weight).result
         # @diamonds = onw_week_data.weight"#{weight}"
-        @diamonds = onw_week_data.where(:weight=> weight)
+        @diamonds = onw_week_data.where(:weight2=> weight)
       elsif date == "1m"
         one_month_data = Table.where(:date=> @one_months_ago..@latest_date)
         # @diamonds = one_month_data.ransack(:weight_eq => weight).result
         # @diamonds = one_month_data.weight"#{weight}"
-        @diamonds = one_month_data.where(:weight=> weight)
+        @diamonds = one_month_data.where(:weight2=> weight)
       elsif date == "3m"
         three_month_data = Table.where(:date=> @three_months_ago..@latest_date)
         # @diamonds = three_month_data.ransack(:weight_eq => weight).result
@@ -154,15 +154,15 @@ class DiamondsController < ApplicationController
       elsif date == "6m"
         six_month_data = Table.where(:date=> @six_months_ago..@latest_date)
         # @diamonds = six_month_data.ransack(:weight_eq => weight).result
-        @diamonds = six_month_data.where(:weight=> weight)
+        @diamonds = six_month_data.where(:weight2=> weight)
       elsif date == "1y"
         one_year_data = Table.where(:date=> @one_year_ago..@latest_date)
         # @diamonds = one_year_data.ransack(:weight_eq => weight).result
-        @diamonds = one_year_data.where(:weight=> weight)
+        @diamonds = one_year_data.where(:weight2=> weight)
       elsif date == "max"
         full_year_data = Table.all
         # @diamonds = full_year_data.ransack(:weight_eq => weight).result
-        @diamonds = full_year_data.where(:weight=> weight)
+        @diamonds = full_year_data.where(:weight2=> weight)
     end
     
     #For ransack
@@ -963,7 +963,7 @@ class DiamondsController < ApplicationController
   
   private
   def diamond_params
-    params.require(:diamond).permit(:date, :weight, :clar, :end_price, :color, :cut_grade, :rapnet_list_price, 
+    params.require(:diamond).permit(:date, :weight2, :clar, :end_price, :color, :cut_grade, :rapnet_list_price, 
                                     :rapnet_discount, :price_per_carat, :polish, :symmetry, :fluorescen)
   end
   
