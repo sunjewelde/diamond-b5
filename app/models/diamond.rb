@@ -9,8 +9,8 @@ class Diamond <ActiveRecord::Base
     
     # @latest_date = self.maximum(:date)
     # @oldest_date = self.minimum(:date)
-    @weight_max = self.maximum(:weight)
-    @weight_min = self.minimum(:weight)
+    @weight_max = self.maximum(:weight2)
+    @weight_min = self.minimum(:weight2)
 
     # if @latest_date.present?
     #   @one_week_ago = (@latest_date - 6)
