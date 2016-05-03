@@ -108,7 +108,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.3, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.3, weight2: 0.3,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.3,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -138,7 +138,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.4, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.4, weight2: 0.4,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.4,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -168,7 +168,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.5, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.5, weight2: 0.5,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.5,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -198,7 +198,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.6, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.6, weight2: 0.6,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.6,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -228,7 +228,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.7, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.7, weight2: 0.7,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.7,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -258,7 +258,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.8, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.8, weight2: 0.8,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.8,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -287,7 +287,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.9, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.9, weight2: 0.9,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.9,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -317,7 +317,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 1.0, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 1.0, weight2: 1.0,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 1.0,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -347,7 +347,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 1.2, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 1.2, weight2: 1.2,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 1.2,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -377,7 +377,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 1.5, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 1.5, weight2: 1.5,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 1.5,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -407,7 +407,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 1.8, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 1.8, weight2: 1.8,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 1.8,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -437,7 +437,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 2.0, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 2.0, weight2: 2.0,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 2.0,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -467,7 +467,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 3.0, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 3.0, weight2: 3.0,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 3.0,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -497,7 +497,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 4.0, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 4.0, weight2: 4.0,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 4.0,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -592,7 +592,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.3, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.3, weight2: 0.3,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.3,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -622,7 +622,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.4, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.4, weight2: 0.4,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.4,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -652,7 +652,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.5, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.5, weight2: 0.5,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.5,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -682,7 +682,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.6, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.6, weight2: 0.6,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.6,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -712,7 +712,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.7, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.7, weight2: 0.7,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.7,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -742,7 +742,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.8, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.8, weight2: 0.8,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.8,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -771,7 +771,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 0.9, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 0.9, weight2: 0.9,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 0.9,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -801,7 +801,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 1.0, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 1.0, weight2: 1.0,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 1.0,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -831,7 +831,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 1.2, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 1.2, weight2: 1.2,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 1.2,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -861,7 +861,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 1.5, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 1.5, weight2: 1.5,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 1.5,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -891,7 +891,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 1.8, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 1.8, weight2: 1.8,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 1.8,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -921,7 +921,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 2.0, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 2.0, weight2: 2.0,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 2.0,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -951,7 +951,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 3.0, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 3.0, weight2: 3.0,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 3.0,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1
@@ -981,7 +981,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                                 @selected_price = @selected_clar.avg_price.round
                                 if Table.exists?(date: date, weight2: 4.0, color: selected_color, clar: selcted_clar)
                                 else
-                                	Table.create(date: date, color: selected_color, weight: 4.0, weight2: 4.0,  clar: selcted_clar, price: @selected_price)
+                                	Table.create(date: date, color: selected_color, weight2: 4.0,  clar: selcted_clar, price: @selected_price)
                                 end
                             end
                           j += 1

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425021838) do
+ActiveRecord::Schema.define(version: 20160503023749) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -48,10 +48,8 @@ ActiveRecord::Schema.define(version: 20160425021838) do
 
   create_table "diamonds", force: :cascade do |t|
     t.date     "date"
-    t.float    "weight"
     t.string   "color"
     t.string   "clar"
-    t.float    "end_price"
     t.string   "cut_grade"
     t.integer  "rapnet_list_price"
     t.integer  "rapnet_discount"
@@ -62,38 +60,41 @@ ActiveRecord::Schema.define(version: 20160425021838) do
     t.string   "certificate_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "length"
-    t.float    "width"
-    t.float    "depth"
-    t.decimal  "weight2",           precision: 4, scale: 2
+    t.decimal  "weight2",           precision: 4,  scale: 2
+    t.decimal  "end_price",         precision: 12, scale: 1
+    t.decimal  "length",            precision: 10, scale: 2
+    t.decimal  "width",             precision: 10, scale: 2
+    t.decimal  "depth",             precision: 10, scale: 2
+    t.string   "shape"
+    t.decimal  "depth_percent",     precision: 4,  scale: 1
+    t.decimal  "table_percent",     precision: 4,  scale: 1
+    t.string   "girdle_thin"
+    t.string   "girdle_thick"
   end
 
   create_table "lists", force: :cascade do |t|
     t.string   "color"
-    t.float    "if1"
-    t.float    "vvs1"
-    t.float    "vvs2"
-    t.float    "vs1"
-    t.float    "vs2"
-    t.float    "si1"
-    t.float    "si2"
     t.date     "date"
-    t.float    "weight"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "weight2",    precision: 2, scale: 1
+    t.decimal  "weight2",    precision: 2,  scale: 1
+    t.decimal  "if1",        precision: 12, scale: 1
+    t.decimal  "vvs1",       precision: 12, scale: 1
+    t.decimal  "vvs2",       precision: 12, scale: 1
+    t.decimal  "vs1",        precision: 12, scale: 1
+    t.decimal  "vs2",        precision: 12, scale: 1
+    t.decimal  "si1",        precision: 12, scale: 1
+    t.decimal  "si2",        precision: 12, scale: 1
   end
 
   create_table "tables", force: :cascade do |t|
     t.date     "date"
-    t.float    "weight"
     t.string   "color"
     t.string   "clar"
-    t.float    "price"
-    t.float    "ex_rate"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "weight2",    precision: 2, scale: 1
+    t.decimal  "weight2",    precision: 2,  scale: 1
+    t.decimal  "price",      precision: 12, scale: 1
   end
 
   create_table "users", force: :cascade do |t|
