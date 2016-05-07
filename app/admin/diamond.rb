@@ -15,10 +15,30 @@ ActiveAdmin.register Diamond do
 
     index do
         column :date
-        column "ID", :certificate_id
-        column "Calut", :weight
+        column "Calut", :weight2
         column "Color", :color
         column "Crality", :clar
+        
+        column "cut_grade", :cut_grade
+        column "rapnet_list_price", :rapnet_list_price
+        column "rapnet_discount", :rapnet_discount
+        column "price_per_carat", :price_per_carat
+        column "polish", :polish
+        column "symmetry", :symmetry
+        column "fluorescen", :fluorescen
+        
+        column "MeasLength", :length
+        column "MeasWidth", :width
+        column "MeasDepth", :depth
+        column "Shape", :shape
+        column "Depth%", :depth_percent
+        column "Table%", :table_percent
+        
+        column "Girdle_Thin%", :girdle_thin
+        column "Girdle_Thick%", :girdle_thick
+        
+        column "ID", :certificate_id
+        
         column "Price", :end_price
         # column "Price", :end_price, :sortable => :end_price do |diamond|
         #     div :class => "diamond" do
@@ -29,3 +49,4 @@ ActiveAdmin.register Diamond do
     end
 
 end
+
