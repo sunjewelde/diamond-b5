@@ -1,11 +1,10 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header id="chart_menu" class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "Diamond Bourse", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "ダイヤモンド相場 & 情報", root_path %></li>
-        <li><%= link_to "ダイヤモンド価格チャート", tables_chart_second_path %></li>
-        <li><%= link_to "ダイヤモンド相場価格指標", lists_show_path %></li>
+        <li><%= link_to "相場 & 情報", root_path %></li>
+        <li><%= link_to "価格チャート", tables_chart_second_path %></li>
+        <li><%= link_to "相場価格指標", lists_show_path %></li>
         <% if logged_in? %>
             <% if current_user.id == 1 || current_user.id == 2 %>
               <li><%= link_to "データ管理", diamonds_manage_data_path %></li>
