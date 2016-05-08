@@ -86,7 +86,7 @@ class DiamondsController < ApplicationController
       f.global(useUTC: false)
       # @sdate = weight_group_03_color_D_IF_date.find.first
       @date = weight_group_03_color_D_IF_date
-      f.title(:text => "Diamond Price Chart (0.3カラット Latest one week)")
+      f.title(:text => "Diamond Price (0.3カラット)")
       
       # f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { month: '%b %e, %Y' })
       f.xAxis(:categories => @date)

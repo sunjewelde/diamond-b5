@@ -356,7 +356,7 @@ class TablesController < ApplicationController
 
 		@chart = LazyHighCharts::HighChart.new('graph') do |f|
 			if clar == "all" and color != "all"
-				  f.title(:text => "Diamond Price Chart #{weight}カラット")
+				  f.title(:text => "Diamond Price #{weight}カラット")
 				  f.xAxis(:categories => @date_seriese2)
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 				  
