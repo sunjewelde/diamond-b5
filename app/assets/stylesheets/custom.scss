@@ -1,13 +1,51 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* extend bootstrap */
+.navbar-inverse {
+  background-color: #f5faf1;
+  border-color: transparent;
+}
+
+.navbar {
+  background-color: #f5faf1;
+}
+
+.navbar-inner {
+  background-color: #f5faf1;
+}
+
+.container {
+  max-width: none !important;
+  width: 970px;
+}
+
+.navbar-collapse {
+  display: block !important;
+  height: auto !important;
+  padding-bottom: 0;
+  overflow: visible !important;
+}
+
+.navbar-toggle {
+  display: none;
+}
+
+.navbar-brand {
+  margin-left: -15px;
+}
+
+
+
+// .navbar-default {
+//   border-color: transparent;}
+
 /* universal */
 
 body {
   padding-top: 60px;
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Hiragino Kaku Gothic Pro",
   "ヒラギノ角ゴ Pro W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Helvetica, Arial, Verdana, sans-serif;
-  background-color: #f5faf1;
 }
 
 section {
