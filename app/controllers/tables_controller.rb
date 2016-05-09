@@ -356,7 +356,7 @@ class TablesController < ApplicationController
 
 		@chart = LazyHighCharts::HighChart.new('graph') do |f|
 			if clar == "all" and color != "all"
-				  f.title(:text => "Diamond Price #{weight}カラット")
+				  #f.title(:text => "Diamond Price #{weight}カラット")
 				  f.xAxis(:categories => @date_seriese2)
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 				  
@@ -372,7 +372,7 @@ class TablesController < ApplicationController
 				  f.chart(type: 'line', height: 600)
 
 			elsif clar == "all" and color == "all"
-				  f.title(:text => "Diamond Price Chart #{weight}カラット")
+				  #f.title(:text => "Diamond Price Chart #{weight}カラット")
 				  f.xAxis(:categories => @date_seriese_D)
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 
@@ -460,7 +460,7 @@ class TablesController < ApplicationController
 				  f.chart(type: 'line', height: 600)
 
 			elsif clar != "all" and color == "all"
-				  f.title(:text => "Diamond Price Chart #{weight}カラット")
+				  #f.title(:text => "Diamond Price Chart #{weight}カラット")
 				  f.xAxis(:categories => @date_seriese)
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 
@@ -479,7 +479,7 @@ class TablesController < ApplicationController
 				  f.chart(type: 'line', height: 800)
 
 			elsif clar != "all" and color != "all"
-				  f.title(:text => "Diamond Price Chart #{weight}カラット")
+				  #f.title(:text => "Diamond Price Chart #{weight}カラット")
 				  f.xAxis(:categories => @date_seriese)
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 				  
