@@ -2,7 +2,7 @@
 
 <div class="container">
 
-    <h3>ダイヤモンド価格チャート <span class="label label-default"><%= @selected_weight%>カラット</span></h3>
+    <h4><span class="label label-default"><%= @selected_weight%>カラット</span></h4>
 	<div id="diamonds-chart" >
         <%= high_chart("diamonds-chart", @chart) %>
     </div>
@@ -11,7 +11,7 @@
 		<div class="use_margin_1 user_padding1">
 		    <%= f.label :date, "表示期間:" %>
 		    <%= f.select :date, {"1週間" => "1w", "1ヶ月" => "1m", "3ヶ月" => "3m", 
-		                            "6ヶ月" => "6m", "1年" => "1y"} %>
+		                            "6ヶ月" => "6m", "1年" => "1y"}%>
 		    &nbsp;
 		    <%= f.label :weight, "カラット:" %>
 		    <%= f.select :weight2, {"0.3" => 0.3, "0.4" => 0.4, "0.5" => 0.5, "0.6" => 0.6,
