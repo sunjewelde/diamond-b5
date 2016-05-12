@@ -4,12 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   
-  def require_user
-    if !logged_in?
-      flash[:danger] = "You must be logged in to perform that action"
-      redirect_to root_path
-    end
-  end
+
   
   
   private
@@ -18,6 +13,13 @@ class ApplicationController < ActionController::Base
       store_location
       flash[:danger] = "Please log in."
       redirect_to login_url
+    end
+  end
+  
+  def require_user
+    if !logged_in?
+      flash[:danger] = "You must be logged in to perform that action"
+      redirect_to root_path
     end
   end
   
