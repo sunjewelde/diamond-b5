@@ -7,7 +7,7 @@ class TablesController < ApplicationController
 	  	@latest_date = Table.maximum(:date)
 	    @oldest_date = Table.minimum(:date)
 	    
-	    @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
+	    # @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
 
 		if @latest_date.present?
 		    @one_week_ago = @latest_date - 6
