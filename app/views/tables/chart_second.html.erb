@@ -29,7 +29,7 @@
             
             &nbsp;
             <strong>クラリティ:</strong>
-            <%= f.collection_check_box :clar2, @clar do |cb| %>
+            <%= f.collection_check_boxes :clar2, @clar do |cb| %>
             	<% cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox")} %>
             	
             <% end %>
