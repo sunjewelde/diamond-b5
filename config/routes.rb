@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   
   post 'diamonds/make_list'
   
+  post 'diamonds/make_index'
+  
   post 'diamonds/import'
 
   # resources :diamonds do

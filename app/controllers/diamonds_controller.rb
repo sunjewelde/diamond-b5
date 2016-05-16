@@ -21,6 +21,11 @@ class DiamondsController < ApplicationController
     #EventWorker.perform_async
     redirect_to root_url, notice: "Daily価格テーブル作成を開始しました。"
   end
+  
+  def make_index
+    OrganizeIndexJob.perform_later
+    redirect_to root_url, notice: "Indexテーブル作成を開始しました。"
+  end
 
   def import
     @file = params[:file].path
