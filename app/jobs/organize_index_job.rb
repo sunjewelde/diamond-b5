@@ -33,7 +33,7 @@ class OrganizeIndexJob < ActiveJob::Base
         
     
       @index_ref = Index.where(date: @ref_date)
-      @index_ref_price1 = @index_ref.price1
+      @index_ref_price1 = @index_ref[:price1]
       if @index_ref_price1.present?
       else
         @table_ref = Table.where(:date=> @ref_date)
@@ -60,7 +60,7 @@ class OrganizeIndexJob < ActiveJob::Base
                 date = @table_group_all_color_date[d]
                 @selected_table_data = @table_group_all_color.where(date: date)
                 @selected_index_data = Index.where(date: date)
-                selected_date_index_price_1 = @selected_index_data.price1
+                selected_date_index_price_1 = @selected_index_data[:price1]
                 
                 if selected_date_index_price_1.present? and selected_date_index_price_1 != nil
                 else
@@ -93,7 +93,7 @@ class OrganizeIndexJob < ActiveJob::Base
                 date = @table_group_all_color_date[d]
                 @selected_table_data = @table_group_all_color.where(date: date)
                 @selected_index_data = Index.where(date: date)
-                selected_date_index_price_1 = @selected_index_data.price1
+                selected_date_index_price_1 = @selected_index_data[:price1]
                 
                 if selected_date_index_price_1.present? and selected_date_index_price_1 != nil
                 else
