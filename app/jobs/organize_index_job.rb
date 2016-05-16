@@ -1,0 +1,117 @@
+require "date"
+class OrganizeIndexJob < ActiveJob::Base
+  queue_as :default
+
+  def perform(*args)
+    # Do something later
+	  	@latest_date = Table.maximum(:date)
+	    @oldest_date = Table.minimum(:date)
+	    
+	    @latest_date_index = Index.maximum(:date)
+	    @oldest_date_index = Index.minimum(:date)
+	    
+	    if @latest_date_index.present?
+	       @last_updated_date_index = @latest_date_index + 1
+	     else
+	       @last_updated_date_index = @oldest_date
+	    end
+	    
+	    
+      @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
+      @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
+      @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
+      
+      if @latest_date <= "2015-12-31"
+        @ref_date = "2015-01-01"
+      elsif @latest_date >= "2016-01-01" and @latest_date <= "2016-12-31"
+        @ref_date = "2016-01-01"
+      elsif @latest_date >= "2017-01-01" and @latest_date <= "2017-12-31"
+        @ref_date = "2017-01-01"
+      elsif @latest_date >= "2018-01-01" and @latest_date <= "2018-12-31"
+        @ref_date = "2018-01-01"
+      end
+        
+    
+      @index_ref = Index.where(date: @ref_date)
+      @index_ref_price1 = @index_ref.price1
+      if @index_ref_price1.present?
+      else
+        @table_ref = Table.where(:date=> @ref_date)
+        @table_ref_all_color = @table_ref.select('date, AVG(price) AS avg_price').group(:date)
+        ref_date_data = @table_ref_all_color.where(date: @ref_date)
+        @ref_price = ref_date_data.avg_price.round
+        @ref_index = @ref_price * 100 / @ref_price
+        Index.create(date: date, index1: @ref_index, price1: @ref_price)
+      end
+      
+	    
+	    if @latest_date == @latest_date_index
+	    elsif @latest_date == @oldest_date
+	      if Index.exists?(date: @latest_date)
+	      else
+	        @table_group_all = Table.where(:date=> @latest_date)
+            
+          @table_group_all_color = @table_group_all.select('date, AVG(price) AS avg_price').group(:date)
+          @table_group_all_color_date = @table_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          #-----Create data table create for Index model-------------
+              d = 0
+              while d < @table_group_all_color_date.length
+                date = @table_group_all_color_date[d]
+                @selected_table_data = @table_group_all_color.where(date: date)
+                @selected_index_data = Index.where(date: date)
+                selected_date_index_price_1 = @selected_index_data.price1
+                
+                if selected_date_index_price_1.present? and selected_date_index_price_1 != nil
+                else
+                    # @selected_table_data = @table_group_all_color.where(date: date)
+                    
+                      if @selected_table_data.present?
+                         @price1 = @selected_table_data.avg_price.round
+                         @index1 = @price1 * 100 / @ref_price
+                         Index.create(date: date, index1: @index1, price1: @price1)
+                      end
+                end
+                d += 1
+              end
+              
+            #-----End_Create data table create for Index model-------------
+	      end
+ 
+	    elsif @latest_date != @oldest_date
+
+          if Index.exists?(date: @latest_date)
+          else
+          @table_group_all = Table.where(:date=> @last_updated_date_index..@latest_date)
+          
+          @table_group_all_color = @table_group_all.select('date, AVG(price) AS avg_price').group(:date)
+          @table_group_all_color_date = @table_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
+          
+          #-----Create data table create for Index model-------------
+              d = 0
+              while d < @table_group_all_color_date.length
+                date = @table_group_all_color_date[d]
+                @selected_table_data = @table_group_all_color.where(date: date)
+                @selected_index_data = Index.where(date: date)
+                selected_date_index_price_1 = @selected_index_data.price1
+                
+                if selected_date_index_price_1.present? and selected_date_index_price_1 != nil
+                else
+                    # @selected_table_data = @table_group_all_color.where(date: date)
+                    
+                      if @selected_table_data.present?
+                         @price1 = @selected_table_data.avg_price.round
+                         @index1 = @price1 * 100 / @ref_price
+                         Index.create(date: date, index1: @index1, price1: @price1)
+                      end
+                end
+                d += 1
+              end
+            #-----End_Create data table create for Index model-------------
+          end
+	    end
+	    
+	    
+
+  end
+end

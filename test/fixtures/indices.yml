@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-05-14
+  index1: 1.5
+  index2: 1.5
+  index3: 1.5
+  index4: 1.5
+  index5: 1.5
+  price1: 1.5
+  price2: 1.5
+  price3: 1.5
+  price4: 1.5
+  price5: 1.5
+
+two:
+  date: 2016-05-14
+  index1: 1.5
+  index2: 1.5
+  index3: 1.5
+  index4: 1.5
+  index5: 1.5
+  price1: 1.5
+  price2: 1.5
+  price3: 1.5
+  price4: 1.5
+  price5: 1.5

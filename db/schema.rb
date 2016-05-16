@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503233327) do
+ActiveRecord::Schema.define(version: 20160514231241) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -71,6 +71,22 @@ ActiveRecord::Schema.define(version: 20160503233327) do
     t.string   "girdle_thin"
     t.string   "girdle_thick"
     t.float    "weight"
+  end
+
+  create_table "indices", force: :cascade do |t|
+    t.date     "date"
+    t.float    "index1"
+    t.float    "index2"
+    t.float    "index3"
+    t.float    "index4"
+    t.float    "index5"
+    t.float    "price1"
+    t.float    "price2"
+    t.float    "price3"
+    t.float    "price4"
+    t.float    "price5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lists", force: :cascade do |t|
