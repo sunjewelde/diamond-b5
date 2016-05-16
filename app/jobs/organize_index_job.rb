@@ -16,19 +16,19 @@ class OrganizeIndexJob < ActiveJob::Base
 	       @last_updated_date_index = @oldest_date
 	    end
 	    
-	    
       @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
       @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
       @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
       
-      if @latest_date <= "2015-12-31"
-        @ref_date = "2015-01-01"
-      elsif @latest_date >= "2016-01-01" and @latest_date <= "2016-12-31"
-        @ref_date = "2016-01-01"
-      elsif @latest_date >= "2017-01-01" and @latest_date <= "2017-12-31"
-        @ref_date = "2017-01-01"
-      elsif @latest_date >= "2018-01-01" and @latest_date <= "2018-12-31"
-        @ref_date = "2018-01-01"
+      
+      if @latest_date <= Date.new(2015, 12, 31)
+        @ref_date = Date.new(2015, 1, 1)
+      elsif @latest_date >= Date.new(2016, 1, 1) and @latest_date <= Date.new(2016, 12, 31)
+        @ref_date = Date.new(2016, 1, 1)
+      elsif @latest_date >= Date.new(2017, 1, 1) and @latest_date <= Date.new(2017, 12, 31)
+        @ref_date = Date.new(2017, 1, 1)
+      elsif @latest_date >= Date.new(2018, 1, 1) and @latest_date <= Date.new(2018, 12, 31)
+        @ref_date = Date.new(2018, 1, 1)
       end
         
     
