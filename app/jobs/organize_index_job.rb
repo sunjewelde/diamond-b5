@@ -31,14 +31,16 @@ class OrganizeIndexJob < ActiveJob::Base
         @ref_date = Date.new(2018, 1, 1)
       end
         
+
     
-      @index_ref = Index.where(date: @ref_date)
-      @index_ref_price1 = @index_ref[:price1]
-      if @index_ref_price1.present?
+      # @index_ref = Index.where(date: @ref_date)
+      # @index_ref_price1 = @index_ref[:price1]
+      if Index.exists?(date: @ref_date)
       else
-        @table_ref = Table.where(:date=> @ref_date)
+        @table_ref = Table.where(:date => @ref_date)
         @table_ref_all_color = @table_ref.select('date, AVG(price) AS avg_price').group(:date)
-        ref_date_data = @table_ref_all_color.where(date: @ref_date)
+        # ref_date_data = @table_ref_all_color.where(date: @ref_date)
+        ref_date_data = @table_ref_all_color.find_by date: @ref_date
         @ref_price = ref_date_data.avg_price.round
         @ref_index = @ref_price * 100 / @ref_price
         Index.create(date: date, index1: @ref_index, price1: @ref_price)
@@ -59,8 +61,8 @@ class OrganizeIndexJob < ActiveJob::Base
               while d < @table_group_all_color_date.length
                 date = @table_group_all_color_date[d]
                 @selected_table_data = @table_group_all_color.where(date: date)
-                @selected_index_data = Index.where(date: date)
-                selected_date_index_price_1 = @selected_index_data[:price1]
+                @selected_index_data = Index.find_by date: date
+                selected_date_index_price_1 = @selected_index_data.price1
                 
                 if selected_date_index_price_1.present? and selected_date_index_price_1 != nil
                 else
@@ -92,8 +94,8 @@ class OrganizeIndexJob < ActiveJob::Base
               while d < @table_group_all_color_date.length
                 date = @table_group_all_color_date[d]
                 @selected_table_data = @table_group_all_color.where(date: date)
-                @selected_index_data = Index.where(date: date)
-                selected_date_index_price_1 = @selected_index_data[:price1]
+                @selected_index_data = Index.find_by date: date
+                selected_date_index_price_1 = @selected_index_data.price1
                 
                 if selected_date_index_price_1.present? and selected_date_index_price_1 != nil
                 else
