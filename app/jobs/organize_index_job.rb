@@ -43,7 +43,7 @@ class OrganizeIndexJob < ActiveJob::Base
         ref_date_data = @table_ref_all_color.find_by date: @ref_date
         @ref_price = ref_date_data.avg_price.round
         @ref_index = @ref_price * 100 / @ref_price
-        Index.create(date: date, index1: @ref_index, price1: @ref_price)
+        Index.create(date: @ref_date, index1: @ref_index, price1: @ref_price)
       end
       
 	    
@@ -75,7 +75,7 @@ class OrganizeIndexJob < ActiveJob::Base
                       if @selected_table_data.present?
                          @price1 = @selected_table_data.avg_price.round
                          @index1 = @price1 * 100 / @ref_price
-                         Index.create(date: date, index1: @index1, price1: @price1)
+                         Index.create(date: @date, index1: @index1, price1: @price1)
                       end
                 end
                 d += 1
@@ -112,7 +112,7 @@ class OrganizeIndexJob < ActiveJob::Base
                       if @selected_table_data.present?
                          @price1 = @selected_table_data.avg_price.round
                          @index1 = @price1 * 100 / @ref_price
-                         Index.create(date: date, index1: @index1, price1: @price1)
+                         Index.create(date: @date, index1: @index1, price1: @price1)
                       end
                 end
                 d += 1
