@@ -59,9 +59,9 @@ class OrganizeIndexJob < ActiveJob::Base
           #-----Create data table create for Index model-------------
               d = 0
               while d < @table_group_all_color_date.length
-                date = @table_group_all_color_date[d]
+                @date = @table_group_all_color_date[d]
                 @selected_table_data = @table_group_all_color.where(date: date)
-                @selected_index_data = Index.find_by date: date
+                @selected_index_data = Index.find_by date: @date
                 if @selected_index_data != nil
                   selected_date_index_price_1 = @selected_index_data.price1
                 else
@@ -96,9 +96,9 @@ class OrganizeIndexJob < ActiveJob::Base
           #-----Create data table create for Index model-------------
               d = 0
               while d < @table_group_all_color_date.length
-                date = @table_group_all_color_date[d]
+                @date = @table_group_all_color_date[d]
                 @selected_table_data = @table_group_all_color.where(date: date)
-                @selected_index_data = Index.find_by date: date
+                @selected_index_data = Index.find_by date: @date
                 if @selected_index_data != nil
                   selected_date_index_price_1 = @selected_index_data.price1
                 else
