@@ -57,24 +57,25 @@ class OrganizeIndexJob < ActiveJob::Base
               d = 0
               while d < @table_group_all_color_date.length
                 @date = @table_group_all_color_date[d]
-                # @selected_table_data = @table_group_all_color.where(date: @date)
-                @selected_index_data = Index.find_by date: @date
-                if @selected_index_data != nil
-                  selected_date_index_price_1 = @selected_index_data.price1
-                else
-                  selected_date_index_price_1 = nil
-                end
                 
-                if selected_date_index_price_1 != nil
-                else
+                @selected_index_data = Index.find_by date: @date
+                # if @selected_index_data != nil
+                #   selected_date_index_price_1 = @selected_index_data.price1
+                # else
+                #   selected_date_index_price_1 = nil
+                # end
+                
+                # if selected_date_index_price_1 != nil
+                # else
                     # @selected_table_data = @table_group_all_color.where(date: date)
                     
                       if @selected_table_data.present?
+                      else
                          @price1 = @selected_table_data.avg_price.round
                          @index1 = @price1 * 100 / @ref_price
                          Index.create(date: @date, index1: @index1, price1: @price1)
                       end
-                end
+                # end
                 d += 1
               end
               
@@ -96,22 +97,23 @@ class OrganizeIndexJob < ActiveJob::Base
                 @date = @table_group_all_color_date[d]
                 # @selected_table_data = @table_group_all_color.where(date: date)
                 @selected_index_data = Index.find_by date: @date
-                if @selected_index_data != nil
-                  selected_date_index_price_1 = @selected_index_data.price1
-                else
-                  selected_date_index_price_1 = nil
-                end
+                # if @selected_index_data != nil
+                #   selected_date_index_price_1 = @selected_index_data.price1
+                # else
+                #   selected_date_index_price_1 = nil
+                # end
                 
-                if selected_date_index_price_1 != nil
-                else
+                # if selected_date_index_price_1 != nil
+                # else
                     # @selected_table_data = @table_group_all_color.where(date: date)
                     
                       if @selected_table_data.present?
+                      else
                          @price1 = @selected_table_data.avg_price.round
                          @index1 = @price1 * 100 / @ref_price
                          Index.create(date: @date, index1: @index1, price1: @price1)
                       end
-                end
+                # end
                 d += 1
               end
             #-----End_Create data table create for Index model-------------
