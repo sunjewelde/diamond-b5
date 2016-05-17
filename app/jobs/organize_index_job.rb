@@ -58,6 +58,20 @@ class OrganizeIndexJob < ActiveJob::Base
               while d < @table_group_all_color_date.length
                 @date = @table_group_all_color_date[d]
                 @selected_table_data = @table_group_all_color.find_by date: @date
+                
+                if @date <= Date.new(2015, 12, 31)
+                  @ref_date = Date.new(2015, 1, 1)
+                  @ref_price = Index.where(date: @ref_date).price1
+                elsif @date >= Date.new(2016, 1, 1) and @latest_date <= Date.new(2016, 12, 31)
+                  @ref_date = Date.new(2016, 1, 1)
+                  @ref_price = Index.where(date: @ref_date).price1
+                elsif @date >= Date.new(2017, 1, 1) and @latest_date <= Date.new(2017, 12, 31)
+                  @ref_date = Date.new(2017, 1, 1)
+                  @ref_price = Index.where(date: @ref_date).price1
+                elsif @date >= Date.new(2018, 1, 1) and @latest_date <= Date.new(2018, 12, 31)
+                  @ref_date = Date.new(2018, 1, 1)
+                  @ref_price = Index.where(date: @ref_date).price1
+                end
                 # @selected_index_data = Index.where(date: @date)
                 # if @selected_index_data != nil
                 #   selected_date_index_price_1 = @selected_index_data.price1
@@ -96,6 +110,20 @@ class OrganizeIndexJob < ActiveJob::Base
               while d < @table_group_all_color_date.length
                 @date = @table_group_all_color_date[d]
                 @selected_table_data = @table_group_all_color.find_by date: @date
+                
+                if @date <= Date.new(2015, 12, 31)
+                  @ref_date = Date.new(2015, 1, 1)
+                  @ref_price = Index.where(date: @ref_date).price1
+                elsif @date >= Date.new(2016, 1, 1) and @latest_date <= Date.new(2016, 12, 31)
+                  @ref_date = Date.new(2016, 1, 1)
+                  @ref_price = Index.where(date: @ref_date).price1
+                elsif @date >= Date.new(2017, 1, 1) and @latest_date <= Date.new(2017, 12, 31)
+                  @ref_date = Date.new(2017, 1, 1)
+                  @ref_price = Index.where(date: @ref_date).price1
+                elsif @date >= Date.new(2018, 1, 1) and @latest_date <= Date.new(2018, 12, 31)
+                  @ref_date = Date.new(2018, 1, 1)
+                  @ref_price = Index.where(date: @ref_date).price1
+                end
                 # @selected_index_data = Index.where(date: @date)
                 # if @selected_index_data != nil
                 #   selected_date_index_price_1 = @selected_index_data.price1
