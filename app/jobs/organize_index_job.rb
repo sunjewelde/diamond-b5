@@ -69,7 +69,7 @@ class OrganizeIndexJob < ActiveJob::Base
                 # else
                     # @selected_table_data = @table_group_all_color.where(date: date)
                     
-                      if @selected_index_data.present?
+                      if @selected_index_data != nil
                       else
                          @price1 = @selected_table_data.avg_price.round
                          @index1 = @price1 * 100 / @ref_price
@@ -107,7 +107,7 @@ class OrganizeIndexJob < ActiveJob::Base
                 # else
                     # @selected_table_data = @table_group_all_color.where(date: date)
                     
-                      if @selected_index_data.present?
+                      if @selected_index_data != nil
                       else
                          @price1 = @selected_table_data.avg_price.round
                          @index1 = @price1 * 100 / @ref_price
