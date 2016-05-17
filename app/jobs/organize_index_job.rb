@@ -32,9 +32,6 @@ class OrganizeIndexJob < ActiveJob::Base
       end
         
 
-    
-      # @index_ref = Index.where(date: @ref_date)
-      # @index_ref_price1 = @index_ref[:price1]
       if Index.exists?(date: @ref_date)
       else
         @table_ref = Table.where(:date => @ref_date)
@@ -60,7 +57,7 @@ class OrganizeIndexJob < ActiveJob::Base
               d = 0
               while d < @table_group_all_color_date.length
                 @date = @table_group_all_color_date[d]
-                @selected_table_data = @table_group_all_color.where(date: date)
+                # @selected_table_data = @table_group_all_color.where(date: @date)
                 @selected_index_data = Index.find_by date: @date
                 if @selected_index_data != nil
                   selected_date_index_price_1 = @selected_index_data.price1
@@ -97,7 +94,7 @@ class OrganizeIndexJob < ActiveJob::Base
               d = 0
               while d < @table_group_all_color_date.length
                 @date = @table_group_all_color_date[d]
-                @selected_table_data = @table_group_all_color.where(date: date)
+                # @selected_table_data = @table_group_all_color.where(date: date)
                 @selected_index_data = Index.find_by date: @date
                 if @selected_index_data != nil
                   selected_date_index_price_1 = @selected_index_data.price1
