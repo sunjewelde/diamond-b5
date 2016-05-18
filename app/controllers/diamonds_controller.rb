@@ -119,7 +119,7 @@ class DiamondsController < ApplicationController
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       
       f.global(useUTC: false)
-      # @sdate = weight_group_03_color_D_IF_date.find.first
+      @sdate = one_year_group_date.find.first
       @date = one_year_group_date
       f.title(:text => "指標")
       
@@ -134,7 +134,7 @@ class DiamondsController < ApplicationController
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_IF", :data => weight_group_03_color_D_IF_end_price)
       # f.series(:name => "0.3_D_IF", :data => one_year_group_date_index1)
       # f.series(:name => "Index", :data => one_year_group_date_index1)
-      f.series(:name => "Index", :data => @zip_data, :pointIntervalUnit => 'month')
+      f.series(:name => "Index", :data => @zip_data, :pointStart => @sdate, :pointIntervalUnit => 'month')
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VVS1", :data => weight_group_03_color_D_VVS1_end_price)
 
       
