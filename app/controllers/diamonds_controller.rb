@@ -62,6 +62,16 @@ class DiamondsController < ApplicationController
   if @latest_date.present?
     @one_week_ago = @latest_date - 6
   end
+  
+  if @latest_date <= Date.new(2015, 12, 31)
+    @ref_date = Date.new(2015, 1, 1)
+  elsif @latest_date >= Date.new(2016, 1, 1) and @latest_date <= Date.new(2016, 12, 31)
+    @ref_date = Date.new(2016, 1, 1)
+  elsif @latest_date >= Date.new(2017, 1, 1) and @latest_date <= Date.new(2017, 12, 31)
+    @ref_date = Date.new(2017, 1, 1)
+  elsif @latest_date >= Date.new(2018, 1, 1) and @latest_date <= Date.new(2018, 12, 31)
+    @ref_date = Date.new(2018, 1, 1)
+  end
 
     
     # binding.pry
@@ -73,18 +83,22 @@ class DiamondsController < ApplicationController
     # end
 
    @latest_weight_group_03 = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight2: 0.3).where(date: @latest_date)
+   
+  # @latest_chart_table_weight_group_03 = Table.select('date, color, clar, price').where(weight2: 0.3).group(:date, :color, :clar)
+  # @latest_one_week_data = Table.select('date, weight, color, clar, price').where(:date=> @one_week_ago..@latest_date).group(:date, :weight2, :color, :clar)
+  # weight_group_03_color_D_IF = @latest_one_week_data.where(weight2: 0.3).where(color: "D").where(clar: "IF")
+   
+   @latest_chart_index_group = Index.select('date, index1').group(:date)
+   @latest_one_year_data = Index.select('date, weight, index1').where(:date=> @ref_date..@latest_date).group(:date)
 
-
-   @latest_chart_table_weight_group_03 = Table.select('date, color, clar, price').where(weight2: 0.3).group(:date, :color, :clar)
-
-
-   @latest_one_week_data = Table.select('date, weight, color, clar, price').where(:date=> @one_week_ago..@latest_date).group(:date, :weight2, :color, :clar)
-   weight_group_03_color_D_IF = @latest_one_week_data.where(weight2: 0.3).where(color: "D").where(clar: "IF")
    
     #0.3_All
     #Date
-    weight_group_03_color_D_IF_date = weight_group_03_color_D_IF.pluck(:date)
-    weight_group_03_color_D_IF_end_price = weight_group_03_color_D_IF.pluck(:price)
+    # weight_group_03_color_D_IF_date = weight_group_03_color_D_IF.pluck(:date)
+    # weight_group_03_color_D_IF_end_price = weight_group_03_color_D_IF.pluck(:price)
+    
+    one_year_group_date = @latest_one_year_data.pluck(:date)
+    one_year_group_date_index1 = @latest_one_year_data.pluck(:index1)
 
     # binding.pry
     
@@ -92,16 +106,16 @@ class DiamondsController < ApplicationController
       
       f.global(useUTC: false)
       # @sdate = weight_group_03_color_D_IF_date.find.first
-      @date = weight_group_03_color_D_IF_date
+      @date = one_year_group_date
       f.title(:text => "Diamond Price (0.3カラット)")
       
       # f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { month: '%b %e, %Y' })
       f.xAxis(:categories => @date)
-      f.yAxis(:title => { text: 'Diamond Price($)' })
+      f.yAxis(:title => { text: 'Index' })
       
       # f.xAxis(:categories => weight_group_03_color_D_IF_date)
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_IF", :data => weight_group_03_color_D_IF_end_price)
-      f.series(:name => "0.3_D_IF", :data => weight_group_03_color_D_IF_end_price)
+      f.series(:name => "0.3_D_IF", :data => one_year_group_date_index1)
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VVS1", :data => weight_group_03_color_D_VVS1_end_price)
 
       
