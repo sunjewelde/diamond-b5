@@ -121,8 +121,8 @@ class DiamondsController < ApplicationController
       @date = one_year_group_date
       f.title(:text => "指標")
       
-      f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { day: '%e of %b' })
-      # f.xAxis(:categories => @date)
+      # f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { day: '%e of %b' })
+      f.xAxis(:categories => @date)
       f.yAxis(:title => { text: 'Index(%)' })
       
       # f.xAxis(:categories => weight_group_03_color_D_IF_date)
