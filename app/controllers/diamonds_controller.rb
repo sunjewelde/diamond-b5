@@ -124,6 +124,7 @@ class DiamondsController < ApplicationController
       f.title(:text => "指標")
       
       f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { month: '%e of %b', year: '%b' }, :title => { text: 'Date'})
+      f.tooltip(:pointFormat => '{point.x:%e. %b}: {point.y:.2f} m')
       # f.xAxis(:categories => @date)
       f.yAxis(:title => { text: 'Index(%)' })
       
