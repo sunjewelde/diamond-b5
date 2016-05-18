@@ -59,8 +59,10 @@ class OrganizeIndexJob < ActiveJob::Base
 	      if Index.exists?(date: @latest_date)
 	      else
 	        @table_group_all = Table.where(:date=> @latest_date)
+	        @table_group_all_10 = Table.where(:date=> @latest_date).where(:weight2 => 0.3..1.0)
+	        
           @table_group_all_color = @table_group_all.select('date, AVG(price) AS avg_price').group(:date)
-          @table_ref_all_color_10 = @table_ref_10.select('date, AVG(price) AS avg_price').group(:date)
+          @table_group_all_color_10 = @table_group_all_10.select('date, AVG(price) AS avg_price').group(:date)
           @table_group_all_color_date = @table_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
           #-----Create data table create for Index model-------------
@@ -120,9 +122,10 @@ class OrganizeIndexJob < ActiveJob::Base
           if Index.exists?(date: @latest_date)
           else
           @table_group_all = Table.where(:date=> @last_updated_date_index..@latest_date)
+          @table_group_all_10 = Table.where(:date=> @latest_date).where(:weight2 => 0.3..1.0)
           
           @table_group_all_color = @table_group_all.select('date, AVG(price) AS avg_price').group(:date)
-          @table_ref_all_color_10 = @table_ref_10.select('date, AVG(price) AS avg_price').group(:date)
+          @table_group_all_color_10 = @table_group_all_10.select('date, AVG(price) AS avg_price').group(:date)
           @table_group_all_color_date = @table_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
           
           #-----Create data table create for Index model-------------
