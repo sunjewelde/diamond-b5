@@ -123,7 +123,7 @@ class DiamondsController < ApplicationController
       @date = one_year_group_date
       f.title(:text => "指標")
       
-      f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { day: '%e of %b', year: '%b' }, :title => 'Date')
+      f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { month: '%e of %b', year: '%b' }, :title => { text: 'Date'})
       # f.xAxis(:categories => @date)
       f.yAxis(:title => { text: 'Index(%)' })
       
@@ -131,7 +131,7 @@ class DiamondsController < ApplicationController
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_IF", :data => weight_group_03_color_D_IF_end_price)
       # f.series(:name => "0.3_D_IF", :data => one_year_group_date_index1)
       # f.series(:name => "Index", :data => one_year_group_date_index1)
-      f.series(:name => "Index", :data => @zip_data, :pointInterval => 1.day)
+      f.series(:name => "Index", :data => @zip_data)
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VVS1", :data => weight_group_03_color_D_VVS1_end_price)
 
       
