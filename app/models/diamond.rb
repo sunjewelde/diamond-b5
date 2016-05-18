@@ -39,6 +39,8 @@ class Diamond <ActiveRecord::Base
     scope :fluorescen, ->(fluorescen) {where(fluorescen: fluorescen) if fluorescen.present? }
     scope :certificate_id, ->(certificate_id) {where(certificate_id: certificate_id) if color.present? }
     scope :end_price, ->(end_price) {where(end_price: end_price) if end_price.present? }
+    
+    scope :shape, ->(shape) {where(shape: shape) if shape.present? }
 
     scope :weight02, -> {where(:weight2=> @weight_min...0.3 ) }
     scope :weight03, -> {where(:weight2=> 0.3...0.4 ) }

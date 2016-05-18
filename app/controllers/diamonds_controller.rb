@@ -102,6 +102,18 @@ class DiamondsController < ApplicationController
 
     # binding.pry
     
+    # xAxis: {
+    #         type: 'datetime',
+    #         dateTimeLabelFormats: {
+    #             day: '%e of %b'
+    #         }
+    #     },
+        
+    #           series: [{
+    #         data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+    #         pointStart: Date.UTC(2010, 0, 1),
+    #         pointInterval: 24 * 3600 * 1000 // one day
+    
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       
       f.global(useUTC: false)
@@ -109,13 +121,14 @@ class DiamondsController < ApplicationController
       @date = one_year_group_date
       f.title(:text => "Diamond Price (0.3カラット)")
       
-      # f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { month: '%b %e, %Y' })
-      f.xAxis(:categories => @date)
+      f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { day: '%e of %b' })
+      # f.xAxis(:categories => @date)
       f.yAxis(:title => { text: 'Index' })
       
       # f.xAxis(:categories => weight_group_03_color_D_IF_date)
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_IF", :data => weight_group_03_color_D_IF_end_price)
-      f.series(:name => "0.3_D_IF", :data => one_year_group_date_index1)
+      # f.series(:name => "0.3_D_IF", :data => one_year_group_date_index1)
+      f.series(:name => "0.3_D_IF", :data => one_year_group_date_index1, :pointStart => Date.UTC(2015, 0, 1), :pointInterval => 24 * 3600 * 1000)
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VVS1", :data => weight_group_03_color_D_VVS1_end_price)
 
       
