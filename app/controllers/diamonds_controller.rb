@@ -147,7 +147,7 @@ class DiamondsController < ApplicationController
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_IF", :data => weight_group_03_color_D_IF_end_price)
       # f.series(:name => "0.3_D_IF", :data => one_year_group_date_index1)
       # f.series(:name => "Index", :data => one_year_group_date_index1)
-      f.series(:name => "Index", :data => @zip_data)
+      f.series(:name => "Index", :data => @zip_data, :pointInterval => 24 * 3600 * 1000 * 7)
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VVS1", :data => weight_group_03_color_D_VVS1_end_price)
 
       
