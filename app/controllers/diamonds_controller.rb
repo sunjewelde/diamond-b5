@@ -138,7 +138,7 @@ class DiamondsController < ApplicationController
       @date = one_year_group_date
       f.title(:text => "指標")
       
-      # f.xAxis(:type => 'datetime', :title => { text: 'Date'}, :format => {value:%Y-%m-%d})
+      # f.xAxis(:type => 'datetime', :title => { text: 'Date'})
       f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {month: '%e of %b', year: '%b' }, :title => { text: 'Date'})
       # f.xAxis(:type => 'date', :title => { text: 'Date'})
       # f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { month: '%e of %b'}, :title => { text: 'Date'})
