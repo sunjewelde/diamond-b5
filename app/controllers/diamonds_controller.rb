@@ -97,7 +97,20 @@ class DiamondsController < ApplicationController
     # weight_group_03_color_D_IF_date = weight_group_03_color_D_IF.pluck(:date)
     # weight_group_03_color_D_IF_end_price = weight_group_03_color_D_IF.pluck(:price)
     
-    one_year_group_date = @latest_one_year_data.pluck(:date)
+    one_year_group_date_raw = @latest_one_year_data.pluck(:date)
+    
+       
+      one_year_group_date =[]
+      d = 0
+      while d < one_year_group_date.length
+        date = @table_group_all_color_date[d]
+        one_year_group_date << date.to_datetime
+        d +=1
+      end
+     
+    
+    # one_year_group_date = @latest_one_year_data.pluck(:date)
+    
     one_year_group_date_index1 = @latest_one_year_data.pluck(:index1)
     
     @zip_data = one_year_group_date.zip(one_year_group_date_index1)
@@ -134,7 +147,7 @@ class DiamondsController < ApplicationController
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_IF", :data => weight_group_03_color_D_IF_end_price)
       # f.series(:name => "0.3_D_IF", :data => one_year_group_date_index1)
       # f.series(:name => "Index", :data => one_year_group_date_index1)
-      f.series(:name => "Index", :data => @zip_data, :pointStart => @sdate, :pointIntervalUnit => 'month')
+      f.series(:name => "Index", :data => @zip_data)
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VVS1", :data => weight_group_03_color_D_VVS1_end_price)
 
       
