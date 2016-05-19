@@ -89,7 +89,7 @@ class DiamondsController < ApplicationController
   # weight_group_03_color_D_IF = @latest_one_week_data.where(weight2: 0.3).where(color: "D").where(clar: "IF")
    
    @latest_chart_index_group = Index.select('date, index1').group(:date)
-   @latest_one_year_data = Index.select('date, weight, index1').where(:date=> @ref_date..@latest_date).group(:date)
+   @latest_one_year_data = Index.select('date, index1').where(:date=> @ref_date..@latest_date).group(:date)
 
    
     #0.3_All
@@ -108,7 +108,8 @@ class DiamondsController < ApplicationController
         date = one_year_group_date_raw[d]
         # one_year_group_date << date.to_datetime.utc.to_i
         # one_year_group_date << date.to_datetime.to_i
-        one_year_group_date << date.to_datetime.strftime('%Y-%m-%d %H:%M:%S')
+        # one_year_group_date << date.to_datetime.strftime('%Y-%m-%d %H:%M:%S')
+        one_year_group_date << date.to_datetime.strftime('%Y-%m-%d')
         # one_year_group_date << date.to_date.utc
         d += 1
       end
