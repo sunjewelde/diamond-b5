@@ -108,7 +108,8 @@ class DiamondsController < ApplicationController
         date = one_year_group_date_raw[d]
         # one_year_group_date << date.to_datetime.utc.to_i
         # one_year_group_date << date.to_datetime.to_i
-        one_year_group_date << date.to_datetime.strftime('%Y-%m-%d %H:%M:%S')
+        # one_year_group_date << date.to_datetime.strftime('%Y-%m-%d %H:%M:%S')
+        one_year_group_date << date.to_datetime.strftime('%m %d %Y %H:%M')
         # one_year_group_date << date.to_datetime.strftime('%Y-%m-%d')
         # one_year_group_date << date.to_date.utc
         d += 1
