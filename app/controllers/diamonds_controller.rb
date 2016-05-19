@@ -97,6 +97,8 @@ class DiamondsController < ApplicationController
     # weight_group_03_color_D_IF_date = weight_group_03_color_D_IF.pluck(:date)
     # weight_group_03_color_D_IF_end_price = weight_group_03_color_D_IF.pluck(:price)
     
+    # time.strftime('%Y-%m-%d %H:%M:%S')
+    
     one_year_group_date_raw = @latest_one_year_data.pluck(:date)
     
        
@@ -106,7 +108,7 @@ class DiamondsController < ApplicationController
         date = one_year_group_date_raw[d]
         # one_year_group_date << date.to_datetime.utc.to_i
         # one_year_group_date << date.to_datetime.to_i
-        one_year_group_date << date.to_datetime.utc
+        one_year_group_date << date.to_datetime.strftime('%Y-%m-%d %H:%M:%S')
         # one_year_group_date << date.to_date.utc
         d += 1
       end
