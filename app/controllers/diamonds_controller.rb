@@ -124,8 +124,10 @@ class DiamondsController < ApplicationController
     # one_year_group_date = @latest_one_year_data.pluck(:date)
     
     one_year_group_date_index1 = @latest_one_year_data.pluck(:index1)
+    one_year_group_date_index2 = @latest_one_year_data.pluck(:index2)
     
-    @zip_data = one_year_group_date.zip(one_year_group_date_index1)
+    @zip_data_index1 = one_year_group_date.zip(one_year_group_date_index1)
+    @zip_data_index1 = one_year_group_date.zip(one_year_group_date_index2)
 
     # binding.pry
     
@@ -155,7 +157,6 @@ class DiamondsController < ApplicationController
                                hour: '%l:%M %p',
                                day: '%e. %b', week: '%e. %b', 
                                month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
-      # f.xAxis(:type => 'date', :title => { text: 'Date'})
       # f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { month: '%e of %b'}, :title => { text: 'Date'})
       # f.tooltip(:headerFormat => '<b>{series.name}</b><br>', :pointFormat => '{point.x:%e. %b}: {point.y:.2f} m')
       # f.xAxis(:categories => @date)
@@ -165,7 +166,8 @@ class DiamondsController < ApplicationController
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_IF", :data => weight_group_03_color_D_IF_end_price)
       # f.series(:name => "0.3_D_IF", :data => one_year_group_date_index1)
       # f.series(:name => "Index", :data => one_year_group_date_index1)
-      f.series(:name => "Index", :data => @zip_data)
+      f.series(:name => "Index", :data => @zip_data_index1)
+      f.series(:name => "Index", :data => @zip_data_index2)
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VVS1", :data => weight_group_03_color_D_VVS1_end_price)
 
       
