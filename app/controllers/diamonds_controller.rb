@@ -108,8 +108,8 @@ class DiamondsController < ApplicationController
         date = one_year_group_date_raw[d]
         # one_year_group_date << date.to_datetime.utc.to_i
         # one_year_group_date << date.to_datetime.to_i
-        # one_year_group_date << date.to_datetime.strftime('%Y-%m-%d %H:%M:%S')
-        one_year_group_date << date.to_datetime.strftime('%Y-%m-%d')
+        one_year_group_date << date.to_datetime.strftime('%Y-%m-%d %H:%M:%S')
+        # one_year_group_date << date.to_datetime.strftime('%Y-%m-%d')
         # one_year_group_date << date.to_date.utc
         d += 1
       end
@@ -143,7 +143,12 @@ class DiamondsController < ApplicationController
       f.title(:text => "指標")
       
       # f.xAxis(:type => 'datetime', :title => { text: 'Date'})
-      f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {month: '%e of %b', year: '%b' }, :title => { text: 'Date'})
+      # f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {month: '%e of %b', year: '%b' }, :title => { text: 'Date'})
+      f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+                               minute: '%l:%M %p', 
+                               hour: '%l:%M %p',
+                               day: '%e. %b', week: '%e. %b', 
+                               month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
       # f.xAxis(:type => 'date', :title => { text: 'Date'})
       # f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { month: '%e of %b'}, :title => { text: 'Date'})
       # f.tooltip(:headerFormat => '<b>{series.name}</b><br>', :pointFormat => '{point.x:%e. %b}: {point.y:.2f} m')
