@@ -108,10 +108,10 @@ class DiamondsController < ApplicationController
       d = 0
       while d < one_year_group_date_raw.length
         date = one_year_group_date_raw[d]
-        date_format = date.to_datetime.strftime('%Y,%m,%d')
-        date_format2 =Time.utc(date_format).to_1*1000
-        one_year_group_date << date_format2
-        # one_year_group_date << date.to_datetime.utc.to_i
+        # date_format = date.to_datetime.strftime('%Y,%m,%d')
+        # date_format2 =Time.utc(date_format).to_1*1000
+        # one_year_group_date << date_format2
+        one_year_group_date << date.to_datetime.utc.to_i*1000
         # one_year_group_date << date.to_datetime.to_i
         # one_year_group_date << date.to_datetime.strftime('%Y-%m-%d %H:%M:%S')
         # one_year_group_date << date.to_datetime.strftime('%m %d %Y %H:%M')
