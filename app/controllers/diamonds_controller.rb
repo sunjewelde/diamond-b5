@@ -102,10 +102,10 @@ class DiamondsController < ApplicationController
        
       one_year_group_date =[]
       d = 0
-      while d < one_year_group_date.length
-        date = @table_group_all_color_date[d]
+      while d < one_year_group_date_raw.length
+        date = one_year_group_date_raw[d]
         one_year_group_date << date.to_datetime
-        d +=1
+        d += 1
       end
      
     
