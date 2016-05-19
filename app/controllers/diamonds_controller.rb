@@ -104,7 +104,7 @@ class DiamondsController < ApplicationController
       d = 0
       while d < one_year_group_date_raw.length
         date = one_year_group_date_raw[d]
-        one_year_group_date << date.to_datetime.utc
+        one_year_group_date << date.to_datetime.utc.to_i
         d += 1
       end
      
