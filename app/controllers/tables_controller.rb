@@ -11,6 +11,7 @@ class TablesController < ApplicationController
 
 		if @latest_date.present?
 		    @one_week_ago = @latest_date - 6
+		    @two_week_ago = @latest_date - 14
 		    @one_months_ago = @latest_date - 30
 		    @three_months_ago = @latest_date - 90
 		    @six_months_ago = @latest_date - 180
@@ -38,21 +39,21 @@ class TablesController < ApplicationController
 
 	    # @diamond_all = Table.all
 
-	    @diamonds_default = Table.where(:date=> @one_week_ago..@latest_date).where(:weight2=> 0.3).where(:clar => "IF").where(:color => "D").group(:date)
+	    @diamonds_default = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> 0.3).where(:clar => "IF").where(:color => "D").group(:date)
 	    @selected_date = date
 	    
-	    if @selected_date == "1w"
-	    	  @diamonds = Table.where(:date=> @one_week_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
-	    	  @diamonds_D = Table.where(:date=> @one_week_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
-	    	  @diamonds_E = Table.where(:date=> @one_week_ago..@latest_date).where(:weight2=> weight).where(:color => "E").group(:date)
-	    	  @diamonds_F = Table.where(:date=> @one_week_ago..@latest_date).where(:weight2=> weight).where(:color => "F").group(:date)
-	    	  @diamonds_G = Table.where(:date=> @one_week_ago..@latest_date).where(:weight2=> weight).where(:color => "G").group(:date)
-	    	  @diamonds_H = Table.where(:date=> @one_week_ago..@latest_date).where(:weight2=> weight).where(:color => "H").group(:date)
-	    	  @diamonds_I = Table.where(:date=> @one_week_ago..@latest_date).where(:weight2=> weight).where(:color => "I").group(:date)
-	    	  @diamonds_J = Table.where(:date=> @one_week_ago..@latest_date).where(:weight2=> weight).where(:color => "J").group(:date)
-	    	  @diamonds_K = Table.where(:date=> @one_week_ago..@latest_date).where(:weight2=> weight).where(:color => "K").group(:date)
-	    	  @diamonds_L = Table.where(:date=> @one_week_ago..@latest_date).where(:weight2=> weight).where(:color => "L").group(:date)
-	    	  @diamonds_M = Table.where(:date=> @one_week_ago..@latest_date).where(:weight2=> weight).where(:color => "M").group(:date)
+	    if @selected_date == "2w"
+	    	  @diamonds = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
+	    	  @diamonds_D = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
+	    	  @diamonds_E = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "E").group(:date)
+	    	  @diamonds_F = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "F").group(:date)
+	    	  @diamonds_G = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "G").group(:date)
+	    	  @diamonds_H = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "H").group(:date)
+	    	  @diamonds_I = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "I").group(:date)
+	    	  @diamonds_J = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "J").group(:date)
+	    	  @diamonds_K = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "K").group(:date)
+	    	  @diamonds_L = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "L").group(:date)
+	    	  @diamonds_M = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "M").group(:date)
 	      elsif @selected_date == "1m"
 	      	  @diamonds = Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
 	      	  @diamonds_D = Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
