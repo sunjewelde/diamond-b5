@@ -139,12 +139,12 @@ class DiamondsController < ApplicationController
       f.title(:text => "指標")
       
       # f.xAxis(:type => 'datetime', :title => { text: 'Date'})
-      # f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {month: '%e of %b', year: '%b' }, :title => { text: 'Date'})
-      f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
-                               minute: '%l:%M %p', 
-                               hour: '%l:%M %p',
-                               day: '%e. %b', week: '%e. %b', 
-                               month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+      f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b' }, :title => { text: 'Date'})
+      # f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+      #                         minute: '%l:%M %p', 
+      #                         hour: '%l:%M %p',
+      #                         day: '%e. %b', week: '%e. %b', 
+      #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
       # f.xAxis(:type => 'datetime', :dateTimeLabelFormats => { month: '%e of %b'}, :title => { text: 'Date'})
       # f.tooltip(:headerFormat => '<b>{series.name}</b><br>', :pointFormat => '{point.x:%e. %b}: {point.y:.2f} m')
       # f.xAxis(:categories => @date)

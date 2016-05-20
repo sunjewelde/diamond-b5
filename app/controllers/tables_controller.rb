@@ -344,7 +344,7 @@ class TablesController < ApplicationController
       #                         hour: '%l:%M %p',
       #                         day: '%e. %b', week: '%e. %b', 
       #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
-                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {month: '%e. %b', year: '%b'}, :title => { text: 'Date'})
+                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b'}, :title => { text: 'Date'})
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 				  
 				  f.series(:name => "#{color}_IF", :data => if_end_price_seriese_zip)
@@ -366,7 +366,7 @@ class TablesController < ApplicationController
       #                         hour: '%l:%M %p',
       #                         day: '%e. %b', week: '%e. %b', 
       #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
-                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {month: '%e. %b', year: '%b'}, :title => { text: 'Date'})
+                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b'}, :title => { text: 'Date'})
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 
 				  f.series(:name => "D_IF", :data => if_D_end_price_seriese)
@@ -460,7 +460,7 @@ class TablesController < ApplicationController
       #                         hour: '%l:%M %p',
       #                         day: '%e. %b', week: '%e. %b', 
       #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
-                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {month: '%e. %b', year: '%b'}, :title => { text: 'Date'})
+                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b'}, :title => { text: 'Date'})
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 
 				  f.series(:name => "D_#{clar}", :data => @selected_color_end_price_seriese_D)
@@ -485,7 +485,7 @@ class TablesController < ApplicationController
       #                         hour: '%l:%M %p',
       #                         day: '%e. %b', week: '%e. %b', 
       #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
-                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {month: '%e. %b', year: '%b'}, :title => { text: 'Date'})
+                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b'}, :title => { text: 'Date'})
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 				  
 				  f.series(:name => "#{color}_#{clar}", :data => @selected_color_end_price_seriese)
