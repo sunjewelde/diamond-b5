@@ -31,7 +31,7 @@ class TablesController < ApplicationController
 			weight = 0.3
 		    color = "D"
 		    clar = "IF"
-		    date = "1w"
+		    date = "2w"
 	    end
 
 	    @selected_weight = weight
