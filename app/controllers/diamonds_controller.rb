@@ -139,7 +139,7 @@ class DiamondsController < ApplicationController
       f.title(:text => "指標")
       
       # f.xAxis(:type => 'datetime', :title => { text: 'Date'})
-      f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b' }, :title => { text: 'Date'})
+      f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e of %b', month: '%b' }, :title => { text: 'Date'})
       # f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
       #                         minute: '%l:%M %p', 
       #                         hour: '%l:%M %p',
