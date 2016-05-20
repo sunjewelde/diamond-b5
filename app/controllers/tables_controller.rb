@@ -132,13 +132,6 @@ class TablesController < ApplicationController
 				si1_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "SI1").pluck(:price))
 				si2_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "SI2").pluck(:price))
 
-				# if_D_end_price_seriese = if_D_end_price.pluck(:price)
-				# vvs1_D_end_price_seriese = vvs1_D_end_price.pluck(:price)
-				# vvs2_D_end_price_seriese = vvs2_D_end_price.pluck(:price)
-				# vs1_D_end_price_seriese = vs1_D_end_price.pluck(:price)
-				# vs2_D_end_price_seriese = vs2_D_end_price.pluck(:price)
-				# si1_D_end_price_seriese = si1_D_end_price.pluck(:price)
-				# si2_D_end_price_seriese = si2_D_end_price.pluck(:price)
 			@diamond_table_data_E= @diamonds_E.group(:date)
 			date_seriese_E_pre = @diamond_table_data_E.pluck(:date)
 			@date_seriese_E = date_seriese_E_pre.map {|d| d.to_datetime.utc.to_i*1000}
@@ -256,151 +249,7 @@ class TablesController < ApplicationController
 			# 	si1_E_end_price_seriese = si1_E_end_price.pluck(:price)
 			# 	si2_E_end_price_seriese = si2_E_end_price.pluck(:price)
 
-			# @diamond_table_data_F = @diamonds_F.group(:date)
-			# @date_seriese_F = @diamond_table_data_F.pluck(:date)
-			# 	if_F_end_price = @diamond_table_data_F.where(clar: "IF")
-			# 	vvs1_F_end_price = @diamond_table_data_F.where(clar: "VVS1")
-			# 	vvs2_F_end_price = @diamond_table_data_F.where(clar: "VVS2")
-			# 	vs1_F_end_price = @diamond_table_data_F.where(clar: "VS1")
-			# 	vs2_F_end_price = @diamond_table_data_F.where(clar: "VS2")
-			# 	si1_F_end_price = @diamond_table_data_F.where(clar: "SI1")
-			# 	si2_F_end_price = @diamond_table_data_F.where(clar: "SI2")
-
-			# 	if_F_end_price_seriese = if_F_end_price.pluck(:price)
-			# 	vvs1_F_end_price_seriese = vvs1_F_end_price.pluck(:price)
-			# 	vvs2_F_end_price_seriese = vvs2_F_end_price.pluck(:price)
-			# 	vs1_F_end_price_seriese = vs1_F_end_price.pluck(:price)
-			# 	vs2_F_end_price_seriese = vs2_F_end_price.pluck(:price)
-			# 	si1_F_end_price_seriese = si1_F_end_price.pluck(:price)
-			# 	si2_F_end_price_seriese = si2_F_end_price.pluck(:price)
-
-			# @diamond_table_data_G = @diamonds_G.group(:date)
-			# @date_seriese_G = @diamond_table_data_G.pluck(:date)
-			# 	if_G_end_price = @diamond_table_data_G.where(clar: "IF")
-			# 	vvs1_G_end_price = @diamond_table_data_G.where(clar: "VVS1")
-			# 	vvs2_G_end_price = @diamond_table_data_G.where(clar: "VVS2")
-			# 	vs1_G_end_price = @diamond_table_data_G.where(clar: "VS1")
-			# 	vs2_G_end_price = @diamond_table_data_G.where(clar: "VS2")
-			# 	si1_G_end_price = @diamond_table_data_G.where(clar: "SI1")
-			# 	si2_G_end_price = @diamond_table_data_G.where(clar: "SI2")
-
-			# 	if_G_end_price_seriese = if_G_end_price.pluck(:price)
-			# 	vvs1_G_end_price_seriese = vvs1_G_end_price.pluck(:price)
-			# 	vvs2_G_end_price_seriese = vvs2_G_end_price.pluck(:price)
-			# 	vs1_G_end_price_seriese = vs1_G_end_price.pluck(:price)
-			# 	vs2_G_end_price_seriese = vs2_G_end_price.pluck(:price)
-			# 	si1_G_end_price_seriese = si1_G_end_price.pluck(:price)
-			# 	si2_G_end_price_seriese = si2_G_end_price.pluck(:price)
-
-			# @diamond_table_data_H = @diamonds_H.group(:date)
-			# @date_seriese_H = @diamond_table_data_H.pluck(:date)
-			# 	if_H_end_price = @diamond_table_data_H.where(clar: "IF")
-			# 	vvs1_H_end_price = @diamond_table_data_H.where(clar: "VVS1")
-			# 	vvs2_H_end_price = @diamond_table_data_H.where(clar: "VVS2")
-			# 	vs1_H_end_price = @diamond_table_data_H.where(clar: "VS1")
-			# 	vs2_H_end_price = @diamond_table_data_H.where(clar: "VS2")
-			# 	si1_H_end_price = @diamond_table_data_H.where(clar: "SI1")
-			# 	si2_H_end_price = @diamond_table_data_H.where(clar: "SI2")
-
-			# 	if_H_end_price_seriese = if_H_end_price.pluck(:price)
-			# 	vvs1_H_end_price_seriese = vvs1_H_end_price.pluck(:price)
-			# 	vvs2_H_end_price_seriese = vvs2_H_end_price.pluck(:price)
-			# 	vs1_H_end_price_seriese = vs1_H_end_price.pluck(:price)
-			# 	vs2_H_end_price_seriese = vs2_H_end_price.pluck(:price)
-			# 	si1_H_end_price_seriese = si1_H_end_price.pluck(:price)
-			# 	si2_H_end_price_seriese = si2_H_end_price.pluck(:price)
-
-			# @diamond_table_data_I = @diamonds_I.group(:date)
-			# @date_seriese_I = @diamond_table_data_I.pluck(:date)
-			# 	if_I_end_price = @diamond_table_data_I.where(clar: "IF")
-			# 	vvs1_I_end_price = @diamond_table_data_I.where(clar: "VVS1")
-			# 	vvs2_I_end_price = @diamond_table_data_I.where(clar: "VVS2")
-			# 	vs1_I_end_price = @diamond_table_data_I.where(clar: "VS1")
-			# 	vs2_I_end_price = @diamond_table_data_I.where(clar: "VS2")
-			# 	si1_I_end_price = @diamond_table_data_I.where(clar: "SI1")
-			# 	si2_I_end_price = @diamond_table_data_I.where(clar: "SI2")
-
-			# 	if_I_end_price_seriese = if_I_end_price.pluck(:price)
-			# 	vvs1_I_end_price_seriese = vvs1_I_end_price.pluck(:price)
-			# 	vvs2_I_end_price_seriese = vvs2_I_end_price.pluck(:price)
-			# 	vs1_I_end_price_seriese = vs1_I_end_price.pluck(:price)
-			# 	vs2_I_end_price_seriese = vs2_I_end_price.pluck(:price)
-			# 	si1_I_end_price_seriese = si1_I_end_price.pluck(:price)
-			# 	si2_I_end_price_seriese = si2_I_end_price.pluck(:price)
-
-			# @diamond_table_data_J = @diamonds_J.group(:date)
-			# @date_seriese_J = @diamond_table_data_J.pluck(:date)
-			# 	if_J_end_price = @diamond_table_data_J.where(clar: "IF")
-			# 	vvs1_J_end_price = @diamond_table_data_J.where(clar: "VVS1")
-			# 	vvs2_J_end_price = @diamond_table_data_J.where(clar: "VVS2")
-			# 	vs1_J_end_price = @diamond_table_data_J.where(clar: "VS1")
-			# 	vs2_J_end_price = @diamond_table_data_J.where(clar: "VS2")
-			# 	si1_J_end_price = @diamond_table_data_J.where(clar: "SI1")
-			# 	si2_J_end_price = @diamond_table_data_J.where(clar: "SI2")
-
-			# 	if_J_end_price_seriese = if_J_end_price.pluck(:price)
-			# 	vvs1_J_end_price_seriese = vvs1_J_end_price.pluck(:price)
-			# 	vvs2_J_end_price_seriese = vvs2_J_end_price.pluck(:price)
-			# 	vs1_J_end_price_seriese = vs1_J_end_price.pluck(:price)
-			# 	vs2_J_end_price_seriese = vs2_J_end_price.pluck(:price)
-			# 	si1_J_end_price_seriese = si1_J_end_price.pluck(:price)
-			# 	si2_J_end_price_seriese = si2_J_end_price.pluck(:price)
-
-			# @diamond_table_data_K = @diamonds_K.group(:date)
-			# @date_seriese_K = @diamond_table_data_K.pluck(:date)
-			# 	if_K_end_price = @diamond_table_data_K.where(clar: "IF")
-			# 	vvs1_K_end_price = @diamond_table_data_K.where(clar: "VVS1")
-			# 	vvs2_K_end_price = @diamond_table_data_K.where(clar: "VVS2")
-			# 	vs1_K_end_price = @diamond_table_data_K.where(clar: "VS1")
-			# 	vs2_K_end_price = @diamond_table_data_K.where(clar: "VS2")
-			# 	si1_K_end_price = @diamond_table_data_K.where(clar: "SI1")
-			# 	si2_K_end_price = @diamond_table_data_K.where(clar: "SI2")
-
-			# 	if_K_end_price_seriese = if_K_end_price.pluck(:price)
-			# 	vvs1_K_end_price_seriese = vvs1_K_end_price.pluck(:price)
-			# 	vvs2_K_end_price_seriese = vvs2_K_end_price.pluck(:price)
-			# 	vs1_K_end_price_seriese = vs1_K_end_price.pluck(:price)
-			# 	vs2_K_end_price_seriese = vs2_K_end_price.pluck(:price)
-			# 	si1_K_end_price_seriese = si1_K_end_price.pluck(:price)
-			# 	si2_K_end_price_seriese = si2_K_end_price.pluck(:price)
-
-			# @diamond_table_data_L = @diamonds_L.group(:date)
-			# @date_seriese_L = @diamond_table_data_L.pluck(:date)
-			# 	if_L_end_price = @diamond_table_data_L.where(clar: "IF")
-			# 	vvs1_L_end_price = @diamond_table_data_L.where(clar: "VVS1")
-			# 	vvs2_L_end_price = @diamond_table_data_L.where(clar: "VVS2")
-			# 	vs1_L_end_price = @diamond_table_data_L.where(clar: "VS1")
-			# 	vs2_L_end_price = @diamond_table_data_L.where(clar: "VS2")
-			# 	si1_L_end_price = @diamond_table_data_L.where(clar: "SI1")
-			# 	si2_L_end_price = @diamond_table_data_L.where(clar: "SI2")
-
-			# 	if_L_end_price_seriese = if_L_end_price.pluck(:price)
-			# 	vvs1_L_end_price_seriese = vvs1_L_end_price.pluck(:price)
-			# 	vvs2_L_end_price_seriese = vvs2_L_end_price.pluck(:price)
-			# 	vs1_L_end_price_seriese = vs1_L_end_price.pluck(:price)
-			# 	vs2_L_end_price_seriese = vs2_L_end_price.pluck(:price)
-			# 	si1_L_end_price_seriese = si1_L_end_price.pluck(:price)
-			# 	si2_L_end_price_seriese = si2_L_end_price.pluck(:price)
-
-			# @diamond_table_data_M = @diamonds_M.group(:date)
-			# @date_seriese_M = @diamond_table_data_M.pluck(:date)
-			# 	if_M_end_price = @diamond_table_data_M.where(clar: "IF")
-			# 	vvs1_M_end_price = @diamond_table_data_M.where(clar: "VVS1")
-			# 	vvs2_M_end_price = @diamond_table_data_M.where(clar: "VVS2")
-			# 	vs1_M_end_price = @diamond_table_data_M.where(clar: "VS1")
-			# 	vs2_M_end_price = @diamond_table_data_M.where(clar: "VS2")
-			# 	si1_M_end_price = @diamond_table_data_M.where(clar: "SI1")
-			# 	si2_M_end_price = @diamond_table_data_M.where(clar: "SI2")
-
-			# 	if_M_end_price_seriese = if_M_end_price.pluck(:price)
-			# 	vvs1_M_end_price_seriese = vvs1_M_end_price.pluck(:price)
-			# 	vvs2_M_end_price_seriese = vvs2_M_end_price.pluck(:price)
-			# 	vs1_M_end_price_seriese = vs1_M_end_price.pluck(:price)
-			# 	vs2_M_end_price_seriese = vs2_M_end_price.pluck(:price)
-			# 	si1_M_end_price_seriese = si1_M_end_price.pluck(:price)
-			# 	si2_M_end_price_seriese = si2_M_end_price.pluck(:price)
-
-
+			
 		elsif @selected_calr != "all" and @selected_color == "all"
 			@diamond_table_data_D = @diamonds_D.where(:clar => clar).group(:date)
 			date_seriese_D_pre = @diamond_table_data_D.pluck(:date)
@@ -490,11 +339,12 @@ class TablesController < ApplicationController
 			f.global(useUTC: false)
 			if clar == "all" and color != "all"
 				  #f.title(:text => "Diamond Price #{weight}カラット")
-				  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
-                               minute: '%l:%M %p', 
-                               hour: '%l:%M %p',
-                               day: '%e. %b', week: '%e. %b', 
-                               month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+				  #f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+      #                         minute: '%l:%M %p', 
+      #                         hour: '%l:%M %p',
+      #                         day: '%e. %b', week: '%e. %b', 
+      #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {month: '%e. %b', year: '%b'}, :title => { text: 'Date'})
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 				  
 				  f.series(:name => "#{color}_IF", :data => if_end_price_seriese_zip)
@@ -511,11 +361,12 @@ class TablesController < ApplicationController
 			elsif clar == "all" and color == "all"
 				  #f.title(:text => "Diamond Price Chart #{weight}カラット")
 				  #f.xAxis(:categories => @date_seriese_D)
-				  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
-                               minute: '%l:%M %p', 
-                               hour: '%l:%M %p',
-                               day: '%e. %b', week: '%e. %b', 
-                               month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+				  #f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+      #                         minute: '%l:%M %p', 
+      #                         hour: '%l:%M %p',
+      #                         day: '%e. %b', week: '%e. %b', 
+      #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {month: '%e. %b', year: '%b'}, :title => { text: 'Date'})
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 
 				  f.series(:name => "D_IF", :data => if_D_end_price_seriese)
@@ -604,11 +455,12 @@ class TablesController < ApplicationController
 			elsif clar != "all" and color == "all"
 				  #f.title(:text => "Diamond Price Chart #{weight}カラット")
 				  #f.xAxis(:categories => @date_seriese)
-				  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
-                               minute: '%l:%M %p', 
-                               hour: '%l:%M %p',
-                               day: '%e. %b', week: '%e. %b', 
-                               month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+				  #f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+      #                         minute: '%l:%M %p', 
+      #                         hour: '%l:%M %p',
+      #                         day: '%e. %b', week: '%e. %b', 
+      #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {month: '%e. %b', year: '%b'}, :title => { text: 'Date'})
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 
 				  f.series(:name => "D_#{clar}", :data => @selected_color_end_price_seriese_D)
@@ -628,11 +480,12 @@ class TablesController < ApplicationController
 			elsif clar != "all" and color != "all"
 				  #f.title(:text => "Diamond Price Chart #{weight}カラット")
 				  #f.xAxis(:categories => @date_seriese)
-				  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
-                               minute: '%l:%M %p', 
-                               hour: '%l:%M %p',
-                               day: '%e. %b', week: '%e. %b', 
-                               month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+				  #f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+      #                         minute: '%l:%M %p', 
+      #                         hour: '%l:%M %p',
+      #                         day: '%e. %b', week: '%e. %b', 
+      #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {month: '%e. %b', year: '%b'}, :title => { text: 'Date'})
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 				  
 				  f.series(:name => "#{color}_#{clar}", :data => @selected_color_end_price_seriese)
