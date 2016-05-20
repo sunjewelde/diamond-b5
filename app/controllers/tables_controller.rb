@@ -337,7 +337,8 @@ class TablesController < ApplicationController
 
 		elsif @selected_clar == "all" and @selected_color != "all"
 		   @diamond_table_data2 = @diamonds.group(:date)
-		   @date_seriese2 = @diamond_table_data2.pluck(:date)
+		   date_seriese_pre = @diamond_table_data2.pluck(:date)
+		   @date_seriese2 = date_seriese_pre.map {|d| d.to_datetime.utc.to_i*1000}
 			    if_end_price = @diamond_table_data2.where(clar: "IF")
 				vvs1_end_price = @diamond_table_data2.where(clar: "VVS1")
 				vvs2_end_price = @diamond_table_data2.where(clar: "VVS2")
