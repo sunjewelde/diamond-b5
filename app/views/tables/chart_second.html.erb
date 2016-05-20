@@ -26,6 +26,11 @@
 		    <%= f.label :clar, "クラリティ:" %>
 		    <%= f.select :clar, {"全て" => "all", "IF" => "IF", "VVS1" => "VVS1", "VVS2" => "VVS2",
 		                         "VS1" => "VS1", "VS2" => "VS2", "SI1" => "SI1", "SI2" => "SI2"} %>
+		                         
+		    <%= f.label :clar, "クラリティ:" %>
+		    <%= f.check_box :clar, {multiple: true}, 'male',nil %>
+		    <%= f.check_box :clar, {multiple: true}, 'female',nil %>
+		    <%= f.check_box :clar, {multiple: true}, 'empty',nil %>
             
             <!--&nbsp;-->
             <!--<strong>クラリティ:</strong>-->
