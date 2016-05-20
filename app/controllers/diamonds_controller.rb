@@ -100,25 +100,25 @@ class DiamondsController < ApplicationController
     # time.strftime('%Y-%m-%d %H:%M:%S')
     
     one_year_group_date_raw = @latest_one_year_data.pluck(:date)
-    
+    one_year_group_date = one_year_group_date_raw.map {|date| date.to_datetime.utc.to_i*1000}
        
       # Time.utc(2011,01,01).to_i * 1000
        
-      one_year_group_date =[]
-      d = 0
-      while d < one_year_group_date_raw.length
-        date = one_year_group_date_raw[d]
-        # date_format = date.to_datetime.strftime('%Y,%m,%d')
-        # date_format2 =Time.utc(date_format).to_1*1000
-        # one_year_group_date << date_format2
-        one_year_group_date << date.to_datetime.utc.to_i*1000
-        # one_year_group_date << date.to_datetime.to_i
-        # one_year_group_date << date.to_datetime.strftime('%Y-%m-%d %H:%M:%S')
-        # one_year_group_date << date.to_datetime.strftime('%m %d %Y %H:%M')
-        # one_year_group_date << date.to_datetime.strftime('%Y-%m-%d')
-        # one_year_group_date << date.to_date.utc
-        d += 1
-      end
+      # one_year_group_date =[]
+      # d = 0
+      # while d < one_year_group_date_raw.length
+      #   date = one_year_group_date_raw[d]
+      #   # date_format = date.to_datetime.strftime('%Y,%m,%d')
+      #   # date_format2 =Time.utc(date_format).to_1*1000
+      #   # one_year_group_date << date_format2
+      #   one_year_group_date << date.to_datetime.utc.to_i*1000
+      #   # one_year_group_date << date.to_datetime.to_i
+      #   # one_year_group_date << date.to_datetime.strftime('%Y-%m-%d %H:%M:%S')
+      #   # one_year_group_date << date.to_datetime.strftime('%m %d %Y %H:%M')
+      #   # one_year_group_date << date.to_datetime.strftime('%Y-%m-%d')
+      #   # one_year_group_date << date.to_date.utc
+      #   d += 1
+      # end
      
     
     # one_year_group_date = @latest_one_year_data.pluck(:date)
