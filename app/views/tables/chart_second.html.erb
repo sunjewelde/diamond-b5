@@ -10,7 +10,7 @@
 	<%= search_form_for(@q, url: tables_chart_second_path, method: :get) do |f| %>
 		<div class="use_margin_1 user_padding1">
 		    <%= f.label :date, "表示期間:" %>
-		    <%= f.select :date, {"1週間" => "1w", "1ヶ月" => "1m", "3ヶ月" => "3m", 
+		    <%= f.select :date, {"2週間" => "2w", "1ヶ月" => "1m", "3ヶ月" => "3m", 
 		                            "6ヶ月" => "6m", "1年" => "1y"}%>
 		    &nbsp;
 		    <%= f.label :weight, "カラット:" %>
