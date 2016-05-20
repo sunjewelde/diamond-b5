@@ -27,11 +27,16 @@
 		    <%= f.select :clar, {"全て" => "all", "IF" => "IF", "VVS1" => "VVS1", "VVS2" => "VVS2",
 		                         "VS1" => "VS1", "VS2" => "VS2", "SI1" => "SI1", "SI2" => "SI2"} %>
 		                         
+		    <%= f.label :clar, "カラー:" %>
+				<% ColumnList.all.uniq.each do |d| %>
+						<%= check_box_tag('q[clar][]', d.color) %>
+						<%= d.color %>
+				<% end %>
+		                         
 		    <%= f.label :clar, "クラリティ:" %>
-				<% ColumnList.all.uniq.each do |color| %>
-						# the check_box helper will not work as effectively here
-						<%= check_box_tag('q[clar][]', color.color) %>
-						<%= color.color %>
+				<% ColumnList.all.uniq.each do |d| %>
+						<%= check_box_tag('q[clar][]', d.clar) %>
+						<%= d.clar %>
 				<% end %>
 		    
             
