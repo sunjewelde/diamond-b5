@@ -398,7 +398,12 @@ class TablesController < ApplicationController
 
 			elsif clar == "all" and color == "all"
 				  #f.title(:text => "Diamond Price Chart #{weight}カラット")
-				  f.xAxis(:categories => @date_seriese_D)
+				  #f.xAxis(:categories => @date_seriese_D)
+				  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+                               minute: '%l:%M %p', 
+                               hour: '%l:%M %p',
+                               day: '%e. %b', week: '%e. %b', 
+                               month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 
 				  f.series(:name => "D_IF", :data => if_D_end_price_seriese)
@@ -486,7 +491,12 @@ class TablesController < ApplicationController
 
 			elsif clar != "all" and color == "all"
 				  #f.title(:text => "Diamond Price Chart #{weight}カラット")
-				  f.xAxis(:categories => @date_seriese)
+				  #f.xAxis(:categories => @date_seriese)
+				  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+                               minute: '%l:%M %p', 
+                               hour: '%l:%M %p',
+                               day: '%e. %b', week: '%e. %b', 
+                               month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 
 				  f.series(:name => "D_#{clar}", :data => @selected_color_end_price_seriese_D)
@@ -505,7 +515,12 @@ class TablesController < ApplicationController
 
 			elsif clar != "all" and color != "all"
 				  #f.title(:text => "Diamond Price Chart #{weight}カラット")
-				  f.xAxis(:categories => @date_seriese)
+				  #f.xAxis(:categories => @date_seriese)
+				  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+                               minute: '%l:%M %p', 
+                               hour: '%l:%M %p',
+                               day: '%e. %b', week: '%e. %b', 
+                               month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 				  
 				  f.series(:name => "#{color}_#{clar}", :data => @selected_color_end_price_seriese)
