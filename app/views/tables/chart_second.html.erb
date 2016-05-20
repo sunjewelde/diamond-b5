@@ -28,6 +28,11 @@
 		                         "VS1" => "VS1", "VS2" => "VS2", "SI1" => "SI1", "SI2" => "SI2"} %>
 		                         
 		    <%= f.label :clar, "クラリティ:" %>
+				<% ColumnList.all.uniq.each do |color| %>
+						# the check_box helper will not work as effectively here
+						<%= check_box_tag('q[clar][]', color.color) %>
+						<%= color.color %>
+				<% end %>
 		    
             
             <!--&nbsp;-->
