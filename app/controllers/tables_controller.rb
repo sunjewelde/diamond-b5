@@ -353,22 +353,44 @@ class TablesController < ApplicationController
 				vs2_end_price_seriese = vs2_end_price.pluck(:price)
 				si1_end_price_seriese = si1_end_price.pluck(:price)
 				si2_end_price_seriese = si2_end_price.pluck(:price)
+				
+				if_end_price_seriese_zip = @date_seriese2.zip(if_end_price_seriese)
+				vvs1_end_price_seriese_zip = @date_seriese2.zip(vvs1_end_price_seriese)
+				vvs2_end_price_seriese_zip = @date_seriese2.zip(vvs2_end_price_seriese)
+				vs1_end_price_seriese_zip = @date_seriese2.zip(vs1_end_price_seriese)
+				vs2_end_price_seriese_zip = @date_seriese2.zip(vs2_end_price_seriese)
+				si1_end_price_seriese_zip = @date_seriese2.zip(si1_end_price_seriese)
+				si2_end_price_seriese_zip = @date_seriese2.zip(si2_end_price_seriese)
+					
 		end
 # binding.pry
 
 		@chart = LazyHighCharts::HighChart.new('graph') do |f|
 			if clar == "all" and color != "all"
 				  #f.title(:text => "Diamond Price #{weight}カラット")
-				  f.xAxis(:categories => @date_seriese2)
+				  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+                               minute: '%l:%M %p', 
+                               hour: '%l:%M %p',
+                               day: '%e. %b', week: '%e. %b', 
+                               month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+				  #f.xAxis(:categories => @date_seriese2)
 				  f.yAxis(:title => { text: 'Diamond Price($)' })
 				  
-				  f.series(:name => "#{color}_IF", :data => if_end_price_seriese)
-				  f.series(:name => "#{color}_VVS1", :data => vvs1_end_price_seriese)
-				  f.series(:name => "#{color}_VVS2", :data => vvs2_end_price_seriese)
-				  f.series(:name => "#{color}_VS1", :data => vs1_end_price_seriese)
-				  f.series(:name => "#{color}_VS2", :data => vs2_end_price_seriese)
-				  f.series(:name => "#{color}_SI1", :data => si1_end_price_seriese)
-				  f.series(:name => "#{color}_SI2", :data => si2_end_price_seriese)
+				  #f.series(:name => "#{color}_IF", :data => if_end_price_seriese)
+				  #f.series(:name => "#{color}_VVS1", :data => vvs1_end_price_seriese)
+				  #f.series(:name => "#{color}_VVS2", :data => vvs2_end_price_seriese)
+				  #f.series(:name => "#{color}_VS1", :data => vs1_end_price_seriese)
+				  #f.series(:name => "#{color}_VS2", :data => vs2_end_price_seriese)
+				  #f.series(:name => "#{color}_SI1", :data => si1_end_price_seriese)
+				  #f.series(:name => "#{color}_SI2", :data => si2_end_price_seriese)
+				  
+				  f.series(:name => "#{color}_IF", :data => if_end_price_seriese_zip)
+				  f.series(:name => "#{color}_VVS1", :data => vvs1_end_price_seriese_zip)
+				  f.series(:name => "#{color}_VVS2", :data => vvs2_end_price_seriese_zip)
+				  f.series(:name => "#{color}_VS1", :data => vs1_end_price_seriese_zip)
+				  f.series(:name => "#{color}_VS2", :data => vs2_end_price_seriese_zip)
+				  f.series(:name => "#{color}_SI1", :data => si1_end_price_seriese_zip)
+				  f.series(:name => "#{color}_SI2", :data => si2_end_price_seriese_zip)
 				  
 				  f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
 				  f.chart(type: 'line', height: 600)

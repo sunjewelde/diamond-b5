@@ -121,7 +121,6 @@ class DiamondsController < ApplicationController
       # end
      
     
-    # one_year_group_date = @latest_one_year_data.pluck(:date)
     
     one_year_group_date_index1 = @latest_one_year_data.pluck(:index1)
     one_year_group_date_index2 = @latest_one_year_data.pluck(:index2)
@@ -131,17 +130,6 @@ class DiamondsController < ApplicationController
 
     # binding.pry
     
-    # xAxis: {
-    #         type: 'datetime',
-    #         dateTimeLabelFormats: {
-    #             day: '%e of %b'
-    #         }
-    #     },
-        
-    #           series: [{
-    #         data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
-    #         pointStart: Date.UTC(2010, 0, 1),
-    #         pointInterval: 24 * 3600 * 1000 // one day
     
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       
