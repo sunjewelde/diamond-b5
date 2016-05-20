@@ -366,6 +366,7 @@ class TablesController < ApplicationController
 # binding.pry
 
 		@chart = LazyHighCharts::HighChart.new('graph') do |f|
+			f.global(useUTC: false)
 			if clar == "all" and color != "all"
 				  #f.title(:text => "Diamond Price #{weight}カラット")
 				  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
