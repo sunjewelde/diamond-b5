@@ -41,10 +41,12 @@
 		    
             
             &nbsp;
+            <#% cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox") + " " + cb.text + " "} %>
             <div>
 	            <strong>カラー:</strong>
 	            <%= f.collection_check_boxes :color, ColumnListColor.all, :id, :color do |cb| %>
-	            <% cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox") + " " + cb.text + " "} %>
+	            <%= b.label { b.check_box + b.text } %>
+	            <% cb.label {cb.check_box(class: "checkbox") + cb.text } %>
 	            <% end %>
             </div>
             
