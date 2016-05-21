@@ -40,12 +40,12 @@
 				<% end %>
 		    
             
-            <!--&nbsp;-->
-            <!--<strong>クラリティ:</strong>-->
-            <!--<#%= f.collection_check_boxes(:IF, :VVS1, :VVS2, :VS1, :VS2, :SI1, :SI2) do |cb| %>-->
-            <!--	<#% cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox") + cb.text} %>-->
-            <!--	 <#%= cb.label { cb.check_box + cb.text } %>-->
-            <!--<#% end %>-->
+            &nbsp;
+            <strong>クラリティ:</strong>
+            <%= f.collection_check_boxes :color, ColumnList.all, :color do |cb| %>
+            	<% cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox") + cb.text} %>
+            	 <%= cb.label { cb.check_box + cb.text } %>
+            <% end %>
           
             
 		    &nbsp;&nbsp;
