@@ -45,7 +45,7 @@
             <div>
 	            <strong>カラー:</strong>
 	            <%= f.collection_check_boxes :color, ColumnListColor.all, :id, :color do |cb| %>
-	            <%= b.label { b.check_box + b.text } %>
+	            <%= cb.label { cb.check_box + cb.text } %>
 	            <% cb.label {cb.check_box(class: "checkbox") + cb.text } %>
 	            <% end %>
             </div>
