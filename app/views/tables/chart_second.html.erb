@@ -31,7 +31,7 @@
 		    <%= f.label :clar, "カラー:" %>
 				<% ColumnListColor.all.uniq.each do |d| %>
 						<%= check_box_tag('q[clar][]', d.color) %>
-						<%= label_tag, d.color %>
+						<%= d.color %>
 				<% end %>
 
 				
@@ -39,7 +39,7 @@
 		    <%= f.label :clar, "クラリティ:" %>
 				<% ColumnListClar.all.uniq.each do |d| %>
 						<%= check_box_tag('q[clar][]', d.clar) %>
-						<%= label_tag, d.clar %>
+						<%= d.clar %>
 				<% end %>
 		    
             
