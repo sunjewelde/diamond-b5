@@ -28,13 +28,13 @@
 		                         "VS1" => "VS1", "VS2" => "VS2", "SI1" => "SI1", "SI2" => "SI2"} %>
 		                         
 		    <%= f.label :clar, "カラー:" %>
-				<% ColumnList.all.uniq.each do |d| %>
+				<% ColumnListColor.all.uniq.each do |d| %>
 						<%= check_box_tag('q[clar][]', d.color) %>
 						<%= d.color %>
 				<% end %>
 		                         
 		    <%= f.label :clar, "クラリティ:" %>
-				<% ColumnList.all.uniq.each do |d| %>
+				<% ColumnListClar.all.uniq.each do |d| %>
 						<%= check_box_tag('q[clar][]', d.clar) %>
 						<%= d.clar %>
 				<% end %>
