@@ -41,8 +41,8 @@
 		    
             
             &nbsp;
-            <strong>クラリティ:</strong>
-            <%= f.collection_check_boxes :color, ColumnList.all, :color do |cb| %>
+            <strong>カラー:</strong>
+            <%= f.collection_check_boxes :color, ColumnList.all, :id, :color do |cb| %>
             	<% cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox") + cb.text} %>
             	 <%= cb.label { cb.check_box + cb.text } %>
             <% end %>
