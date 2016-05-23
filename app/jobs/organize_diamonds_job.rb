@@ -4,12 +4,15 @@ class OrganizeDiamondsJob < ActiveJob::Base
 
   def perform(*args)
     # Do something later
-      diamond_date = Diamond.all.pluck(:date).uniq
-      table_date = Table.all.pluck(:date).uniq
+      diamond_date = Diamond.pluck(:date).uniq
+      table_date = Table.pluck(:date).uniq
       uniq_date = diamond_date - table_date
       
-      @latest_date_ref = uniq_date.maximum(:date)
-	    @oldest_date = uniq_date.minimum(:date)
+     # @latest_date_ref = uniq_date.maximum(:date)
+	   # @oldest_date = uniq_date.minimum(:date)
+	    
+	    @latest_date_ref = uniq_date.max
+	    @oldest_date = uniq_date.min
 	    
 	    @last_updated_date_table = @oldest_date
 	    @latest_date = @latest_date_ref
