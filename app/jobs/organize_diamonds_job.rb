@@ -8,16 +8,16 @@ class OrganizeDiamondsJob < ActiveJob::Base
       table_date = Table.pluck(:date).uniq
 
       uniq_date_pre = diamond_date - table_date
-      uniq_date = uniq_date_pre.sort {|a, b| b <=> a }
+      uniq_date = uniq_date_pre.compact.sort {|a, b| b <=> a }
       
      # @latest_date_ref = uniq_date.maximum(:date)
 	   # @oldest_date = uniq_date.minimum(:date)
 	    
-	    @latest_date_ref = uniq_date.max
-	    @oldest_date = uniq_date.min
+	   # @latest_date_ref = uniq_date.max
+	   # @oldest_date = uniq_date.min
 	    
-	    @last_updated_date_table = @oldest_date
-	    @latest_date = @latest_date_ref
+	   # @last_updated_date_table = @oldest_date
+	   # @latest_date = @latest_date_ref
 	    
 	  	# @latest_date_ref = Diamond.maximum(:date)
 	   # @oldest_date = Diamond.minimum(:date)
