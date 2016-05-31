@@ -7,8 +7,9 @@ class OrganizeDiamondsJob < ActiveJob::Base
       diamond_date = Diamond.pluck(:date).uniq
       table_date = Table.pluck(:date).uniq
 
-      uniq_date_pre = diamond_date - table_date
-      uniq_date = uniq_date_pre.compact.sort {|a, b| b <=> a }
+      # uniq_date_pre = diamond_date - table_date
+      # uniq_date = uniq_date_pre.compact.sort {|a, b| b <=> a }
+      uniq_date = (diamond_date - table_date).compact.sort {|a, b| b <=> a }
       
      # @latest_date_ref = uniq_date.maximum(:date)
 	   # @oldest_date = uniq_date.minimum(:date)
@@ -645,7 +646,8 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight03_group_all_color.where(date: date).where(color: selected_color)
+                          # @selected_color_data = @weight03_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight03_group_all_color.where(color: selected_color)
                           # @selected_color_data = @weight03_group_all_color.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').where(date: date).where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -675,7 +677,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight04_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight04_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -705,7 +707,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight05_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight05_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -735,7 +737,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight06_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight06_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -765,7 +767,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight07_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight07_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -795,7 +797,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight08_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight08_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -825,7 +827,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight09_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight09_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -855,7 +857,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight10_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight10_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -885,7 +887,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight12_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight12_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -915,7 +917,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight15_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight15_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -945,7 +947,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight18_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight18_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -975,7 +977,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight20_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight20_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -1005,7 +1007,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight30_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight30_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
@@ -1035,7 +1037,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
                         j = 0
                         while j < @clar.length
                           selcted_clar = @clar[j]
-                          @selected_color_data = @weight40_group_all_color.where(date: date).where(color: selected_color)
+                          @selected_color_data = @weight40_group_all_color.where(color: selected_color)
                           @selected_clar = @selected_color_data.find_by clar: selcted_clar
                           
                             if @selected_clar.present? and @selected_clar.avg_price != ""
