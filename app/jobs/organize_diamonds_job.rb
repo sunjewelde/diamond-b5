@@ -4,8 +4,14 @@ class OrganizeDiamondsJob < ActiveJob::Base
 
   def perform(*args)
     # Do something later
-      diamond_date = Diamond.pluck(:date).uniq
+      # diamond_date = Diamond.pluck(:date).uniq
+      diamond_date = Diamond.find_each(batch_size: 5000).map(&:date).uniq
       table_date = Table.pluck(:date).uniq
+
+
+# Post.select(:point).map(&:point)
+# User.find_each.lazy.map(&:some_calculation_in_ruby).reduce(:+)
+# Person.find_each(start: 2000, batch_size: 2000) do |person
 
       # uniq_date_pre = diamond_date - table_date
       # uniq_date = uniq_date_pre.compact.sort {|a, b| b <=> a }
