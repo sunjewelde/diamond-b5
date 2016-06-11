@@ -5,7 +5,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
   def perform(*args)
     # Do something later
       # diamond_date = Diamond.pluck(:date).uniq
-      diamond_date = Diamond.find_each(start: 7000000, batch_size: 5000).map(&:date).uniq
+      diamond_date = Diamond.find_each(start: 7500000, batch_size: 10000).map(&:date).uniq
       table_date = Table.pluck(:date).uniq
 
 

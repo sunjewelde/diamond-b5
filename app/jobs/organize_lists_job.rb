@@ -4,10 +4,13 @@ class OrganizeListsJob < ActiveJob::Base
 
   def perform(*args)
     # Do something later
-      diamond_date = Diamond.pluck(:date).uniq
+      # diamond_date = Diamond.pluck(:date).uniq
+      diamond_date = Diamond.find_each(batch_size: 10000).map(&:date).uniq
       table_date = List.pluck(:date).uniq
-      uniq_date_pre = diamond_date - table_date
-      uniq_date = uniq_date_pre.compact.sort {|a, b| b <=> a }
+      # uniq_date_pre = diamond_date - table_date
+      # uniq_date = uniq_date_pre.compact.sort {|a, b| b <=> a }
+      
+      uniq_date = (diamond_date - table_date).compact.sort {|a, b| b <=> a }
 
     
 	   # @latest_date = Diamond.maximum(:date)
