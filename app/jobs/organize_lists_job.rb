@@ -12,110 +12,71 @@ class OrganizeListsJob < ActiveJob::Base
       
       uniq_date = (diamond_date - table_date).compact.sort {|a, b| b <=> a }
 
-    
-	   # @latest_date = Diamond.maximum(:date)
-	   # @oldest_date = Diamond.minimum(:date)
-	    
-	   # @latest_date_list = List.maximum(:date)
-	   # @oldest_date_list = List.minimum(:date)
-	    
-	   # if @latest_date_list.present?
-	   #    @last_updated_date_list = @latest_date_list + 1
-	   #  else
-	   #    @last_updated_date_list = @oldest_date
-	   # end
 	    
       @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
       @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
       @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
-      # @cut_grade = ["Good", "Very Good", "Excellent", "EXC", "VGD", "F"]
-      # @polish = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good"]
-      # @symmetry = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good", "g", "Fair", "F"]
-      # @fluorescen = ["Medium", "Faint", "None", "Strong", "f", "mb", "NONE", "Medium Blue", "md blue", 
-      #           "st", "sb", "str blue", "S.BLUE", "M.BLUE", "VST", "Very Strong", "V.S.BLUE", "FT"]
-      
-      # @diamond_ref = Diamond.where(shape: "BR")
-                 
 
-	   # if @latest_date == @latest_date_list
-	   # elsif @latest_date == @oldest_date
-	     # if List.exists?(date: @latest_date, weight2: 0.3, color: "D")
-      d = 0
       while d < uniq_date.length
       date = uniq_date[d]
           if uniq_date != []
     	     # else
-    	          
-                # @weight03_diamond_group_all = Diamond.where(shape: "BR").weight03.where(:date=> date)
-                # @weight04_diamond_group_all = Diamond.where(shape: "BR").weight04.where(:date=> date)
-                # @weight05_diamond_group_all = Diamond.where(shape: "BR").weight05.where(:date=> date)
-                # @weight06_diamond_group_all = Diamond.where(shape: "BR").weight06.where(:date=> date)
-                # @weight07_diamond_group_all = Diamond.where(shape: "BR").weight07.where(:date=> date)
-                # @weight08_diamond_group_all = Diamond.where(shape: "BR").weight08.where(:date=> date)
-                # @weight09_diamond_group_all = Diamond.where(shape: "BR").weight09.where(:date=> date)
-                # @weight10_diamond_group_all = Diamond.where(shape: "BR").weight10.where(:date=> date)
-                # @weight12_diamond_group_all = Diamond.where(shape: "BR").weight12.where(:date=> date)
-                # @weight15_diamond_group_all = Diamond.where(shape: "BR").weight15.where(:date=> date)
-                # @weight18_diamond_group_all = Diamond.where(shape: "BR").weight18.where(:date=> date)
-                # @weight20_diamond_group_all = Diamond.where(shape: "BR").weight20.where(:date=> date)
-                # @weight30_diamond_group_all = Diamond.where(shape: "BR").weight30.where(:date=> date)
-                # @weight40_diamond_group_all = Diamond.where(shape: "BR").weight40.where(:date=> date)
                 
-                @weight03_diamond_group_all = Diamond.weight03.where(:date=> date).where(shape: "BR")
-                @weight04_diamond_group_all = Diamond.weight04.where(:date=> date).where(shape: "BR")
-                @weight05_diamond_group_all = Diamond.weight05.where(:date=> date).where(shape: "BR")
-                @weight06_diamond_group_all = Diamond.weight06.where(:date=> date).where(shape: "BR")
-                @weight07_diamond_group_all = Diamond.weight07.where(:date=> date).where(shape: "BR")
-                @weight08_diamond_group_all = Diamond.weight08.where(:date=> date).where(shape: "BR")
-                @weight09_diamond_group_all = Diamond.weight09.where(:date=> date).where(shape: "BR")
-                @weight10_diamond_group_all = Diamond.weight10.where(:date=> date).where(shape: "BR")
-                @weight12_diamond_group_all = Diamond.weight12.where(:date=> date).where(shape: "BR")
-                @weight15_diamond_group_all = Diamond.weight15.where(:date=> date).where(shape: "BR")
-                @weight18_diamond_group_all = Diamond.weight18.where(:date=> date).where(shape: "BR")
-                @weight20_diamond_group_all = Diamond.weight20.where(:date=> date).where(shape: "BR")
-                @weight30_diamond_group_all = Diamond.weight30.where(:date=> date).where(shape: "BR")
-                @weight40_diamond_group_all = Diamond.weight40.where(:date=> date).where(shape: "BR")
+                @weight03_diamond_group_all = Table.where(:weight2=> 0.3).where(:date=> date)
+                @weight04_diamond_group_all = Table.where(:weight2=> 0.4).where(:date=> date)
+                @weight05_diamond_group_all = Table.where(:weight2=> 0.5).where(:date=> date)
+                @weight06_diamond_group_all = Table.where(:weight2=> 0.6).where(:date=> date)
+                @weight07_diamond_group_all = Table.where(:weight2=> 0.7).where(:date=> date)
+                @weight08_diamond_group_all = Table.where(:weight2=> 0.8).where(:date=> date)
+                @weight09_diamond_group_all = Table.where(:weight2=> 0.9).where(:date=> date)
+                @weight10_diamond_group_all = Table.where(:weight2=> 1.0).where(:date=> date)
+                @weight12_diamond_group_all = Table.where(:weight2=> 1.2).where(:date=> date)
+                @weight15_diamond_group_all = Table.where(:weight2=> 1.5).where(:date=> date)
+                @weight18_diamond_group_all = Table.where(:weight2=> 1.8).where(:date=> date)
+                @weight20_diamond_group_all = Table.where(:weight2=> 2.0).where(:date=> date)
+                @weight30_diamond_group_all = Table.where(:weight2=> 3.0).where(:date=> date)
+                @weight40_diamond_group_all = Table.where(:weight2=> 4.0).where(:date=> date)
                 
-              @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, AVG(end_price * 0.3 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight03_group_all_color_date = @weight03_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight04_group_all_color = @weight04_diamond_group_all.select('date, color, clar, AVG(end_price * 0.4 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight04_group_all_color = @weight04_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight04_group_all_color_date = @weight04_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight05_group_all_color = @weight05_diamond_group_all.select('date, color, clar, AVG(end_price * 0.5 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight05_group_all_color = @weight05_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight05_group_all_color_date = @weight05_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight06_group_all_color = @weight06_diamond_group_all.select('date, color, clar, AVG(end_price * 0.6 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight06_group_all_color = @weight06_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight06_group_all_color_date = @weight06_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight07_group_all_color = @weight07_diamond_group_all.select('date, color, clar, AVG(end_price * 0.7 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight07_group_all_color = @weight07_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight07_group_all_color_date = @weight07_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight08_group_all_color = @weight08_diamond_group_all.select('date, color, clar, AVG(end_price * 0.8 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight08_group_all_color = @weight08_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight08_group_all_color_date = @weight08_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight09_group_all_color = @weight09_diamond_group_all.select('date, color, clar, AVG(end_price * 0.9 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight09_group_all_color = @weight09_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight09_group_all_color_date = @weight09_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight10_group_all_color = @weight10_diamond_group_all.select('date, color, clar, AVG(end_price * 1.0 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight10_group_all_color = @weight10_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight10_group_all_color_date = @weight10_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight12_group_all_color = @weight12_diamond_group_all.select('date, color, clar, AVG(end_price * 1.2 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight12_group_all_color = @weight12_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight12_group_all_color_date = @weight12_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight15_group_all_color = @weight15_diamond_group_all.select('date, color, clar, AVG(end_price * 1.5 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight15_group_all_color = @weight15_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight15_group_all_color_date = @weight15_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight18_group_all_color = @weight18_diamond_group_all.select('date, color, clar, AVG(end_price * 1.8 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight18_group_all_color = @weight18_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight18_group_all_color_date = @weight18_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight20_group_all_color = @weight20_diamond_group_all.select('date, color, clar, AVG(end_price * 2.0 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight20_group_all_color = @weight20_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight20_group_all_color_date = @weight20_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight30_group_all_color = @weight30_diamond_group_all.select('date, color, clar, AVG(end_price * 3.0 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight30_group_all_color = @weight30_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight30_group_all_color_date = @weight30_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight40_group_all_color = @weight40_diamond_group_all.select('date, color, clar, AVG(end_price * 4.0 / weight) AS avg_price').group(:date, :color, :clar)
+              @weight40_group_all_color = @weight40_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
               # @weight40_group_all_color_date = @weight40_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
               #Data table create for List model
