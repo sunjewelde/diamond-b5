@@ -17,7 +17,8 @@ class OrganizeListsJob < ActiveJob::Base
       @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
       @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
       @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
-
+    
+      d = 0
       while d < uniq_date.length
       date = uniq_date[d]
           if uniq_date != []
