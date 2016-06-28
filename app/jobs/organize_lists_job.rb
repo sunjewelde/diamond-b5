@@ -38,46 +38,46 @@ class OrganizeListsJob < ActiveJob::Base
                 @weight30_diamond_group_all = Table.where(:weight2=> 3.0).where(:date=> date)
                 @weight40_diamond_group_all = Table.where(:weight2=> 4.0).where(:date=> date)
                 
-              @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight03_group_all_color_date = @weight03_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight04_group_all_color = @weight04_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight04_group_all_color = @weight04_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight04_group_all_color_date = @weight04_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight05_group_all_color = @weight05_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight05_group_all_color = @weight05_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight05_group_all_color_date = @weight05_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight06_group_all_color = @weight06_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight06_group_all_color = @weight06_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight06_group_all_color_date = @weight06_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight07_group_all_color = @weight07_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight07_group_all_color = @weight07_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight07_group_all_color_date = @weight07_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight08_group_all_color = @weight08_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight08_group_all_color = @weight08_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight08_group_all_color_date = @weight08_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight09_group_all_color = @weight09_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight09_group_all_color = @weight09_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight09_group_all_color_date = @weight09_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight10_group_all_color = @weight10_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight10_group_all_color = @weight10_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight10_group_all_color_date = @weight10_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight12_group_all_color = @weight12_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight12_group_all_color = @weight12_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight12_group_all_color_date = @weight12_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight15_group_all_color = @weight15_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight15_group_all_color = @weight15_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight15_group_all_color_date = @weight15_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight18_group_all_color = @weight18_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight18_group_all_color = @weight18_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight18_group_all_color_date = @weight18_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight20_group_all_color = @weight20_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight20_group_all_color = @weight20_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight20_group_all_color_date = @weight20_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight30_group_all_color = @weight30_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight30_group_all_color = @weight30_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight30_group_all_color_date = @weight30_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
-              @weight40_group_all_color = @weight40_diamond_group_all.select('date, color, clar, AVG(price) AS avg_price').group(:date, :color, :clar)
+              @weight40_group_all_color = @weight40_diamond_group_all.select('date, color, clar, price').group(:date, :color, :clar)
               # @weight40_group_all_color_date = @weight40_diamond_group_all.pluck(:date).uniq.sort {|a, b| b <=> a }
               
               #Data table create for List model
@@ -100,13 +100,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 0.3,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -137,13 +137,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 0.4,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -173,13 +173,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 0.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -209,13 +209,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 0.6,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -245,13 +245,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 0.7,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -281,13 +281,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 0.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -318,13 +318,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 0.9,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -355,13 +355,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 1.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -391,13 +391,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 1.2,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -428,13 +428,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 1.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -465,13 +465,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 1.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -502,13 +502,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 2.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -539,13 +539,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 3.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -576,13 +576,13 @@ class OrganizeListsJob < ActiveJob::Base
                           @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
                           @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
                         # binding.pry 
-                          @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-                          @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-                          @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-                          @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-                          @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-                          @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-                          @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+                          @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+                          @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+                          @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+                          @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+                          @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+                          @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+                          @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
         
                           if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
                             List.create(date: date, color: selected_color, weight2: 4.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -679,13 +679,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 0.3,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -716,13 +716,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 0.4,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -752,13 +752,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 0.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -788,13 +788,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 0.6,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -824,13 +824,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 0.7,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -860,13 +860,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 0.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -897,13 +897,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 0.9,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -934,13 +934,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 1.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -970,13 +970,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 1.2,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -1007,13 +1007,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 1.5,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -1044,13 +1044,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 1.8,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -1081,13 +1081,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 2.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -1118,13 +1118,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 3.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
@@ -1155,13 +1155,13 @@ class OrganizeListsJob < ActiveJob::Base
     #                   @selected_color_SI1 = @selected_color_data.find_by clar: "SI1"
     #                   @selected_color_SI2 = @selected_color_data.find_by clar: "SI2"
     #                 # binding.pry 
-    #                   @IF_price = @selected_color_IF.avg_price.round if @selected_color_IF.present?
-    #                   @VVS1_price = @selected_color_VVS1.avg_price.round if @selected_color_VVS1.present?
-    #                   @VVS2_price = @selected_color_VVS2.avg_price.round if @selected_color_VVS2.present?
-    #                   @VS1_price = @selected_color_VS1.avg_price.round if @selected_color_VS1.present?
-    #                   @VS2_price = @selected_color_VS2.avg_price.round if @selected_color_VS2.present?
-    #                   @SI1_price = @selected_color_SI1.avg_price.round if @selected_color_SI1.present?
-    #                   @SI2_price = @selected_color_SI2.avg_price.round if @selected_color_SI2.present?
+    #                   @IF_price = @selected_color_IF.price if @selected_color_IF.present?
+    #                   @VVS1_price = @selected_color_VVS1.price if @selected_color_VVS1.present?
+    #                   @VVS2_price = @selected_color_VVS2.price if @selected_color_VVS2.present?
+    #                   @VS1_price = @selected_color_VS1.price if @selected_color_VS1.present?
+    #                   @VS2_price = @selected_color_VS2.price if @selected_color_VS2.present?
+    #                   @SI1_price = @selected_color_SI1.price if @selected_color_SI1.present?
+    #                   @SI2_price = @selected_color_SI2.price if @selected_color_SI2.present?
     
     #                   if @IF_price.present? and @VVS1_price.present? and @VVS2_price.present? and @VS1_price.present? and @VS2_price.present? and @SI1_price.present? and @SI2_price.present?
     #                     List.create(date: date, color: selected_color, weight2: 4.0,  if1: @IF_price, vvs1: @VVS1_price, vvs2: @VVS2_price, vs1: @VS1_price, vs2: @VS2_price, si1: @SI1_price, si2: @SI2_price)
