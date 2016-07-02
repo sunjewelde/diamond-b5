@@ -8,8 +8,8 @@ class OrganizeIndexJob < ActiveJob::Base
       table_date = Index.pluck(:date).uniq
       uniq_date = (diamond_date - table_date).compact.sort {|a, b| b <=> a }
     
-      @latest_date = uniq_date.maximum(:date)
-	  	# @latest_date = Table.maximum(:date)
+      # @latest_date = uniq_date.maximum(:date)
+	  	@latest_date = Table.maximum(:date)
 	    @oldest_date = Table.minimum(:date)
 	    
 	    @latest_date_index = Index.maximum(:date)
