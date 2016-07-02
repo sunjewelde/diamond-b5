@@ -36,11 +36,13 @@ class ListsController < ApplicationController
     @selected_weight = weight
 
     if List.exists?(:date => selected_date)
-      str = selected_date
-      @list_selected_date = str.strftime("%Y年 %m月 %d日")
+      # str = selected_date
+      # @list_selected_date = str.strftime("%Y年 %m月 %d日")
+      @list_selected_date = selected_date
     else
-      str = @list_latest_date
-      @list_selected_date = str.strftime("%Y年 %m月 %d日")
+      # str = @list_latest_date
+      # @list_selected_date = str.strftime("%Y年 %m月 %d日")
+       @list_selected_date = @list_latest_date
       flash.now[:error] = "日付が選択されていない、又はその日付のデータがありません。"
     end
     
