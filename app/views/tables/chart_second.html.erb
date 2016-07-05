@@ -27,20 +27,20 @@
 		    <%= f.select :clar, {"全て" => "all", "IF" => "IF", "VVS1" => "VVS1", "VVS2" => "VVS2",
 		                         "VS1" => "VS1", "VS2" => "VS2", "SI1" => "SI1", "SI2" => "SI2"} %>
 		    
-		    &nbsp;                    
-		    <%= f.label :clar, "カラー:" %>
-				<% ColumnListColor.all.uniq.each do |d| %>
-						<%= check_box_tag('q[clar][]', d.color) %>
-						<%= d.color %>
-				<% end %>
+		  <!--  &nbsp;                    -->
+		  <!--  <#%= f.label :clar, "カラー:" %>-->
+				<!--<#% ColumnListColor.all.uniq.each do |d| %>-->
+				<!--		<#%= check_box_tag('q[clar][]', d.color) %>-->
+				<!--		<#%= d.color %>-->
+				<!--<#% end %>-->
 
 				
-		    &nbsp;                    
-		    <%= f.label :clar, "クラリティ:" %>
-				<% ColumnListClar.all.uniq.each do |d| %>
-						<%= check_box_tag('q[clar][]', d.clar) %>
-						<%= d.clar %>
-				<% end %>
+		  <!--  &nbsp;                    -->
+		  <!--  <#%= f.label :clar, "クラリティ:" %>-->
+				<!--<#% ColumnListClar.all.uniq.each do |d| %>-->
+				<!--		<#%= check_box_tag('q[clar][]', d.clar) %>-->
+				<!--		<#%= d.clar %>-->
+				<!--<#% end %>-->
 		    
             
             &nbsp;
