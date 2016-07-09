@@ -44,9 +44,9 @@ class OrganizeIndexJob < ActiveJob::Base
         @table_ref_10 = Table.where(:weight2 => 0.3..2.0).where(:date => @ref_date)
         @table_ref_index3 = Table.where(color: ['D', 'E', 'F']).where(clar: ['IF', 'VVS1', 'VVS2']).where(:date => @ref_date)
         
-        @table_ref_all_color = @table_ref.select('date, AVG(price) AS avg_price').group(:date)
-        @table_ref_all_color_10 = @table_ref_10.select('date, AVG(price) AS avg_price').group(:date)
-        @table_ref_all_color_index3 = @table_ref_index3.select('date, AVG(price) AS avg_price').group(:date)
+        @table_ref_all_color = @table_ref.select('date, AVG(price) AS avg_price')
+        @table_ref_all_color_10 = @table_ref_10.select('date, AVG(price) AS avg_price')
+        @table_ref_all_color_index3 = @table_ref_index3.select('date, AVG(price) AS avg_price')
         
         ref_date_data = @table_ref_all_color.find_by date: @ref_date
         ref_date_data_10 = @table_ref_all_color_10.find_by date: @ref_date
