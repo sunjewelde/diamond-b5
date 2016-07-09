@@ -80,7 +80,7 @@ class OrganizeIndexJob < ActiveJob::Base
             @date = uniq_date[d]
             @table_group_all = Table.where(:date=> @date)
             @table_group_all_10 = Table.where(:weight2 => 0.3..2.0).where(:date=> @date)
-            @table_group_index3 = Table.where(color: ['D', 'E', 'F']).where(clar: ['IF', 'VVS1', 'VVS2']).where(:date => @ref_date)
+            @table_group_index3 = Table.where(color: ['D', 'E', 'F']).where(clar: ['IF', 'VVS1', 'VVS2']).where(:date => @date)
             @table_group_all_color = @table_group_all.select('date, AVG(price) AS avg_price').group(:date)
             @table_group_all_color_10 = @table_group_all_10.select('date, AVG(price) AS avg_price').group(:date)
             @table_group_all_color_index3 = @table_group_index3.select('date, AVG(price) AS avg_price').group(:date)
