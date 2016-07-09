@@ -127,9 +127,11 @@ class DiamondsController < ApplicationController
     
     one_year_group_date_index1 = @latest_one_year_data.pluck(:index1)
     one_year_group_date_index2 = @latest_one_year_data.pluck(:index2)
+    one_year_group_date_index3 = @latest_one_year_data.pluck(:index3)
     
     @zip_data_index1 = one_year_group_date.zip(one_year_group_date_index1)
     @zip_data_index2 = one_year_group_date.zip(one_year_group_date_index2)
+    @zip_data_index3 = one_year_group_date.zip(one_year_group_date_index3)
 
     # binding.pry
     
@@ -159,6 +161,7 @@ class DiamondsController < ApplicationController
       # f.series(:name => "Index", :data => one_year_group_date_index1)
       f.series(:name => "Index1", :data => @zip_data_index1)
       f.series(:name => "Index2", :data => @zip_data_index2)
+      f.series(:name => "Index3", :data => @zip_data_index3)
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VVS1", :data => weight_group_03_color_D_VVS1_end_price)
 
       
