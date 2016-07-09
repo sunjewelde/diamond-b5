@@ -31,7 +31,7 @@ class TablesController < ApplicationController
 			weight = 0.3
 		    color = "D"
 		    clar = "IF"
-		    date = "2w"
+		    date = "1m"
 	    end
 
 	    @selected_weight = weight
@@ -39,7 +39,7 @@ class TablesController < ApplicationController
 
 	    # @diamond_all = Table.all
 
-	    @diamonds_default = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> 0.3).where(:clar => "IF").where(:color => "D").group(:date)
+	    @diamonds_default = Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> 0.3).where(:clar => "IF").where(:color => "D").group(:date)
 	    @selected_date = date
 	    
 	    if @selected_date == "2w"

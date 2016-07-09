@@ -36,26 +36,32 @@ class OrganizeIndexJob < ActiveJob::Base
       #   @ref_date = Date.new(2018, 1, 1)
       # end
         
+        
 
       if Index.exists?(date: @ref_date)
       else
         @table_ref = Table.where(:date => @ref_date)
         @table_ref_10 = Table.where(:weight2 => 0.3..2.0).where(:date => @ref_date)
+        @table_ref_index3 = Table.where(color: ['D', 'E', 'F']).where(clar: ['IF', 'VVS1', 'VVS2']).where(:date => @ref_date)
         
         @table_ref_all_color = @table_ref.select('date, AVG(price) AS avg_price').group(:date)
         @table_ref_all_color_10 = @table_ref_10.select('date, AVG(price) AS avg_price').group(:date)
+        @table_ref_all_color_index3 = @table_ref_index3.select('date, AVG(price) AS avg_price').group(:date)
         
         ref_date_data = @table_ref_all_color.find_by date: @ref_date
         ref_date_data_10 = @table_ref_all_color_10.find_by date: @ref_date
+        ref_date_data_index3 = @table_ref_all_color_index3.find_by date: @ref_date
         
         @ref_price = ref_date_data.avg_price.round
         @ref_price_10 = ref_date_data_10.avg_price.round
+        @ref_price_index3 = ref_date_data_index3.avg_price.round
         
         @ref_index = @ref_price * 100 / @ref_price
         @ref_index_10 = @ref_price_10 * 100 / @ref_price_10
+        @ref_index_index3 = @ref_price_index3 * 100 / @ref_price_index3
         
         Index.create(date: @ref_date, index1: @ref_index, price1: @ref_price, 
-                      index2: @ref_index_10, price2: @ref_price_10 )
+                      index2: @ref_index_10, price2: @ref_price_10, index3: @ref_index_index3, price3: @ref_price_index3 )
       end
     
     
@@ -74,10 +80,13 @@ class OrganizeIndexJob < ActiveJob::Base
             @date = uniq_date[d]
             @table_group_all = Table.where(:date=> @date)
             @table_group_all_10 = Table.where(:weight2 => 0.3..2.0).where(:date=> @date)
+            @table_group_index3 = Table.where(color: ['D', 'E', 'F']).where(clar: ['IF', 'VVS1', 'VVS2']).where(:date => @ref_date)
             @table_group_all_color = @table_group_all.select('date, AVG(price) AS avg_price').group(:date)
             @table_group_all_color_10 = @table_group_all_10.select('date, AVG(price) AS avg_price').group(:date)
+            @table_group_all_color_index3 = @table_group_index3.select('date, AVG(price) AS avg_price').group(:date)
             @selected_table_data = @table_group_all_color.find_by date: @date
             @selected_table_data_10 = @table_group_all_color_10.find_by date: @date
+            @selected_date_data_index3 = @table_group_all_color_index3.find_by date: @date
             
             if @date <= Date.new(2015, 12, 31)
               @ref_date = Date.new(2015, 1, 1)
@@ -85,24 +94,28 @@ class OrganizeIndexJob < ActiveJob::Base
               ref_data = ref_price.find_by date: @ref_date
               @ref_price = ref_data.price1
               @ref_price_10 = ref_data.price2
+              @ref_price_index3 = ref_data.price3
             elsif @date >= Date.new(2016, 1, 1) and @latest_date <= Date.new(2016, 12, 31)
               @ref_date = Date.new(2016, 1, 1)
               ref_price = Index.where(date: @ref_date)
               ref_data = ref_price.find_by date: @ref_date
               @ref_price = ref_data.price1
               @ref_price_10 = ref_data.price2
+              @ref_price_index3 = ref_data.price3
             elsif @date >= Date.new(2017, 1, 1) and @latest_date <= Date.new(2017, 12, 31)
               @ref_date = Date.new(2017, 1, 1)
               ref_price = Index.where(date: @ref_date)
               ref_data = ref_price.find_by date: @ref_date
               @ref_price = ref_data.price1
               @ref_price_10 = ref_data.price2
+              @ref_price_index3 = ref_data.price3
             elsif @date >= Date.new(2018, 1, 1) and @latest_date <= Date.new(2018, 12, 31)
               @ref_date = Date.new(2018, 1, 1)
               ref_price = Index.where(date: @ref_date)
               ref_data = ref_price.find_by date: @ref_date
               @ref_price = ref_data.price1
               @ref_price_10 = ref_data.price2
+              @ref_price_index3 = ref_data.price3
             end
            
                 if Index.exists?(date: @date)
@@ -111,9 +124,11 @@ class OrganizeIndexJob < ActiveJob::Base
                    @index1 = @price1 * 100 / @ref_price
                    @price2 = @selected_table_data_10.avg_price.round
                    @index2 = @price2 * 100 / @ref_price_10
+                   @price3 = @selected_date_data_index3.avg_price.round
+                   @index3 = @price3 * 100 / @ref_price_index3
                    
                    Index.create(date: @date, index1: @index1, price1: @price1, 
-                                index2: @index2, price2: @price2 )
+                                index2: @index2, price2: @price2, index3: @index3, price3: @price3 )
                 end
                   
             d += 1
