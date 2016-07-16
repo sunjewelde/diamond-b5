@@ -338,28 +338,28 @@ class TablesController < ApplicationController
 
 		@chart = LazyHighCharts::HighChart.new('graph') do |f|
 			f.global(useUTC: false)
-			if clar == "all" and color != "all"
-				  #f.title(:text => "Diamond Price #{weight}カラット")
-				  #f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
-      #                         minute: '%l:%M %p', 
-      #                         hour: '%l:%M %p',
-      #                         day: '%e. %b', week: '%e. %b', 
-      #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
-                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b'}, :title => { text: 'Date'})
-				  f.yAxis(:title => { text: 'Diamond Price($)' })
+			# if clar == "all" and color != "all"
+			# 	  #f.title(:text => "Diamond Price #{weight}カラット")
+			# 	  #f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+   #   #                         minute: '%l:%M %p', 
+   #   #                         hour: '%l:%M %p',
+   #   #                         day: '%e. %b', week: '%e. %b', 
+   #   #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+   #               f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b'}, :title => { text: 'Date'})
+			# 	  f.yAxis(:title => { text: 'Diamond Price($)' })
 				  
-				  f.series(:name => "#{color}_IF", :data => if_end_price_seriese_zip)
-				  f.series(:name => "#{color}_VVS1", :data => vvs1_end_price_seriese_zip)
-				  f.series(:name => "#{color}_VVS2", :data => vvs2_end_price_seriese_zip)
-				  f.series(:name => "#{color}_VS1", :data => vs1_end_price_seriese_zip)
-				  f.series(:name => "#{color}_VS2", :data => vs2_end_price_seriese_zip)
-				  f.series(:name => "#{color}_SI1", :data => si1_end_price_seriese_zip)
-				  f.series(:name => "#{color}_SI2", :data => si2_end_price_seriese_zip)
+			# 	  f.series(:name => "#{color}_IF", :data => if_end_price_seriese_zip)
+			# 	  f.series(:name => "#{color}_VVS1", :data => vvs1_end_price_seriese_zip)
+			# 	  f.series(:name => "#{color}_VVS2", :data => vvs2_end_price_seriese_zip)
+			# 	  f.series(:name => "#{color}_VS1", :data => vs1_end_price_seriese_zip)
+			# 	  f.series(:name => "#{color}_VS2", :data => vs2_end_price_seriese_zip)
+			# 	  f.series(:name => "#{color}_SI1", :data => si1_end_price_seriese_zip)
+			# 	  f.series(:name => "#{color}_SI2", :data => si2_end_price_seriese_zip)
 				  
-				  f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
-				  f.chart(type: 'line', height: 600)
+			# 	  f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
+			# 	  f.chart(type: 'line', height: 600)
 
-			elsif clar == "all" and color == "all"
+			# elsif clar == "all" and color == "all"
 				  #f.title(:text => "Diamond Price Chart #{weight}カラット")
 				  #f.xAxis(:categories => @date_seriese_D)
 				  #f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
@@ -683,47 +683,47 @@ class TablesController < ApplicationController
 				  f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
 				  f.chart(type: 'line', height: 600)
 
-			elsif clar != "all" and color == "all"
-				  #f.title(:text => "Diamond Price Chart #{weight}カラット")
-				  #f.xAxis(:categories => @date_seriese)
-				  #f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
-      #                         minute: '%l:%M %p', 
-      #                         hour: '%l:%M %p',
-      #                         day: '%e. %b', week: '%e. %b', 
-      #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
-                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b'}, :title => { text: 'Date'})
-				  f.yAxis(:title => { text: 'Diamond Price($)' })
+			# elsif clar != "all" and color == "all"
+			# 	  #f.title(:text => "Diamond Price Chart #{weight}カラット")
+			# 	  #f.xAxis(:categories => @date_seriese)
+			# 	  #f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+   #   #                         minute: '%l:%M %p', 
+   #   #                         hour: '%l:%M %p',
+   #   #                         day: '%e. %b', week: '%e. %b', 
+   #   #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+   #               f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b'}, :title => { text: 'Date'})
+			# 	  f.yAxis(:title => { text: 'Diamond Price($)' })
 
-				  f.series(:name => "D_#{clar}", :data => @selected_color_end_price_seriese_D)
-				  f.series(:name => "E_#{clar}", :data => @selected_color_end_price_seriese_E)
-				  f.series(:name => "F_#{clar}", :data => @selected_color_end_price_seriese_F)
-				  f.series(:name => "G_#{clar}", :data => @selected_color_end_price_seriese_G)
-				  f.series(:name => "H_#{clar}", :data => @selected_color_end_price_seriese_H)
-				  f.series(:name => "I_#{clar}", :data => @selected_color_end_price_seriese_I)
-				  f.series(:name => "J_#{clar}", :data => @selected_color_end_price_seriese_J)
-				  f.series(:name => "K_#{clar}", :data => @selected_color_end_price_seriese_K)
-				  f.series(:name => "L_#{clar}", :data => @selected_color_end_price_seriese_L)
-				  f.series(:name => "M_#{clar}", :data => @selected_color_end_price_seriese_M)
+			# 	  f.series(:name => "D_#{clar}", :data => @selected_color_end_price_seriese_D)
+			# 	  f.series(:name => "E_#{clar}", :data => @selected_color_end_price_seriese_E)
+			# 	  f.series(:name => "F_#{clar}", :data => @selected_color_end_price_seriese_F)
+			# 	  f.series(:name => "G_#{clar}", :data => @selected_color_end_price_seriese_G)
+			# 	  f.series(:name => "H_#{clar}", :data => @selected_color_end_price_seriese_H)
+			# 	  f.series(:name => "I_#{clar}", :data => @selected_color_end_price_seriese_I)
+			# 	  f.series(:name => "J_#{clar}", :data => @selected_color_end_price_seriese_J)
+			# 	  f.series(:name => "K_#{clar}", :data => @selected_color_end_price_seriese_K)
+			# 	  f.series(:name => "L_#{clar}", :data => @selected_color_end_price_seriese_L)
+			# 	  f.series(:name => "M_#{clar}", :data => @selected_color_end_price_seriese_M)
 
-				  f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
-				  f.chart(type: 'line', height: 800)
+			# 	  f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
+			# 	  f.chart(type: 'line', height: 800)
 
-			elsif clar != "all" and color != "all"
-				  #f.title(:text => "Diamond Price Chart #{weight}カラット")
-				  #f.xAxis(:categories => @date_seriese)
-				  #f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
-      #                         minute: '%l:%M %p', 
-      #                         hour: '%l:%M %p',
-      #                         day: '%e. %b', week: '%e. %b', 
-      #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
-                  f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b'}, :title => { text: 'Date'})
-				  f.yAxis(:title => { text: 'Diamond Price($)' })
+			# elsif clar != "all" and color != "all"
+			# 	  #f.title(:text => "Diamond Price Chart #{weight}カラット")
+			# 	  #f.xAxis(:categories => @date_seriese)
+			# 	  #f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {second: '%l:%M:%S %p',
+   #   #                         minute: '%l:%M %p', 
+   #   #                         hour: '%l:%M %p',
+   #   #                         day: '%e. %b', week: '%e. %b', 
+   #   #                         month: '%b \'%y', year: '%Y'}, :title => { text: 'Date'})
+   #               f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b'}, :title => { text: 'Date'})
+			# 	  f.yAxis(:title => { text: 'Diamond Price($)' })
 				  
-				  f.series(:name => "#{color}_#{clar}", :data => @selected_color_end_price_seriese)
-				  f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
-				  f.chart(type: 'line', height: 600)
+			# 	  f.series(:name => "#{color}_#{clar}", :data => @selected_color_end_price_seriese)
+			# 	  f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
+			# 	  f.chart(type: 'line', height: 600)
 
-			end
+			# end
 	 	end
 
 	end
