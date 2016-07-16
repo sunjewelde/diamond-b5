@@ -44,7 +44,8 @@
 		    
             
             &nbsp;
-            
+            <%= f.collection_check_boxes :tags, tags, :name1, :nam2 %>
+
             <div>
 	            <strong>カラー:</strong>
 	            <%= f.collection_check_boxes :color, ColumnListColor.all, :id, :color do |cb| %>
