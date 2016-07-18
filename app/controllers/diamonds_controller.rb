@@ -63,17 +63,19 @@ class DiamondsController < ApplicationController
     @one_week_ago = @latest_date - 6
   end
   
-  if @latest_date.present?
-      if @latest_date <= Date.new(2015, 12, 31)
-        @ref_date = Date.new(2015, 1, 1)
-      elsif @latest_date >= Date.new(2016, 1, 1) and @latest_date <= Date.new(2016, 12, 31)
-        @ref_date = Date.new(2016, 1, 1)
-      elsif @latest_date >= Date.new(2017, 1, 1) and @latest_date <= Date.new(2017, 12, 31)
-        @ref_date = Date.new(2017, 1, 1)
-      elsif @latest_date >= Date.new(2018, 1, 1) and @latest_date <= Date.new(2018, 12, 31)
-        @ref_date = Date.new(2018, 1, 1)
-      end
-  end
+  @ref_date = Date.new(2015, 1, 1)
+  
+  # if @latest_date.present?
+  #     if @latest_date <= Date.new(2015, 12, 31)
+  #       @ref_date = Date.new(2015, 1, 1)
+  #     elsif @latest_date >= Date.new(2016, 1, 1) and @latest_date <= Date.new(2016, 12, 31)
+  #       @ref_date = Date.new(2016, 1, 1)
+  #     elsif @latest_date >= Date.new(2017, 1, 1) and @latest_date <= Date.new(2017, 12, 31)
+  #       @ref_date = Date.new(2017, 1, 1)
+  #     elsif @latest_date >= Date.new(2018, 1, 1) and @latest_date <= Date.new(2018, 12, 31)
+  #       @ref_date = Date.new(2018, 1, 1)
+  #     end
+  # end
   
 
     
