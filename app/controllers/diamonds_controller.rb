@@ -143,7 +143,7 @@ class DiamondsController < ApplicationController
       f.global(useUTC: false)
       @sdate = one_year_group_date.find.first
       @date = one_year_group_date
-      f.title(:text => "指標")
+      # f.title(:text => "指標")
       
       # f.xAxis(:type => 'datetime', :title => { text: 'Date'})
       f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b' }, :title => { text: 'Date'})
