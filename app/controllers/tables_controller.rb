@@ -33,9 +33,10 @@ class TablesController < ApplicationController
 		    clar = ["IF", "VVS1", "VVS2"]
 		    date = "1y"
 	    end
-
+	
 	    @selected_weight = weight
 
+binding.pry
 
 	    # @diamond_all = Table.all
 
