@@ -27,6 +27,7 @@ class TablesController < ApplicationController
 		    color = params[:q][:color]
 		    clar = params[:q][:clar]
 		    date = params[:q][:date]
+		    binding.pry
 		else
 			weight = 0.3
 		    color = ["D", "E", "F"]
@@ -36,7 +37,7 @@ class TablesController < ApplicationController
 	
 	    @selected_weight = weight
 
-binding.pry
+
 
 	    # @diamond_all = Table.all
 
