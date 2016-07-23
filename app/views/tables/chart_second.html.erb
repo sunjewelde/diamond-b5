@@ -17,15 +17,15 @@
 		    <%= f.select :weight2, {"0.3" => 0.3, "0.4" => 0.4, "0.5" => 0.5, "0.6" => 0.6,
 		                         "0.7" => 0.7, "0.8" => 0.8, "0.9" => 0.9, "1.0" => 1, 
 		                         "1.2" =>  1.2, "1.5" => 1.5, "2.0" => 2.0} %>
-		    &nbsp;
-		    <%= f.label :color, "カラー:" %>
-		    <%= f.select :color, {"全て" => "all", "D" => "D", "E" => "E", "F" => "F", "G" => "G",
-		                         "H" => "H", "I" => "I", "J" => "J", "K" => "K", 
-		                         "L" => "L", "M" => "M"} %>
-		    &nbsp;
-		    <%= f.label :clar, "クラリティ:" %>
-		    <%= f.select :clar, {"全て" => "all", "IF" => "IF", "VVS1" => "VVS1", "VVS2" => "VVS2",
-		                         "VS1" => "VS1", "VS2" => "VS2", "SI1" => "SI1", "SI2" => "SI2"} %>
+		    <!--&nbsp;-->
+		    <!--<%#= f.label :color, "カラー:" %>-->
+		    <!--<%#= f.select :color, {"全て" => "all", "D" => "D", "E" => "E", "F" => "F", "G" => "G",-->
+		    <!--                     "H" => "H", "I" => "I", "J" => "J", "K" => "K", -->
+		    <!--                     "L" => "L", "M" => "M"} %>-->
+		    <!--&nbsp;-->
+		    <!--<%#= f.label :clar, "クラリティ:" %>-->
+		    <!--<%#= f.select :clar, {"全て" => "all", "IF" => "IF", "VVS1" => "VVS1", "VVS2" => "VVS2",-->
+		    <!--                     "VS1" => "VS1", "VS2" => "VS2", "SI1" => "SI1", "SI2" => "SI2"} %>-->
 		    
 		  <!--  &nbsp;                    -->
 		  <!--  <#%= f.label :clar, "カラー:" %>-->
@@ -43,22 +43,22 @@
 				<!--<#% end %>-->
 		    
             
-          <!--  &nbsp;-->
+            &nbsp;
 
-          <!--  <div>-->
-	         <!--   <strong>カラー:</strong>-->
-	         <!--   <%= f.collection_check_boxes :color, ColumnListColor.all, :id, :color do |cb| %>-->
-	         <!--   <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>-->
-	         <!--   <% end %>-->
-          <!--  </div>-->
+            <div>
+	            <strong>カラー:</strong>
+	            <%= f.collection_check_boxes :color, ColumnListColor.all, :id, :color do |cb| %>
+	            <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+	            <% end %>
+            </div>
             
-          <!--  &nbsp;-->
-          <!--  <div>-->
-	        	<!--<strong>クラリティ:</strong>-->
-	         <!--   <%= f.collection_check_boxes :clar, ColumnListClar.all, :id, :clar do |cbc| %>-->
-	         <!--   <% cbc.label(class: "checkbox-inline input_checkbox") {cbc.check_box(class: "checkbox")  + cbc.text} %>-->
-	         <!--   <% end %>-->
-          <!--  </div>-->
+            &nbsp;
+            <div>
+	        	<strong>クラリティ:</strong>
+	            <%= f.collection_check_boxes :clar, ColumnListClar.all, :id, :clar do |cbc| %>
+	            <% cbc.label(class: "checkbox-inline input_checkbox") {cbc.check_box(class: "checkbox")  + cbc.text} %>
+	            <% end %>
+            </div>
           
             
 		    &nbsp;&nbsp;
