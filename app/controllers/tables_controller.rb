@@ -24,10 +24,36 @@ class TablesController < ApplicationController
 	    @q = Table.ransack(params[:q])
 	    if params[:q] != nil
 		    weight = params[:q][:weight2]
-		    color = params[:q][:color]
-		    clar = params[:q][:clar]
+		    color_id_ini = params[:q][:color]
+		    array_nil = [""]
+		    color_id = color_id_ini - array_nil
+		    if color_id == ""
+		    	color_id = ["D", "E", "F"]
+		    end
+		    
+		    clar_id_ini = params[:q][:clar]
+		    clar_id = clar_id_ini - array_nil
+		    if clar_id == ""
+		    	clar_id = ["IF", "VVS1", "VVS2"]
+		    end
 		    date = params[:q][:date]
-		    binding.pry
+		    
+		    # binding.pry
+
+		    color_ref = ColumnListColor.find(color_id)
+		    color = []
+		    color_ref.each do |f|
+		    	c = f.color
+		    	color << c
+		    end
+
+		    color_ref = ColumnListClar.find(clar_id)
+		    clar = []
+		    color_ref.each do |f|
+		    	c = f.clar
+		    	clar << c
+		    end
+		    
 		else
 			weight = 0.3
 		    color = ["D", "E", "F"]
@@ -37,7 +63,7 @@ class TablesController < ApplicationController
 	
 	    @selected_weight = weight
 
-
+		
 
 	    # @diamond_all = Table.all
 
