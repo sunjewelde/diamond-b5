@@ -27,14 +27,15 @@ class TablesController < ApplicationController
 		    color_id_ini = params[:q][:color]
 		    array_nil = [""]
 		    color_id = color_id_ini - array_nil
-		    if color_id == ""
-		    	color_id = ["D", "E", "F"]
+		    # binding.pry
+		    if color_id.empty?
+		    	color_id = ["1"]
 		    end
 		    
 		    clar_id_ini = params[:q][:clar]
 		    clar_id = clar_id_ini - array_nil
-		    if clar_id == ""
-		    	clar_id = ["IF", "VVS1", "VVS2"]
+		    if clar_id.empty?
+		    	clar_id = ["1"]
 		    end
 		    date = params[:q][:date]
 		    
@@ -56,9 +57,9 @@ class TablesController < ApplicationController
 		    
 		else
 			weight = 0.3
-		    color = ["D", "E", "F"]
-		    clar = ["IF", "VVS1", "VVS2"]
-		    date = "1y"
+		    color = ["D"]
+		    clar = ["IF"]
+		    date = "2w"
 	    end
 	
 	    @selected_weight = weight
