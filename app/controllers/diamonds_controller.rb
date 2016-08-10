@@ -163,9 +163,10 @@ class DiamondsController < ApplicationController
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_IF", :data => weight_group_03_color_D_IF_end_price)
       # f.series(:name => "0.3_D_IF", :data => one_year_group_date_index1)
       # f.series(:name => "Index", :data => one_year_group_date_index1)
+      f.series(:name => "ダイヤモンドIndex", :data => @zip_data_index4)
       f.series(:name => "ダイヤモンド単価Index", :data => @zip_data_index1)
       # f.series(:name => "JPIndex", :data => @zip_data_index3)
-      f.series(:name => "ダイヤモンドIndex", :data => @zip_data_index4)
+      
       
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VVS1", :data => weight_group_03_color_D_VVS1_end_price)
 
