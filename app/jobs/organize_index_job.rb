@@ -4,22 +4,29 @@ class OrganizeIndexJob < ActiveJob::Base
 
   def perform(*args)
     # Do something later
-      diamond_date = Table.find_each.map(&:date).uniq
-      table_date = Index.pluck(:date).uniq
-      uniq_date = (diamond_date - table_date).compact.sort {|a, b| b <=> a }
-    
-      # @latest_date = uniq_date.maximum(:date)
-	  	@latest_date = Table.maximum(:date)
+
+      @latest_date = Table.maximum(:date)
 	    @oldest_date = Table.minimum(:date)
 	    
 	    @latest_date_index = Index.maximum(:date)
 	    @oldest_date_index = Index.minimum(:date)
 	    
-	    if @latest_date_index.present?
-	       @last_updated_date_index = @latest_date_index + 1
-	     else
-	       @last_updated_date_index = @oldest_date
-	    end
+	    @last_updated_date_index = @latest_date_index + 1
+      
+      
+      diamond_date = Table.where(:date => @last_updated_date_index..@latest_date).map(&:date).uniq
+      # diamond_date = Table.find_each.map(&:date).uniq
+      # table_date = Index.pluck(:date).uniq
+      # uniq_date = (diamond_date - table_date).compact.sort {|a, b| b <=> a }
+      uniq_date = diamond_date.compact.sort {|a, b| b <=> a }
+    
+      # @latest_date = uniq_date.maximum(:date)
+	    
+	   # if @latest_date_index.present?
+	   #    @last_updated_date_index = @latest_date_index + 1
+	   #  else
+	   #    @last_updated_date_index = @oldest_date
+	   # end
 	    
       # @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
       # @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]

@@ -5,9 +5,15 @@ class OrganizeDiamondsJob < ActiveJob::Base
   def perform(*args)
     # Do something later
       # diamond_date = Diamond.pluck(:date).uniq
-      diamond_date = Diamond.find_each(start: 12000000, batch_size: 10000).map(&:date).uniq
-      table_date = Table.pluck(:date).uniq
-
+      
+      @latest_date_ref = Diamond.maximum(:date)
+      @latest_date_table = Table.maximum(:date)
+      @last_updated_date_table = @latest_date_table + 1
+      
+      diamond_date = Diamond.where(:date => @last_updated_date_table..@latest_date_ref).map(&:date).uniq
+      # diamond_date = Diamond.find_each(start: 12000000, batch_size: 10000).map(&:date).uniq
+      # table_date = Table.pluck(:date).uniq
+      uniq_date = diamond_date.compact.sort {|a, b| b <=> a }
 
 # Post.select(:point).map(&:point)
 # User.find_each.lazy.map(&:some_calculation_in_ruby).reduce(:+)
@@ -15,7 +21,8 @@ class OrganizeDiamondsJob < ActiveJob::Base
 
       # uniq_date_pre = diamond_date - table_date
       # uniq_date = uniq_date_pre.compact.sort {|a, b| b <=> a }
-      uniq_date = (diamond_date - table_date).compact.sort {|a, b| b <=> a }
+      
+      # uniq_date = (diamond_date - table_date).compact.sort {|a, b| b <=> a }
       
      # @latest_date_ref = uniq_date.maximum(:date)
 	   # @oldest_date = uniq_date.minimum(:date)
