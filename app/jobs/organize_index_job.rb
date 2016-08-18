@@ -90,7 +90,7 @@ class OrganizeIndexJob < ActiveJob::Base
             @table_group_index3 = Table.where(color: ['D', 'E', 'F']).where(clar: ['IF', 'VVS1', 'VVS2']).where(:date => @date)
             @table_group_index4 = Table.where(:date=> @date)
             
-            @table_group_all_color = @table_group_all.select('date, AVG(price) AS avg_price').group(:date)
+            @table_group_all_color = @table_group_all.select('date, AVG(end_price) AS avg_price').group(:date)
             @table_group_all_color_10 = @table_group_all_10.select('date, AVG(price) AS avg_price').group(:date)
             @table_group_all_color_index3 = @table_group_index3.select('date, AVG(price) AS avg_price').group(:date)
             @table_group_all_color_index4 = @table_group_index4.select('date, AVG(price) AS avg_price').group(:date)
