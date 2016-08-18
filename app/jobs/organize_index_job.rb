@@ -40,12 +40,13 @@ class OrganizeIndexJob < ActiveJob::Base
 
       if Index.exists?(date: @ref_date)
       else
-        @table_ref = Diamond.where(:date => @ref_date)
+        @table_ref = Diamond.where(:date => @ref_date).where(:shape => 'BR').where(:color => ['D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']).where(:clar => ['IF', 'VVS1', 'VVS2', 'VS1', 'VS2', 'SI1', 'SI2'])
         @table_ref_10 = Table.where(:weight2 => 0.3..2.0).where(:date => @ref_date)
-        @table_ref_index3 = Table.where(color: ['D', 'E', 'F']).where(clar: ['IF', 'VVS1', 'VVS2']).where(:date => @ref_date)
+        # @table_ref_index3 = Table.where(color: ['D', 'E', 'F']).where(clar: ['IF', 'VVS1', 'VVS2']).where(:date => @ref_date)
+        @table_ref_index3 = Diamond.where(:date => @ref_date).where(:cut_grade => 'Excellent').where(:shape => 'BR').where(color: ['D', 'E', 'F']).where(clar: ['FL','IF', 'VVS1', 'VVS2'])
         @table_ref_index4 = Table.where(:date => @ref_date)
         
-        @table_ref_all_color = @table_ref.select('date, AVG(price) AS avg_price')
+        @table_ref_all_color = @table_ref.select('date, AVG(end_price) AS avg_price')
         @table_ref_all_color_10 = @table_ref_10.select('date, AVG(price) AS avg_price')
         @table_ref_all_color_index3 = @table_ref_index3.select('date, AVG(price) AS avg_price')
         @table_ref_all_color_index4 = @table_ref_index4.select('date, AVG(price) AS avg_price')
@@ -85,14 +86,18 @@ class OrganizeIndexJob < ActiveJob::Base
           d = 0
           while d < uniq_date.length
             @date = uniq_date[d]
-            @table_group_all = Diamond.where(:date=> @date)
+            @table_group_all = Diamond.where(:date=> @date).where(:shape => 'BR').where(:color => ['D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']).where(:clar => ['IF', 'VVS1', 'VVS2', 'VS1', 'VS2', 'SI1', 'SI2'])
             @table_group_all_10 = Table.where(:weight2 => 0.3..2.0).where(:date=> @date)
-            @table_group_index3 = Table.where(color: ['D', 'E', 'F']).where(clar: ['IF', 'VVS1', 'VVS2']).where(:date => @date)
+            # @table_group_index3 = Table.where(color: ['D', 'E', 'F']).where(clar: ['IF', 'VVS1', 'VVS2']).where(:date => @date)
+            @table_group_index3 = Diamond.where(:date => @date).where(:cut_grade => 'Excellent').where(:shape => 'BR').where(color: ['D', 'E', 'F']).where(clar: ['FL','IF', 'VVS1', 'VVS2'])
             @table_group_index4 = Table.where(:date=> @date)
+            
+
             
             @table_group_all_color = @table_group_all.select('date, AVG(end_price) AS avg_price').group(:date)
             @table_group_all_color_10 = @table_group_all_10.select('date, AVG(price) AS avg_price').group(:date)
-            @table_group_all_color_index3 = @table_group_index3.select('date, AVG(price) AS avg_price').group(:date)
+            # @table_group_all_color_index3 = @table_group_index3.select('date, AVG(price) AS avg_price').group(:date)
+            @table_group_all_color_index3 = @table_group_index3.select('date, AVG(end_price) AS avg_price').group(:date)
             @table_group_all_color_index4 = @table_group_index4.select('date, AVG(price) AS avg_price').group(:date)
             
             @selected_table_data = @table_group_all_color.find_by date: @date
@@ -155,7 +160,7 @@ class OrganizeIndexJob < ActiveJob::Base
                    
                    Index.create(date: @date, index1: @index1, price1: @price1, 
                                 index2: @index2, price2: @price2, index3: @index3, 
-                                price3: @price3, price4: @price4 )
+                                index4: @index4, price3: @price3, price4: @price4 )
                 end
                   
             d += 1
