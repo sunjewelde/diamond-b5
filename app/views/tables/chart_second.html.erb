@@ -2,46 +2,53 @@
 
 <div class="container">
 
-
-	
     <h4><span class="label label-default"><%= @selected_weight%>カラット</span></h4>
     	<%= search_form_for(@q, url: tables_chart_second_path, method: :get) do |f| %>
 		<div class="use_margin_1 user_padding1">
-		    <%= f.label :date, "表示期間:" %>
-		    <%= f.select :date, {"2週間" => "2w", "1ヶ月" => "1m", "3ヶ月" => "3m", 
-		                            "6ヶ月" => "6m", "1年" => "1y"}%>
-		    &nbsp;
-		    <%= f.label :weight, "カラット:" %>
-		    <%= f.select :weight2, {"0.3" => 0.3, "0.4" => 0.4, "0.5" => 0.5, "0.6" => 0.6,
-		                         "0.7" => 0.7, "0.8" => 0.8, "0.9" => 0.9, "1.0" => 1, 
-		                         "1.2" =>  1.2, "1.5" => 1.5, "2.0" => 2.0}, {}, {:class => 'form-control'} %>
-		    <!--&nbsp;-->
-		    <!--<%#= f.label :color, "カラー:" %>-->
-		    <!--<%#= f.select :color, {"全て" => "all", "D" => "D", "E" => "E", "F" => "F", "G" => "G",-->
-		    <!--                     "H" => "H", "I" => "I", "J" => "J", "K" => "K", -->
-		    <!--                     "L" => "L", "M" => "M"} %>-->
-		    <!--&nbsp;-->
-		    <!--<%#= f.label :clar, "クラリティ:" %>-->
-		    <!--<%#= f.select :clar, {"全て" => "all", "IF" => "IF", "VVS1" => "VVS1", "VVS2" => "VVS2",-->
-		    <!--                     "VS1" => "VS1", "VS2" => "VS2", "SI1" => "SI1", "SI2" => "SI2"} %>-->
+			<div class="form-inline">
+				<div class="form-group">
+				    <%= f.label :date, "表示期間:" %>
+				    <%= f.select :date, {"2週間" => "2w", "1ヶ月" => "1m", "3ヶ月" => "3m", 
+				                            "6ヶ月" => "6m", "1年" => "1y"}, {}, {:class => 'form-control'}%>
+			    </div>
+			    <!--&nbsp;-->
+			    <div class="form-group">
+				    <%= f.label :weight, "カラット:" %>
+				    <%= f.select :weight2, {"0.3" => 0.3, "0.4" => 0.4, "0.5" => 0.5, "0.6" => 0.6,
+				                         "0.7" => 0.7, "0.8" => 0.8, "0.9" => 0.9, "1.0" => 1, 
+				                         "1.2" =>  1.2, "1.5" => 1.5, "2.0" => 2.0}, {}, {:class => 'form-control'} %>
+			    </div>
+			    
+			    <div class="form-group">
+			    	<%= f.submit "表示を更新" %>
+			    </div>
+			    <!--&nbsp;-->
+			    <!--<%#= f.label :color, "カラー:" %>-->
+			    <!--<%#= f.select :color, {"全て" => "all", "D" => "D", "E" => "E", "F" => "F", "G" => "G",-->
+			    <!--                     "H" => "H", "I" => "I", "J" => "J", "K" => "K", -->
+			    <!--                     "L" => "L", "M" => "M"} %>-->
+			    <!--&nbsp;-->
+			    <!--<%#= f.label :clar, "クラリティ:" %>-->
+			    <!--<%#= f.select :clar, {"全て" => "all", "IF" => "IF", "VVS1" => "VVS1", "VVS2" => "VVS2",-->
+			    <!--                     "VS1" => "VS1", "VS2" => "VS2", "SI1" => "SI1", "SI2" => "SI2"} %>-->
+			    
+			  <!--  &nbsp;                    -->
+			  <!--  <#%= f.label :clar, "カラー:" %>-->
+					<!--<#% ColumnListColor.all.uniq.each do |d| %>-->
+					<!--		<#%= check_box_tag('q[clar][]', d.color) %>-->
+					<!--		<#%= d.color %>-->
+					<!--<#% end %>-->
+		
+					
+			  <!--  &nbsp;                    -->
+			  <!--  <#%= f.label :clar, "クラリティ:" %>-->
+					<!--<#% ColumnListClar.all.uniq.each do |d| %>-->
+					<!--		<#%= check_box_tag('q[clar][]', d.clar) %>-->
+					<!--		<#%= d.clar %>-->
+					<!--<#% end %>-->
 		    
-		  <!--  &nbsp;                    -->
-		  <!--  <#%= f.label :clar, "カラー:" %>-->
-				<!--<#% ColumnListColor.all.uniq.each do |d| %>-->
-				<!--		<#%= check_box_tag('q[clar][]', d.color) %>-->
-				<!--		<#%= d.color %>-->
-				<!--<#% end %>-->
-
-				
-		  <!--  &nbsp;                    -->
-		  <!--  <#%= f.label :clar, "クラリティ:" %>-->
-				<!--<#% ColumnListClar.all.uniq.each do |d| %>-->
-				<!--		<#%= check_box_tag('q[clar][]', d.clar) %>-->
-				<!--		<#%= d.clar %>-->
-				<!--<#% end %>-->
-		    
-            
-            &nbsp;
+            </div>
+            <!--&nbsp;-->
 
             <div>
 	            <strong>カラー:</strong>
@@ -61,10 +68,12 @@
             </div>
           
             
-		    &nbsp;&nbsp;
-		    <%= f.submit "チャートを表示" %>
+		    <!--&nbsp;&nbsp;-->
+		    <%#= f.submit "表示を更新" %>
 		</div>
 	<% end %>
+	
+
 	<div id="diamonds-chart" >
         <%= high_chart("diamonds-chart", @chart) %>
     </div>
