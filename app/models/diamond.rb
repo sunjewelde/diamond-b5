@@ -72,10 +72,10 @@ class Diamond <ActiveRecord::Base
   
 
   # 更新を許可するカラムを定義
-#   def self.updatable_attributes
-#     ["date", "weight2", "color", "clar", "cut_grade", "rapnet_list_price", "rapnet_discount", 
-#      "price_per_carat", "polish", "symmetry", "fluorescen", "certificate_id", "end_price"]
-#   end
+  def self.updatable_attributes
+    ["date", "weight2", "color", "clar", "cut_grade", "rapnet_list_price", "rapnet_discount", 
+     "price_per_carat", "polish", "symmetry", "fluorescen", "certificate_id", "end_price"]
+  end
     
     
     
