@@ -96,7 +96,7 @@ class OrganizeIndexJob < ActiveJob::Base
             @table_group_all = Diamond.where(:date=> @date).where(:shape => 'BR').where(:color => ['D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']).where(:clar => ['IF', 'VVS1', 'VVS2', 'VS1', 'VS2', 'SI1', 'SI2'])
             @table_group_all_10 = Table.where(:weight2 => 0.3..2.0).where(:date=> @date)
             # @table_group_index3 = Table.where(color: ['D', 'E', 'F']).where(clar: ['IF', 'VVS1', 'VVS2']).where(:date => @date)
-            @table_group_index3 = Diamond.where(:date => @date).where(:cut_grade => 'Excellent').where(:shape => 'BR').where(color: ['D', 'E', 'F']).where(clar: ['FL','IF', 'VVS1', 'VVS2'])
+            # @table_group_index3 = Diamond.where(:date => @date).where(:cut_grade => 'Excellent').where(:shape => 'BR').where(color: ['D', 'E', 'F']).where(clar: ['FL','IF', 'VVS1', 'VVS2'])
             @table_group_index4 = Table.where(:date=> @date)
             
 
@@ -104,12 +104,12 @@ class OrganizeIndexJob < ActiveJob::Base
             @table_group_all_color = @table_group_all.select('date, AVG(end_price) AS avg_price').group(:date)
             @table_group_all_color_10 = @table_group_all_10.select('date, AVG(price) AS avg_price').group(:date)
             # @table_group_all_color_index3 = @table_group_index3.select('date, AVG(price) AS avg_price').group(:date)
-            @table_group_all_color_index3 = @table_group_index3.select('date, AVG(end_price) AS avg_price').group(:date)
+            # @table_group_all_color_index3 = @table_group_index3.select('date, AVG(end_price) AS avg_price').group(:date)
             @table_group_all_color_index4 = @table_group_index4.select('date, AVG(price) AS avg_price').group(:date)
             
             @selected_table_data = @table_group_all_color.find_by date: @date
             @selected_table_data_10 = @table_group_all_color_10.find_by date: @date
-            @selected_date_data_index3 = @table_group_all_color_index3.find_by date: @date
+            # @selected_date_data_index3 = @table_group_all_color_index3.find_by date: @date
             @selected_date_data_index4 = @table_group_all_color_index4.find_by date: @date
             
             @ref_date = Date.new(2015, 1, 1)
@@ -117,7 +117,7 @@ class OrganizeIndexJob < ActiveJob::Base
             ref_data = ref_price.find_by date: @ref_date
             @ref_price = ref_data.price1
             @ref_price_10 = ref_data.price2
-            @ref_price_index3 = ref_data.price3
+            # @ref_price_index3 = ref_data.price3
             @ref_price_index4 = ref_data.price4
             
             #*********Indexを１年毎に作成******************
@@ -160,14 +160,17 @@ class OrganizeIndexJob < ActiveJob::Base
                    @index1 = @price1 * 100 / @ref_price
                    @price2 = @selected_table_data_10.avg_price.round
                    @index2 = @price2 * 100 / @ref_price_10
-                   @price3 = @selected_date_data_index3.avg_price.round
-                   @index3 = @price3 * 100 / @ref_price_index3
+                  # @price3 = @selected_date_data_index3.avg_price.round
+                  # @index3 = @price3 * 100 / @ref_price_index3
                    @price4 = @selected_date_data_index4.avg_price.round
                    @index4 = @price4 * 100 / @ref_price_index4
                    
-                   Index.create(date: @date, index1: @index1, price1: @price1, 
-                                index2: @index2, price2: @price2, index3: @index3, 
-                                index4: @index4, price3: @price3, price4: @price4 )
+                  # Index.create(date: @date, index1: @index1, price1: @price1, 
+                  #               index2: @index2, price2: @price2, index3: @index3, 
+                  #               index4: @index4, price3: @price3, price4: @price4 )
+                  Index.create(date: @date, index1: @index1, price1: @price1, 
+                                index2: @index2, price2: @price2, 
+                                index4: @index4, price4: @price4 )
                 end
                   
             d += 1
