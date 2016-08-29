@@ -3,6 +3,10 @@ class CsvImportJob < ActiveJob::Base
     queue_as :default
     
     def perform(chunk)
+        # @diamond_latest = Diamond.maximum(:date)
+        # if chunk[:date] != diamond_latest
+        # end
+        
         chunk.each do |row|
             Diamond.create(:date => row[:date], :weight => row[:weight], :weight2 => row[:weight2], :color => row[:color], :clar => row[:clar], :length => row[:length], :width => row[:width],
                      :depth => row[:depth], :cut_grade => row[:cut_grade], :rapnet_list_price => row[:rapnet_list_price], :rapnet_discount => row[:rapnet_discount], :price_per_carat => row[:price_per_carat], 

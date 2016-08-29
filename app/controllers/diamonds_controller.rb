@@ -28,13 +28,14 @@ class DiamondsController < ApplicationController
   end
 
   def import
+    redirect_to root_url, notice: "Diamondデータの追加を開始しました。"
     @file = params[:file].path
     options = {:col_sep => ',', :row_sep => :auto, :remove_empty_values => false,
     :remove_empty_hashes => false, :file_encoding  => 'iso-8859-1'}
-    SmarterCSV.process(@file, options) do |chunk|
-      CsvImportJob.perform_later(chunk)
-    end
-    redirect_to root_url, notice: "Diamondデータの追加を開始しました。"
+      SmarterCSV.process(@file, options) do |chunk|
+        CsvImportJob.perform_later(chunk)
+      end
+    
   end
   
   require "date"
