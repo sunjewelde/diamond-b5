@@ -172,7 +172,8 @@ class DiamondsController < ApplicationController
       # f.series(:pointInterval => 1.day, :pointStart => @sdate, :name => "0.3_D_VVS1", :data => weight_group_03_color_D_VVS1_end_price)
 
       
-      f.legend(:align => 'right', :verticalAlign => 'top', :y => 0, :x => -50, :layout => 'vertical',)
+      # f.legend(:align => 'right', :verticalAlign => 'top', :y => 0, :x => -50, :layout => 'vertical',)
+      f.legend(:align => 'left', :floating => true, :verticalAlign => 'top', :y => 10, :x => 90, :layout => 'vertical',)
       f.chart(type: 'line', height: 600)
       # f.chart({:defaultSeriesType=>"column"})
     end
