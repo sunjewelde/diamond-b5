@@ -401,232 +401,232 @@ class TablesController < ApplicationController
 				  
 				  					#D-------------------------------
 					if color.include?("D") and clar.include?("IF")
-				  	f.series(:name => "D_IF", :data => if_D_end_price_seriese)
+				  	f.series(:name => "D_IF", :data => if_D_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("D") and clar.include?("VVS1")
-				  	f.series(:name => "D_VVS1", :data => vvs1_D_end_price_seriese)
+				  	f.series(:name => "D_VVS1", :data => vvs1_D_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("D") and clar.include?("VVS2")
-						f.series(:name => "D_VVS2", :data => vvs2_D_end_price_seriese)
+						f.series(:name => "D_VVS2", :data => vvs2_D_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("D") and clar.include?("VS1")
-						f.series(:name => "D_VS1", :data => vs1_D_end_price_seriese)
+						f.series(:name => "D_VS1", :data => vs1_D_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("D") and clar.include?("VS2")
-						f.series(:name => "D_VS2", :data => vs2_D_end_price_seriese)
+						f.series(:name => "D_VS2", :data => vs2_D_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("D") and clar.include?("SI1")
-						f.series(:name => "D_SI1", :data => si1_D_end_price_seriese)
+						f.series(:name => "D_SI1", :data => si1_D_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("D") and clar.include?("SI1")
-						f.series(:name => "D_SI2", :data => si2_D_end_price_seriese)
+						f.series(:name => "D_SI2", :data => si2_D_end_price_seriese, :marker => {enabled: false})
 					end
 
 					#E--------------------------------
 					if color.include?("E") and clar.include?("IF")
-				  	f.series(:name => "E_IF", :data => if_E_end_price_seriese)
+				  	f.series(:name => "E_IF", :data => if_E_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("E") and clar.include?("VVS1")
-				  	f.series(:name => "E_VVS1", :data => vvs1_E_end_price_seriese)
+				  	f.series(:name => "E_VVS1", :data => vvs1_E_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("E") and clar.include?("VVS2")
-						f.series(:name => "E_VVS2", :data => vvs2_E_end_price_seriese)
+						f.series(:name => "E_VVS2", :data => vvs2_E_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("E") and clar.include?("VS1")
-						f.series(:name => "E_VS1", :data => vs1_E_end_price_seriese)
+						f.series(:name => "E_VS1", :data => vs1_E_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("E") and clar.include?("VS2")
-						f.series(:name => "E_VS2", :data => vs2_E_end_price_seriese)
+						f.series(:name => "E_VS2", :data => vs2_E_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("E") and clar.include?("SI1")
-						f.series(:name => "E_SI1", :data => si1_E_end_price_seriese)
+						f.series(:name => "E_SI1", :data => si1_E_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("E") and clar.include?("SI1")
-						f.series(:name => "E_SI2", :data => si2_E_end_price_seriese)
+						f.series(:name => "E_SI2", :data => si2_E_end_price_seriese, :marker => {enabled: false})
 					end
 
 					#F---------------------------------
 					if color.include?("F") and clar.include?("IF")
-				  	f.series(:name => "F_IF", :data => if_F_end_price_seriese)
+				  	f.series(:name => "F_IF", :data => if_F_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("F") and clar.include?("VVS1")
-				  	f.series(:name => "F_VVS1", :data => vvs1_F_end_price_seriese)
+				  	f.series(:name => "F_VVS1", :data => vvs1_F_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("F") and clar.include?("VVS2")
-						f.series(:name => "F_VVS2", :data => vvs2_F_end_price_seriese)
+						f.series(:name => "F_VVS2", :data => vvs2_F_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("F") and clar.include?("VS1")
-						f.series(:name => "F_VS1", :data => vs1_F_end_price_seriese)
+						f.series(:name => "F_VS1", :data => vs1_F_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("F") and clar.include?("VS2")
-						f.series(:name => "F_VS2", :data => vs2_F_end_price_seriese)
+						f.series(:name => "F_VS2", :data => vs2_F_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("F") and clar.include?("SI1")
-						f.series(:name => "F_SI1", :data => si1_F_end_price_seriese)
+						f.series(:name => "F_SI1", :data => si1_F_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("F") and clar.include?("SI1")
-						f.series(:name => "F_SI2", :data => si2_F_end_price_seriese)
+						f.series(:name => "F_SI2", :data => si2_F_end_price_seriese, :marker => {enabled: false})
 					end
 
 					#G------------------------------------
 					if color.include?("G") and clar.include?("IF")
-				  	f.series(:name => "G_IF", :data => if_G_end_price_seriese)
+				  	f.series(:name => "G_IF", :data => if_G_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("G") and clar.include?("VVS1")
-				  	f.series(:name => "G_VVS1", :data => vvs1_G_end_price_seriese)
+				  	f.series(:name => "G_VVS1", :data => vvs1_G_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("G") and clar.include?("VVS2")
-						f.series(:name => "G_VVS2", :data => vvs2_G_end_price_seriese)
+						f.series(:name => "G_VVS2", :data => vvs2_G_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("G") and clar.include?("VS1")
-						f.series(:name => "G_VS1", :data => vs1_G_end_price_seriese)
+						f.series(:name => "G_VS1", :data => vs1_G_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("G") and clar.include?("VS2")
-						f.series(:name => "G_VS2", :data => vs2_G_end_price_seriese)
+						f.series(:name => "G_VS2", :data => vs2_G_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("G") and clar.include?("SI1")
-						f.series(:name => "G_SI1", :data => si1_G_end_price_seriese)
+						f.series(:name => "G_SI1", :data => si1_G_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("G") and clar.include?("SI1")
-						f.series(:name => "G_SI2", :data => si2_G_end_price_seriese)
+						f.series(:name => "G_SI2", :data => si2_G_end_price_seriese, :marker => {enabled: false})
 					end
 
 					#H---------------------------------
 					if color.include?("H") and clar.include?("IF")
-				  	f.series(:name => "H_IF", :data => if_H_end_price_seriese)
+				  	f.series(:name => "H_IF", :data => if_H_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("H") and clar.include?("VVS1")
-				  	f.series(:name => "H_VVS1", :data => vvs1_H_end_price_seriese)
+				  	f.series(:name => "H_VVS1", :data => vvs1_H_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("H") and clar.include?("VVS2")
-						f.series(:name => "H_VVS2", :data => vvs2_H_end_price_seriese)
+						f.series(:name => "H_VVS2", :data => vvs2_H_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("H") and clar.include?("VS1")
-						f.series(:name => "H_VS1", :data => vs1_H_end_price_seriese)
+						f.series(:name => "H_VS1", :data => vs1_H_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("H") and clar.include?("VS2")
-						f.series(:name => "H_VS2", :data => vs2_H_end_price_seriese)
+						f.series(:name => "H_VS2", :data => vs2_H_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("H") and clar.include?("SI1")
-						f.series(:name => "H_SI1", :data => si1_H_end_price_seriese)
+						f.series(:name => "H_SI1", :data => si1_H_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("H") and clar.include?("SI1")
-						f.series(:name => "H_SI2", :data => si2_H_end_price_seriese)
+						f.series(:name => "H_SI2", :data => si2_H_end_price_seriese, :marker => {enabled: false})
 					end
 
 					#I-----------------------------------------
 					if color.include?("I") and clar.include?("IF")
-				  	f.series(:name => "I_IF", :data => if_I_end_price_seriese)
+				  	f.series(:name => "I_IF", :data => if_I_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("I") and clar.include?("VVS1")
-				  	f.series(:name => "I_VVS1", :data => vvs1_I_end_price_seriese)
+				  	f.series(:name => "I_VVS1", :data => vvs1_I_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("I") and clar.include?("VVS2")
-						f.series(:name => "I_VVS2", :data => vvs2_I_end_price_seriese)
+						f.series(:name => "I_VVS2", :data => vvs2_I_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("I") and clar.include?("VS1")
-						f.series(:name => "I_VS1", :data => vs1_I_end_price_seriese)
+						f.series(:name => "I_VS1", :data => vs1_I_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("I") and clar.include?("VS2")
-						f.series(:name => "I_VS2", :data => vs2_I_end_price_seriese)
+						f.series(:name => "I_VS2", :data => vs2_I_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("I") and clar.include?("SI1")
-						f.series(:name => "I_SI1", :data => si1_I_end_price_seriese)
+						f.series(:name => "I_SI1", :data => si1_I_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("I") and clar.include?("SI1")
-						f.series(:name => "I_SI2", :data => si2_I_end_price_seriese)
+						f.series(:name => "I_SI2", :data => si2_I_end_price_seriese, :marker => {enabled: false})
 					end
 
 					#J----------------------------------------------
 					if color.include?("J") and clar.include?("IF")
-				  	f.series(:name => "J_IF", :data => if_J_end_price_seriese)
+				  	f.series(:name => "J_IF", :data => if_J_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("J") and clar.include?("VVS1")
-				  	f.series(:name => "J_VVS1", :data => vvs1_J_end_price_seriese)
+				  	f.series(:name => "J_VVS1", :data => vvs1_J_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("J") and clar.include?("VVS2")
-						f.series(:name => "J_VVS2", :data => vvs2_J_end_price_seriese)
+						f.series(:name => "J_VVS2", :data => vvs2_J_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("J") and clar.include?("VS1")
-						f.series(:name => "J_VS1", :data => vs1_J_end_price_seriese)
+						f.series(:name => "J_VS1", :data => vs1_J_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("J") and clar.include?("VS2")
-						f.series(:name => "J_VS2", :data => vs2_J_end_price_seriese)
+						f.series(:name => "J_VS2", :data => vs2_J_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("J") and clar.include?("SI1")
-						f.series(:name => "J_SI1", :data => si1_J_end_price_seriese)
+						f.series(:name => "J_SI1", :data => si1_J_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("J") and clar.include?("SI1")
-						f.series(:name => "J_SI2", :data => si2_J_end_price_seriese)
+						f.series(:name => "J_SI2", :data => si2_J_end_price_seriese, :marker => {enabled: false})
 					end
 
 					#K-------------------------------------------------
 					if color.include?("K") and clar.include?("IF")
-				  	f.series(:name => "K_IF", :data => if_K_end_price_seriese)
+				  	f.series(:name => "K_IF", :data => if_K_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("K") and clar.include?("VVS1")
-				  	f.series(:name => "K_VVS1", :data => vvs1_K_end_price_seriese)
+				  	f.series(:name => "K_VVS1", :data => vvs1_K_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("K") and clar.include?("VVS2")
-						f.series(:name => "K_VVS2", :data => vvs2_K_end_price_seriese)
+						f.series(:name => "K_VVS2", :data => vvs2_K_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("K") and clar.include?("VS1")
-						f.series(:name => "K_VS1", :data => vs1_K_end_price_seriese)
+						f.series(:name => "K_VS1", :data => vs1_K_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("K") and clar.include?("VS2")
-						f.series(:name => "K_VS2", :data => vs2_K_end_price_seriese)
+						f.series(:name => "K_VS2", :data => vs2_K_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("K") and clar.include?("SI1")
-						f.series(:name => "K_SI1", :data => si1_K_end_price_seriese)
+						f.series(:name => "K_SI1", :data => si1_K_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("K") and clar.include?("SI1")
-						f.series(:name => "K_SI2", :data => si2_K_end_price_seriese)
+						f.series(:name => "K_SI2", :data => si2_K_end_price_seriese, :marker => {enabled: false})
 					end
 
 					#L--------------------------------------------------
 					if color.include?("L") and clar.include?("IF")
-				  	f.series(:name => "L_IF", :data => if_L_end_price_seriese)
+				  	f.series(:name => "L_IF", :data => if_L_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("L") and clar.include?("VVS1")
-				  	f.series(:name => "L_VVS1", :data => vvs1_L_end_price_seriese)
+				  	f.series(:name => "L_VVS1", :data => vvs1_L_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("L") and clar.include?("VVS2")
-						f.series(:name => "L_VVS2", :data => vvs2_L_end_price_seriese)
+						f.series(:name => "L_VVS2", :data => vvs2_L_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("L") and clar.include?("VS1")
-						f.series(:name => "L_VS1", :data => vs1_L_end_price_seriese)
+						f.series(:name => "L_VS1", :data => vs1_L_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("L") and clar.include?("VS2")
-						f.series(:name => "L_VS2", :data => vs2_L_end_price_seriese)
+						f.series(:name => "L_VS2", :data => vs2_L_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("L") and clar.include?("SI1")
-						f.series(:name => "L_SI1", :data => si1_L_end_price_seriese)
+						f.series(:name => "L_SI1", :data => si1_L_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("L") and clar.include?("SI1")
-						f.series(:name => "L_SI2", :data => si2_L_end_price_seriese)
+						f.series(:name => "L_SI2", :data => si2_L_end_price_seriese, :marker => {enabled: false})
 					end
 
 					#M----------------------------------------------------------
 					if color.include?("M") and clar.include?("IF")
-				  	f.series(:name => "M_IF", :data => if_M_end_price_seriese)
+				  	f.series(:name => "M_IF", :data => if_M_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("M") and clar.include?("VVS1")
-				  	f.series(:name => "M_VVS1", :data => vvs1_M_end_price_seriese)
+				  	f.series(:name => "M_VVS1", :data => vvs1_M_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("M") and clar.include?("VVS2")
-						f.series(:name => "M_VVS2", :data => vvs2_M_end_price_seriese)
+						f.series(:name => "M_VVS2", :data => vvs2_M_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("M") and clar.include?("VS1")
-						f.series(:name => "M_VS1", :data => vs1_M_end_price_seriese)
+						f.series(:name => "M_VS1", :data => vs1_M_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("M") and clar.include?("VS2")
-						f.series(:name => "M_VS2", :data => vs2_M_end_price_seriese)
+						f.series(:name => "M_VS2", :data => vs2_M_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("M") and clar.include?("SI1")
-						f.series(:name => "M_SI1", :data => si1_M_end_price_seriese)
+						f.series(:name => "M_SI1", :data => si1_M_end_price_seriese, :marker => {enabled: false})
 					end
 					if color.include?("M") and clar.include?("SI1")
-						f.series(:name => "M_SI2", :data => si2_M_end_price_seriese)
+						f.series(:name => "M_SI2", :data => si2_M_end_price_seriese, :marker => {enabled: false})
 					end
 
 				  #f.series(:name => "D_IF", :data => if_D_end_price_seriese)
