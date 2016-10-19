@@ -176,7 +176,7 @@ class DiamondsController < ApplicationController
 
       
       # f.legend(:align => 'right', :verticalAlign => 'top', :y => 0, :x => -50, :layout => 'vertical',)
-      f.legend(:align => 'left', :floating => true, :verticalAlign => 'top', :y => 8, :x => 90, :layout => 'vertical',)
+      f.legend(:align => 'left', :floating => true, :verticalAlign => 'top', :y => 7, :x => 90, :layout => 'vertical',)
       f.chart(type: 'line', height: 600)
       # f.chart({:defaultSeriesType=>"column"})
     end
