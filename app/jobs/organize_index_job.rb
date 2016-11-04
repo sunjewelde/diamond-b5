@@ -305,6 +305,6 @@ class OrganizeIndexJob < ActiveJob::Base
 	   # end
 	    
 	    
-
+    MyMailer.upload_confirmation.deliver
   end
 end
