@@ -13,6 +13,6 @@ class MyMailer < ApplicationMailer
   def upload_confirmation
     @greeting = "Hi"
 
-    mail to: "shibadiamond@gmail.com", subject: "Diamond Chart data creation info"
+    mail to: "sushi.honda@gmail.com", cc: "shibadiamond@gmail.com", subject: "Diamond Chart data creation info"
   end
 end
