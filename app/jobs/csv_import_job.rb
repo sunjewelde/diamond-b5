@@ -28,6 +28,7 @@ class CsvImportJob < ActiveJob::Base
             # end
             
         end
+        MyMailer.upload_confirmation_csv.deliver
     end
     
 end
