@@ -17,7 +17,7 @@ class MyMailer < ApplicationMailer
   end
           
           
-  def upload_confirmation
+  def upload_confirmation #チャートチャート用データ作成
     # @greeting = "Hi"
     @greeting_confirmation = Table.maximum(:date)
 

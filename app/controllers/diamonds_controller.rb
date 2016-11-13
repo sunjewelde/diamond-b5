@@ -51,11 +51,14 @@ class DiamondsController < ApplicationController
    @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
    @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
    @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
-   @cut_grade = ["Good", "Very Good", "Excellent", "EXC", "VGD", "F"]
+  # @cut_grade = ["Good", "Very Good", "Excellent", "EXC", "VGD", "F"]
+   @cut_grade = ["Good", "Very Good", "VGD", "Excellent", "EXC"]
    @polish = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good"]
    @symmetry = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good", "g", "Fair", "F"]
-   @fluorescen = ["Medium", "Faint", "None", "Strong", "f", "mb", "NONE", "Medium Blue", "md blue", 
-                 "st", "sb", "str blue", "S.BLUE", "M.BLUE", "VST", "Very Strong", "V.S.BLUE", "FT"]
+  # @fluorescen = ["Medium", "Faint", "None", "Strong", "f", "mb", "NONE", "Medium Blue", "md blue", 
+  #               "st", "sb", "str blue", "S.BLUE", "M.BLUE", "VST", "Very Strong", "V.S.BLUE", "FT"]
+   @fluorescen = ["Medium", "Faint", "f", "FT", "None", "NONE", "Strong", "st", "Medium Blue", "M.BLUE", "mb", "md blue", "str blue", "sb", "S.BLUE", "Very Strong", "VST", "V.S.BLUE"]
+   
 
    #最新旧の日付を取得
   @latest_date = Table.maximum(:date)
@@ -176,7 +179,7 @@ class DiamondsController < ApplicationController
 
       
       # f.legend(:align => 'right', :verticalAlign => 'top', :y => 0, :x => -50, :layout => 'vertical',)
-      f.legend(:align => 'left', :floating => true, :verticalAlign => 'top', :y => 5, :x => 90, :layout => 'vertical',)
+      f.legend(:align => 'left', :floating => true, :verticalAlign => 'top', :y => 4, :x => 90, :layout => 'vertical',)
       f.chart(type: 'line', height: 600)
       # f.chart({:defaultSeriesType=>"column"})
     end
