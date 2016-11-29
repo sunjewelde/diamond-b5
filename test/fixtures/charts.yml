@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-11-26
+  color: MyString
+  clar: MyString
+  weight2: 9.99
+  price: 1
+  cut_grade: MyString
+  fluorescen: MyString
+
+two:
+  date: 2016-11-26
+  color: MyString
+  clar: MyString
+  weight2: 9.99
+  price: 1
+  cut_grade: MyString
+  fluorescen: MyString

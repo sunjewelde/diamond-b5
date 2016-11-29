@@ -57,7 +57,18 @@ class Diamond <ActiveRecord::Base
     scope :weight20, -> {where(:weight2=> 2.0...3.0 ) }
     scope :weight30, -> {where(:weight2=> 3.0...4.0 ) }
     scope :weight40, -> {where(:weight2=> 4.0..@weight_max ) }
-
+    
+    # Article.where("articles.title = 'Rails 3' OR articles.title = 'Rails 4'")
+    scope :cut_grade_exc, -> {where("cut_grade = 'Excellent' OR cut_grade = 'EXC'" )}
+    scope :cut_grade_vg, -> {where("cut_grade = 'Very Good' OR cut_grade = 'VGD'" )}
+    scope :cut_grade_g, -> {where("cut_grade = 'Good' OR cut_grade = 'VGD'" )}
+    
+    scope :fluorescen_none, -> {where("fluorescen = 'NONE' OR fluorescen = 'None'" )}
+    scope :fluorescen_faint, -> {where("fluorescen = 'Faint' OR fluorescen = 'f' OR fluorescen = 'FT'" )}
+    scope :fluorescen_med, -> {where("fluorescen = 'Medium' OR fluorescen = 'mb' OR fluorescen = 'Medium Blue' OR fluorescen = 'md blue' OR fluorescen = 'M.BLUE'" )}
+    scope :fluorescen_strong, -> {where("fluorescen = 'Strong' OR fluorescen = 'st' OR fluorescen = 'sb' OR fluorescen = 'str blue' OR fluorescen = 'S.BLUE'" )}
+    scope :fluorescen_vs, -> {where("fluorescen = 'VST' OR fluorescen = 'Very Strong' OR fluorescen = 'V.S.BLUE'" )}
+    
 
   def self.import(file)
   # CSV.foreach(file.path, headers: true, encoding:'iso-8859-1:utf-8') do |row|
