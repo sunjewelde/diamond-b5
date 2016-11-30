@@ -1526,6 +1526,6 @@ class OrganizeDiamondsJob < ActiveJob::Base
           # end
 
 	   # end
-    MyMailer.upload_confirmation.deliver
+    # MyMailer.upload_confirmation.deliver
   end
 end

@@ -1190,6 +1190,6 @@ class OrganizeListsJob < ActiveJob::Base
     #         #-----End_Data table create for List model---------
     #       end
 	   # end
-    MyMailer.upload_confirmation_table.deliver
+    # MyMailer.upload_confirmation_table.deliver
   end
 end
