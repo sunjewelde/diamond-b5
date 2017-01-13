@@ -6,72 +6,76 @@ class TablesController < ApplicationController
 
 	require "date"
 	def chart_second
-	  	@latest_date = Table.maximum(:date)
-	    @oldest_date = Table.minimum(:date)
+		view_context.chart_params
+		
+	 # 	@latest_date = Table.maximum(:date)
+	 #   @oldest_date = Table.minimum(:date)
 	    
-	    # @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
+	 #   # @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
 
-		if @latest_date.present?
-		    @one_week_ago = @latest_date - 6
-		    @two_week_ago = @latest_date - 14
-		    @one_months_ago = @latest_date - 30
-		    @three_months_ago = @latest_date - 90
-		    @six_months_ago = @latest_date - 180
-		    @one_year_ago = @latest_date - 364
-		end
+		# if @latest_date.present?
+		#     @one_week_ago = @latest_date - 6
+		#     @two_week_ago = @latest_date - 14
+		#     @one_months_ago = @latest_date - 30
+		#     @three_months_ago = @latest_date - 90
+		#     @six_months_ago = @latest_date - 180
+		#     @one_year_ago = @latest_date - 364
+		# end
 
 
-	    #chart_secondページからグラフ描画の引数を取得
-	        #For ransack
-	    @q = Table.ransack(params[:q])
-	    if params[:q] != nil
-		    weight = params[:q][:weight2]
-		    color_id_ini = params[:q][:color]
-		    array_nil = [""]
-		    color_id = color_id_ini - array_nil
-		    # binding.pry
-		    if color_id.empty?
-		    	color_id = ["1"]
-		    end
+	 #   #chart_secondページからグラフ描画の引数を取得
+	 #       #For ransack
+	 #   @q = Table.ransack(params[:q])
+	 #   if params[:q] != nil
+		#     weight = params[:q][:weight2]
+		#     color_id_ini = params[:q][:color]
+		#     array_nil = [""]
+		#     color_id = color_id_ini - array_nil
+		#     # binding.pry
+		#     if color_id.empty?
+		#     	color_id = ["1"]
+		#     end
 		    
-		    clar_id_ini = params[:q][:clar]
-		    clar_id = clar_id_ini - array_nil
-		    if clar_id.empty?
-		    	clar_id = ["1"]
-		    end
-		    date = params[:q][:date]
+		#     clar_id_ini = params[:q][:clar]
+		#     clar_id = clar_id_ini - array_nil
+		#     if clar_id.empty?
+		#     	clar_id = ["1"]
+		#     end
+		#     date = params[:q][:date]
 		    
-		    # binding.pry
+		#     # binding.pry
 
-		    color_ref = ColumnListColor.find(color_id)
-		    color = []
-		    color_ref.each do |f|
-		    	c = f.color
-		    	color << c
-		    end
+		#     color_ref = ColumnListColor.find(color_id)
+		#     color = []
+		#     color_ref.each do |f|
+		#     	c = f.color
+		#     	color << c
+		#     end
 
-		    color_ref = ColumnListClar.find(clar_id)
-		    clar = []
-		    color_ref.each do |f|
-		    	c = f.clar
-		    	clar << c
-		    end
+		#     color_ref = ColumnListClar.find(clar_id)
+		#     clar = []
+		#     color_ref.each do |f|
+		#     	c = f.clar
+		#     	clar << c
+		#     end
 		    
-		else
-			weight = 0.3
-		    color = ["D"]
-		    clar = ["IF"]
-		    date = "2w"
-	    end
+		# else
+		# 	weight = 0.3
+		#     color = ["D"]
+		#     clar = ["IF"]
+		#     date = "2w"
+	 #   end
 	
-	    @selected_weight = weight
+	 #   @selected_weight = weight
 
 		
 
-	    # @diamond_all = Table.all
+	 #   # @diamond_all = Table.all
 
-	    # @diamonds_default = Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> 0.3).where(:clar => "IF").where(:color => "D").group(:date)
-	    @selected_date = date
+	 #   # @diamonds_default = Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> 0.3).where(:clar => "IF").where(:color => "D").group(:date)
+	 #   @selected_date = date
+	    
+	    
 	    
 	    if @selected_date == "2w"
 	    	  @diamonds = @diamonds_2w
