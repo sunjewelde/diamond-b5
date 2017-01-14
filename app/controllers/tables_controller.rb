@@ -1,19 +1,9 @@
 class TablesController < ApplicationController
 	# include TablesHelper
 	 require "date"
-	 before_action :set_table_data
-    
-        def set_table_data
-        	@latest_date = Table.maximum(:date)
-	    	@oldest_date = Table.minimum(:date)
-
-		    @two_week_ago = @latest_date - 14
-		    @one_months_ago = @latest_date - 30
-		    @three_months_ago = @latest_date - 90
-		    @six_months_ago = @latest_date - 180
-		    @one_year_ago = @latest_date - 364
-		   
-	    	  @@diamonds_D_2w = Table.where(:date=> @two_week_ago..@latest_date).where(:color => "D").group(:date)
+	 before_action :set_table_date
+	 
+			  @@diamonds_D_2w = Table.where(:date=> @two_week_ago..@latest_date).where(:color => "D").group(:date)
 	    	  @@diamonds_E_2w = Table.where(:date=> @two_week_ago..@latest_date).where(:color => "E").group(:date)
 	    	  @@diamonds_F_2w = Table.where(:date=> @two_week_ago..@latest_date).where(:color => "F").group(:date)
 	    	  @@diamonds_G_2w = Table.where(:date=> @two_week_ago..@latest_date).where(:color => "G").group(:date)
@@ -67,6 +57,17 @@ class TablesController < ApplicationController
 	      	  @@diamonds_K_1y = Table.where(:date=> @one_year_ago..@latest_date).where(:color => "K").group(:date)
 	      	  @@diamonds_L_1y = Table.where(:date=> @one_year_ago..@latest_date).where(:color => "L").group(:date)
 	      	  @@diamonds_M_1y = Table.where(:date=> @one_year_ago..@latest_date).where(:color => "M").group(:date)
+    
+        def set_table_date
+        	@latest_date = Table.maximum(:date)
+	    	@oldest_date = Table.minimum(:date)
+
+		    @two_week_ago = @latest_date - 14
+		    @one_months_ago = @latest_date - 30
+		    @three_months_ago = @latest_date - 90
+		    @six_months_ago = @latest_date - 180
+		    @one_year_ago = @latest_date - 364
+		   
         end
         
 	
