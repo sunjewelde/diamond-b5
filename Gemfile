@@ -45,6 +45,8 @@ gem 'smarter_csv'
 gem "resque"
 gem 'sidekiq'
 gem 'sinatra', require: false
+
+gem 'redis-rails'
 # gem 'capistrano-sidekiq'
 
 # Use Unicorn as the app server
