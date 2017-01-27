@@ -79,4 +79,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   config.logger = Logger.new("log/production.log", 5, 10 * 1024 * 1024)
+  
+  # config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 90.minutes }
 end

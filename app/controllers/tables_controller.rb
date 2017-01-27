@@ -1,23 +1,229 @@
 class TablesController < ApplicationController
 	# include TablesHelper
+	 #require 'redis'
 	 require "date"
 	 #before_action :set_table_date
 	 
 			  
-	    	  
+   #     def set_table_date
+   #     	@latest_date = Table.maximum(:date)
+	  #  	@oldest_date = Table.minimum(:date)
 
-    
-      #  def set_table_date
-      #  	@latest_date = Table.maximum(:date)
-	    	# @oldest_date = Table.minimum(:date)
-
-		    # @two_week_ago = @latest_date - 14
-		    # @one_months_ago = @latest_date - 30
-		    # @three_months_ago = @latest_date - 90
-		    # @six_months_ago = @latest_date - 180
-		    # @one_year_ago = @latest_date - 364
+		 #   @two_week_ago = @latest_date - 14
+		 #   @one_months_ago = @latest_date - 30
+		 #   @three_months_ago = @latest_date - 90
+		 #   @six_months_ago = @latest_date - 180
+		 #   @one_year_ago = @latest_date - 364
+		    
+		 ##   #2w-----------------------------------------------------------------------------------------
+			# # @diamonds_D_2w = Rails.cache.fetch('diamonds_D_2w') do
+			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "D").group(:date)
+			# # end
+			
+			# # @diamonds_E_2w = Rails.cache.fetch('diamonds_E_2w') do
+			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "E").group(:date)
+			# # end
+			
+			# # @diamonds_F_2w = Rails.cache.fetch('diamonds_F_2w') do
+			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "F").group(:date)
+			# # end
+			
+			# # @diamonds_G_2w = Rails.cache.fetch('diamonds_G_2w') do
+			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "G").group(:date)
+			# # end
+			
+			# # @diamonds_H_2w = Rails.cache.fetch('diamonds_H_2w') do
+			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "H").group(:date)
+			# # end
+			
+			# # @diamonds_I_2w = Rails.cache.fetch('diamonds_I_2w') do
+			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "I").group(:date)
+			# # end
+			
+			# # @diamonds_J_2w = Rails.cache.fetch('diamonds_J_2w') do
+			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "J").group(:date)
+			# # end
+			
+			# # @diamonds_K_2w = Rails.cache.fetch('diamonds_K_2w') do
+			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "K").group(:date)
+			# # end
+			
+			# # @diamonds_L_2w = Rails.cache.fetch('diamonds_L_2w') do
+			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "L").group(:date)
+			# # end
+			
+			# # @diamonds_M_2w = Rails.cache.fetch('diamonds_M_2w') do
+			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "M").group(:date)
+			# # end
+			
+			
+			# # #1m-----------------------------------------------------------------------------------------
+			# # @diamonds_D_1m = Rails.cache.fetch('diamonds_D_1m') do
+			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "D").group(:date)
+			# # end
+			
+			# # @diamonds_E_1m = Rails.cache.fetch('diamonds_E_1m') do
+			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "E").group(:date)
+			# # end
+			
+			# # @diamonds_F_1m = Rails.cache.fetch('diamonds_F_1m') do
+			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "F").group(:date)
+			# # end
+			
+			# # @diamonds_G_1m = Rails.cache.fetch('diamonds_G_1m') do
+			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "G").group(:date)
+			# # end
+			
+			# # @diamonds_H_1m = Rails.cache.fetch('diamonds_H_1m') do
+			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "H").group(:date)
+			# # end
+			
+			# # @diamonds_I_1m = Rails.cache.fetch('diamonds_I_1m') do
+			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "I").group(:date)
+			# # end
+			
+			# # @diamonds_J_1m = Rails.cache.fetch('diamonds_J_1m') do
+			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "J").group(:date)
+			# # end
+			
+			# # @diamonds_K_1m = Rails.cache.fetch('diamonds_K_1m') do
+			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "K").group(:date)
+			# # end
+			
+			# # @diamonds_L_1m = Rails.cache.fetch('diamonds_L_1m') do
+			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "L").group(:date)
+			# # end
+			
+			# # @diamonds_M_1m = Rails.cache.fetch('diamonds_M_1m') do
+			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "M").group(:date)
+			# # end
+			
+			# # #3m------------------------------------------------------------------------------------
+			# # @diamonds_D_3m = Rails.cache.fetch('diamonds_D_3m') do
+			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "D").group(:date)
+			# # end
+			
+			# # @diamonds_E_3m = Rails.cache.fetch('diamonds_E_3m') do
+			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "E").group(:date)
+			# # end
+			
+			# # @diamonds_F_3m = Rails.cache.fetch('diamonds_F_3m') do
+			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "F").group(:date)
+			# # end
+			
+			# # @diamonds_G_3m = Rails.cache.fetch('diamonds_G_3m') do
+			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "G").group(:date)
+			# # end
+			
+			# # @diamonds_H_3m = Rails.cache.fetch('diamonds_H_3m') do
+			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "H").group(:date)
+			# # end
+			
+			# # @diamonds_I_3m = Rails.cache.fetch('diamonds_I_3m') do
+			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "I").group(:date)
+			# # end
+			
+			# # @diamonds_J_3m = Rails.cache.fetch('diamonds_J_3m') do
+			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "J").group(:date)
+			# # end
+			
+			# # @diamonds_K_3m = Rails.cache.fetch('diamonds_K_3m') do
+			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "K").group(:date)
+			# # end
+			
+			# # @diamonds_L_3m = Rails.cache.fetch('diamonds_L_3m') do
+			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "L").group(:date)
+			# # end
+			
+			# # @diamonds_M_3m = Rails.cache.fetch('diamonds_M_3m') do
+			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "M").group(:date)
+			# # end
+			
+			# # #6m------------------------------------------------------------------------------------
+			# # @diamonds_D_6m = Rails.cache.fetch('diamonds_D_6m') do
+			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "D").group(:date)
+			# # end
+			
+			# # @diamonds_E_6m = Rails.cache.fetch('diamonds_E_6m') do
+			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "E").group(:date)
+			# # end
+			
+			# # @diamonds_F_6m = Rails.cache.fetch('diamonds_F_6m') do
+			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "F").group(:date)
+			# # end
+			
+			# # @diamonds_G_6m = Rails.cache.fetch('diamonds_G_6m') do
+			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "G").group(:date)
+			# # end
+			
+			# # @diamonds_H_6m = Rails.cache.fetch('diamonds_H_6m') do
+			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "H").group(:date)
+			# # end
+			
+			# # @diamonds_I_6m = Rails.cache.fetch('diamonds_I_6m') do
+			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "I").group(:date)
+			# # end
+			
+			# # @diamonds_J_6m = Rails.cache.fetch('diamonds_J_6m') do
+			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "J").group(:date)
+			# # end
+			
+			# # @diamonds_K_6m = Rails.cache.fetch('diamonds_K_6m') do
+			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "K").group(:date)
+			# # end
+			
+			# # @diamonds_L_6m = Rails.cache.fetch('diamonds_L_6m') do
+			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "L").group(:date)
+			# # end
+			
+			# # @diamonds_M_6m = Rails.cache.fetch('diamonds_M_6m') do
+			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "M").group(:date)
+			# # end
+			
+			# # #1y------------------------------------------------------------------------------------
+			# # @diamonds_D_1y = Rails.cache.fetch('diamonds_D_1y') do
+			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "D").group(:date)
+			# # end
+			
+			# # @diamonds_E_1y = Rails.cache.fetch('diamonds_E_1y') do
+			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "E").group(:date)
+			# # end
+			
+			# # @diamonds_F_1y = Rails.cache.fetch('diamonds_F_1y') do
+			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "F").group(:date)
+			# # end
+			
+			# # @diamonds_G_1y = Rails.cache.fetch('diamonds_G_1y') do
+			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "G").group(:date)
+			# # end
+			
+			# # @diamonds_H_1y = Rails.cache.fetch('diamonds_H_1y') do
+			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "H").group(:date)
+			# # end
+			
+			# # @diamonds_I_1y = Rails.cache.fetch('diamonds_I_1y') do
+			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "I").group(:date)
+			# # end
+			
+			# # @diamonds_J_1y = Rails.cache.fetch('diamonds_J_1y') do
+			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "J").group(:date)
+			# # end
+			
+			# # @diamonds_K_1y = Rails.cache.fetch('diamonds_K_1y') do
+			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "K").group(:date)
+			# # end
+			
+			# # @diamonds_L_1y = Rails.cache.fetch('diamonds_L_1y') do
+			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "L").group(:date)
+			# # end
+			
+			# # @diamonds_M_1y = Rails.cache.fetch('diamonds_M_1y') do
+			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "M").group(:date)
+			# # end
 		   
-      #  end
+   #     end
+        
+
         
 	
 	def new
@@ -89,16 +295,16 @@ class TablesController < ApplicationController
 	    @selected_date = date
 	    
 	    #0.3-----------------------------------------------------------------------------------------------------------------------
-		# @diamonds_D_2w ||= Table.where(:date=> @two_week_ago..@latest_date).where(:color => "D").group(:date)
-		# @diamonds_E_2w ||= Table.where(:date=> @two_week_ago..@latest_date).where(:color => "E").group(:date)
-		# @diamonds_F_2w ||= Table.where(:date=> @two_week_ago..@latest_date).where(:color => "F").group(:date)
-		# @diamonds_G_2w ||= Table.where(:date=> @two_week_ago..@latest_date).where(:color => "G").group(:date)
-		# @diamonds_H_2w ||= Table.where(:date=> @two_week_ago..@latest_date).where(:color => "H").group(:date)
-		# @diamonds_I_2w ||= Table.where(:date=> @two_week_ago..@latest_date).where(:color => "I").group(:date)
-		# @diamonds_J_2w ||= Table.where(:date=> @two_week_ago..@latest_date).where(:color => "J").group(:date)
-		# @diamonds_K_2w ||= Table.where(:date=> @two_week_ago..@latest_date).where(:color => "K").group(:date)
-		# @diamonds_L_2w ||= Table.where(:date=> @two_week_ago..@latest_date).where(:color => "L").group(:date)
-		# @diamonds_M_2w ||= Table.where(:date=> @two_week_ago..@latest_date).where(:color => "M").group(:date)
+		# @diamonds_D_2w = redis.get("diamonds_2w_D")
+		# @diamonds_E_2w = redis.get("diamonds_2w_E")
+		# @diamonds_F_2w = redis.get("diamonds_2w_F")
+		# @diamonds_G_2w = redis.get("diamonds_2w_G")
+		# @diamonds_H_2w = redis.get("diamonds_2w_H")
+		# @diamonds_I_2w = redis.get("diamonds_2w_I")
+		# @diamonds_J_2w = redis.get("diamonds_2w_J")
+		# @diamonds_K_2w = redis.get("diamonds_2w_K")
+		# @diamonds_L_2w = redis.get("diamonds_2w_L")
+		# @diamonds_M_2w = redis.get("diamonds_2w_M")
 	    
 		# @diamonds_D_1m ||= Table.where(:date=> @one_months_ago..@latest_date).where(:color => "D").group(:date)
 		# @diamonds_E_1m ||= Table.where(:date=> @one_months_ago..@latest_date).where(:color => "E").group(:date)

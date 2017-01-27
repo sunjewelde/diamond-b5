@@ -306,6 +306,7 @@ DEPENDENCIES
   pry-byebug
   rails (= 4.2.6)
   ransack
+  redis
   redis-rails
   resque
   sass-rails (~> 5.0)

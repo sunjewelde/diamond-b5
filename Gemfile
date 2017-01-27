@@ -46,6 +46,7 @@ gem "resque"
 gem 'sidekiq'
 gem 'sinatra', require: false
 
+gem 'redis'
 gem 'redis-rails'
 # gem 'capistrano-sidekiq'
 
