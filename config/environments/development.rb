@@ -38,7 +38,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 90.minutes }
+  # config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 90.minutes }
   
   config.action_mailer.delivery_method = :smtp  # SMTPを利用
   config.action_mailer.raise_delivery_errors = true  # 送信できない場合に例外を発生させる
