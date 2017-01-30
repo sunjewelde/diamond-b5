@@ -2,226 +2,238 @@ class TablesController < ApplicationController
 	# include TablesHelper
 	 #require 'redis'
 	 require "date"
-	 #before_action :set_table_date
+	 before_action :set_table_date
 	 
-			  
-   #     def set_table_date
-   #     	@latest_date = Table.maximum(:date)
-	  #  	@oldest_date = Table.minimum(:date)
 
-		 #   @two_week_ago = @latest_date - 14
-		 #   @one_months_ago = @latest_date - 30
-		 #   @three_months_ago = @latest_date - 90
-		 #   @six_months_ago = @latest_date - 180
-		 #   @one_year_ago = @latest_date - 364
+        def set_table_date
+        	@latest_date = Rails.cache.fetch(:latest_date, expires_in: 12.hours) do
+				@latest_date = Table.maximum(:date)
+			end
+			
+			@oldest_date = Rails.cache.fetch(:oldest_date, expires_in: 12.hours) do
+				@oldest_date = Table.minimum(:date)
+			end
+			
+			# @latest_date = Table.maximum(:date)
+			# @oldest_date = Table.minimum(:date)
+
+		    @two_week_ago = @latest_date - 14
+		    @one_months_ago = @latest_date - 30
+		    @three_months_ago = @latest_date - 90
+		    @six_months_ago = @latest_date - 180
+		    @one_year_ago = @latest_date - 364
 		    
-		 ##   #2w-----------------------------------------------------------------------------------------
-			# # @diamonds_D_2w = Rails.cache.fetch('diamonds_D_2w') do
-			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "D").group(:date)
-			# # end
+		    #2w-----------------------------------------------------------------------------------------
+			@diamonds_D_2w = Rails.cache.fetch(:diamonds_D_2w, expires_in: 12.hours) do
+				Table.where(:date=> @two_week_ago..@latest_date).where(:color => "D").group(:date)
+			end
 			
-			# # @diamonds_E_2w = Rails.cache.fetch('diamonds_E_2w') do
-			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "E").group(:date)
-			# # end
+			@diamonds_E_2w = Rails.cache.fetch(:diamonds_E_2w, expires_in: 12.hours) do
+				Table.where(:date=> @two_week_ago..@latest_date).where(:color => "E").group(:date)
+			end
 			
-			# # @diamonds_F_2w = Rails.cache.fetch('diamonds_F_2w') do
-			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "F").group(:date)
-			# # end
+			@diamonds_F_2w = Rails.cache.fetch(:diamonds_F_2w, expires_in: 12.hours) do
+				Table.where(:date=> @two_week_ago..@latest_date).where(:color => "F").group(:date)
+			end
 			
-			# # @diamonds_G_2w = Rails.cache.fetch('diamonds_G_2w') do
-			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "G").group(:date)
-			# # end
+			@diamonds_G_2w = Rails.cache.fetch(:diamonds_G_2w, expires_in: 12.hours) do
+				Table.where(:date=> @two_week_ago..@latest_date).where(:color => "G").group(:date)
+			end
 			
-			# # @diamonds_H_2w = Rails.cache.fetch('diamonds_H_2w') do
-			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "H").group(:date)
-			# # end
+			@diamonds_H_2w = Rails.cache.fetch(:diamonds_H_2w, expires_in: 12.hours) do
+				Table.where(:date=> @two_week_ago..@latest_date).where(:color => "H").group(:date)
+			end
 			
-			# # @diamonds_I_2w = Rails.cache.fetch('diamonds_I_2w') do
-			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "I").group(:date)
-			# # end
+			@diamonds_I_2w = Rails.cache.fetch(:diamonds_I_2w, expires_in: 12.hours) do
+				Table.where(:date=> @two_week_ago..@latest_date).where(:color => "I").group(:date)
+			end
 			
-			# # @diamonds_J_2w = Rails.cache.fetch('diamonds_J_2w') do
-			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "J").group(:date)
-			# # end
+			@diamonds_J_2w = Rails.cache.fetch(:diamonds_J_2w, expires_in: 12.hours) do
+				Table.where(:date=> @two_week_ago..@latest_date).where(:color => "J").group(:date)
+			end
 			
-			# # @diamonds_K_2w = Rails.cache.fetch('diamonds_K_2w') do
-			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "K").group(:date)
-			# # end
+			@diamonds_K_2w = Rails.cache.fetch(:diamonds_K_2w, expires_in: 12.hours) do
+				Table.where(:date=> @two_week_ago..@latest_date).where(:color => "K").group(:date)
+			end
 			
-			# # @diamonds_L_2w = Rails.cache.fetch('diamonds_L_2w') do
-			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "L").group(:date)
-			# # end
+			@diamonds_L_2w = Rails.cache.fetch(:diamonds_L_2w, expires_in: 12.hours) do
+				Table.where(:date=> @two_week_ago..@latest_date).where(:color => "L").group(:date)
+			end
 			
-			# # @diamonds_M_2w = Rails.cache.fetch('diamonds_M_2w') do
-			# # Table.where(:date=> @two_week_ago..@latest_date).where(:color => "M").group(:date)
-			# # end
+			@diamonds_M_2w = Rails.cache.fetch(:diamonds_M_2w, expires_in: 12.hours) do
+				Table.where(:date=> @two_week_ago..@latest_date).where(:color => "M").group(:date)
+			end
+		    
+			
+			# #1m-----------------------------------------------------------------------------------------
+			@diamonds_D_2w = Rails.cache.fetch(:diamonds_D_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_months_ago..@latest_date).where(:color => "D").group(:date)
+			end
+			
+			@diamonds_E_2w = Rails.cache.fetch(:diamonds_E_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_months_ago..@latest_date).where(:color => "E").group(:date)
+			end
+			
+			@diamonds_F_2w = Rails.cache.fetch(:diamonds_F_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_months_ago..@latest_date).where(:color => "F").group(:date)
+			end
+			
+			@diamonds_G_2w = Rails.cache.fetch(:diamonds_G_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_months_ago..@latest_date).where(:color => "G").group(:date)
+			end
+			
+			@diamonds_H_2w = Rails.cache.fetch(:diamonds_H_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_months_ago..@latest_date).where(:color => "H").group(:date)
+			end
+			
+			@diamonds_I_2w = Rails.cache.fetch(:diamonds_I_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_months_ago..@latest_date).where(:color => "I").group(:date)
+			end
+			
+			@diamonds_J_2w = Rails.cache.fetch(:diamonds_J_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_months_ago..@latest_date).where(:color => "J").group(:date)
+			end
+			
+			@diamonds_K_2w = Rails.cache.fetch(:diamonds_K_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_months_ago..@latest_date).where(:color => "K").group(:date)
+			end
+			
+			@diamonds_L_2w = Rails.cache.fetch(:diamonds_L_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_months_ago..@latest_date).where(:color => "L").group(:date)
+			end
+			
+			@diamonds_M_2w = Rails.cache.fetch(:diamonds_M_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_months_ago..@latest_date).where(:color => "M").group(:date)
+			end
 			
 			
-			# # #1m-----------------------------------------------------------------------------------------
-			# # @diamonds_D_1m = Rails.cache.fetch('diamonds_D_1m') do
-			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "D").group(:date)
-			# # end
+			# #3m------------------------------------------------------------------------------------
+			@diamonds_D_2w = Rails.cache.fetch(:diamonds_D_2w, expires_in: 12.hours) do
+				Table.where(:date=> @three_months_ago..@latest_date).where(:color => "D").group(:date)
+			end
 			
-			# # @diamonds_E_1m = Rails.cache.fetch('diamonds_E_1m') do
-			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "E").group(:date)
-			# # end
+			@diamonds_E_2w = Rails.cache.fetch(:diamonds_E_2w, expires_in: 12.hours) do
+				Table.where(:date=> @three_months_ago..@latest_date).where(:color => "E").group(:date)
+			end
 			
-			# # @diamonds_F_1m = Rails.cache.fetch('diamonds_F_1m') do
-			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "F").group(:date)
-			# # end
+			@diamonds_F_2w = Rails.cache.fetch(:diamonds_F_2w, expires_in: 12.hours) do
+				Table.where(:date=> @three_months_ago..@latest_date).where(:color => "F").group(:date)
+			end
 			
-			# # @diamonds_G_1m = Rails.cache.fetch('diamonds_G_1m') do
-			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "G").group(:date)
-			# # end
+			@diamonds_G_2w = Rails.cache.fetch(:diamonds_G_2w, expires_in: 12.hours) do
+				Table.where(:date=> @three_months_ago..@latest_date).where(:color => "G").group(:date)
+			end
 			
-			# # @diamonds_H_1m = Rails.cache.fetch('diamonds_H_1m') do
-			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "H").group(:date)
-			# # end
+			@diamonds_H_2w = Rails.cache.fetch(:diamonds_H_2w, expires_in: 12.hours) do
+				Table.where(:date=> @three_months_ago..@latest_date).where(:color => "H").group(:date)
+			end
 			
-			# # @diamonds_I_1m = Rails.cache.fetch('diamonds_I_1m') do
-			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "I").group(:date)
-			# # end
+			@diamonds_I_2w = Rails.cache.fetch(:diamonds_I_2w, expires_in: 12.hours) do
+				Table.where(:date=> @three_months_ago..@latest_date).where(:color => "I").group(:date)
+			end
 			
-			# # @diamonds_J_1m = Rails.cache.fetch('diamonds_J_1m') do
-			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "J").group(:date)
-			# # end
+			@diamonds_J_2w = Rails.cache.fetch(:diamonds_J_2w, expires_in: 12.hours) do
+				Table.where(:date=> @three_months_ago..@latest_date).where(:color => "J").group(:date)
+			end
 			
-			# # @diamonds_K_1m = Rails.cache.fetch('diamonds_K_1m') do
-			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "K").group(:date)
-			# # end
+			@diamonds_K_2w = Rails.cache.fetch(:diamonds_K_2w, expires_in: 12.hours) do
+				Table.where(:date=> @three_months_ago..@latest_date).where(:color => "K").group(:date)
+			end
 			
-			# # @diamonds_L_1m = Rails.cache.fetch('diamonds_L_1m') do
-			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "L").group(:date)
-			# # end
+			@diamonds_L_2w = Rails.cache.fetch(:diamonds_L_2w, expires_in: 12.hours) do
+				Table.where(:date=> @three_months_ago..@latest_date).where(:color => "L").group(:date)
+			end
 			
-			# # @diamonds_M_1m = Rails.cache.fetch('diamonds_M_1m') do
-			# # Table.where(:date=> @one_months_ago..@latest_date).where(:color => "M").group(:date)
-			# # end
+			@diamonds_M_2w = Rails.cache.fetch(:diamonds_M_2w, expires_in: 12.hours) do
+				Table.where(:date=> @three_months_ago..@latest_date).where(:color => "M").group(:date)
+			end
 			
-			# # #3m------------------------------------------------------------------------------------
-			# # @diamonds_D_3m = Rails.cache.fetch('diamonds_D_3m') do
-			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "D").group(:date)
-			# # end
 			
-			# # @diamonds_E_3m = Rails.cache.fetch('diamonds_E_3m') do
-			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "E").group(:date)
-			# # end
+			# #6m------------------------------------------------------------------------------------
+			@diamonds_D_2w = Rails.cache.fetch(:diamonds_D_2w, expires_in: 12.hours) do
+				Table.where(:date=> @six_months_ago..@latest_date).where(:color => "D").group(:date)
+			end
 			
-			# # @diamonds_F_3m = Rails.cache.fetch('diamonds_F_3m') do
-			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "F").group(:date)
-			# # end
+			@diamonds_E_2w = Rails.cache.fetch(:diamonds_E_2w, expires_in: 12.hours) do
+				Table.where(:date=> @six_months_ago..@latest_date).where(:color => "E").group(:date)
+			end
 			
-			# # @diamonds_G_3m = Rails.cache.fetch('diamonds_G_3m') do
-			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "G").group(:date)
-			# # end
+			@diamonds_F_2w = Rails.cache.fetch(:diamonds_F_2w, expires_in: 12.hours) do
+				Table.where(:date=> @six_months_ago..@latest_date).where(:color => "F").group(:date)
+			end
 			
-			# # @diamonds_H_3m = Rails.cache.fetch('diamonds_H_3m') do
-			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "H").group(:date)
-			# # end
+			@diamonds_G_2w = Rails.cache.fetch(:diamonds_G_2w, expires_in: 12.hours) do
+				Table.where(:date=> @six_months_ago..@latest_date).where(:color => "G").group(:date)
+			end
 			
-			# # @diamonds_I_3m = Rails.cache.fetch('diamonds_I_3m') do
-			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "I").group(:date)
-			# # end
+			@diamonds_H_2w = Rails.cache.fetch(:diamonds_H_2w, expires_in: 12.hours) do
+				Table.where(:date=> @six_months_ago..@latest_date).where(:color => "H").group(:date)
+			end
 			
-			# # @diamonds_J_3m = Rails.cache.fetch('diamonds_J_3m') do
-			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "J").group(:date)
-			# # end
+			@diamonds_I_2w = Rails.cache.fetch(:diamonds_I_2w, expires_in: 12.hours) do
+				Table.where(:date=> @six_months_ago..@latest_date).where(:color => "I").group(:date)
+			end
 			
-			# # @diamonds_K_3m = Rails.cache.fetch('diamonds_K_3m') do
-			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "K").group(:date)
-			# # end
+			@diamonds_J_2w = Rails.cache.fetch(:diamonds_J_2w, expires_in: 12.hours) do
+				Table.where(:date=> @six_months_ago..@latest_date).where(:color => "J").group(:date)
+			end
 			
-			# # @diamonds_L_3m = Rails.cache.fetch('diamonds_L_3m') do
-			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "L").group(:date)
-			# # end
+			@diamonds_K_2w = Rails.cache.fetch(:diamonds_K_2w, expires_in: 12.hours) do
+				Table.where(:date=> @six_months_ago..@latest_date).where(:color => "K").group(:date)
+			end
 			
-			# # @diamonds_M_3m = Rails.cache.fetch('diamonds_M_3m') do
-			# # Table.where(:date=> @three_months_ago..@latest_date).where(:color => "M").group(:date)
-			# # end
+			@diamonds_L_2w = Rails.cache.fetch(:diamonds_L_2w, expires_in: 12.hours) do
+				Table.where(:date=> @six_months_ago..@latest_date).where(:color => "L").group(:date)
+			end
 			
-			# # #6m------------------------------------------------------------------------------------
-			# # @diamonds_D_6m = Rails.cache.fetch('diamonds_D_6m') do
-			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "D").group(:date)
-			# # end
+			@diamonds_M_2w = Rails.cache.fetch(:diamonds_M_2w, expires_in: 12.hours) do
+				Table.where(:date=> @six_months_ago..@latest_date).where(:color => "M").group(:date)
+			end
+
 			
-			# # @diamonds_E_6m = Rails.cache.fetch('diamonds_E_6m') do
-			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "E").group(:date)
-			# # end
+			# #1y------------------------------------------------------------------------------------
+			@diamonds_D_2w = Rails.cache.fetch(:diamonds_D_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_year_ago..@latest_date).where(:color => "D").group(:date)
+			end
 			
-			# # @diamonds_F_6m = Rails.cache.fetch('diamonds_F_6m') do
-			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "F").group(:date)
-			# # end
+			@diamonds_E_2w = Rails.cache.fetch(:diamonds_E_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_year_ago..@latest_date).where(:color => "E").group(:date)
+			end
 			
-			# # @diamonds_G_6m = Rails.cache.fetch('diamonds_G_6m') do
-			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "G").group(:date)
-			# # end
+			@diamonds_F_2w = Rails.cache.fetch(:diamonds_F_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_year_ago..@latest_date).where(:color => "F").group(:date)
+			end
 			
-			# # @diamonds_H_6m = Rails.cache.fetch('diamonds_H_6m') do
-			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "H").group(:date)
-			# # end
+			@diamonds_G_2w = Rails.cache.fetch(:diamonds_G_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_year_ago..@latest_date).where(:color => "G").group(:date)
+			end
 			
-			# # @diamonds_I_6m = Rails.cache.fetch('diamonds_I_6m') do
-			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "I").group(:date)
-			# # end
+			@diamonds_H_2w = Rails.cache.fetch(:diamonds_H_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_year_ago..@latest_date).where(:color => "H").group(:date)
+			end
 			
-			# # @diamonds_J_6m = Rails.cache.fetch('diamonds_J_6m') do
-			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "J").group(:date)
-			# # end
+			@diamonds_I_2w = Rails.cache.fetch(:diamonds_I_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_year_ago..@latest_date).where(:color => "I").group(:date)
+			end
 			
-			# # @diamonds_K_6m = Rails.cache.fetch('diamonds_K_6m') do
-			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "K").group(:date)
-			# # end
+			@diamonds_J_2w = Rails.cache.fetch(:diamonds_J_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_year_ago..@latest_date).where(:color => "J").group(:date)
+			end
 			
-			# # @diamonds_L_6m = Rails.cache.fetch('diamonds_L_6m') do
-			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "L").group(:date)
-			# # end
+			@diamonds_K_2w = Rails.cache.fetch(:diamonds_K_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_year_ago..@latest_date).where(:color => "K").group(:date)
+			end
 			
-			# # @diamonds_M_6m = Rails.cache.fetch('diamonds_M_6m') do
-			# # Table.where(:date=> @six_months_ago..@latest_date).where(:color => "M").group(:date)
-			# # end
+			@diamonds_L_2w = Rails.cache.fetch(:diamonds_L_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_year_ago..@latest_date).where(:color => "L").group(:date)
+			end
 			
-			# # #1y------------------------------------------------------------------------------------
-			# # @diamonds_D_1y = Rails.cache.fetch('diamonds_D_1y') do
-			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "D").group(:date)
-			# # end
-			
-			# # @diamonds_E_1y = Rails.cache.fetch('diamonds_E_1y') do
-			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "E").group(:date)
-			# # end
-			
-			# # @diamonds_F_1y = Rails.cache.fetch('diamonds_F_1y') do
-			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "F").group(:date)
-			# # end
-			
-			# # @diamonds_G_1y = Rails.cache.fetch('diamonds_G_1y') do
-			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "G").group(:date)
-			# # end
-			
-			# # @diamonds_H_1y = Rails.cache.fetch('diamonds_H_1y') do
-			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "H").group(:date)
-			# # end
-			
-			# # @diamonds_I_1y = Rails.cache.fetch('diamonds_I_1y') do
-			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "I").group(:date)
-			# # end
-			
-			# # @diamonds_J_1y = Rails.cache.fetch('diamonds_J_1y') do
-			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "J").group(:date)
-			# # end
-			
-			# # @diamonds_K_1y = Rails.cache.fetch('diamonds_K_1y') do
-			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "K").group(:date)
-			# # end
-			
-			# # @diamonds_L_1y = Rails.cache.fetch('diamonds_L_1y') do
-			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "L").group(:date)
-			# # end
-			
-			# # @diamonds_M_1y = Rails.cache.fetch('diamonds_M_1y') do
-			# # Table.where(:date=> @one_year_ago..@latest_date).where(:color => "M").group(:date)
-			# # end
+			@diamonds_M_2w = Rails.cache.fetch(:diamonds_M_2w, expires_in: 12.hours) do
+				Table.where(:date=> @one_year_ago..@latest_date).where(:color => "M").group(:date)
+			end
+		
 		   
-   #     end
+        end
         
 
         
@@ -294,182 +306,135 @@ class TablesController < ApplicationController
 	    @selected_weight = weight
 	    @selected_date = date
 	    
-	    #0.3-----------------------------------------------------------------------------------------------------------------------
-		# @diamonds_D_2w = redis.get("diamonds_2w_D")
-		# @diamonds_E_2w = redis.get("diamonds_2w_E")
-		# @diamonds_F_2w = redis.get("diamonds_2w_F")
-		# @diamonds_G_2w = redis.get("diamonds_2w_G")
-		# @diamonds_H_2w = redis.get("diamonds_2w_H")
-		# @diamonds_I_2w = redis.get("diamonds_2w_I")
-		# @diamonds_J_2w = redis.get("diamonds_2w_J")
-		# @diamonds_K_2w = redis.get("diamonds_2w_K")
-		# @diamonds_L_2w = redis.get("diamonds_2w_L")
-		# @diamonds_M_2w = redis.get("diamonds_2w_M")
-	    
-		# @diamonds_D_1m ||= Table.where(:date=> @one_months_ago..@latest_date).where(:color => "D").group(:date)
-		# @diamonds_E_1m ||= Table.where(:date=> @one_months_ago..@latest_date).where(:color => "E").group(:date)
-		# @diamonds_F_1m ||= Table.where(:date=> @one_months_ago..@latest_date).where(:color => "F").group(:date)
-		# @diamonds_G_1m ||= Table.where(:date=> @one_months_ago..@latest_date).where(:color => "G").group(:date)
-		# @diamonds_H_1m ||= Table.where(:date=> @one_months_ago..@latest_date).where(:color => "H").group(:date)
-		# @diamonds_I_1m ||= Table.where(:date=> @one_months_ago..@latest_date).where(:color => "I").group(:date)
-		# @diamonds_J_1m ||= Table.where(:date=> @one_months_ago..@latest_date).where(:color => "J").group(:date)
-		# @diamonds_K_1m ||= Table.where(:date=> @one_months_ago..@latest_date).where(:color => "K").group(:date)
-		# @diamonds_L_1m ||= Table.where(:date=> @one_months_ago..@latest_date).where(:color => "L").group(:date)
-		# @diamonds_M_1m ||= Table.where(:date=> @one_months_ago..@latest_date).where(:color => "M").group(:date)
-		
-		# @diamonds_D_3m ||= Table.where(:date=> @three_months_ago..@latest_date).where(:color => "D").group(:date)
-		# @diamonds_E_3m ||= Table.where(:date=> @three_months_ago..@latest_date).where(:color => "E").group(:date)
-		# @diamonds_F_3m ||= Table.where(:date=> @three_months_ago..@latest_date).where(:color => "F").group(:date)
-		# @diamonds_G_3m ||= Table.where(:date=> @three_months_ago..@latest_date).where(:color => "G").group(:date)
-		# @diamonds_H_3m ||= Table.where(:date=> @three_months_ago..@latest_date).where(:color => "H").group(:date)
-		# @diamonds_I_3m ||= Table.where(:date=> @three_months_ago..@latest_date).where(:color => "I").group(:date)
-		# @diamonds_J_3m ||= Table.where(:date=> @three_months_ago..@latest_date).where(:color => "J").group(:date)
-		# @diamonds_K_3m ||= Table.where(:date=> @three_months_ago..@latest_date).where(:color => "K").group(:date)
-		# @diamonds_L_3m ||= Table.where(:date=> @three_months_ago..@latest_date).where(:color => "L").group(:date)
-		# @diamonds_M_3m ||= Table.where(:date=> @three_months_ago..@latest_date).where(:color => "M").group(:date)
-		
-		# @diamonds_D_6m ||= Table.where(:date=> @six_months_ago..@latest_date).where(:color => "D").group(:date)
-		# @diamonds_E_6m ||= Table.where(:date=> @six_months_ago..@latest_date).where(:color => "E").group(:date)
-		# @diamonds_F_6m ||= Table.where(:date=> @six_months_ago..@latest_date).where(:color => "F").group(:date)
-		# @diamonds_G_6m ||= Table.where(:date=> @six_months_ago..@latest_date).where(:color => "G").group(:date)
-		# @diamonds_H_6m ||= Table.where(:date=> @six_months_ago..@latest_date).where(:color => "H").group(:date)
-		# @diamonds_I_6m ||= Table.where(:date=> @six_months_ago..@latest_date).where(:color => "I").group(:date)
-		# @diamonds_J_6m ||= Table.where(:date=> @six_months_ago..@latest_date).where(:color => "J").group(:date)
-		# @diamonds_K_6m ||= Table.where(:date=> @six_months_ago..@latest_date).where(:color => "K").group(:date)
-		# @diamonds_L_6m ||= Table.where(:date=> @six_months_ago..@latest_date).where(:color => "L").group(:date)
-		# @diamonds_M_6m ||= Table.where(:date=> @six_months_ago..@latest_date).where(:color => "M").group(:date)
-		
-		# @diamonds_D_1y ||= Table.where(:date=> @one_year_ago..@latest_date).where(:color => "D").group(:date)
-		# @diamonds_E_1y ||= Table.where(:date=> @one_year_ago..@latest_date).where(:color => "E").group(:date)
-		# @diamonds_F_1y ||= Table.where(:date=> @one_year_ago..@latest_date).where(:color => "F").group(:date)
-		# @diamonds_G_1y ||= Table.where(:date=> @one_year_ago..@latest_date).where(:color => "G").group(:date)
-		# @diamonds_H_1y ||= Table.where(:date=> @one_year_ago..@latest_date).where(:color => "H").group(:date)
-		# @diamonds_I_1y ||= Table.where(:date=> @one_year_ago..@latest_date).where(:color => "I").group(:date)
-		# @diamonds_J_1y ||= Table.where(:date=> @one_year_ago..@latest_date).where(:color => "J").group(:date)
-		# @diamonds_K_1y ||= Table.where(:date=> @one_year_ago..@latest_date).where(:color => "K").group(:date)
-		# @diamonds_L_1y ||= Table.where(:date=> @one_year_ago..@latest_date).where(:color => "L").group(:date)
-		# @diamonds_M_1y ||= Table.where(:date=> @one_year_ago..@latest_date).where(:color => "M").group(:date)
-	    #------------------------------------------------------------------------------------------------------------------------------------------
+
 	    
 	    if @selected_date == "2w"
 	    	  #@diamonds = @diamonds_2w--------------------------------------------------------------------------------------------------
-	    	  #@diamonds_D = @diamonds_D_2w.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_E = @diamonds_E_2W.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_F = @diamonds_F_2W.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_G = @diamonds_G_2W.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_H = @diamonds_H_2W.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_I = @diamonds_I_2W.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_J = @diamonds_J_2W.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_K = @diamonds_K_2W.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_L = @diamonds_L_2W.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_M = @diamonds_M_2W.where(:weight2=> weight).group(:date)
+	    	 # if @diamonds_D_2w.present?
+	    		# @diamonds_D = @diamonds_D_2w.where(:weight2=> weight).group(:date)
+	    	 # end
 	    	  
-	    	  @diamonds = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
-	    	  @diamonds_D = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
-	    	  @diamonds_E = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "E").group(:date)
-	    	  @diamonds_F = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "F").group(:date)
-	    	  @diamonds_G = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "G").group(:date)
-	    	  @diamonds_H = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "H").group(:date)
-	    	  @diamonds_I = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "I").group(:date)
-	    	  @diamonds_J = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "J").group(:date)
-	    	  @diamonds_K = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "K").group(:date)
-	    	  @diamonds_L = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "L").group(:date)
-	    	  @diamonds_M = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "M").group(:date)
+	    	 # if @diamonds_E_2W.present?
+	    	 # 	@diamonds_E = @diamonds_E_2W.where(:weight2=> weight).group(:date)
+	    	 # end
+	    	  
+	    	  @diamonds_D = @diamonds_D_2w.where(:weight2=> weight).group(:date)
+	    	  @diamonds_E = @diamonds_E_2W.where(:weight2=> weight).group(:date)
+	    	  @diamonds_F = @diamonds_F_2W.where(:weight2=> weight).group(:date)
+	    	  @diamonds_G = @diamonds_G_2W.where(:weight2=> weight).group(:date)
+	    	  @diamonds_H = @diamonds_H_2W.where(:weight2=> weight).group(:date)
+	    	  @diamonds_I = @diamonds_I_2W.where(:weight2=> weight).group(:date)
+	    	  @diamonds_J = @diamonds_J_2W.where(:weight2=> weight).group(:date)
+	    	  @diamonds_K = @diamonds_K_2W.where(:weight2=> weight).group(:date)
+	    	  @diamonds_L = @diamonds_L_2W.where(:weight2=> weight).group(:date)
+	    	  @diamonds_M = @diamonds_M_2W.where(:weight2=> weight).group(:date)
+	    	  
+	    	  #@diamonds = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
+	    	  #@diamonds_D = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
+	    	  #@diamonds_E = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "E").group(:date)
+	    	  #@diamonds_F = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "F").group(:date)
+	    	  #@diamonds_G = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "G").group(:date)
+	    	  #@diamonds_H = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "H").group(:date)
+	    	  #@diamonds_I = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "I").group(:date)
+	    	  #@diamonds_J = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "J").group(:date)
+	    	  #@diamonds_K = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "K").group(:date)
+	    	  #@diamonds_L = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "L").group(:date)
+	    	  #@diamonds_M = Table.where(:date=> @two_week_ago..@latest_date).where(:weight2=> weight).where(:color => "M").group(:date)
 	    	  
 	      elsif @selected_date == "1m"
 	    	  #@diamonds = @diamonds_1m-----------------------------------------------------------------
-	    	  #@diamonds_D = @diamonds_D_1m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_E = @diamonds_E_1m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_F = @diamonds_F_1m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_G = @diamonds_G_1m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_H = @diamonds_H_1m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_I = @diamonds_I_1m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_J = @diamonds_J_1m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_K = @diamonds_K_1m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_L = @diamonds_L_1m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_M = @diamonds_M_1m.where(:weight2=> weight).group(:date)
-	      	  @diamonds ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
-	      	  @diamonds_D ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
-	      	  @diamonds_E ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "E").group(:date)
-	      	  @diamonds_F ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "F").group(:date)
-	      	  @diamonds_G ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "G").group(:date)
-	      	  @diamonds_H ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "H").group(:date)
-	      	  @diamonds_I ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "I").group(:date)
-	      	  @diamonds_J ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "J").group(:date)
-	      	  @diamonds_K ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "K").group(:date)
-	      	  @diamonds_L ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "L").group(:date)
-	      	  @diamonds_M ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "M").group(:date)
+	    	  @diamonds_D = @diamonds_D_1m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_E = @diamonds_E_1m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_F = @diamonds_F_1m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_G = @diamonds_G_1m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_H = @diamonds_H_1m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_I = @diamonds_I_1m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_J = @diamonds_J_1m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_K = @diamonds_K_1m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_L = @diamonds_L_1m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_M = @diamonds_M_1m.where(:weight2=> weight).group(:date)
+	      	  #@diamonds ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
+	      	  #@diamonds_D ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
+	      	  #@diamonds_E ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "E").group(:date)
+	      	  #@diamonds_F ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "F").group(:date)
+	      	  #@diamonds_G ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "G").group(:date)
+	      	  #@diamonds_H ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "H").group(:date)
+	      	  #@diamonds_I ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "I").group(:date)
+	      	  #@diamonds_J ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "J").group(:date)
+	      	  #@diamonds_K ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "K").group(:date)
+	      	  #@diamonds_L ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "L").group(:date)
+	      	  #@diamonds_M ||= Table.where(:date=> @one_months_ago..@latest_date).where(:weight2=> weight).where(:color => "M").group(:date)
 	      	  
 	      elsif @selected_date == "3m"
 	    	  #@diamonds = @diamonds_3m--------------------------------------------------------------------------------------------------------------
-	    	  #@diamonds_D = @@diamonds_D_3m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_E = @@diamonds_E_3m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_F = @@diamonds_F_3m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_G = @@diamonds_G_3m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_H = @@diamonds_H_3m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_I = @@diamonds_I_3m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_J = @@diamonds_J_3m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_K = @@diamonds_K_3m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_L = @@diamonds_L_3m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_M = @@diamonds_M_3m.where(:weight2=> weight).group(:date)
-	      	  @diamonds = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
-	      	  @diamonds_D = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
-	      	  @diamonds_E = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "E").group(:date)
-	      	  @diamonds_F = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "F").group(:date)
-	      	  @diamonds_G = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "G").group(:date)
-	      	  @diamonds_H = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "H").group(:date)
-	      	  @diamonds_I = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "I").group(:date)
-	      	  @diamonds_J = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "J").group(:date)
-	      	  @diamonds_K = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "K").group(:date)
-	      	  @diamonds_L = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "L").group(:date)
-	      	  @diamonds_M = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "M").group(:date)
+	    	  @diamonds_D = @@diamonds_D_3m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_E = @@diamonds_E_3m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_F = @@diamonds_F_3m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_G = @@diamonds_G_3m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_H = @@diamonds_H_3m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_I = @@diamonds_I_3m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_J = @@diamonds_J_3m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_K = @@diamonds_K_3m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_L = @@diamonds_L_3m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_M = @@diamonds_M_3m.where(:weight2=> weight).group(:date)
+	      	  #@diamonds = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
+	      	  #@diamonds_D = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
+	      	  #@diamonds_E = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "E").group(:date)
+	      	  #@diamonds_F = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "F").group(:date)
+	      	  #@diamonds_G = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "G").group(:date)
+	      	  #@diamonds_H = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "H").group(:date)
+	      	  #@diamonds_I = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "I").group(:date)
+	      	  #@diamonds_J = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "J").group(:date)
+	      	  #@diamonds_K = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "K").group(:date)
+	      	  #@diamonds_L = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "L").group(:date)
+	      	  #@diamonds_M = Table.where(:date=> @three_months_ago..@latest_date).where(:weight2=> weight).where(:color => "M").group(:date)
 	      	  
 	      elsif @selected_date == "6m"
 	          #@diamonds = @diamonds_6m--------------------------------------------------------------------------------------------------------
-	    	  #@diamonds_D = @diamonds_D_6m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_E = @diamonds_E_6m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_F = @diamonds_F_6m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_G = @diamonds_G_6m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_H = @diamonds_H_6m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_I = @diamonds_I_6m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_J = @diamonds_J_6m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_K = @diamonds_K_6m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_L = @diamonds_L_6m.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_M = @diamonds_M_6m.where(:weight2=> weight).group(:date)
-	      	  @diamonds = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
-	      	  @diamonds_D = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
-	      	  @diamonds_E = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "E").group(:date)
-	      	  @diamonds_F = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "F").group(:date)
-	      	  @diamonds_G = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "G").group(:date)
-	      	  @diamonds_H = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "H").group(:date)
-	      	  @diamonds_I = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "I").group(:date)
-	      	  @diamonds_J = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "J").group(:date)
-	      	  @diamonds_K = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "K").group(:date)
-	      	  @diamonds_L = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "L").group(:date)
-	      	  @diamonds_M = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "M").group(:date)
+	    	  @diamonds_D = @diamonds_D_6m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_E = @diamonds_E_6m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_F = @diamonds_F_6m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_G = @diamonds_G_6m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_H = @diamonds_H_6m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_I = @diamonds_I_6m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_J = @diamonds_J_6m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_K = @diamonds_K_6m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_L = @diamonds_L_6m.where(:weight2=> weight).group(:date)
+	    	  @diamonds_M = @diamonds_M_6m.where(:weight2=> weight).group(:date)
+	      	  #@diamonds = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
+	      	  #@diamonds_D = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
+	      	  #@diamonds_E = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "E").group(:date)
+	      	  #@diamonds_F = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "F").group(:date)
+	      	  #@diamonds_G = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "G").group(:date)
+	      	  #@diamonds_H = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "H").group(:date)
+	      	  #@diamonds_I = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "I").group(:date)
+	      	  #@diamonds_J = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "J").group(:date)
+	      	  #@diamonds_K = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "K").group(:date)
+	      	  #@diamonds_L = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "L").group(:date)
+	      	  #@diamonds_M = Table.where(:date=> @six_months_ago..@latest_date).where(:weight2=> weight).where(:color => "M").group(:date)
 	      elsif @selected_date == "1y"
 	          #@diamonds = @diamonds_1y--------------------------------------------------------------------------------------------------
-	    	  #@diamonds_D = @diamonds_D_1y.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_E = @diamonds_E_1y.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_F = @diamonds_F_1y.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_G = @diamonds_G_1y.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_H = @diamonds_H_1y.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_I = @diamonds_I_1y.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_J = @diamonds_J_1y.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_K = @diamonds_K_1y.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_L = @diamonds_L_1y.where(:weight2=> weight).group(:date)
-	    	  #@diamonds_M = @diamonds_M_1y.where(:weight2=> weight).group(:date)
-	      	  @diamonds = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
-	      	  @diamonds_D = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
-	      	  @diamonds_E = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "E").group(:date)
-	      	  @diamonds_F = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "F").group(:date)
-	      	  @diamonds_G = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "G").group(:date)
-	      	  @diamonds_H = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "H").group(:date)
-	      	  @diamonds_I = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "I").group(:date)
-	      	  @diamonds_J = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "J").group(:date)
-	      	  @diamonds_K = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "K").group(:date)
-	      	  @diamonds_L = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "L").group(:date)
-	      	  @diamonds_M = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "M").group(:date)
+	    	  @diamonds_D = @diamonds_D_1y.where(:weight2=> weight).group(:date)
+	    	  @diamonds_E = @diamonds_E_1y.where(:weight2=> weight).group(:date)
+	    	  @diamonds_F = @diamonds_F_1y.where(:weight2=> weight).group(:date)
+	    	  @diamonds_G = @diamonds_G_1y.where(:weight2=> weight).group(:date)
+	    	  @diamonds_H = @diamonds_H_1y.where(:weight2=> weight).group(:date)
+	    	  @diamonds_I = @diamonds_I_1y.where(:weight2=> weight).group(:date)
+	    	  @diamonds_J = @diamonds_J_1y.where(:weight2=> weight).group(:date)
+	    	  @diamonds_K = @diamonds_K_1y.where(:weight2=> weight).group(:date)
+	    	  @diamonds_L = @diamonds_L_1y.where(:weight2=> weight).group(:date)
+	    	  @diamonds_M = @diamonds_M_1y.where(:weight2=> weight).group(:date)
+	      	  #@diamonds = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => color).group(:date)
+	      	  #@diamonds_D = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "D").group(:date)
+	      	  #@diamonds_E = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "E").group(:date)
+	      	  #@diamonds_F = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "F").group(:date)
+	      	  #@diamonds_G = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "G").group(:date)
+	      	  #@diamonds_H = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "H").group(:date)
+	      	  #@diamonds_I = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "I").group(:date)
+	      	  #@diamonds_J = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "J").group(:date)
+	      	  #@diamonds_K = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "K").group(:date)
+	      	  #@diamonds_L = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "L").group(:date)
+	      	  #@diamonds_M = Table.where(:date=> @one_year_ago..@latest_date).where(:weight2=> weight).where(:color => "M").group(:date)
 	    end
 
 	    # binding.pry
@@ -483,13 +448,7 @@ class TablesController < ApplicationController
 	    
 	    @selected_clar = clar
 	    @selected_color = color
-		# if @selected_clar != "all" and @selected_color != "all"
-		# 	@diamond_table_data = @diamonds.where(:clar => clar).group(:date)
-		# 	date_seriese_pre = @diamond_table_data.pluck(:date)
-		# 	@date_seriese = date_seriese_pre.map {|d| d.to_datetime.utc.to_i*1000}
-		# 	@selected_color_end_price_seriese = @date_seriese.zip(@diamond_table_data.pluck(:price))
-			
-		# elsif @selected_clar == "all" and @selected_color == "all"
+
 			@diamond_table_data_D = @diamonds_D.group(:date)
 			date_seriese_D_pre = @diamond_table_data_D.pluck(:date)
 			@date_seriese_D = date_seriese_D_pre.map {|d| d.to_datetime.utc.to_i*1000}
