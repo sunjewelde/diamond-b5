@@ -1190,7 +1190,7 @@ class TablesController < ApplicationController
 					if color.include?("D") and clar.include?("SI1")
 						f.series(:name => "D_SI1", :data => si1_D_end_price_seriese, :marker => {enabled: false})
 					end
-					if color.include?("D") and clar.include?("SI1")
+					if color.include?("D") and clar.include?("SI2")
 						f.series(:name => "D_SI2", :data => si2_D_end_price_seriese, :marker => {enabled: false})
 					end
 
@@ -1213,7 +1213,7 @@ class TablesController < ApplicationController
 					if color.include?("E") and clar.include?("SI1")
 						f.series(:name => "E_SI1", :data => si1_E_end_price_seriese, :marker => {enabled: false})
 					end
-					if color.include?("E") and clar.include?("SI1")
+					if color.include?("E") and clar.include?("SI2")
 						f.series(:name => "E_SI2", :data => si2_E_end_price_seriese, :marker => {enabled: false})
 					end
 
@@ -1236,7 +1236,7 @@ class TablesController < ApplicationController
 					if color.include?("F") and clar.include?("SI1")
 						f.series(:name => "F_SI1", :data => si1_F_end_price_seriese, :marker => {enabled: false})
 					end
-					if color.include?("F") and clar.include?("SI1")
+					if color.include?("F") and clar.include?("SI2")
 						f.series(:name => "F_SI2", :data => si2_F_end_price_seriese, :marker => {enabled: false})
 					end
 
@@ -1259,7 +1259,7 @@ class TablesController < ApplicationController
 					if color.include?("G") and clar.include?("SI1")
 						f.series(:name => "G_SI1", :data => si1_G_end_price_seriese, :marker => {enabled: false})
 					end
-					if color.include?("G") and clar.include?("SI1")
+					if color.include?("G") and clar.include?("SI2")
 						f.series(:name => "G_SI2", :data => si2_G_end_price_seriese, :marker => {enabled: false})
 					end
 
@@ -1282,7 +1282,7 @@ class TablesController < ApplicationController
 					if color.include?("H") and clar.include?("SI1")
 						f.series(:name => "H_SI1", :data => si1_H_end_price_seriese, :marker => {enabled: false})
 					end
-					if color.include?("H") and clar.include?("SI1")
+					if color.include?("H") and clar.include?("SI2")
 						f.series(:name => "H_SI2", :data => si2_H_end_price_seriese, :marker => {enabled: false})
 					end
 
@@ -1305,7 +1305,7 @@ class TablesController < ApplicationController
 					if color.include?("I") and clar.include?("SI1")
 						f.series(:name => "I_SI1", :data => si1_I_end_price_seriese, :marker => {enabled: false})
 					end
-					if color.include?("I") and clar.include?("SI1")
+					if color.include?("I") and clar.include?("SI2")
 						f.series(:name => "I_SI2", :data => si2_I_end_price_seriese, :marker => {enabled: false})
 					end
 
@@ -1328,7 +1328,7 @@ class TablesController < ApplicationController
 					if color.include?("J") and clar.include?("SI1")
 						f.series(:name => "J_SI1", :data => si1_J_end_price_seriese, :marker => {enabled: false})
 					end
-					if color.include?("J") and clar.include?("SI1")
+					if color.include?("J") and clar.include?("SI2")
 						f.series(:name => "J_SI2", :data => si2_J_end_price_seriese, :marker => {enabled: false})
 					end
 
@@ -1351,7 +1351,7 @@ class TablesController < ApplicationController
 					if color.include?("K") and clar.include?("SI1")
 						f.series(:name => "K_SI1", :data => si1_K_end_price_seriese, :marker => {enabled: false})
 					end
-					if color.include?("K") and clar.include?("SI1")
+					if color.include?("K") and clar.include?("SI2")
 						f.series(:name => "K_SI2", :data => si2_K_end_price_seriese, :marker => {enabled: false})
 					end
 
@@ -1374,7 +1374,7 @@ class TablesController < ApplicationController
 					if color.include?("L") and clar.include?("SI1")
 						f.series(:name => "L_SI1", :data => si1_L_end_price_seriese, :marker => {enabled: false})
 					end
-					if color.include?("L") and clar.include?("SI1")
+					if color.include?("L") and clar.include?("SI2")
 						f.series(:name => "L_SI2", :data => si2_L_end_price_seriese, :marker => {enabled: false})
 					end
 
@@ -1397,7 +1397,7 @@ class TablesController < ApplicationController
 					if color.include?("M") and clar.include?("SI1")
 						f.series(:name => "M_SI1", :data => si1_M_end_price_seriese, :marker => {enabled: false})
 					end
-					if color.include?("M") and clar.include?("SI1")
+					if color.include?("M") and clar.include?("SI2")
 						f.series(:name => "M_SI2", :data => si2_M_end_price_seriese, :marker => {enabled: false})
 					end
 
