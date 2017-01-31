@@ -7,11 +7,11 @@ class TablesController < ApplicationController
 
         def set_table_date
         	@latest_date = Rails.cache.fetch(:latest_date, expires_in: 6.hours) do
-				@latest_date = Table.maximum(:date)
+				Table.maximum(:date)
 			end
 			
 			@oldest_date = Rails.cache.fetch(:oldest_date, expires_in: 6.hours) do
-				@oldest_date = Table.minimum(:date)
+				Table.minimum(:date)
 			end
 			
 			# @latest_date = Table.maximum(:date)
@@ -300,7 +300,7 @@ class TablesController < ApplicationController
 			weight = 0.3
 		    color = ["D"]
 		    clar = ["IF"]
-		    date = "2w"
+		    date = "3m"
 	    end
 	
 	    @selected_weight = weight
@@ -603,124 +603,435 @@ class TablesController < ApplicationController
 	    # binding.pry
 	    # @diamond_table_data = @diamons
 	    
-	    	@diamond_table_data_D = @diamonds_D.where(:clar => clar).group(:date)
-			date_seriese_D_pre = @diamond_table_data_D.pluck(:date)
-			@date_seriese_D = date_seriese_D_pre.map {|d| d.to_datetime.utc.to_i*1000}
-			selected_color_end_price_seriese_D = @diamond_table_data_D.pluck(:price)
-			@selected_color_end_price_seriese_D = @date_seriese_D.zip(selected_color_end_price_seriese_D)
+		# @diamond_table_data_D = @diamonds_D.where(:clar => clar).group(:date)
+		# date_seriese_D_pre = @diamond_table_data_D.pluck(:date)
+		# @date_seriese_D = date_seriese_D_pre.map {|d| d.to_datetime.utc.to_i*1000}
+		# selected_color_end_price_seriese_D = @diamond_table_data_D.pluck(:price)
+		# @selected_color_end_price_seriese_D = @date_seriese_D.zip(selected_color_end_price_seriese_D)
 	    
 	    @selected_clar = clar
 	    @selected_color = color
-
-			@diamond_table_data_D = @diamonds_D.group(:date)
-			date_seriese_D_pre = @diamond_table_data_D.pluck(:date)
-			@date_seriese_D = date_seriese_D_pre.map {|d| d.to_datetime.utc.to_i*1000}
-				if_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "IF").pluck(:price))
-				vvs1_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "VVS1").pluck(:price))
-				vvs2_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "VVS2").pluck(:price))
-				vs1_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "VS1").pluck(:price))
-				vs2_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "VS2").pluck(:price))
-				si1_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "SI1").pluck(:price))
-				si2_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "SI2").pluck(:price))
-
-			@diamond_table_data_E= @diamonds_E.group(:date)
-			date_seriese_E_pre = @diamond_table_data_E.pluck(:date)
-			@date_seriese_E = date_seriese_E_pre.map {|d| d.to_datetime.utc.to_i*1000}
-				if_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "IF").pluck(:price))
-				vvs1_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "VVS1").pluck(:price))
-				vvs2_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "VVS2").pluck(:price))
-				vs1_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "VS1").pluck(:price))
-				vs2_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "VS2").pluck(:price))
-				si1_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "SI1").pluck(:price))
-				si2_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "SI2").pluck(:price))
 			
-			@diamond_table_data_F = @diamonds_F.group(:date)
-			date_seriese_F_pre = @diamond_table_data_F.pluck(:date)
-			@date_seriese_F = date_seriese_F_pre.map {|d| d.to_datetime.utc.to_i*1000}
-				if_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "IF").pluck(:price))
-				vvs1_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "VVS1").pluck(:price))
-				vvs2_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "VVS2").pluck(:price))
-				vs1_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "VS1").pluck(:price))
-				vs2_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "VS2").pluck(:price))
-				si1_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "SI1").pluck(:price))
-				si2_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "SI2").pluck(:price))
+			if color.include?("D")
+				@diamond_table_data_D = @diamonds_D.group(:date)
+				date_seriese_D_pre = @diamond_table_data_D.pluck(:date)
+				@date_seriese_D = date_seriese_D_pre.map {|d| d.to_datetime.utc.to_i*1000}
+					if clar.include?("IF")
+						if_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "IF").pluck(:price))
+					end
+					
+					if clar.include?("VVS1")
+						vvs1_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "VVS1").pluck(:price))
+					end
+					
+					if clar.include?("VVS2")
+						vvs2_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "VVS2").pluck(:price))
+					end
+					
+					if clar.include?("VS1")
+						vs1_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "VS1").pluck(:price))
+					end
+					
+					if clar.include?("VS2")
+						vs2_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "VS2").pluck(:price))
+					end
+					
+					if clar.include?("SI1")
+						si1_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "SI1").pluck(:price))
+					end
+					
+					if clar.include?("SI2")
+						si2_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "SI2").pluck(:price))
+					end
+					
+					# if_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "IF").pluck(:price))
+					# vvs1_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "VVS1").pluck(:price))
+					# vvs2_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "VVS2").pluck(:price))
+					# vs1_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "VS1").pluck(:price))
+					# vs2_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "VS2").pluck(:price))
+					# si1_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "SI1").pluck(:price))
+					# si2_D_end_price_seriese = @date_seriese_D.zip(@diamond_table_data_D.where(clar: "SI2").pluck(:price))
+			end
 			
-			@diamond_table_data_G = @diamonds_G.group(:date)
-			date_seriese_G_pre = @diamond_table_data_G.pluck(:date)
-			@date_seriese_G = date_seriese_G_pre.map {|d| d.to_datetime.utc.to_i*1000}
-				if_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "IF").pluck(:price))
-				vvs1_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "VVS1").pluck(:price))
-				vvs2_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "VVS2").pluck(:price))
-				vs1_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "VS1").pluck(:price))
-				vs2_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "VS2").pluck(:price))
-				si1_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "SI1").pluck(:price))
-				si2_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "SI2").pluck(:price))
-				
-			@diamond_table_data_H = @diamonds_H.group(:date)
-			date_seriese_H_pre = @diamond_table_data_H.pluck(:date)
-			@date_seriese_H = date_seriese_H_pre.map {|d| d.to_datetime.utc.to_i*1000}
-				if_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "IF").pluck(:price))
-				vvs1_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "VVS1").pluck(:price))
-				vvs2_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "VVS2").pluck(:price))
-				vs1_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "VS1").pluck(:price))
-				vs2_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "VS2").pluck(:price))
-				si1_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "SI1").pluck(:price))
-				si2_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "SI2").pluck(:price))
 			
-			@diamond_table_data_I = @diamonds_I.group(:date)
-			date_seriese_I_pre = @diamond_table_data_I.pluck(:date)
-			@date_seriese_I = date_seriese_I_pre.map {|d| d.to_datetime.utc.to_i*1000}
-				if_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "IF").pluck(:price))
-				vvs1_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "VVS1").pluck(:price))
-				vvs2_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "VVS2").pluck(:price))
-				vs1_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "VS1").pluck(:price))
-				vs2_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "VS2").pluck(:price))
-				si1_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "SI1").pluck(:price))
-				si2_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "SI2").pluck(:price))
+			if color.include?("E")
+				@diamond_table_data_E= @diamonds_E.group(:date)
+				date_seriese_E_pre = @diamond_table_data_E.pluck(:date)
+				@date_seriese_E = date_seriese_E_pre.map {|d| d.to_datetime.utc.to_i*1000}
+					if clar.include?("IF")
+						if_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "IF").pluck(:price))
+					end
+					
+					if clar.include?("VVS1")
+						vvs1_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "VVS1").pluck(:price))
+					end
+					
+					if clar.include?("VVS2")
+						vvs2_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "VVS2").pluck(:price))
+					end
+					
+					if clar.include?("VS1")
+						vs1_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "VS1").pluck(:price))
+					end
+					
+					if clar.include?("VS2")
+						vs2_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "VS2").pluck(:price))
+					end
+					
+					if clar.include?("SI1")
+						si1_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "SI1").pluck(:price))
+					end
+					
+					if clar.include?("SI2")
+						si2_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "SI2").pluck(:price))
+					end
+					
+					# if_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "IF").pluck(:price))
+					# vvs1_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "VVS1").pluck(:price))
+					# vvs2_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "VVS2").pluck(:price))
+					# vs1_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "VS1").pluck(:price))
+					# vs2_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "VS2").pluck(:price))
+					# si1_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "SI1").pluck(:price))
+					# si2_E_end_price_seriese = @date_seriese_E.zip(@diamond_table_data_E.where(clar: "SI2").pluck(:price))
+			end
+			
+			
+			if color.include?("F")
+				@diamond_table_data_F = @diamonds_F.group(:date)
+				date_seriese_F_pre = @diamond_table_data_F.pluck(:date)
+				@date_seriese_F = date_seriese_F_pre.map {|d| d.to_datetime.utc.to_i*1000}
+					if clar.include?("IF")
+						if_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "IF").pluck(:price))
+					end
+					
+					if clar.include?("VVS1")
+						vvs1_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "VVS1").pluck(:price))
+					end
+					
+					if clar.include?("VVS2")
+						vvs2_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "VVS2").pluck(:price))
+					end
+					
+					if clar.include?("VS1")
+						vs1_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "VS1").pluck(:price))
+					end
+					
+					if clar.include?("VS2")
+						vs2_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "VS2").pluck(:price))
+					end
+					
+					if clar.include?("SI1")
+						si1_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "SI1").pluck(:price))
+					end
+					
+					if clar.include?("SI2")
+						si2_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "SI2").pluck(:price))
+					end
 				
-			@diamond_table_data_J = @diamonds_J.group(:date)
-			date_seriese_J_pre = @diamond_table_data_J.pluck(:date)
-			@date_seriese_J = date_seriese_J_pre.map {|d| d.to_datetime.utc.to_i*1000}
-				if_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "IF").pluck(:price))
-				vvs1_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "VVS1").pluck(:price))
-				vvs2_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "VVS2").pluck(:price))
-				vs1_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "VS1").pluck(:price))
-				vs2_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "VS2").pluck(:price))
-				si1_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "SI1").pluck(:price))
-				si2_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "SI2").pluck(:price))
+					# if_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "IF").pluck(:price))
+					# vvs1_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "VVS1").pluck(:price))
+					# vvs2_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "VVS2").pluck(:price))
+					# vs1_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "VS1").pluck(:price))
+					# vs2_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "VS2").pluck(:price))
+					# si1_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "SI1").pluck(:price))
+					# si2_F_end_price_seriese = @date_seriese_F.zip(@diamond_table_data_F.where(clar: "SI2").pluck(:price))
+			end
+			
+			
+			if color.include?("G")
+				@diamond_table_data_G = @diamonds_G.group(:date)
+				date_seriese_G_pre = @diamond_table_data_G.pluck(:date)
+				@date_seriese_G = date_seriese_G_pre.map {|d| d.to_datetime.utc.to_i*1000}
+					if clar.include?("IF")
+						if_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "IF").pluck(:price))
+					end
+					
+					if clar.include?("VVS1")
+						vvs1_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "VVS1").pluck(:price))
+					end
+					
+					if clar.include?("VVS2")
+						vvs2_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "VVS2").pluck(:price))
+					end
+					
+					if clar.include?("VS1")
+						vs1_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "VS1").pluck(:price))
+					end
+					
+					if clar.include?("VS2")
+						vs2_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "VS2").pluck(:price))
+					end
+					
+					if clar.include?("SI1")
+						si1_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "SI1").pluck(:price))
+					end
+					
+					if clar.include?("SI2")
+						si2_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "SI2").pluck(:price))
+					end
 				
-			@diamond_table_data_K = @diamonds_K.group(:date)
-			date_seriese_K_pre = @diamond_table_data_K.pluck(:date)
-			@date_seriese_K = date_seriese_K_pre.map {|d| d.to_datetime.utc.to_i*1000}
-				if_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "IF").pluck(:price))
-				vvs1_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "VVS1").pluck(:price))
-				vvs2_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "VVS2").pluck(:price))
-				vs1_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "VS1").pluck(:price))
-				vs2_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "VS2").pluck(:price))
-				si1_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "SI1").pluck(:price))
-				si2_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "SI2").pluck(:price))
+					# if_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "IF").pluck(:price))
+					# vvs1_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "VVS1").pluck(:price))
+					# vvs2_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "VVS2").pluck(:price))
+					# vs1_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "VS1").pluck(:price))
+					# vs2_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "VS2").pluck(:price))
+					# si1_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "SI1").pluck(:price))
+					# si2_G_end_price_seriese = @date_seriese_G.zip(@diamond_table_data_G.where(clar: "SI2").pluck(:price))
+			end
+			
+			
+			if color.include?("H")
+				@diamond_table_data_H = @diamonds_H.group(:date)
+				date_seriese_H_pre = @diamond_table_data_H.pluck(:date)
+				@date_seriese_H = date_seriese_H_pre.map {|d| d.to_datetime.utc.to_i*1000}
+					if clar.include?("IF")
+						if_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "IF").pluck(:price))
+					end
+					
+					if clar.include?("VVS1")
+						vvs1_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "VVS1").pluck(:price))
+					end
+					
+					if clar.include?("VVS2")
+						vvs2_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "VVS2").pluck(:price))
+					end
+					
+					if clar.include?("VS1")
+						vs1_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "VS1").pluck(:price))
+					end
+					
+					if clar.include?("VS2")
+						vs2_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "VS2").pluck(:price))
+					end
+					
+					if clar.include?("SI1")
+						si1_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "SI1").pluck(:price))
+					end
+					
+					if clar.include?("SI2")
+						si2_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "SI2").pluck(:price))
+					end
 				
-			@diamond_table_data_L = @diamonds_L.group(:date)
-			date_seriese_L_pre = @diamond_table_data_L.pluck(:date)
-			@date_seriese_L = date_seriese_L_pre.map {|d| d.to_datetime.utc.to_i*1000}
-				if_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "IF").pluck(:price))
-				vvs1_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "VVS1").pluck(:price))
-				vvs2_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "VVS2").pluck(:price))
-				vs1_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "VS1").pluck(:price))
-				vs2_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "VS2").pluck(:price))
-				si1_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "SI1").pluck(:price))
-				si2_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "SI2").pluck(:price))
+					# if_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "IF").pluck(:price))
+					# vvs1_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "VVS1").pluck(:price))
+					# vvs2_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "VVS2").pluck(:price))
+					# vs1_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "VS1").pluck(:price))
+					# vs2_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "VS2").pluck(:price))
+					# si1_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "SI1").pluck(:price))
+					# si2_H_end_price_seriese = @date_seriese_H.zip(@diamond_table_data_H.where(clar: "SI2").pluck(:price))
+			end
+			
+			
+			if color.include?("I")
+				@diamond_table_data_I = @diamonds_I.group(:date)
+				date_seriese_I_pre = @diamond_table_data_I.pluck(:date)
+				@date_seriese_I = date_seriese_I_pre.map {|d| d.to_datetime.utc.to_i*1000}
+					if clar.include?("IF")
+						if_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "IF").pluck(:price))
+					end
+					
+					if clar.include?("VVS1")
+						vvs1_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "VVS1").pluck(:price))
+					end
+					
+					if clar.include?("VVS2")
+						vvs2_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "VVS2").pluck(:price))
+					end
+					
+					if clar.include?("VS1")
+						vs1_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "VS1").pluck(:price))
+					end
+					
+					if clar.include?("VS2")
+						vs2_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "VS2").pluck(:price))
+					end
+					
+					if clar.include?("SI1")
+						si1_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "SI1").pluck(:price))
+					end
+					
+					if clar.include?("SI2")
+						si2_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "SI2").pluck(:price))
+					end
 				
-			@diamond_table_data_M = @diamonds_M.group(:date)
-			date_seriese_M_pre = @diamond_table_data_M.pluck(:date)
-			@date_seriese_M = date_seriese_M_pre.map {|d| d.to_datetime.utc.to_i*1000}
-				if_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "IF").pluck(:price))
-				vvs1_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "VVS1").pluck(:price))
-				vvs2_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "VVS2").pluck(:price))
-				vs1_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "VS1").pluck(:price))
-				vs2_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "VS2").pluck(:price))
-				si1_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "SI1").pluck(:price))
-				si2_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "SI2").pluck(:price))
+					# if_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "IF").pluck(:price))
+					# vvs1_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "VVS1").pluck(:price))
+					# vvs2_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "VVS2").pluck(:price))
+					# vs1_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "VS1").pluck(:price))
+					# vs2_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "VS2").pluck(:price))
+					# si1_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "SI1").pluck(:price))
+					# si2_I_end_price_seriese = @date_seriese_I.zip(@diamond_table_data_I.where(clar: "SI2").pluck(:price))
+			end
+			
+			
+			if color.include?("J")
+				@diamond_table_data_J = @diamonds_J.group(:date)
+				date_seriese_J_pre = @diamond_table_data_J.pluck(:date)
+				@date_seriese_J = date_seriese_J_pre.map {|d| d.to_datetime.utc.to_i*1000}
+					if clar.include?("IF")
+						if_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "IF").pluck(:price))
+					end
+					
+					if clar.include?("VVS1")
+						vvs1_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "VVS1").pluck(:price))
+					end
+					
+					if clar.include?("VVS2")
+						vvs2_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "VVS2").pluck(:price))
+					end
+					
+					if clar.include?("VS1")
+						vs1_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "VS1").pluck(:price))
+					end
+					
+					if clar.include?("VS2")
+						vs2_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "VS2").pluck(:price))
+					end
+					
+					if clar.include?("SI1")
+						si1_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "SI1").pluck(:price))
+					end
+					
+					if clar.include?("SI2")
+						si2_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "SI2").pluck(:price))
+					end
+				
+					# if_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "IF").pluck(:price))
+					# vvs1_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "VVS1").pluck(:price))
+					# vvs2_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "VVS2").pluck(:price))
+					# vs1_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "VS1").pluck(:price))
+					# vs2_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "VS2").pluck(:price))
+					# si1_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "SI1").pluck(:price))
+					# si2_J_end_price_seriese = @date_seriese_J.zip(@diamond_table_data_J.where(clar: "SI2").pluck(:price))
+			end
+			
+			
+			if color.include?("K")
+				@diamond_table_data_K = @diamonds_K.group(:date)
+				date_seriese_K_pre = @diamond_table_data_K.pluck(:date)
+				@date_seriese_K = date_seriese_K_pre.map {|d| d.to_datetime.utc.to_i*1000}
+					if clar.include?("IF")
+						if_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "IF").pluck(:price))
+					end
+					
+					if clar.include?("VVS1")
+						vvs1_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "VVS1").pluck(:price))
+					end
+					
+					if clar.include?("VVS2")
+						vvs2_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "VVS2").pluck(:price))
+					end
+					
+					if clar.include?("VS1")
+						vs1_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "VS1").pluck(:price))
+					end
+					
+					if clar.include?("VS2")
+						vs2_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "VS2").pluck(:price))
+					end
+					
+					if clar.include?("SI1")
+						si1_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "SI1").pluck(:price))
+					end
+					
+					if clar.include?("SI2")
+						si2_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "SI2").pluck(:price))
+					end
+				
+					# if_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "IF").pluck(:price))
+					# vvs1_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "VVS1").pluck(:price))
+					# vvs2_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "VVS2").pluck(:price))
+					# vs1_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "VS1").pluck(:price))
+					# vs2_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "VS2").pluck(:price))
+					# si1_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "SI1").pluck(:price))
+					# si2_K_end_price_seriese = @date_seriese_K.zip(@diamond_table_data_K.where(clar: "SI2").pluck(:price))
+			end
+			
+			
+			if color.include?("L")
+				@diamond_table_data_L = @diamonds_L.group(:date)
+				date_seriese_L_pre = @diamond_table_data_L.pluck(:date)
+				@date_seriese_L = date_seriese_L_pre.map {|d| d.to_datetime.utc.to_i*1000}
+					if clar.include?("IF")
+						if_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "IF").pluck(:price))
+					end
+					
+					if clar.include?("VVS1")
+						vvs1_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "VVS1").pluck(:price))
+					end
+					
+					if clar.include?("VVS2")
+						vvs2_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "VVS2").pluck(:price))
+					end
+					
+					if clar.include?("VS1")
+						vs1_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "VS1").pluck(:price))
+					end
+					
+					if clar.include?("VS2")
+						vs2_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "VS2").pluck(:price))
+					end
+					
+					if clar.include?("SI1")
+						si1_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "SI1").pluck(:price))
+					end
+					
+					if clar.include?("SI2")
+						si2_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "SI2").pluck(:price))
+					end
+				
+					# if_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "IF").pluck(:price))
+					# vvs1_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "VVS1").pluck(:price))
+					# vvs2_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "VVS2").pluck(:price))
+					# vs1_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "VS1").pluck(:price))
+					# vs2_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "VS2").pluck(:price))
+					# si1_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "SI1").pluck(:price))
+					# si2_L_end_price_seriese = @date_seriese_L.zip(@diamond_table_data_L.where(clar: "SI2").pluck(:price))
+			end
+			
+			
+			if color.include?("M")
+				@diamond_table_data_M = @diamonds_M.group(:date)
+				date_seriese_M_pre = @diamond_table_data_M.pluck(:date)
+				@date_seriese_M = date_seriese_M_pre.map {|d| d.to_datetime.utc.to_i*1000}
+					if clar.include?("IF")
+						if_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "IF").pluck(:price))
+					end
+					
+					if clar.include?("VVS1")
+						vvs1_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "VVS1").pluck(:price))
+					end
+					
+					if clar.include?("VVS2")
+						vvs2_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "VVS2").pluck(:price))
+					end
+					
+					if clar.include?("VS1")
+						vs1_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "VS1").pluck(:price))
+					end
+					
+					if clar.include?("VS2")
+						vs2_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "VS2").pluck(:price))
+					end
+					
+					if clar.include?("SI1")
+						si1_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "SI1").pluck(:price))
+					end
+					
+					if clar.include?("SI2")
+						si2_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "SI2").pluck(:price))
+					end
+				
+					# if_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "IF").pluck(:price))
+					# vvs1_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "VVS1").pluck(:price))
+					# vvs2_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "VVS2").pluck(:price))
+					# vs1_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "VS1").pluck(:price))
+					# vs2_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "VS2").pluck(:price))
+					# si1_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "SI1").pluck(:price))
+					# si2_M_end_price_seriese = @date_seriese_M.zip(@diamond_table_data_M.where(clar: "SI2").pluck(:price))
+			end
+			
+			
 
 			# @diamond_table_data_E = @diamonds_E.group(:date)
 			# @date_seriese_E = @diamond_table_data_E.pluck(:date)
