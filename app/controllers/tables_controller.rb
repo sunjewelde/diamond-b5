@@ -1482,7 +1482,7 @@ class TablesController < ApplicationController
 				  #f.series(:name => "M_SI2", :data => si2_M_end_price_seriese)
 
 				  f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
-				  f.chart(type: 'line', height: 600, width: 640)
+				  f.chart(type: 'line', height: 600, width: 980)
 
 			# elsif clar != "all" and color == "all"
 			# 	  #f.title(:text => "Diamond Price Chart #{weight}カラット")
