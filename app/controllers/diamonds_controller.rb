@@ -1,5 +1,5 @@
 class DiamondsController < ApplicationController
-  before_action :require_user, except: [:index, :chart]
+  before_action :require_user, except: [:index, :chart, :index_mobile]
   
   
   def new
@@ -180,8 +180,8 @@ class DiamondsController < ApplicationController
       
       # f.legend(:align => 'right', :verticalAlign => 'top', :y => 0, :x => -50, :layout => 'vertical',)
       f.legend(:align => 'left', :floating => true, :verticalAlign => 'top', :y => 1, :x => 90, :layout => 'vertical',)
-      # f.chart(type: 'line', height: 600, width: 980)
-      f.chart(type: 'line')
+      f.chart(type: 'line', height: 600, width: 980)
+      # f.chart(type: 'line')
       # f.chart({:defaultSeriesType=>"column"})
     end
 
@@ -204,6 +204,72 @@ class DiamondsController < ApplicationController
   end
   
   
+  #mobile page------------------------------------------------------------------------------
+  def index_mobile
+   
+    @q = Diamond.ransack(params[:q])
+    # @diamonds2 = @q.result(distinct: true)
+   
+   @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
+   @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
+   @clar = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2"]
+   @cut_grade = ["Good", "Very Good", "VGD", "Excellent", "EXC"]
+   @polish = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good"]
+   @symmetry = ["Excellent", "Very Good", "ex", "vg", "vgd", "gd", "exc", "Good", "g", "Fair", "F"]
+   @fluorescen = ["Medium", "Faint", "f", "FT", "None", "NONE", "Strong", "st", "Medium Blue", "M.BLUE", "mb", "md blue", "str blue", "sb", "S.BLUE", "Very Strong", "VST", "V.S.BLUE"]
+   
+
+   #最新旧の日付を取得
+  @latest_date = Table.maximum(:date)
+  @oldest_date = Table.minimum(:date)
+  if @latest_date.present?
+    @one_week_ago = @latest_date - 6
+  end
+  
+  @ref_date = Date.new(2015, 1, 1)
+   @latest_weight_group_03 = List.select('color, if1, vvs1, vvs2, vs1, vs2, si1, si2').where(weight2: 0.3).where(date: @latest_date)
+   @latest_chart_index_group = Index.select('date, index1').group(:date)
+   @latest_one_year_data = Index.select('date, index1').where(:date=> @ref_date..@latest_date).group(:date)
+
+    
+    one_year_group_date_raw = @latest_one_year_data.pluck(:date)
+    one_year_group_date = one_year_group_date_raw.map {|date| date.to_datetime.utc.to_i*1000}
+
+    one_year_group_date_index1 = @latest_one_year_data.pluck(:index1)
+    one_year_group_date_index2 = @latest_one_year_data.pluck(:index2)
+    one_year_group_date_index3 = @latest_one_year_data.pluck(:index3)
+    one_year_group_date_index4 = @latest_one_year_data.pluck(:index4)
+    
+    @zip_data_index1 = one_year_group_date.zip(one_year_group_date_index1)
+    @zip_data_index2 = one_year_group_date.zip(one_year_group_date_index2)
+    @zip_data_index3 = one_year_group_date.zip(one_year_group_date_index3)
+    @zip_data_index4 = one_year_group_date.zip(one_year_group_date_index4)
+
+    # binding.pry
+    
+    
+    @chart_mobile = LazyHighCharts::HighChart.new('graph') do |f|
+      
+      f.global(useUTC: false)
+      @sdate = one_year_group_date.find.first
+      @date = one_year_group_date
+      
+      f.xAxis(:type => 'datetime', :dateTimeLabelFormats => {day: '%e. %b', month: '%b' }, :title => { text: 'Date'})
+
+      f.yAxis(:title => { text: 'Index(%)' })
+
+      f.series(:name => "ダイヤモンドIndex", :data => @zip_data_index4, :marker => {enabled: false})
+      f.series(:name => "ダイヤモンド単価Index", :data => @zip_data_index1, :marker => {enabled: false})
+
+      f.legend(:align => 'left', :floating => true, :verticalAlign => 'top', :y => -5, :x => 90, :layout => 'vertical',)
+      # f.chart(type: 'line', height: 600, width: 980)
+      f.chart(type: 'line')
+      # f.chart({:defaultSeriesType=>"column"})
+    end
+
+  end #End index_mobile
+  
+  #End mobile page------------------------------------------------------------------------------
   
   private
   def diamond_params

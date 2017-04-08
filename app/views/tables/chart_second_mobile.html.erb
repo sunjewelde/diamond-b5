@@ -1,0 +1,77 @@
+<h2>ダイヤモンドチャート</h2>
+
+
+
+    <h4><span class="label label-default"><%= @selected_weight%>カラット</span></h4>
+    	<%= search_form_for(@q, url: tables_chart_second_path, method: :get) do |f| %>
+		<!--<div class="use_margin_1 user_padding1">-->
+		<!--<div class="container">-->
+			<div class="row">
+				<!--<div class="user_inline">-->
+				<!--<div class="col-xs-12 col-sm-12 col-md-12">-->
+					<div class="form-inline">
+							<div class="col-xs-3 col-sm-3 col-md-3">
+								<div class="form-group">
+								    <%= f.label :date, "表示期間:" %>
+								    <%= f.select :date, {"2週間" => "2w", "1ヶ月" => "1m", "3ヶ月" => "3m", 
+								                            "6ヶ月" => "6m", "1年" => "1y"}, {}, {:class => 'form-control'}%>
+							    </div>
+							</div>
+							<div class="col-xs-3 col-sm-3 col-md-3">
+								<div class="form-group">
+								    <%= f.label :weight, "カラット:" %>
+								    <%= f.select :weight2, {"0.3" => 0.3, "0.4" => 0.4, "0.5" => 0.5, "0.6" => 0.6,
+								                         "0.7" => 0.7, "0.8" => 0.8, "0.9" => 0.9, "1.0" => 1, 
+								                         "1.2" =>  1.2, "1.5" => 1.5, "2.0" => 2.0}, {}, {:class => 'form-control'} %>
+							    </div>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-md-2">
+								<div class="form-group">
+							    	<%= f.submit "表示を更新" %>
+							    </div>
+							</div>
+						</div>
+					<!--<div class="form-inline">-->
+						
+				
+		            <!--</div>-->
+				<!--</div>-->
+				<!--</div>-->
+			</div>
+		<!--</div>-->
+		
+			
+            <!--&nbsp;-->
+
+            <div>
+	            <strong>カラー:</strong>
+	            <%#= f.collection_check_boxes :color, ColumnListColor.all, :color do |cb| %>
+	            <%= f.collection_check_boxes :color, ColumnListColor.all, :id, :color do |cb| %>
+	            <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+	            <% end %>
+            </div>
+            
+            <!--&nbsp;-->
+            <div>
+	        	<strong>クラリティ:</strong>
+	            <%#= f.collection_check_boxes :clar, ColumnListClar.all, :clar do |cbc| %>
+	            <%= f.collection_check_boxes :clar, ColumnListClar.all, :id, :clar do |cbc| %>
+	            <% cbc.label(class: "checkbox-inline input_checkbox") {cbc.check_box(class: "checkbox")  + cbc.text} %>
+	            <% end %>
+            </div>
+          
+            
+		    <!--&nbsp;&nbsp;-->
+		    <%#= f.submit "表示を更新" %>
+		<!--</div>-->
+	<% end %>
+	
+<div class="container">
+	
+	<div id="diamonds-chart" >
+        <%= high_chart("diamonds-chart", @chart_mobile) %>
+    </div>
+
+
+
+</div>

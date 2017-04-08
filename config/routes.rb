@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
   get 'indices/index'
+  get 'diamonds/index_mobile' => "diamonds#index_mobile"
+  get 'tables/chart_second_mobile' => "tables#chart_second_mobile"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
