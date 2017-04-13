@@ -206,9 +206,10 @@ class DiamondsController < ApplicationController
   
   #mobile page------------------------------------------------------------------------------
   def index_mobile
+    # render :layout => 'mobile_page'
    
     @q = Diamond.ransack(params[:q])
-    # @diamonds2 = @q.result(distinct: true)
+    @diamonds2 = @q.result(distinct: true)
    
    @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
    @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]

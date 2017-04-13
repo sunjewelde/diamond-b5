@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diamond Data</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class="container">
+        <%= render 'layouts/header_mobile' %>  
+        <%= yield %>
+    </div>
+
+</body>
+</html>
