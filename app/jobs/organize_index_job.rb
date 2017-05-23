@@ -303,7 +303,10 @@ class OrganizeIndexJob < ActiveJob::Base
     #         #-----End_Create data table create for Index model-------------
     #       end
 	   # end
-	    
+	   
+	   #-------------Sidekiq reset-----------------------------------
+	  Sidekiq.redis {|c| c.del('stat:processed') }
+	  Sidekiq.redis {|c| c.del('stat:failed') }
 	    
     # MyMailer.upload_confirmation_index.deliver
   end
