@@ -1481,8 +1481,10 @@ class TablesController < ApplicationController
 				  #f.series(:name => "M_SI1", :data => si1_M_end_price_seriese)
 				  #f.series(:name => "M_SI2", :data => si2_M_end_price_seriese)
 
-				  f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
-				  f.chart(type: 'line', height: 600, width: 980)
+				  #f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
+				  f.legend(:align => 'left', :floating => true, :verticalAlign => 'top', :y =>2, :x => 90, :layout => 'vertical',)
+				  #f.chart(type: 'line', height: 600, width: 980)
+				  f.chart(type: 'line', height: 500)
 
 			# elsif clar != "all" and color == "all"
 			# 	  #f.title(:text => "Diamond Price Chart #{weight}カラット")
