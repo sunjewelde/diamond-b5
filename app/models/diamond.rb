@@ -2,32 +2,15 @@ class Diamond <ActiveRecord::Base
 
     require "date"
     
-    # @latest_date = Diamond.maximum(:date)
-    # @oldest_date = Diamond.minimum(:date)
-    # @weight_max = Diamond.maximum(:weight)
-    # @weight_min = Diamond.minimum(:weight)
-    
-    # @latest_date = self.maximum(:date)
-    # @oldest_date = self.minimum(:date)
-    @weight_max = self.maximum(:weight)
-    @weight_min = self.minimum(:weight)
 
-    # if @latest_date.present?
-    #   @one_week_ago = (@latest_date - 6)
-    #   @one_months_ago = (@latest_date - 30)
-    #   @three_months_ago = (@latest_date - 90)
-    #   @six_months_ago = (@latest_date - 180)
-    #   @one_year_ago = (@latest_date - 364)
-    # end
+    # @weight_max = self.maximum(:weight)
+    # @weight_min = self.minimum(:weight)
+
+
     
    #7days agoの日付が存在しない場合の対処
 
-    # scope :date_one_week, -> {where(:date=> @one_week_ago..@latest_date)}
-    # scope :date_one_month, -> {where(:date=> @one_months_ago..@latest_date)}
-    # scope :date_three_month, -> {where(:date=> @three_months_ago..@latest_date)}
-    # scope :date_six_month, -> {where(:date=> @six_months_ago..@latest_date)}
-    # scope :date_one_year, -> {where(:date=> @one_year_ago..@latest_date)}
-    # scope :date_full_year, -> {where(:date=> @oldest_date..@latest_date)} 
+    
     scope :weight, ->(weight) {where(weight2: weight)}
 
     scope :color, ->(color) {where(color: color) if color.present? }
