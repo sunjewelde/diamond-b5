@@ -38,38 +38,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
       while d < uniq_date.length
       date = uniq_date[d]      
           if uniq_date != []
-          
-        #   @weight03_diamond_group_all = Diamond.weight03.where(:date=> date).where(shape: "BR")
-        #   @weight04_diamond_group_all = Diamond.weight04.where(:date=> date).where(shape: "BR")
-        #   @weight05_diamond_group_all = Diamond.weight05.where(:date=> date).where(shape: "BR")
-        #   @weight06_diamond_group_all = Diamond.weight06.where(:date=> date).where(shape: "BR")
-        #   @weight07_diamond_group_all = Diamond.weight07.where(:date=> date).where(shape: "BR")
-        #   @weight08_diamond_group_all = Diamond.weight08.where(:date=> date).where(shape: "BR")
-        #   @weight09_diamond_group_all = Diamond.weight09.where(:date=> date).where(shape: "BR")
-        #   @weight10_diamond_group_all = Diamond.weight10.where(:date=> date).where(shape: "BR")
-        #   @weight12_diamond_group_all = Diamond.weight12.where(:date=> date).where(shape: "BR")
-        #   @weight15_diamond_group_all = Diamond.weight15.where(:date=> date).where(shape: "BR")
-        #   @weight18_diamond_group_all = Diamond.weight18.where(:date=> date).where(shape: "BR")
-        #   @weight20_diamond_group_all = Diamond.weight20.where(:date=> date).where(shape: "BR")
-        #   @weight30_diamond_group_all = Diamond.weight30.where(:date=> date).where(shape: "BR")
-        #   @weight40_diamond_group_all = Diamond.weight40.where(:date=> date).where(shape: "BR")
-        
-        #   @weight03_group_all_color = @weight03_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 0.3 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight04_group_all_color = @weight04_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 0.4 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight05_group_all_color = @weight05_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 0.5 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight06_group_all_color = @weight06_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 0.6 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight07_group_all_color = @weight07_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 0.7 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight08_group_all_color = @weight08_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 0.8 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight09_group_all_color = @weight09_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 0.9 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight10_group_all_color = @weight10_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 1.0 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight12_group_all_color = @weight12_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 1.2 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight15_group_all_color = @weight15_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 1.5 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight18_group_all_color = @weight18_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 1.8 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight20_group_all_color = @weight20_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 2.0 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight30_group_all_color = @weight30_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 3.0 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        #   @weight40_group_all_color = @weight40_diamond_group_all.select('date, color, clar, cut_grade, fluorescen, AVG(end_price * 4.0 / weight) AS avg_price').group(:date, :color, :clar, :cut_grade, :fluorescen)
-        
-        
+
           #03
           @weight03_diamond_group_cut_A1 = Diamond.weight03.where(:date=> date).where(shape: "BR").cut_grade_exc.fluorescen_none
           @weight03_diamond_group_cut_A2 = Diamond.weight03.where(:date=> date).where(shape: "BR").cut_grade_exc.fluorescen_faint

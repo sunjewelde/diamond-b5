@@ -3,9 +3,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
   queue_as :default
 
   def perform(*args)
-    # Do something later
-      # diamond_date = Diamond.pluck(:date).uniq
-      
+
       @latest_date_ref = Diamond.maximum(:date)
       @latest_date_table = Table.maximum(:date)
       @last_updated_date_table = @latest_date_table + 1
@@ -15,43 +13,6 @@ class OrganizeDiamondsJob < ActiveJob::Base
       # table_date = Table.pluck(:date).uniq
       uniq_date = diamond_date.compact.sort {|a, b| b <=> a }
 
-# Post.select(:point).map(&:point)
-# User.find_each.lazy.map(&:some_calculation_in_ruby).reduce(:+)
-# Person.find_each(start: 2000, batch_size: 2000) do |person
-
-      # uniq_date_pre = diamond_date - table_date
-      # uniq_date = uniq_date_pre.compact.sort {|a, b| b <=> a }
-      
-      # uniq_date = (diamond_date - table_date).compact.sort {|a, b| b <=> a }
-      
-     # @latest_date_ref = uniq_date.maximum(:date)
-	   # @oldest_date = uniq_date.minimum(:date)
-	    
-	   # @latest_date_ref = uniq_date.max
-	   # @oldest_date = uniq_date.min
-	    
-	   # @last_updated_date_table = @oldest_date
-	   # @latest_date = @latest_date_ref
-	    
-	  	# @latest_date_ref = Diamond.maximum(:date)
-	   # @oldest_date = Diamond.minimum(:date)
-	    
-	   # @latest_date_table = Table.maximum(:date)
-	   # @oldest_date_table = Table.minimum(:date)
-	    
-	   # if @latest_date_table.present?
-  	 #     if @oldest_date_table >= @oldest_date
-  	 #       @last_updated_date_table = @latest_date_table + 1
-  	 #       @latest_date = @latest_date_ref
-  	 #     elsif @oldest_date < @oldest_date_table
-  	 #       @last_updated_date_table = @oldest_date
-  	 #       @latest_date = @oldest_date_table - 1
-  	 #     end
-	   # else
-	   #    @last_updated_date_table = @oldest_date
-	   #    @latest_date = @latest_date_ref
-	   # end
-	    
 	    
       @weight = ["02", "03", "04", "05", "06", "07", "08", "09", "10", "12", "15", "18", "20", "30", "40"]
       @color = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
