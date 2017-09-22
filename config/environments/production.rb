@@ -83,6 +83,6 @@ Rails.application.configure do
   # config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 90.minutes }
   
   #db作成にdb/schema.rbを利用しないようにする
-  config.active_record.schema_format = :sql
+  # config.active_record.schema_format = :sql
   
 end
