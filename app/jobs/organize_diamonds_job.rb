@@ -8,7 +8,8 @@ class OrganizeDiamondsJob < ActiveJob::Base
       @latest_date_table = Table.maximum(:date)
       @last_updated_date_table = @latest_date_table + 1
       
-      diamond_date = Diamond.where(:date => @last_updated_date_table..@latest_date_ref).map(&:date).uniq
+      # diamond_date = Diamond.where(:date => @last_updated_date_table..@latest_date_ref).map(&:date).uniq
+      diamond_date = Diamond.where(:date => @latest_date_ref).map(&:date).uniq
       # diamond_date = Diamond.find_each(start: 12000000, batch_size: 10000).map(&:date).uniq
       # table_date = Table.pluck(:date).uniq
       uniq_date = diamond_date.compact.sort {|a, b| b <=> a }
