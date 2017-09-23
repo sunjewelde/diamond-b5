@@ -5,7 +5,7 @@ class OrganizeDiamondsJob < ActiveJob::Base
   def perform(*args)
 
       @latest_date_ref = Diamond.maximum(:date)
-      @latest_date_table = Table.maximum(:date)
+      # @latest_date_table = Table.maximum(:date)
       @last_updated_date_table = @latest_date_table + 1
       
       # diamond_date = Diamond.where(:date => @last_updated_date_table..@latest_date_ref).map(&:date).uniq
