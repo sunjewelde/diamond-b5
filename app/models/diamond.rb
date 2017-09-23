@@ -25,7 +25,8 @@ class Diamond <ActiveRecord::Base
     
     scope :shape, ->(shape) {where(shape: shape) if shape.present? }
 
-    scope :weight02, -> {where(:weight2=> @weight_min...0.3 ) }
+    # scope :weight02, -> {where(:weight2=> @weight_min...0.3 ) }
+    scope :weight02, -> {where(:weight2=> 0.01...0.3 ) }
     scope :weight03, -> {where(:weight2=> 0.3...0.4 ) }
     scope :weight04, -> {where(:weight2=> 0.4...0.5 ) }
     scope :weight05, -> {where(:weight2=> 0.5...0.6 ) }
@@ -39,7 +40,7 @@ class Diamond <ActiveRecord::Base
     scope :weight18, -> {where(:weight2=> 1.8...2.0 ) }
     scope :weight20, -> {where(:weight2=> 2.0...3.0 ) }
     scope :weight30, -> {where(:weight2=> 3.0...4.0 ) }
-    scope :weight40, -> {where(:weight2=> 4.0..@weight_max ) }
+    scope :weight40, -> {where(:weight2=> 4.0..30.0) }
     
     # Article.where("articles.title = 'Rails 3' OR articles.title = 'Rails 4'")
     scope :cut_grade_exc, -> {where("cut_grade = 'Excellent' OR cut_grade = 'EXC'" )}
