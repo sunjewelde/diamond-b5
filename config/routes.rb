@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   post 'diamonds/make_index'
   
   post 'diamonds/import'
+  
+  get ".well-known/pki-validation/fb9df9f4770a8340de03556d4ad74f07.txt" => "diamonds#sslvalid"
 
   # resources :diamonds do
   # 	collection do

@@ -1,6 +1,10 @@
 class DiamondsController < ApplicationController
   before_action :require_user, except: [:index, :chart, :index_mobile]
   
+  #http://申請したFQDN/.well-known/pki-validation/fileauth.txt 
+  def sslvalid
+    render text: "5c1d8520b6f33107ff0099849e8c951c"
+  end
   
   def new
     @diamond = Diamond.new
