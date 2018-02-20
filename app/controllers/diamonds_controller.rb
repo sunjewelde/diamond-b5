@@ -1,5 +1,5 @@
 class DiamondsController < ApplicationController
-  before_action :require_user, except: [:index, :chart, :index_mobile]
+  before_action :require_user, except: [:index, :chart, :index_mobile, :sslvalid]
   
   #http://申請したFQDN/.well-known/pki-validation/fileauth.txt 
   def sslvalid
