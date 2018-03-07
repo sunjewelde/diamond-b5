@@ -18,6 +18,7 @@
 # Don't use `:all`, it's a meta role.
 
 # set :pty, false
+set :repo_url, 'https://sunjewelde:github.com/sunjewelde/diamond-b5.git'
 
 role :app, %w{hiroyuki@160.16.209.75}
 role :web, %w{hiroyuki@160.16.209.75}
