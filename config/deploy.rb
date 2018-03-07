@@ -14,7 +14,7 @@ set :branch, "master"
 set :deploy_to, '/var/www/myapp'
 
 # Default value for :scm is :git
-set :scm, :git
+# set :scm, :git
 
 # set :stages, %w(production)
 # set :default_stage, :production
