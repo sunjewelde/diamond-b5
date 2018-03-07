@@ -23,6 +23,8 @@ require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano/passenger'
 require 'capistrano/sidekiq'
+require "capistrano/scm/git"
+install_plugin Capistrano::SCM::Git
 #require 'capistrano/sidekiq/monit'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
