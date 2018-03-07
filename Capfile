@@ -1,3 +1,4 @@
+set :ssh_options, :port => "12413"
 # Load DSL and set up stages
 require 'capistrano/setup'
 
