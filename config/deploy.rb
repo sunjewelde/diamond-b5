@@ -37,6 +37,8 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 set :rvm_ruby_version, '2.3.0'
 
+set :tmp_dir, '/var/www/myapp/code3/tmp'
+
 # set :passenger_environment_variables, { :path => '/path-to-passenger/bin:/home/hiroyuki/.rvm/gems/ruby-2.2.1/wrappers/ruby' }
 # set :passenger_restart_command, '/path-to-passenger/bin/passenger-config restart-app'
 
