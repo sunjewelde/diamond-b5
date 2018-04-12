@@ -3,7 +3,7 @@
 
 # require "bundler/capistrano"
 
-set :application, 'code3'
+set :application, 'code4'
 set :repo_url, 'https://github.com/sunjewelde/diamond-b5.git'
 
 # Default branch is :master
@@ -32,14 +32,14 @@ set :pty, false
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 # set :linked_files, fetch(:linked_files, []).push('log')
-set :keep_releases, 5
+set :keep_releases, 3
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 set :rvm_ruby_version, '2.3.0'
 
-set :tmp_dir, '/var/www/myapp/code3/tmp'
+set :tmp_dir, '/var/www/myapp/code4/tmp'
 
 # set :passenger_environment_variables, { :path => '/path-to-passenger/bin:/home/hiroyuki/.rvm/gems/ruby-2.2.1/wrappers/ruby' }
 # set :passenger_restart_command, '/path-to-passenger/bin/passenger-config restart-app'
@@ -56,7 +56,7 @@ set :tmp_dir, '/var/www/myapp/code3/tmp'
 # set :keep_releases, 5
 
 namespace :deploy do
-
+  
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
