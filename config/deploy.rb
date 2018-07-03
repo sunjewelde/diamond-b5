@@ -11,7 +11,7 @@ set :repo_url, 'https://github.com/sunjewelde/diamond-b5.git'
 set :branch, "master"
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/myapp/code4'
+set :deploy_to, '/var/www/myapp'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -35,7 +35,7 @@ set :pty, false
 set :keep_releases, 3
 
 # Default value for linked_dirs is []
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+#set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 set :rvm_ruby_version, '2.3.0'
 
