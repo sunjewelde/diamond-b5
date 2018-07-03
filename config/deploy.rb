@@ -35,7 +35,7 @@ set :pty, false
 set :keep_releases, 3
 
 # Default value for linked_dirs is []
-#set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 set :rvm_ruby_version, '2.3.0'
 
