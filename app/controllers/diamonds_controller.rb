@@ -267,7 +267,7 @@ class DiamondsController < ApplicationController
       f.series(:name => "ダイヤモンドIndex", :data => @zip_data_index4, :marker => {enabled: false})
       f.series(:name => "ダイヤモンド単価Index", :data => @zip_data_index1, :marker => {enabled: false})
 
-      f.legend(:align => 'left', :floating => true, :verticalAlign => 'top', :y => -5, :x => 90, :layout => 'vertical',)
+      f.legend(:align => 'left', :floating => true, :verticalAlign => 'top', :y => -4, :x => 90, :layout => 'vertical',)
       # f.chart(type: 'line', height: 600, width: 980)
       f.chart(type: 'line')
       # f.chart({:defaultSeriesType=>"column"})
