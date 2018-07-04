@@ -69,6 +69,7 @@ group :development, :test do
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
+  gem 'capistrano-sidekiq'
 
   # Remove the following if your app does not use Rails
   gem 'capistrano-rails'
@@ -76,7 +77,7 @@ group :development, :test do
   # Remove the following if your server does not use RVM
   gem 'capistrano-rvm'
   
-  gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
+  #gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
   
 end
 
