@@ -11,8 +11,8 @@ set :repo_url, 'https://github.com/sunjewelde/diamond-b5.git'
 set :branch, "master"
 
 # Default deploy_to directory is /var/www/my_app_name
-#set :deploy_to, '/var/www/myapp'
-set :deploy_to, '/var/www/myapp/current'
+set :deploy_to, '/var/www/myapp'
+# set :deploy_to, '/var/www/myapp/current'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -27,8 +27,8 @@ set :deploy_to, '/var/www/myapp/current'
 # set :log_level, :debug
 
 # Default value for :pty is false
-# set :pty, true
-set :pty, false
+set :pty, true
+# set :pty, false
 
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
