@@ -67,8 +67,8 @@ namespace :deploy do
     end
   end
   
-  # require 'sidekiq/capistrano'
-  # set :sidekiq_role, :web
+  require 'sidekiq/capistrano'
+  set :sidekiq_role, :web
 
   
   # after "deploy:update", :roles => :app do
