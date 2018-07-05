@@ -4,6 +4,7 @@
 # require "bundler/capistrano"
 
 set :application, 'code4'
+# set :application, 'myapp'
 set :repo_url, 'https://github.com/sunjewelde/diamond-b5.git'
 
 # Default branch is :master
@@ -11,8 +12,8 @@ set :repo_url, 'https://github.com/sunjewelde/diamond-b5.git'
 set :branch, "master"
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/myapp'
-# set :deploy_to, '/var/www/myapp/current'
+# set :deploy_to, '/var/www/myapp'
+set :deploy_to, '/var/www/myapp/current'
 
 # Default value for :scm is :git
 # set :scm, :git
